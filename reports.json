@@ -1,5 +1,19 @@
 [
   {
+  "date": "2026-04-29",
+  "title": "Midweek Brief. BoJ Hawkish Hold 6-3. FOMC Today. ECB and BoE Tomorrow.",
+  "thesis": "BoJ held 0.75% but three dissenters voted for 1.0%. Core CPI revised to 2.8%. June hike confirmed as base case. EUR below 1.1700. USD/CHF is momentum pair (ADX H1+H4 Strong). Triple decision day: AUD CPI, BoC, FOMC. ECB and BoE tomorrow resolve all COT signals.",
+  "bias": {
+    "EURCAD": "bullish",
+    "USDCHF": "bullish",
+    "GBPNZD": "bullish",
+    "EURUSD": "bearish",
+    "XAUUSD": "bullish"
+  },
+  "highlights": ["BoJ 6-3 hawkish", "June hike confirmed", "FOMC 18:00 GMT", "ECB + BoE tomorrow"],
+  "file": "2026-04-29.html"
+},
+  {
   "date": "2026-04-26",
   "title": "Sunday Debrief. JPY -94,460 Extreme. CFTC COT Data. ADX Momentum Gauge.",
   "thesis": "JPY net short at 19-year extreme -94,460. AUD confirmed net long +64,817 from CFTC raw data. EUR COT +41,324. CAD -58,834. Five central bank decisions in 72 hours - BoJ Apr 28, BoC Apr 29, FOMC Apr 29, ECB + BoE Apr 30. EUR/CAD BUY is top signal. Gold weekly ADX 46.1 - Very Strong.",
