@@ -1,5 +1,21 @@
 [
   {
+  "date": "2026-05-01",
+  "title": "Weekly Synthesis. Japan Intervenes. FOMC Hawkish. ECB 3 Hikes. BoE Dovish.",
+  "thesis": "Japan confirmed FX intervention - USD/JPY ADX H1 hit 63.88. FOMC 8-4 removed 2026 cuts, 160bps Fed-ECB gap. ECB hawkish pivot: 3 hikes priced. BoE dovish surprise: 75bps cuts priced 2026. EUR/CAD and EUR/NZD signals strengthened. RBA May 5 hike next catalyst.",
+  "bias": {
+    "EURUSD": "bullish",
+    "EURCAD": "bullish",
+    "EURNZD": "bullish",
+    "EURGBP": "bullish",
+    "AUDUSD": "bullish",
+    "GBPUSD": "bearish",
+    "XAUUSD": "bullish"
+  },
+  "highlights": ["Japan intervened ADX 63.88", "FOMC no 2026 cuts", "ECB 3 hikes priced", "BoE dovish 75bps"],
+  "file": "2026-05-01.html"
+},
+  {
   "date": "2026-04-29",
   "title": "Midweek Brief. BoJ Hawkish Hold 6-3. FOMC Today. ECB and BoE Tomorrow.",
   "thesis": "BoJ held 0.75% but three dissenters voted for 1.0%. Core CPI revised to 2.8%. June hike confirmed as base case. EUR below 1.1700. USD/CHF is momentum pair (ADX H1+H4 Strong). Triple decision day: AUD CPI, BoC, FOMC. ECB and BoE tomorrow resolve all COT signals.",
