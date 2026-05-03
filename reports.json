@@ -1,5 +1,21 @@
 [
   {
+  "date": "2026-05-03",
+  "title": "Sunday Debrief. JPY -102,059 Despite Intervention. CFTC COT. CB Week Synthesis.",
+  "thesis": "JPY net short deepened to -102,059 DESPITE Japan's $34.5B intervention - specs bought the dip. AUD +71,869 building. New Signal #4: AUD/NZD BUY with 118K COT divergence. FOMC correction: easing bias was retained, not removed. RBA May 5 hike and NFP May 8 are the week's catalysts. Warsh chair term begins May 15.",
+  "bias": {
+    "AUDUSD": "bullish",
+    "AUDNZD": "bullish",
+    "EURCAD": "bullish",
+    "EURNZD": "bullish",
+    "USDCHF": "bullish",
+    "XAUUSD": "bullish",
+    "USDJPY": "bearish"
+  },
+  "highlights": ["JPY -102,059 extreme", "AUD +71,869 building", "Signal #4 AUD/NZD new", "RBA hike May 5"],
+  "file": "2026-05-03.html"
+},
+  {
   "date": "2026-05-01",
   "title": "Weekly Synthesis. Japan Intervenes. FOMC Hawkish. ECB 3 Hikes. BoE Dovish.",
   "thesis": "Japan confirmed FX intervention - USD/JPY ADX H1 hit 63.88. FOMC 8-4 removed 2026 cuts, 160bps Fed-ECB gap. ECB hawkish pivot: 3 hikes priced. BoE dovish surprise: 75bps cuts priced 2026. EUR/CAD and EUR/NZD signals strengthened. RBA May 5 hike next catalyst.",
