@@ -1,5 +1,21 @@
 [
   {
+  "date": "2026-05-06",
+  "title": "Midweek Brief. RBA 4.35% Third Hike. ECB June Inevitable. ADP Today.",
+  "thesis": "RBA hiked to 4.35% (8-1), third hike of 2026, confirmed second-round effects. ECB Kazimir: June tightening all but inevitable. AUD H1 ADX 40.0 V.Strong. USD/JPY H4 ADX 43.61 V.Strong from intervention. ADP 12:15 GMT is the USD catalyst. NFP Friday defines the week.",
+  "bias": {
+    "AUDUSD": "bullish",
+    "AUDNZD": "bullish",
+    "EURCAD": "bullish",
+    "EURNZD": "bullish",
+    "XAUUSD": "bullish",
+    "USDJPY": "bearish",
+    "NZDUSD": "bearish"
+  },
+  "highlights": ["RBA 4.35% third hike", "ECB June inevitable", "ADP 12:15 GMT", "AUD H1 ADX 40.0"],
+  "file": "2026-05-06.html"
+},
+  {
   "date": "2026-05-03",
   "title": "Sunday Debrief. JPY -102,059 Despite Intervention. CFTC COT. CB Week Synthesis.",
   "thesis": "JPY net short deepened to -102,059 DESPITE Japan's $34.5B intervention - specs bought the dip. AUD +71,869 building. New Signal #4: AUD/NZD BUY with 118K COT divergence. FOMC correction: easing bias was retained, not removed. RBA May 5 hike and NFP May 8 are the week's catalysts. Warsh chair term begins May 15.",
