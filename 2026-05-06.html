@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Macro Terminal — May 6, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0a0c10;--surface:#0f1218;--surface2:#141820;--border:#1e2530;--border2:#252d3a;--gold:#c9a84c;--gold2:#e8c46a;--red:#e05252;--green:#4caf82;--yellow:#e8c46a;--blue:#5b9bd5;--text:#d4d8e2;--text2:#8a93a6;--text3:#525d6e;--white:#eef0f5;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+.delta-box{background:linear-gradient(135deg,rgba(201,168,76,0.07),rgba(10,12,16,0));border:1px solid rgba(201,168,76,0.35);border-left:4px solid var(--gold);padding:14px 40px;}
+.delta-header{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;}
+.delta-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px 24px;}
+.delta-list li{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text2);display:flex;align-items:center;gap:7px;}
+.delta-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.delta-list li strong{color:var(--text);}
+.header{border-bottom:1px solid var(--border);padding:0 40px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,12,16,0.97);backdrop-filter:blur(16px);z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:12px;color:#07080c;font-weight:700;}
+.logo-text{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);}
+.logo-sub{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:20px;}
+.date-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);padding:4px 12px;border-radius:3px;}
+.edition-badge{font-size:10px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;}
+.banner{padding:6px 40px;font-size:11px;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+.banner.alert{background:rgba(224,82,82,0.07);color:var(--red);border-bottom-color:rgba(224,82,82,0.2);}
+.banner.warn{background:rgba(232,196,106,0.07);color:var(--yellow);border-bottom-color:rgba(232,196,106,0.2);}
+.banner.info{background:rgba(76,175,130,0.07);color:var(--green);border-bottom-color:rgba(76,175,130,0.2);}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 40px;background:var(--surface);position:sticky;top:62px;z-index:90;overflow-x:auto;}
+.tab{padding:12px 18px;font-size:12px;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.content{padding:32px 40px;max-width:1200px;margin:0 auto;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;}
+.card-title{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);letter-spacing:0.04em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.card-title span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);font-weight:400;}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.kpi-label{font-size:10px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;font-family:'IBM Plex Mono',monospace;}
+.kpi-value{font-size:22px;color:var(--white);font-family:'IBM Plex Mono',monospace;font-weight:500;}
+.kpi-sub{font-size:11px;margin-top:4px;font-family:'IBM Plex Mono',monospace;}
+.kpi-sub.up{color:var(--green);}
+.kpi-sub.down{color:var(--red);}
+.kpi-sub.neut{color:var(--text2);}
+.chart-wrap canvas{max-height:280px;}
+.alert-box{border-radius:6px;padding:16px 20px;margin-bottom:12px;border-left:3px solid;}
+.alert-box.red{background:rgba(224,82,82,0.08);border-color:var(--red);}
+.alert-box.yellow{background:rgba(232,196,106,0.08);border-color:var(--yellow);}
+.alert-box.green{background:rgba(76,175,130,0.08);border-color:var(--green);}
+.alert-box.blue{background:rgba(91,155,213,0.08);border-color:var(--blue);}
+.alert-box .alert-title{font-family:'Playfair Display',serif;font-size:14px;margin-bottom:8px;}
+.alert-box.red .alert-title{color:var(--red);}
+.alert-box.yellow .alert-title{color:var(--yellow);}
+.alert-box.green .alert-title{color:var(--green);}
+.alert-box.blue .alert-title{color:var(--blue);}
+.alert-box p{font-size:12px;color:var(--text2);line-height:1.65;}
+.data-table{width:100%;border-collapse:collapse;font-size:12px;}
+.data-table th{background:var(--surface2);color:var(--text3);font-weight:400;letter-spacing:0.07em;padding:8px 12px;text-align:left;font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border2);}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:rgba(255,255,255,0.02);}
+.pair-name{color:var(--gold);font-family:'Playfair Display',serif;font-size:13px;}
+.t-bull{color:var(--green);}
+.t-bear{color:var(--red);}
+.t-neut{color:var(--text2);}
+.t-warn{color:var(--yellow);}
+.tag{display:inline-block;font-size:9px;letter-spacing:0.08em;padding:2px 7px;border-radius:2px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+.tag.bull{background:rgba(76,175,130,0.15);color:var(--green);border:1px solid rgba(76,175,130,0.25);}
+.tag.bear{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.25);}
+.tag.neut{background:rgba(130,147,166,0.15);color:var(--text2);border:1px solid rgba(130,147,166,0.2);}
+.tag.warn{background:rgba(232,196,106,0.15);color:var(--yellow);border:1px solid rgba(232,196,106,0.25);}
+.data-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.data-row:last-child{border-bottom:none;}
+.data-row .lbl{color:var(--text2);}
+.data-row .val{font-family:'IBM Plex Mono',monospace;color:var(--text);}
+.data-row .val.beat{color:var(--green);}
+.data-row .val.miss{color:var(--red);}
+.data-row .val.inline{color:var(--yellow);}
+.day-card{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:16px;}
+.dc-label{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-bottom:8px;}
+.dc-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold2);margin-bottom:10px;}
+.dc-body{font-size:11px;color:var(--text2);line-height:1.65;}
+.dc-events{margin-top:10px;display:flex;flex-direction:column;gap:4px;}
+.dc-event{font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--text3);}
+.dc-event strong{color:var(--gold);}
+.adx-table{width:100%;border-collapse:collapse;font-size:11px;}
+.adx-table th{background:var(--surface2);color:var(--text3);font-weight:400;letter-spacing:0.07em;padding:7px 10px;text-align:center;font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border2);}
+.adx-table th:first-child{text-align:left;}
+.adx-table td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;font-family:'IBM Plex Mono',monospace;}
+.adx-table td:first-child{text-align:left;color:var(--gold);font-family:'Playfair Display',serif;font-size:12px;}
+.adx-table tr:last-child td{border-bottom:none;}
+.adx-table tr.hl td{background:rgba(91,155,213,0.05);}
+.adx-s{background:rgba(76,175,130,0.15);color:var(--green);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-n{background:rgba(232,196,106,0.12);color:var(--yellow);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-w{background:rgba(130,147,166,0.1);color:var(--text3);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-vs{background:rgba(91,155,213,0.2);color:var(--blue);border-radius:3px;padding:2px 7px;font-size:10px;}
+.pair-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:18px;}
+.pc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.pc-pair{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);}
+.pc-price{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);margin-top:3px;}
+.pc-body{font-size:12px;color:var(--text2);line-height:1.65;margin-bottom:12px;}
+.pc-levels{display:flex;gap:16px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.pc-level .pl-lbl{font-size:10px;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;}
+.pc-level .pl-val{font-size:12px;color:var(--text);font-family:'IBM Plex Mono',monospace;}
+.sig-card{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:18px;margin-bottom:14px;}
+.sig-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.sig-pair{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);}
+.sig-body{font-size:12px;color:var(--text2);line-height:1.65;margin-bottom:10px;}
+.sig-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:10px;border-top:1px solid var(--border);}
+.sig-meta-item{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:9px 11px;}
+.smi-label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:'IBM Plex Mono',monospace;margin-bottom:4px;}
+.smi-val{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text);}
+.smi-val.bull{color:var(--green);}
+.smi-val.bear{color:var(--red);}
+.smi-val.warn{color:var(--yellow);}
+.cal-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);}
+.cal-item:last-child{border-bottom:none;}
+.cal-date-box{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:8px 12px;text-align:center;min-width:72px;flex-shrink:0;}
+.cal-date-box .cd-day{font-size:10px;color:var(--text3);letter-spacing:0.06em;font-family:'IBM Plex Mono',monospace;}
+.cal-date-box .cd-dt{font-size:13px;color:var(--gold);font-family:'Playfair Display',serif;}
+.cal-body .cb-event{font-size:13px;color:var(--text);margin-bottom:4px;}
+.cal-body .cb-note{font-size:11px;color:var(--text2);line-height:1.55;}
+.impact{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-top:5px;display:inline-block;font-family:'IBM Plex Mono',monospace;}
+.impact.high{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.25);}
+.impact.med{background:rgba(232,196,106,0.15);color:var(--yellow);border:1px solid rgba(232,196,106,0.25);}
+.impact.crit{background:rgba(224,82,82,0.25);color:#ff8080;border:1px solid rgba(224,82,82,0.5);}
+#geomap{height:320px;border-radius:4px;}
+.leaflet-container{background:#0a0c14;}
+.sec-label{font-size:10px;color:var(--text3);letter-spacing:0.14em;text-transform:uppercase;margin:24px 0 14px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.cb-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.cb-row:last-child{border-bottom:none;}
+.cb-bank{width:52px;font-family:'IBM Plex Mono',monospace;color:var(--gold);font-size:11px;flex-shrink:0;}
+.cb-rate{width:64px;font-family:'IBM Plex Mono',monospace;color:var(--text2);font-size:11px;}
+.cb-note-text{font-size:11px;color:var(--text2);}
+.note-box{background:rgba(91,155,213,0.07);border:1px solid rgba(91,155,213,0.25);border-radius:4px;padding:14px 18px;font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:16px;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+
+<div class="delta-box">
+  <div class="delta-header">&#9651; Delta — What Changed Since Sunday May 3</div>
+  <ul class="delta-list">
+    <li><strong>RBA hiked to 4.35%:</strong> Vote 8-1. Third hike of 2026. Second-round effects confirmed in statement. AUD/USD H1 ADX 40.0 V.Strong.</li>
+    <li><strong>USD/JPY H4 ADX 43.61 V.Strong:</strong> Highest H4 reading in the table. Intervention from Apr 30 still resonating at medium-term structure.</li>
+    <li><strong>ECB Kazimir overnight:</strong> "Policy tightening in June is all but inevitable." Strongest ECB language yet. EUR/CAD signal reactivated.</li>
+    <li><strong>Spain Services PMI 47.9 vs 52.0 forecast:</strong> Massive miss. Eurozone services contraction deepening. EUR day bias bearish.</li>
+  </ul>
+</div>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-mark">MT</div>
+    <div>
+      <div class="logo-text">The Macro Terminal</div>
+      <div class="logo-sub">FX - Macro - Geopolitical Intelligence</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="edition-badge">Wednesday - Midweek Brief</span>
+    <span class="date-badge">May 6, 2026</span>
+  </div>
+</div>
+
+<div class="banner info">&#9654; RBA 4.35%: Hiked +25bp yesterday (vote 8-1). Third hike of 2026. Statement: "second-round effects on prices for goods and services more broadly." AUD structural bull confirmed.</div>
+<div class="banner warn">&#9654; ECB KAZIMIR: "Policy tightening in June is all but inevitable." Strongest ECB language of the cycle. Reactivates EUR/CAD and EUR/NZD signals with full conviction.</div>
+<div class="banner alert">&#9654; SPAIN PMI 47.9 vs 52.0: Massive miss. USD/JPY H4 ADX 43.61 V.Strong — intervention still driving medium-term structure. ADP today 12:15 GMT. NFP Friday.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('tracker')">Week Tracker</div>
+  <div class="tab" onclick="switchTab('snapshot')">Market Snapshot</div>
+  <div class="tab" onclick="switchTab('adx')">MT Momentum Gauge</div>
+  <div class="tab" onclick="switchTab('signals')">COT Signals</div>
+  <div class="tab" onclick="switchTab('rba')">RBA Decision</div>
+  <div class="tab" onclick="switchTab('fx')">FX Analysis</div>
+  <div class="tab" onclick="switchTab('metals')">Metals</div>
+  <div class="tab" onclick="switchTab('geo')">Geopolitical Map</div>
+  <div class="tab" onclick="switchTab('calendar')">Calendar</div>
+</div>
+
+<div class="content">
+
+<!-- WEEK TRACKER -->
+<div class="tab-panel active" id="tab-tracker">
+  <div class="sec-label">Three-Day Arc — May 4 to 6</div>
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="day-card">
+      <div class="dc-label">Monday - May 4</div>
+      <div class="dc-title">Risk-Off Open. USD Bid. ECB Kazimir Warning.</div>
+      <div class="dc-body">Markets opened cautiously after the Trump EU auto tariff threat (25%) and continued Hormuz tension. USD/JPY ADX H4 still elevated from Thursday's intervention. MRKT EUR/USD swing bias: slightly bearish. ECB Kazimir: "Increasingly likely Europe faces prolonged broad-based price increases." Iran warned US Navy not to approach Hormuz. EUR/USD under mild pressure. DXY consolidating 98.0-98.5. AUD/USD firm ahead of RBA Tuesday, COT +71,869 providing structural bid.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>Kazimir (ECB):</strong> Broad-based price increases increasingly likely</div>
+        <div class="dc-event"><strong>Iran:</strong> Warned US Navy not to approach Hormuz</div>
+        <div class="dc-event"><strong>DXY:</strong> 98.0-98.5 consolidation</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="dc-label">Tuesday - May 5</div>
+      <div class="dc-title">RBA Hikes to 4.35%. Third Hike of 2026.</div>
+      <div class="dc-body">RBA delivered as expected: +25bp to 4.35%, vote 8-1. Statement language materially hawkish vs March 17 statement — confirmed second-round effects from energy prices on goods and services. "Having raised the cash rate three times" — RBA acknowledges it is in an active tightening cycle. AUD/USD strengthened on the decision. ISM Services released — US services activity confirmed resilient. Eurozone services PMI came in at contraction (Spain 47.9 vs 52.0 was the most dramatic miss). ECB Kazimir comment: "Policy tightening in June is all but inevitable" — the strongest ECB commitment yet.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>RBA:</strong> Hike to 4.35% (+25bp). Vote 8-1.</div>
+        <div class="dc-event"><strong>ECB Kazimir:</strong> "June tightening all but inevitable"</div>
+        <div class="dc-event"><strong>Spain PMI:</strong> 47.9 (vs 52.0 exp — huge miss)</div>
+        <div class="dc-event"><strong>ISM Services:</strong> US resilient</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="dc-label">Wednesday - May 6</div>
+      <div class="dc-title">ADP Today. Dual USD Catalysts Ahead.</div>
+      <div class="dc-body">AUD/USD maintaining gains post-RBA. USD/JPY still elevated with H4 ADX at 43.61 (V.Strong) — intervention move still active in medium-term structure. EUR/USD day bias slightly bullish per live data (oil price dip helps ECB growth-inflation tradeoff) but swing bias slightly bearish (stagflation + ECB not pre-committed). ADP Employment at 12:15 GMT is the first major US labour print. EIA Crude Oil Inventories at 14:30 GMT will interact with the Hormuz narrative. NFP Friday is the week's defining data.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>ADP:</strong> 12:15 GMT — first labour preview</div>
+        <div class="dc-event"><strong>EIA Oil Inventories:</strong> 14:30 GMT</div>
+        <div class="dc-event"><strong>AUD/USD H1 ADX:</strong> 40.0 V.Strong</div>
+        <div class="dc-event"><strong>USD/JPY H4 ADX:</strong> 43.61 V.Strong</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">AUD/USD — RBA Hike Reaction</div>
+      <div class="chart-wrap"><canvas id="audusdChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">USD/JPY — Intervention Echo</div>
+      <div class="chart-wrap"><canvas id="usdjpyChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="tab-panel" id="tab-snapshot">
+  <div class="grid-4">
+    <div class="kpi"><div class="kpi-label">EUR/USD</div><div class="kpi-value">1.1720</div><div class="kpi-sub down">Day: slightly bullish (oil dip). Swing: slightly bearish (stagflation).</div></div>
+    <div class="kpi"><div class="kpi-label">AUD/USD</div><div class="kpi-value">0.7205</div><div class="kpi-sub up">RBA 4.35%. H1 ADX 40.0 V.Strong. COT +71,869.</div></div>
+    <div class="kpi"><div class="kpi-label">USD/JPY</div><div class="kpi-value">~155.50</div><div class="kpi-sub down">H4 ADX 43.61 V.Strong. Intervention echo. Sell 157-160.</div></div>
+    <div class="kpi"><div class="kpi-label">DXY</div><div class="kpi-value">98.45</div><div class="kpi-sub neut">ADP today at 12:15. 98.0-98.7 range. Pivoting.</div></div>
+  </div>
+  <div class="grid-4">
+    <div class="kpi"><div class="kpi-label">GBP/USD</div><div class="kpi-value">1.3540</div><div class="kpi-sub neut">Neutral structure. H1 and lower TFs all weak ADX.</div></div>
+    <div class="kpi"><div class="kpi-label">Gold XAU</div><div class="kpi-value">4,650</div><div class="kpi-sub up">Rebounding from $4,500 area. W1 ADX 43.3 intact.</div></div>
+    <div class="kpi"><div class="kpi-label">Oil WTI</div><div class="kpi-value">~105</div><div class="kpi-sub down">Dropped from $108 high. Iran truce hopes cited.</div></div>
+    <div class="kpi"><div class="kpi-label">Silver XAG</div><div class="kpi-value">75.50</div><div class="kpi-sub up">Recovering through $75.50 after testing $72 support.</div></div>
+  </div>
+
+  <div class="sec-label">Key Data and Events This Week</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Confirmed Releases - May 4 to 6</div>
+      <div class="data-row"><span class="lbl">RBA May 5</span><span class="val beat">Hike +25bp to 4.35%. Vote 8-1. Third hike 2026.</span></div>
+      <div class="data-row"><span class="lbl">Spain Services PMI May 5</span><span class="val miss">47.9 (vs 52.0 exp — dramatic miss)</span></div>
+      <div class="data-row"><span class="lbl">Eurozone Services PMI May 5</span><span class="val miss">47.4 — contraction confirmed</span></div>
+      <div class="data-row"><span class="lbl">ISM Services May 5</span><span class="val beat">US resilient — above 50 expansion</span></div>
+      <div class="data-row"><span class="lbl">ECB Kazimir May 5</span><span class="val miss">"June tightening all but inevitable"</span></div>
+      <div class="data-row"><span class="lbl">ECB Kazimir May 4</span><span class="val miss">"Prolonged broad-based price increases increasingly likely"</span></div>
+      <div class="data-row"><span class="lbl">ADP Today</span><span class="val inline">12:15 GMT — pending</span></div>
+      <div class="data-row"><span class="lbl">EIA Crude Inventories</span><span class="val inline">14:30 GMT — pending</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Regime Assessment</div>
+      <div class="alert-box yellow" style="margin:0 0 10px;">
+        <div class="alert-title">Dual-Regime Split: USD-USD vs EUR/AUD</div>
+        <p>The market is running two narratives simultaneously. US narrative: resilient economy + Fed on hold = USD safe-haven + higher for longer. AUD narrative: RBA hiking cycle active + COT structural long = AUD outperforms all. EUR narrative: Kazimir confirms June hike but stagflation (HICP 3.0% with GDP 0.1%) limits upside. The cleanest setup remains AUD/NZD and AUD/USD on the RBA narrative, with EUR/CAD on the ECB June hike path.</p>
+      </div>
+      <div class="alert-box red" style="margin:0;">
+        <div class="alert-title">ADP and NFP Are the USD Wildcards</div>
+        <p>ADP at 12:15 GMT today previews Friday's NFP. Powell said the Fed wants to see the "backside of energy and tariffs." A weak ADP (below 120K) starts pricing Fed pivot risk and sends EUR and AUD higher, gold above $4,680. Strong ADP maintains higher-for-longer and strengthens USD. Do not take directional USD positions ahead of 12:00 GMT today.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADX MOMENTUM GAUGE -->
+<div class="tab-panel" id="tab-adx">
+  <div class="note-box">MT Momentum Gauge — May 6, 2026 readings. ADX thresholds: below 20 = WEAK, 20-25 = NEUTRAL, 25-40 = STRONG, above 40 = VERY STRONG.</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <table class="adx-table">
+      <thead><tr><th>Pair</th><th>H1</th><th>H4</th><th>D1</th><th>W1</th><th>Key Insight</th></tr></thead>
+      <tbody>
+        <tr><td>EUR/USD</td><td><span class="adx-s">STRONG 30.3</span></td><td><span class="adx-w">WEAK 14.9</span></td><td><span class="adx-n">NEUTRAL 20.6</span></td><td><span class="adx-w">WEAK 14.1</span></td><td style="font-size:11px;color:var(--text2);">H1 momentum returning. No structural trend yet — EUR oscillating between ECB hike signal (Kazimir) and stagflation headwind (Spain PMI miss). ADP today is the resolution event for USD direction.</td></tr>
+        <tr><td>GBP/USD</td><td><span class="adx-n">NEUTRAL 23.5</span></td><td><span class="adx-w">WEAK 16.7</span></td><td><span class="adx-w">WEAK 15.9</span></td><td><span class="adx-w">WEAK 12.8</span></td><td style="font-size:11px;color:var(--text2);">All timeframes weak. GBP/USD has no momentum in any direction. Waiting for a catalyst — the next BoE meeting or UK data is required to build any structure here.</td></tr>
+        <tr class="hl"><td>USD/JPY</td><td><span class="adx-s">STRONG 34.5</span></td><td><span class="adx-vs">V.STRONG 43.6</span></td><td><span class="adx-n">NEUTRAL 21.3</span></td><td><span class="adx-n">NEUTRAL 23.4</span></td><td style="font-size:11px;color:var(--blue);">H4 V.STRONG 43.61 is the dominant medium-term reading. The April 30 intervention is still echoing through the H4 structure — this is the highest H4 reading in the table. Confirms sell-rallies thesis remains intact at medium timeframes.</td></tr>
+        <tr class="hl"><td>USD/CHF</td><td><span class="adx-n">NEUTRAL 20.4</span></td><td><span class="adx-s">STRONG 29.9</span></td><td><span class="adx-n">NEUTRAL 20.6</span></td><td><span class="adx-s">STRONG 26.4</span></td><td style="font-size:11px;color:var(--blue);">H4 and W1 both Strong. USD/CHF has consistent medium-to-long term momentum. CHF COT extreme short -35.2K aligns with the structural direction. Not as dramatic as intervention pairs but sustained.</td></tr>
+        <tr><td>USD/CAD</td><td><span class="adx-n">NEUTRAL 22.3</span></td><td><span class="adx-n">NEUTRAL 21.8</span></td><td><span class="adx-n">NEUTRAL 23.9</span></td><td><span class="adx-n">NEUTRAL 21.6</span></td><td style="font-size:11px;color:var(--text2);">All four timeframes Neutral 21-24. The most range-bound pair in the table — unchanged from the prior week. BoC nimble guidance creates genuine two-sided uncertainty. Avoid without a clear catalyst.</td></tr>
+        <tr class="hl"><td>AUD/USD</td><td><span class="adx-vs">V.STRONG 40.0</span></td><td><span class="adx-w">WEAK 17.9</span></td><td><span class="adx-w">WEAK 13.8</span></td><td><span class="adx-s">STRONG 33.4</span></td><td style="font-size:11px;color:var(--blue);">H1 V.STRONG (40.0) + W1 STRONG (33.4). The RBA hike yesterday fired up H1 momentum and the weekly structure is intact. H4 and D1 still weak — this is the building-phase structure. COT +71,869 is the structural anchor. AUD/NZD has the cleanest expression.</td></tr>
+        <tr><td>NZD/USD</td><td><span class="adx-s">STRONG 35.6</span></td><td><span class="adx-w">WEAK 18.6</span></td><td><span class="adx-w">WEAK 14.6</span></td><td><span class="adx-w">WEAK 15.6</span></div></td><td style="font-size:11px;color:var(--text2);">H1 spike to Strong — same pattern as last week. Temporary post-event short-squeeze. D1 and W1 remain structurally Weak. COT -46.3K extreme. Do not read as trend change.</td></tr>
+        <tr class="hl"><td>XAU/USD</td><td><span class="adx-s">STRONG 35.6</span></td><td><span class="adx-n">NEUTRAL 22.8</span></td><td><span class="adx-n">NEUTRAL 23.8</span></td><td><span class="adx-vs">V.STRONG 43.3</span></td><td style="font-size:11px;color:var(--blue);">W1 V.STRONG 43.3 unchanged — three weeks at this level. The weekly gold bull is the most consistent structural read in the entire table. H1 recovering to Strong 35.6. Gold rebounding from $4,500 area toward $4,650. ADP is the catalyst for the next leg.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert-box blue">
+    <div class="alert-title">ADX Takeaways — Three Pairs With Active Structure Today</div>
+    <p style="margin-bottom:8px;"><strong style="color:var(--text);">AUD/USD H1 40.0 (V.Strong) + W1 33.4 (Strong):</strong> The RBA hike is expressing itself in the intraday momentum. This is the pair to watch in the London and NY sessions today. AUD/NZD is the cleaner expression with both COT and ADX supporting.</p>
+    <p style="margin-bottom:8px;"><strong style="color:var(--text);">USD/JPY H4 43.61 (V.Strong):</strong> The April 30 intervention is still the dominant medium-term force. Any approach toward 157-160 faces both this H4 momentum AND official action. The sell-rallies thesis is structurally confirmed by the ADX.</p>
+    <p><strong style="color:var(--text);">Gold W1 43.3 (V.Strong):</strong> Four consecutive weeks at V.Strong. The weekly gold bull has not shown a single sign of structural erosion. The $4,500 support test earlier this week held, and H1 has recovered to Strong. The gold trade is alive.</p>
+  </div>
+</div>
+
+<!-- COT SIGNALS -->
+<div class="tab-panel" id="tab-signals">
+  <div class="note-box">COT data: CFTC week ending April 29 (released May 2). Next CFTC release Friday May 9. Kazimir's statement overnight ("June tightening all but inevitable") is the fundamental upgrade to Signal #1 and Signal #2. The ECB is now the most explicitly hawkish it has been in this cycle.</div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #1 — EUR/CAD BUY</div><span class="tag bull">ACTIVE — ECB UPGRADED</span></div>
+    <div class="sig-body">Kazimir's statement overnight ("June tightening all but inevitable") is the strongest ECB commitment since the cycle began. This directly upgrades Signal #1. EUR net long +35,712 vs CAD net short -38,476. Combined divergence: 74,188. The ECB June hike catalyst is now near-confirmed. BoC remains "nimble" with two-sided risk — CAD is held in policy limbo. EUR/CAD at ~1.5926. The entry zone is current levels. ADP today: strong = USD bid pressures EUR near-term, which gives a better entry. Weak ADP = USD sells off, EUR pushes higher, entry less favourable on timing but thesis intact. ECB June meeting is the medium-term resolution.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 daily close above 1.6088</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Zone</div><div class="smi-val">1.5986-1.6088</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">1.6400+</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.5900</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Thesis Invalidation</div><div class="smi-val bear">ECB delays June hike OR CAD COT flips net long</div></div>
+      <div class="sig-meta-item"><div class="smi-label">New Catalyst</div><div class="smi-val warn">ECB June — now near-confirmed</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #2 — EUR/NZD BUY</div><span class="tag warn">WATCH — BELOW 2.0000</span></div>
+    <div class="sig-body">EUR net long +35,712 vs NZD extreme short -46,300. Combined divergence: 82,012. Kazimir's June hike signal adds EUR bullish fuel. NZD ADX: H1 35.6 (Strong, temporary) vs D1 14.6 (Weak), W1 15.6 (Weak) — the structural weakness is unchanged. EUR/NZD needs to reclaim 2.0000 on a daily close for clean entry. The ECB June hike confirmation is the event that will drive this pair above 2.0000 sustainably. Until then, watching for the trigger.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">Daily H4 close above 2.0000</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Zone</div><div class="smi-val">1.9900-2.0050</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">2.0400</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.9800</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Thesis Invalidation</div><div class="smi-val bear">RBNZ emergency hike OR ECB delays June</div></div>
+      <div class="sig-meta-item"><div class="smi-label">New Catalyst</div><div class="smi-val warn">ECB June — Kazimir confirmed</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #4 — AUD/NZD BUY</div><span class="tag bull">ACTIVE — RBA DELIVERED</span></div>
+    <div class="sig-body">RBA hiked to 4.35% yesterday — the catalyst that was flagged in the Sunday brief has delivered. AUD COT +71,869 vs NZD -46,300. Combined divergence: 118,169 (highest in the currency complex). ADX: AUD/USD H1 40.0 (V.Strong) and W1 33.4 (Strong). NZD D1 and W1 both Weak (14-15). The RBA statement confirmed second-round effects — this is not a one-and-done hike. The forward guidance language ("having raised the cash rate three times") signals an active cycle. AUD/NZD at ~1.2212. If today's ADP is strong or neutral, AUD/NZD pushes toward 1.2300. If ADP is weak, brief AUD pullback = better entry.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 daily close above 1.2200</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Zone</div><div class="smi-val">1.2150-1.2220</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">1.2500</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.2080</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Thesis Invalidation</div><div class="smi-val bear">RBA signals end of cycle OR AUD COT drops below +50K</div></div>
+      <div class="sig-meta-item"><div class="smi-label">ADX Signal</div><div class="smi-val bull">H1 40.0 V.Strong</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">USD/JPY — Sell Rallies</div><span class="tag bear">CEILING 157-160 CONFIRMED</span></div>
+    <div class="sig-body">Japan intervention ceiling confirmed. H4 ADX 43.61 (V.Strong) — the strongest H4 reading in the table — confirms the medium-term structure from the April 30 intervention is still active. JPY COT -102,059 (extreme short). The spec community added shorts through the intervention. The structural squeeze thesis remains: June BoJ hike at 60% + intervention ceiling = asymmetric downside for USD/JPY. H4 V.Strong momentum is pointing directionally lower on USD/JPY when the June BoJ catalyst arrives. Sell any approach toward 157-160.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 daily close above 157.50 — sell into</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Sell Zone</div><div class="smi-val bear">157.50-159.50</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">153.80</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close above 161.00</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Thesis Invalidation</div><div class="smi-val bear">BoJ abandons normalization path</div></div>
+      <div class="sig-meta-item"><div class="smi-label">H4 ADX</div><div class="smi-val bear">43.61 V.Strong</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- RBA DECISION TAB -->
+<div class="tab-panel" id="tab-rba">
+  <div class="sec-label">RBA May 5, 2026 — Full Decision Analysis</div>
+
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card-title">Decision and Vote</div>
+      <div class="data-row"><span class="lbl">Decision</span><span class="val beat">Hike +25bp to 4.35%</span></div>
+      <div class="data-row"><span class="lbl">Vote</span><span class="val">8-1 (8 for hike, 1 for hold at 4.10%)</span></div>
+      <div class="data-row"><span class="lbl">Context</span><span class="val">Third hike of 2026</span></div>
+      <div class="data-row"><span class="lbl">Prior hike</span><span class="val">March 17: 3.85% to 4.10% (5-4)</span></div>
+      <div class="data-row"><span class="lbl">Hike cycle</span><span class="val">3.85% → 4.10% → 4.35%</span></div>
+      <div class="data-row"><span class="lbl">Statement tone</span><span class="val miss">More hawkish than March</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Statement Language Shift vs March 17</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.75;">
+        <p style="margin-bottom:8px;"><strong style="color:var(--yellow);">Added (hawkish):</strong> "Higher fuel prices are already adding to inflation" — moved from conditional to confirmed.</p>
+        <p style="margin-bottom:8px;"><strong style="color:var(--yellow);">Added (hawkish):</strong> "Second-round effects on prices for goods and services more broadly" — confirms energy inflation spreading beyond volatile components.</p>
+        <p style="margin-bottom:8px;"><strong style="color:var(--yellow);">Added (hawkish):</strong> "Having raised the cash rate three times" — RBA explicitly acknowledging it is in an active tightening cycle.</p>
+        <p style="margin-bottom:8px;"><strong style="color:var(--red);">March said:</strong> "Material risk that inflation will remain above target." <strong style="color:var(--green);">May says:</strong> "Inflation is likely to remain above target for some time." Probability upgraded to base case.</p>
+        <p><strong style="color:var(--text);">Conclusion:</strong> RBA moved from warning about risks to confirming they are materialising. This is the most committed language of the 2026 tightening cycle.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">AUD Implications</div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">AUD/USD</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.65;">RBA at 4.35% vs RBNZ at 2.25%, BoC at 2.25%, SNB at 0.00%. AUD now has the highest cash rate differential in the G10 against the three weakest policy currencies. COT +71,869 net long confirms institutional positioning is aligned with the fundamental direction. ADX H1 40.0 (V.Strong) confirms the RBA hike is live in the intraday price structure. W1 33.4 (Strong) is the structural anchor. AUD/USD has the cleanest fundamental + positioning + momentum stack of any pair heading into NFP Friday.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">AUD/NZD</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.65;">The primary signal expression. RBA 4.35% vs RBNZ 2.25% = 210bps policy gap and widening. CFTC divergence: AUD +71,869 vs NZD -46,300 = 118,169 combined — the largest in the currency complex. ADX: AUD/USD W1 Strong 33.4, NZD/USD W1 Weak 15.6. Three layers confirming the same direction. Entry zone 1.2150-1.2220. Target 1.2500. This is the highest-conviction cross in the brief.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">EUR/AUD and GBP/AUD</div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.65;">Both EUR/AUD and GBP/AUD are under pressure as AUD outperforms. EUR/AUD: day bias slightly bearish per live data. GBP/AUD: bearish per live data as AUD strength outpaces GBP in the post-RBA session. These are secondary expressions of the AUD bull theme. If ECB June hike is confirmed, EUR/AUD gets relief from the EUR side — but the AUD structural bid from RBA limits the upside on EUR/AUD significantly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FX ANALYSIS -->
+<div class="tab-panel" id="tab-fx">
+  <div class="sec-label">Priority Pairs — Wednesday May 6</div>
+  <div class="grid-2">
+    <div class="pair-card">
+      <div class="pc-header"><div><div class="pc-pair">AUD/USD</div><div class="pc-price">0.7205 — RBA catalyst active</div></div><span class="tag bull">Bullish</span></div>
+      <div class="pc-body">RBA hiked to 4.35% yesterday — third hike of 2026. Statement confirmed second-round effects. COT +71,869 net long. ADX H1 40.0 (V.Strong) is the live momentum confirmation. The weekly structure (W1 33.4 Strong) has been intact for three consecutive weeks. ADP today at 12:15 GMT is the primary risk — strong ADP = USD bid pressures AUD/USD, but COT + ADX structure means any dip is a buy opportunity. Weak ADP = AUD/USD pushes toward 0.7250. The structural case is the strongest in the complex. Do not short into this pair without a genuine fundamental catalyst change.</div>
+      <div class="pc-levels">
+        <div class="pc-level"><div class="pl-lbl">Support</div><div class="pl-val">0.7148</div></div>
+        <div class="pc-level"><div class="pl-lbl">Resistance</div><div class="pl-val">0.7250</div></div>
+        <div class="pc-level"><div class="pl-lbl">ADX H1</div><div class="pl-val t-bull">40.0 V.Strong</div></div>
+        <div class="pc-level"><div class="pl-lbl">Catalyst</div><div class="pl-val">ADP 12:15 / NFP Fri</div></div>
+      </div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-header"><div><div class="pc-pair">EUR/USD</div><div class="pc-price">1.1720 — Dual signal tension</div></div><span class="tag neut">Neutral</span></div>
+      <div class="pc-body">EUR/USD is caught between two forces today. Bullish: Kazimir "June tightening all but inevitable" + oil price dip easing Eurozone energy burden. Bearish: Spain Services PMI 47.9 (vs 52.0) + broader Eurozone contraction + Trump EU auto tariff threat. Day bias slightly bullish from live data (oil dip helping). Swing bias slightly bearish (stagflation structural headwind). H1 ADX 30.3 (Strong) shows some intraday momentum. H4 14.9 (Weak) — no confirmed medium-term trend. ADP is the deciding data point for direction today. ECB June meeting is the resolution event for the medium-term trajectory.</div>
+      <div class="pc-levels">
+        <div class="pc-level"><div class="pl-lbl">Day support</div><div class="pl-val">1.1700</div></div>
+        <div class="pc-level"><div class="pl-lbl">Day resistance</div><div class="pl-val">1.1796</div></div>
+        <div class="pc-level"><div class="pl-lbl">ADX H1</div><div class="pl-val">30.3 Strong</div></div>
+        <div class="pc-level"><div class="pl-lbl">Key event</div><div class="pl-val">Kazimir confirms June hike</div></div>
+      </div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-header"><div><div class="pc-pair">USD/JPY</div><div class="pc-price">~155.50 — H4 V.Strong echo</div></div><span class="tag bear">Sell Rallies</span></div>
+      <div class="pc-body">USD/JPY H4 ADX at 43.61 (V.Strong) is the highest H4 reading in the entire Momentum Gauge table. The April 30 Japan intervention is still structurally resonating at the medium-term timeframe. COT JPY -102,059 extreme short — specs added shorts through the intervention. The structural squeeze thesis is unchanged. USD/JPY will not trend higher while the intervention ceiling (157-160) is confirmed and the June BoJ hike is at 60%. Approach toward 157 is the sell trigger. Japan Showa Week adds some JPY liquidity considerations but does not change the structural case.</div>
+      <div class="pc-levels">
+        <div class="pc-level"><div class="pl-lbl">Sell zone</div><div class="pl-val">157.50-159.50</div></div>
+        <div class="pc-level"><div class="pl-lbl">Support</div><div class="pl-val">153.80</div></div>
+        <div class="pc-level"><div class="pl-lbl">H4 ADX</div><div class="pl-val t-bear">43.61 V.Strong</div></div>
+        <div class="pc-level"><div class="pl-lbl">Catalyst</div><div class="pl-val">BoJ June 60% hike</div></div>
+      </div>
+    </div>
+    <div class="pair-card">
+      <div class="pc-header"><div><div class="pc-pair">Gold XAU/USD</div><div class="pc-price">~4,650 — Rebounding from $4,500</div></div><span class="tag bull">Bullish</span></div>
+      <div class="pc-body">Gold is recovering from its $4,500 area test back toward $4,650. The structural story is unchanged: W1 ADX 43.3 (V.Strong) for four consecutive weeks — the most persistent strong trend reading in the table. H1 has recovered to 35.6 (Strong) from the corrective phase. The oil price dip today (Iran truce hopes, WTI toward $105 from $108) is reducing the direct commodity inflation narrative but gold's safe-haven bid from geopolitical uncertainty remains. ADP is the catalystic data point — weak print sends gold above $4,680. Strong print may test $4,620 support before recovering. The weekly structure does not break on a single weak session.</div>
+      <div class="pc-levels">
+        <div class="pc-level"><div class="pl-lbl">W1 ADX</div><div class="pl-val t-bull">43.3 V.Strong</div></div>
+        <div class="pc-level"><div class="pl-lbl">Support</div><div class="pl-val">$4,600</div></div>
+        <div class="pc-level"><div class="pl-lbl">Resistance</div><div class="pl-val">$4,680</div></div>
+        <div class="pc-level"><div class="pl-lbl">Catalyst</div><div class="pl-val">ADP 12:15 / NFP Fri</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">Full Daily Bias Table</div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>Pair</th><th>Day Bias</th><th>Swing Bias</th><th>Driver</th></tr></thead>
+      <tbody>
+        <tr><td class="pair-name">EUR/USD</td><td class="t-bull">Slightly bullish</td><td class="t-bear">Slightly bearish</td><td style="font-size:11px;color:var(--text2);">Day: oil dip helps ECB. Swing: stagflation + Spain PMI miss.</td></tr>
+        <tr><td class="pair-name">GBP/USD</td><td class="t-neut">Neutral</td><td class="t-neut">Neutral</td><td style="font-size:11px;color:var(--text2);">All ADX timeframes weak. No catalyst until BoE next.</td></tr>
+        <tr><td class="pair-name">USD/JPY</td><td class="t-bear">Bearish</td><td class="t-bear">Sell rallies</td><td style="font-size:11px;color:var(--text2);">H4 ADX 43.61 V.Strong. Intervention ceiling. COT -102K.</td></tr>
+        <tr><td class="pair-name">USD/CHF</td><td class="t-bull">Bullish</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">H4 + W1 both Strong. CHF COT extreme short -35.2K.</td></tr>
+        <tr><td class="pair-name">USD/CAD</td><td class="t-neut">Neutral</td><td class="t-neut">Neutral</td><td style="font-size:11px;color:var(--text2);">All ADX neutral. BoC two-sided risk. Oil moves determine.</td></tr>
+        <tr><td class="pair-name">AUD/USD</td><td class="t-bull">Bullish</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">RBA 4.35%. H1 40.0 V.Strong. COT +71,869. Best stack.</td></tr>
+        <tr><td class="pair-name">NZD/USD</td><td class="t-bear">Bearish</td><td class="t-bear">Bearish</td><td style="font-size:11px;color:var(--text2);">COT -46.3K. D1/W1 weak. H1 spike temporary.</td></tr>
+        <tr><td class="pair-name">EUR/GBP</td><td class="t-bear">Slightly bearish</td><td class="t-bear">Slightly bearish</td><td style="font-size:11px;color:var(--text2);">UK data advantage this week. Kazimir EUR support limited by stagflation.</td></tr>
+        <tr><td class="pair-name">EUR/JPY</td><td class="t-bull">Bullish</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">EUR Kazimir bid + JPY ceiling. H4 intervention structure.</td></tr>
+        <tr><td class="pair-name">EUR/CAD</td><td class="t-bull">Bullish (Signal #1)</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">Kazimir confirms June ECB hike. Entry zone current levels.</td></tr>
+        <tr><td class="pair-name">EUR/NZD</td><td class="t-bull">Bullish (Signal #2)</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">Wait for 2.0000 reclaim. Kazimir upgraded thesis.</td></tr>
+        <tr><td class="pair-name">AUD/NZD</td><td class="t-bull">Bullish (Signal #4)</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">RBA delivered. COT 118K divergence. H1 V.Strong. Best setup.</td></tr>
+        <tr><td class="pair-name">AUD/JPY</td><td class="t-bull">Bullish</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">RBA hawkish + JPY ceiling. Strong carry case.</td></tr>
+        <tr><td class="pair-name">XAU/USD</td><td class="t-bull">Bullish</td><td class="t-bull">Bullish</td><td style="font-size:11px;color:var(--text2);">W1 43.3 V.Strong. H1 35.6 Strong. Rebounding from $4,500.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- METALS -->
+<div class="tab-panel" id="tab-metals">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Gold - XAU/USD</div>
+      <div class="kpi" style="margin-bottom:14px;"><div class="kpi-label">Wednesday Price</div><div class="kpi-value">$4,650</div><div class="kpi-sub up">Rebounding from $4,500 test. W1 ADX 43.3 V.Strong.</div></div>
+      <div class="data-row"><span class="lbl">W1 ADX (4th week V.Strong)</span><span class="val beat">43.3 — unchanged</span></div>
+      <div class="data-row"><span class="lbl">H1 ADX</span><span class="val beat">35.6 — STRONG (recovering)</span></div>
+      <div class="data-row"><span class="lbl">H4 ADX</span><span class="val inline">22.8 — NEUTRAL</span></div>
+      <div class="data-row"><span class="lbl">Prior support (held)</span><span class="val">$4,500</span></div>
+      <div class="data-row"><span class="lbl">Next resistance</span><span class="val">$4,680-4,720</span></div>
+      <div class="data-row"><span class="lbl">ADP scenario (weak)</span><span class="val beat">Gold above $4,680, targets $4,720+</span></div>
+      <div class="data-row"><span class="lbl">ADP scenario (strong)</span><span class="val miss">Gold tests $4,620 support. Hold likely.</span></div>
+      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:4px;font-size:12px;color:var(--text2);line-height:1.65;">Gold's W1 ADX at 43.3 (V.Strong) for four consecutive weeks is the single most consistent reading in the entire MT Momentum Gauge history. The $4,500 support test this week held cleanly — confirming the structural bull is intact and the correction from $4,891 was a consolidation, not a reversal. RBA hawkishness adds a secondary commodity-complex tailwind. Oil price dip today (Iran truce hopes) reduces the direct energy premium but geopolitical uncertainty floor remains. Kazimir ECB June hike is gold-neutral (EUR hike = not USD cut, which limits gold upside on that catalyst). The NFP Friday is the week's defining catalyst for gold direction.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Silver - XAG/USD</div>
+      <div class="kpi" style="margin-bottom:14px;"><div class="kpi-label">Wednesday Price</div><div class="kpi-value">$75.50</div><div class="kpi-sub up">Recovering through $75.50. Tested $72 support earlier.</div></div>
+      <div class="data-row"><span class="lbl">Prior support test</span><span class="val">$72.00 (held)</span></div>
+      <div class="data-row"><span class="lbl">Key level to reclaim</span><span class="val">$77.96</span></div>
+      <div class="data-row"><span class="lbl">200-day SMA</span><span class="val">$70.43</span></div>
+      <div class="data-row"><span class="lbl">China March imports</span><span class="val beat">836 tonnes (record, solar demand)</span></div>
+      <div data-row style="padding:7px 0;font-size:12px;display:flex;justify-content:space-between;"><span style="color:var(--text2);">RBA hawkishness</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--green);">Secondary industrial demand tailwind</span></div>
+      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:4px;font-size:12px;color:var(--text2);line-height:1.65;">Silver tested the $72 area and held. The $77.96 breakout level remains the structural key — reclaim it and the bull is back. Oil price pullback today (toward $105) is a net positive for silver's industrial demand narrative — lower input costs for solar and electronics manufacturing. The 6-year supply deficit and China record import data remain the structural support. Recovery through $75.50 is constructive. $77.96 reclaim targets $82-84.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GEO MAP -->
+<div class="tab-panel" id="tab-geo">
+  <div class="alert-box yellow" style="margin-bottom:16px;">
+    <div class="alert-title">Iran Truce Hopes — Oil Drops — But Warsh Transition Risk Adds New Uncertainty</div>
+    <p>Oil dropped today toward WTI $105 on Iran truce hopes. This is the first meaningful downward move from the recent $108 high. The oil price drop changes the Eurozone growth-inflation tradeoff temporarily (eases ECB stagflation pressure, supports Kazimir's June hike case). However, Powell's chair term ends May 15 — Warsh incoming. Markets will begin pricing Warsh's hawkish reputation once confirmed. USD may find a structural bid from the Warsh premium even as oil eases. Dual force for EUR/USD: Kazimir (EUR bullish) vs Warsh premium (USD bullish).</p>
+  </div>
+  <div id="geomap"></div>
+  <div style="margin-top:10px;display:flex;gap:20px;font-size:11px;font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;">
+    <span style="color:var(--red);">&#9632; Active / escalating</span>
+    <span style="color:var(--yellow);">&#9632; Truce talks / uncertain</span>
+    <span style="color:var(--green);">&#9632; Stable</span>
+    <span style="color:var(--blue);">&#9632; CB / institutional event</span>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<div class="tab-panel" id="tab-calendar">
+  <div class="card">
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">TODAY</div><div class="cd-dt">6 May</div></div>
+      <div class="cal-body">
+        <div class="cb-event">ADP Non-Farm Employment Change (12:15 GMT) + EIA Crude Inventories (14:30 GMT)</div>
+        <div class="cb-note">ADP is the first US labour print of the week and the direct NFP preview. Consensus around 130-150K. Weak (below 120K) = USD sells, EUR and AUD move higher, gold above $4,680. Strong (above 170K) = USD bid, AUD/USD tests 0.7148 support before recovering. EIA crude inventories will interact with the Iran truce narrative — a surprise build = oil falls further = EUR day bias extends bullish, AUD/USD less affected as RBA is the anchor.</div>
+        <span class="impact crit">CRITICAL — USD, AUD, GOLD</span>
+      </div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">FRI</div><div class="cd-dt">8 May</div></div>
+      <div class="cal-body">
+        <div class="cb-event">US Non-Farm Payrolls + Unemployment Rate (12:30 GMT)</div>
+        <div class="cb-note">The week's defining data event. Powell said the Fed wants to see the "backside of energy and tariffs." A weak NFP (below 100K) signals the energy shock is hitting employment — first credible reason for Fed to pivot — USD sells, EUR/USD above 1.1800, gold tests $4,720+. Strong NFP (above 200K) = Fed higher-for-longer justified indefinitely = USD bid across the board. The FOMC easing bias retained means the committee is already watching. A single weak print can meaningfully move the rate path narrative and re-price all COT setups.</div>
+        <span class="impact crit">CRITICAL — USD — ALL PAIRS</span>
+      </div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">MAY 15</div><div class="cd-dt"></div></div>
+      <div class="cal-body">
+        <div class="cb-event">Powell Chair Term Ends — Warsh Incoming</div>
+        <div class="cb-note">Warsh hawkish reputation will begin to be priced as his confirmation advances. Known for: skepticism of press conferences and dot plots, hawkish inflation views, pro-deregulation stance. USD may find a structural premium once Warsh is confirmed. EUR/USD medium-term trajectory partially depends on whether Warsh signals any policy path changes at his first FOMC. Dual force: Kazimir ECB June hike (EUR bullish) vs Warsh premium (USD bullish). Watch for any Warsh pre-confirmation statements.</div>
+        <span class="impact med">MEDIUM — USD STRUCTURAL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <span>The Macro Terminal - May 6, 2026 - Wednesday Midweek Brief</span>
+  <span>Proprietary Research - Internal Use Only</span>
+</footer>
+
+<script>
+var Cl={gold:"#c9a84c",red:"#e05252",green:"#4caf82",yellow:"#e8c46a",blue:"#5b9bd5",text:"#d4d8e2",text2:"#8a93a6",border:"#1e2530"};
+
+function switchTab(id){
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-panel").forEach(function(p){p.classList.remove("active");});
+  document.getElementById("tab-"+id).classList.add("active");
+  var tabs=["tracker","snapshot","adx","signals","rba","fx","metals","geo","calendar"];
+  document.querySelectorAll(".tab")[tabs.indexOf(id)].classList.add("active");
+  if(id==="geo") initMap();
+  if(id==="tracker") initTrackerCharts();
+}
+
+var trackerInited=false;
+function initTrackerCharts(){
+  if(trackerInited) return;
+  trackerInited=true;
+
+  new Chart(document.getElementById("audusdChart").getContext("2d"),{
+    type:"line",
+    data:{
+      labels:["Sun","Mon","Pre-RBA","RBA Hike","Post-RBA","Wed Now"],
+      datasets:[{
+        label:"AUD/USD",
+        data:[0.7205,0.7180,0.7192,0.7225,0.7215,0.7205],
+        borderColor:Cl.green,
+        backgroundColor:"rgba(76,175,130,0.08)",
+        tension:0.35,fill:true,
+        pointBackgroundColor:[Cl.text2,Cl.text2,Cl.text2,Cl.green,Cl.text2,Cl.gold],
+        pointRadius:[3,3,3,8,4,5]
+      }]
+    },
+    options:{
+      maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:9}}},
+        y:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:9}},min:0.717,max:0.724}
+      }
+    }
+  });
+
+  new Chart(document.getElementById("usdjpyChart").getContext("2d"),{
+    type:"line",
+    data:{
+      labels:["Sun Apr 30 Intervention","May 1","May 2","Mon May 4","Tue","Wed Now"],
+      datasets:[{
+        label:"USD/JPY",
+        data:[155.80,155.50,155.20,155.60,155.40,155.50],
+        borderColor:Cl.yellow,
+        backgroundColor:"rgba(232,196,106,0.07)",
+        tension:0.35,fill:true,
+        pointBackgroundColor:[Cl.red,Cl.text2,Cl.text2,Cl.text2,Cl.text2,Cl.gold],
+        pointRadius:[7,3,3,3,3,5]
+      }]
+    },
+    options:{
+      maintainAspectRatio:true,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:9}}},
+        y:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:9}},min:154.8,max:156.2}
+      }
+    }
+  });
+}
+
+var mapInited=false;
+function initMap(){
+  if(mapInited) return;
+  mapInited=true;
+  setTimeout(function(){
+    var map=L.map("geomap",{center:[25,55],zoom:3,attributionControl:false});
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:18}).addTo(map);
+    var nodes=[
+      {lat:26.6,lng:56.5,col:Cl.yellow,r:14,lbl:"Strait of Hormuz — Iran Truce Hopes",info:"Oil dropped toward WTI $105 today on Iran truce hope signals. Brent easing from $108-120 range. If confirmed, ECB stagflation pressure eases and Kazimir June hike path becomes cleaner. Monitor for official ceasefire announcement."},
+      {lat:35.69,lng:51.39,col:Cl.yellow,r:10,lbl:"Tehran — Iran Truce Signals",info:"Iran diplomacy signals emerging. Pakistan-mediated talks framework active. Any confirmed truce = sharp oil sell = EUR and AUD higher, USD safe-haven bid reduced. No confirmation yet."},
+      {lat:48.0,lng:37.0,col:Cl.red,r:8,lbl:"Ukraine — Escalation Continues",info:"Russian escalation ongoing. 619-drone attack this week. European energy anxiety sustained. Adds to Eurozone growth risk and keeps ECB in a stagflation dilemma despite Kazimir's hike signal."},
+      {lat:35.69,lng:139.69,col:Cl.yellow,r:10,lbl:"Tokyo — BoJ June Binary",info:"June BoJ hike 60% priced. USD/JPY H4 ADX 43.61 V.Strong — intervention from Apr 30 still structurally active. Intervention ceiling 157-160 confirmed. Sell-rally thesis intact."},
+      {lat:50.11,lng:8.68,col:Cl.blue,r:10,lbl:"Frankfurt — ECB June Near-Confirmed",info:"Kazimir: 'Policy tightening in June is all but inevitable.' Strongest ECB language of the cycle. EUR/CAD (Signal #1) and EUR/NZD (Signal #2) June ECB catalyst now near-confirmed. HICP 3.0% supports."},
+      {lat:38.9,lng:-77.03,col:Cl.blue,r:9,lbl:"Washington — Warsh Transition May 15",info:"Powell chair term ends May 15. Warsh confirmation advancing. Hawkish reputation beginning to be priced. USD may find structural premium from Warsh vs Kazimir's EUR-bullish ECB signal — dual force developing."},
+      {lat:-35.28,lng:149.13,col:Cl.green,r:10,lbl:"Canberra — RBA 4.35% Delivered",info:"RBA hiked to 4.35% May 5 (vote 8-1). Third hike of 2026. Statement confirmed second-round effects. AUD COT +71,869. H1 ADX 40.0 V.Strong. AUD/NZD Signal #4 is the primary expression."},
+      {lat:-37.0,lng:174.5,col:Cl.yellow,r:6,lbl:"Auckland — RBNZ on Hold",info:"RBNZ at 2.25% vs RBA now 4.35% = 210bps gap widening. NZD COT -46.3K extreme short. ADX D1/W1 weak. AUD/NZD 118K COT divergence — highest in the complex. AUD/NZD is the primary signal."}
+    ];
+    nodes.forEach(function(n){
+      L.circleMarker([n.lat,n.lng],{radius:n.r,fillColor:n.col,color:n.col,weight:2,opacity:0.9,fillOpacity:0.35})
+        .addTo(map)
+        .bindPopup(
+          "<div style=\"background:#0f1218;color:#d4d8e2;border:1px solid #c9a84c;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;min-width:220px;border-radius:4px;line-height:1.6;\">"
+          +"<strong style=\"color:#c9a84c;\">"+n.lbl+"</strong><br><br>"+n.info+"</div>",
+          {maxWidth:290}
+        );
+    });
+  },200);
+}
+</script>
+</body>
+</html>
