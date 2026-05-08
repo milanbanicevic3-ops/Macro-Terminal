@@ -1,5 +1,20 @@
 [
   {
+  "date": "2026-05-08",
+  "title": "Weekly Synthesis. NFP Today. US-Iran Escalation. EUR H4 Strong.",
+  "thesis": "NFP consensus +62K vs 178K prior — first potential evidence energy shock hitting employment. US-Iran ceasefire Thursday fully reversed by military exchanges Friday. EUR/USD H1+H4 both Strong for first time. USD/JPY H4 ADX 47.1 V.Strong increasing. Australia trade deficit -A$1,841M shock complicates AUD/NZD Signal #4. Gold W1 40.8 V.Strong fifth consecutive week.",
+  "bias": {
+    "EURCAD": "bullish",
+    "EURNZD": "bullish",
+    "XAUUSD": "bullish",
+    "USDJPY": "bearish",
+    "NZDUSD": "bearish",
+    "EURUSD": "bearish"
+  },
+  "highlights": ["NFP 12:30 GMT +62K exp", "Iran escalation resumed", "EUR H4 Strong new", "AUS trade deficit shock"],
+  "file": "2026-05-08.html"
+},
+  {
   "date": "2026-05-06",
   "title": "Midweek Brief. RBA 4.35% Third Hike. ECB June Inevitable. ADP Today.",
   "thesis": "RBA hiked to 4.35% (8-1), third hike of 2026, confirmed second-round effects. ECB Kazimir: June tightening all but inevitable. AUD H1 ADX 40.0 V.Strong. USD/JPY H4 ADX 43.61 V.Strong from intervention. ADP 12:15 GMT is the USD catalyst. NFP Friday defines the week.",
