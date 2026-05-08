@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Macro Terminal — May 8, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0a0c10;--surface:#0f1218;--surface2:#141820;--border:#1e2530;--border2:#252d3a;--gold:#c9a84c;--gold2:#e8c46a;--red:#e05252;--green:#4caf82;--yellow:#e8c46a;--blue:#5b9bd5;--text:#d4d8e2;--text2:#8a93a6;--text3:#525d6e;--white:#eef0f5;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.6;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+.delta-box{background:linear-gradient(135deg,rgba(201,168,76,0.07),rgba(10,12,16,0));border:1px solid rgba(201,168,76,0.35);border-left:4px solid var(--gold);padding:14px 40px;}
+.delta-header{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;}
+.delta-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px 24px;}
+.delta-list li{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text2);display:flex;align-items:center;gap:7px;}
+.delta-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.delta-list li strong{color:var(--text);}
+.header{border-bottom:1px solid var(--border);padding:0 40px;height:62px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,12,16,0.97);backdrop-filter:blur(16px);z-index:100;}
+.logo{display:flex;align-items:center;gap:14px;}
+.logo-mark{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:12px;color:#07080c;font-weight:700;}
+.logo-text{font-family:'Playfair Display',serif;font-size:17px;color:var(--white);}
+.logo-sub{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;margin-top:1px;}
+.header-right{display:flex;align-items:center;gap:20px;}
+.date-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);padding:4px 12px;border-radius:3px;}
+.edition-badge{font-size:10px;color:var(--text3);letter-spacing:0.1em;text-transform:uppercase;}
+.banner{padding:6px 40px;font-size:11px;font-family:'IBM Plex Mono',monospace;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+.banner.alert{background:rgba(224,82,82,0.07);color:var(--red);border-bottom-color:rgba(224,82,82,0.2);}
+.banner.warn{background:rgba(232,196,106,0.07);color:var(--yellow);border-bottom-color:rgba(232,196,106,0.2);}
+.banner.info{background:rgba(76,175,130,0.07);color:var(--green);border-bottom-color:rgba(76,175,130,0.2);}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);padding:0 40px;background:var(--surface);position:sticky;top:62px;z-index:90;overflow-x:auto;}
+.tab{padding:12px 18px;font-size:12px;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;font-family:'IBM Plex Mono',monospace;letter-spacing:0.04em;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.content{padding:32px 40px;max-width:1200px;margin:0 auto;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px;}
+.card-title{font-family:'Playfair Display',serif;font-size:13px;color:var(--gold);letter-spacing:0.04em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.card-title span{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);font-weight:400;}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:16px 18px;}
+.kpi-label{font-size:10px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;font-family:'IBM Plex Mono',monospace;}
+.kpi-value{font-size:22px;color:var(--white);font-family:'IBM Plex Mono',monospace;font-weight:500;}
+.kpi-sub{font-size:11px;margin-top:4px;font-family:'IBM Plex Mono',monospace;}
+.kpi-sub.up{color:var(--green);}
+.kpi-sub.down{color:var(--red);}
+.kpi-sub.neut{color:var(--text2);}
+.chart-wrap canvas{max-height:280px;}
+.alert-box{border-radius:6px;padding:16px 20px;margin-bottom:12px;border-left:3px solid;}
+.alert-box.red{background:rgba(224,82,82,0.08);border-color:var(--red);}
+.alert-box.yellow{background:rgba(232,196,106,0.08);border-color:var(--yellow);}
+.alert-box.green{background:rgba(76,175,130,0.08);border-color:var(--green);}
+.alert-box.blue{background:rgba(91,155,213,0.08);border-color:var(--blue);}
+.alert-box .alert-title{font-family:'Playfair Display',serif;font-size:14px;margin-bottom:8px;}
+.alert-box.red .alert-title{color:var(--red);}
+.alert-box.yellow .alert-title{color:var(--yellow);}
+.alert-box.green .alert-title{color:var(--green);}
+.alert-box.blue .alert-title{color:var(--blue);}
+.alert-box p{font-size:12px;color:var(--text2);line-height:1.65;}
+.data-table{width:100%;border-collapse:collapse;font-size:12px;}
+.data-table th{background:var(--surface2);color:var(--text3);font-weight:400;letter-spacing:0.07em;padding:8px 12px;text-align:left;font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border2);}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:rgba(255,255,255,0.02);}
+.pair-name{color:var(--gold);font-family:'Playfair Display',serif;font-size:13px;}
+.t-bull{color:var(--green);}
+.t-bear{color:var(--red);}
+.t-neut{color:var(--text2);}
+.t-warn{color:var(--yellow);}
+.tag{display:inline-block;font-size:9px;letter-spacing:0.08em;padding:2px 7px;border-radius:2px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+.tag.bull{background:rgba(76,175,130,0.15);color:var(--green);border:1px solid rgba(76,175,130,0.25);}
+.tag.bear{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.25);}
+.tag.neut{background:rgba(130,147,166,0.15);color:var(--text2);border:1px solid rgba(130,147,166,0.2);}
+.tag.warn{background:rgba(232,196,106,0.15);color:var(--yellow);border:1px solid rgba(232,196,106,0.25);}
+.data-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.data-row:last-child{border-bottom:none;}
+.data-row .lbl{color:var(--text2);}
+.data-row .val{font-family:'IBM Plex Mono',monospace;color:var(--text);}
+.data-row .val.beat{color:var(--green);}
+.data-row .val.miss{color:var(--red);}
+.data-row .val.inline{color:var(--yellow);}
+.day-card{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:16px;}
+.dc-label{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-bottom:8px;}
+.dc-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold2);margin-bottom:10px;}
+.dc-body{font-size:11px;color:var(--text2);line-height:1.65;}
+.dc-events{margin-top:10px;display:flex;flex-direction:column;gap:4px;}
+.dc-event{font-size:10px;font-family:'IBM Plex Mono',monospace;color:var(--text3);}
+.dc-event strong{color:var(--gold);}
+.adx-table{width:100%;border-collapse:collapse;font-size:11px;}
+.adx-table th{background:var(--surface2);color:var(--text3);font-weight:400;letter-spacing:0.07em;padding:7px 10px;text-align:center;font-size:10px;text-transform:uppercase;border-bottom:1px solid var(--border2);}
+.adx-table th:first-child{text-align:left;}
+.adx-table td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:center;font-family:'IBM Plex Mono',monospace;}
+.adx-table td:first-child{text-align:left;color:var(--gold);font-family:'Playfair Display',serif;font-size:12px;}
+.adx-table tr:last-child td{border-bottom:none;}
+.adx-table tr.hl td{background:rgba(91,155,213,0.05);}
+.adx-s{background:rgba(76,175,130,0.15);color:var(--green);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-n{background:rgba(232,196,106,0.12);color:var(--yellow);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-w{background:rgba(130,147,166,0.1);color:var(--text3);border-radius:3px;padding:2px 7px;font-size:10px;}
+.adx-vs{background:rgba(91,155,213,0.2);color:var(--blue);border-radius:3px;padding:2px 7px;font-size:10px;}
+.sig-card{background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:18px;margin-bottom:14px;}
+.sig-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.sig-pair{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);}
+.sig-body{font-size:12px;color:var(--text2);line-height:1.65;margin-bottom:10px;}
+.sig-meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:10px;border-top:1px solid var(--border);}
+.sig-meta-item{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:9px 11px;}
+.smi-label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:'IBM Plex Mono',monospace;margin-bottom:4px;}
+.smi-val{font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--text);}
+.smi-val.bull{color:var(--green);}
+.smi-val.bear{color:var(--red);}
+.smi-val.warn{color:var(--yellow);}
+.nfp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0;}
+.nfp-card{border-radius:6px;padding:16px;border:1px solid;}
+.nfp-card.bear{background:rgba(224,82,82,0.07);border-color:rgba(224,82,82,0.3);}
+.nfp-card.bull{background:rgba(76,175,130,0.07);border-color:rgba(76,175,130,0.3);}
+.nfp-card.neut{background:rgba(232,196,106,0.07);border-color:rgba(232,196,106,0.3);}
+.nfp-title{font-family:'Playfair Display',serif;font-size:13px;margin-bottom:8px;}
+.nfp-card.bear .nfp-title{color:var(--red);}
+.nfp-card.bull .nfp-title{color:var(--green);}
+.nfp-card.neut .nfp-title{color:var(--yellow);}
+.nfp-card p{font-size:11px;color:var(--text2);line-height:1.65;}
+.cal-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);}
+.cal-item:last-child{border-bottom:none;}
+.cal-date-box{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;padding:8px 12px;text-align:center;min-width:72px;flex-shrink:0;}
+.cal-date-box .cd-day{font-size:10px;color:var(--text3);letter-spacing:0.06em;font-family:'IBM Plex Mono',monospace;}
+.cal-date-box .cd-dt{font-size:13px;color:var(--gold);font-family:'Playfair Display',serif;}
+.cal-body .cb-event{font-size:13px;color:var(--text);margin-bottom:4px;}
+.cal-body .cb-note{font-size:11px;color:var(--text2);line-height:1.55;}
+.impact{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-top:5px;display:inline-block;font-family:'IBM Plex Mono',monospace;}
+.impact.high{background:rgba(224,82,82,0.15);color:var(--red);border:1px solid rgba(224,82,82,0.25);}
+.impact.med{background:rgba(232,196,106,0.15);color:var(--yellow);border:1px solid rgba(232,196,106,0.25);}
+.impact.crit{background:rgba(224,82,82,0.25);color:#ff8080;border:1px solid rgba(224,82,82,0.5);}
+#geomap{height:320px;border-radius:4px;}
+.leaflet-container{background:#0a0c14;}
+.sec-label{font-size:10px;color:var(--text3);letter-spacing:0.14em;text-transform:uppercase;margin:24px 0 14px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.note-box{background:rgba(91,155,213,0.07);border:1px solid rgba(91,155,213,0.25);border-radius:4px;padding:14px 18px;font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:16px;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+
+<div class="delta-box">
+  <div class="delta-header">&#9651; Delta — What Changed Since Wednesday May 6</div>
+  <ul class="delta-list">
+    <li><strong>US-Iran ceasefire then re-escalation:</strong> EUR/USD hit 1.1772 high Thursday. US struck Iranian ports overnight. Full risk-off reversal Friday morning.</li>
+    <li><strong>Australia trade deficit shock:</strong> -A$1,841M vs +A$4,100M forecast. Imports +14.1%, exports -2.7%. Signal #4 (AUD/NZD) conviction reduced.</li>
+    <li><strong>EUR/USD H1+H4 both Strong:</strong> 26.1 and 26.8 — first time both short/medium TFs show confirmed EUR momentum simultaneously.</li>
+    <li><strong>USD/JPY H4 ADX 47.08 V.Strong:</strong> Increased from 43.6 to 47.1. Intervention structure deepening — highest H4 reading in the table.</li>
+  </ul>
+</div>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-mark">MT</div>
+    <div>
+      <div class="logo-text">The Macro Terminal</div>
+      <div class="logo-sub">FX - Macro - Geopolitical Intelligence</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="edition-badge">Friday — Weekly Synthesis</span>
+    <span class="date-badge">May 8, 2026</span>
+  </div>
+</div>
+
+<div class="banner alert">&#9654; US-IRAN ESCALATION RESUMED: US struck Iranian ports overnight. Both sides exchanged fire. Ceasefire Thursday reversed. Risk-off open Friday. DXY bouncing from 97.80 to 98.20+.</div>
+<div class="banner warn">&#9654; NFP TODAY 12:30 GMT: Consensus +62K vs +178K prior — massive expected decline. Unemployment 4.3% expected. Plus CAD Employment 12:30 GMT. Do not hold open positions into 12:15 GMT.</div>
+<div class="banner info">&#9654; AUSTRALIA TRADE DEFICIT SHOCK: -A$1,841M vs +A$4,100M forecast. Imports +14.1%, exports -2.7%. Complicates AUD/NZD Signal #4 — reassessment in Signals tab.</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('overview')">Weekly Overview</div>
+  <div class="tab" onclick="switchTab('tracker')">Week Tracker</div>
+  <div class="tab" onclick="switchTab('nfp')">NFP Scenarios</div>
+  <div class="tab" onclick="switchTab('adx')">MT Momentum Gauge</div>
+  <div class="tab" onclick="switchTab('signals')">COT Signals</div>
+  <div class="tab" onclick="switchTab('fx')">FX Analysis</div>
+  <div class="tab" onclick="switchTab('metals')">Metals</div>
+  <div class="tab" onclick="switchTab('geo')">Geopolitical Map</div>
+  <div class="tab" onclick="switchTab('ahead')">Week Ahead</div>
+</div>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="grid-4">
+    <div class="kpi"><div class="kpi-label">EUR/USD</div><div class="kpi-value">1.1700</div><div class="kpi-sub down">H1+H4 both Strong. Day bearish (Iran escalation).</div></div>
+    <div class="kpi"><div class="kpi-label">USD/JPY</div><div class="kpi-value">~155.50</div><div class="kpi-sub down">H4 ADX 47.1 V.Strong. Ceiling 157-160 confirmed.</div></div>
+    <div class="kpi"><div class="kpi-label">AUD/USD</div><div class="kpi-value">0.7200</div><div class="kpi-sub neut">Trade deficit shock complicates. W1 ADX 34.5 Strong.</div></div>
+    <div class="kpi"><div class="kpi-label">DXY</div><div class="kpi-value">98.20</div><div class="kpi-sub up">Bounced from 97.80 low. Safe-haven Iran escalation bid.</div></div>
+  </div>
+  <div class="grid-4">
+    <div class="kpi"><div class="kpi-label">Gold XAU</div><div class="kpi-value">4,775</div><div class="kpi-sub up">Rebounded from $4,500. W1 ADX 40.8 V.Strong.</div></div>
+    <div class="kpi"><div class="kpi-label">WTI Oil</div><div class="kpi-value">95.93</div><div class="kpi-sub up">+1.18% on Iran resumption. Thursday low $91 erased.</div></div>
+    <div class="kpi"><div class="kpi-label">SPX 500</div><div class="kpi-value">7,337</div><div class="kpi-sub down">-0.38% on risk-off open. Fading from record highs.</div></div>
+    <div class="kpi"><div class="kpi-label">GBP/USD</div><div class="kpi-value">1.3540</div><div class="kpi-sub neut">UK PMI resilient. H1 26.5 Strong only.</div></div>
+  </div>
+
+  <div class="sec-label">The Three Stories of the Week</div>
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="alert-box red">
+      <div class="alert-title">Iran: Ceasefire to Escalation in 24 Hours</div>
+      <p>Thursday morning Trump tweeted: "If Iran agrees, epic fury will be at an end." EUR/USD hit 1.1772. Oil fell to $91. Dutch gas -6.5%. Markets priced the peace. Then Friday morning: US struck Iranian ports. Both sides exchanged fire. Oil back to $95.93. DXY bounced from 97.80. The markets learned this week that the Iran ceasefire headline risk is completely binary and entirely non-linear. NFP today competes with live war headlines for market direction.</p>
+    </div>
+    <div class="alert-box yellow">
+      <div class="alert-title">NFP Consensus +62K: The Powell Test</div>
+      <p>The consensus for April NFP is +62K — a dramatic drop from +178K prior. If confirmed, this is the "backside of energy and tariffs" that Powell said the Fed needs to see before considering rate changes. A near-consensus print will force markets to price a credible Fed pivot path in 2026 for the first time. USD sells, EUR and gold move sharply. If it beats strongly, higher-for-longer remains the base case. This is the most consequential US data release since the FOMC.</p>
+    </div>
+    <div class="alert-box blue">
+      <div class="alert-title">EUR Structure Confirmed by ADX</div>
+      <p>EUR/USD H1 (26.1) and H4 (26.8) are both Strong simultaneously for the first time this cycle. This is a structural development — EUR momentum is confirmed at both the intraday and medium-term horizon. Combined with Kazimir "June tightening all but inevitable," the EUR/CAD and EUR/NZD signals have their strongest fundamental+technical alignment yet. The Australia trade deficit shock is the counterpoint — complicates AUD/NZD but not EUR signals.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">Weekly Performance Summary — May 4 to 8</div>
+  <div class="card">
+    <div class="card-title">Approximate Weekly Change <span>A week of two halves: risk-on Thursday, risk-off Friday</span></div>
+    <div class="chart-wrap"><canvas id="perfChart"></canvas></div>
+  </div>
+</div>
+
+<!-- WEEK TRACKER -->
+<div class="tab-panel" id="tab-tracker">
+  <div class="sec-label">Five-Day Arc — May 4 to 8</div>
+  <div class="grid-3" style="margin-bottom:16px;">
+    <div class="day-card">
+      <div class="dc-label">Monday - May 4</div>
+      <div class="dc-title">Risk-Off Open. ECB Kazimir Warning.</div>
+      <div class="dc-body">Markets opened cautiously after Trump EU auto tariff threat (25%). USD/JPY H4 ADX still elevated post-intervention. ECB Kazimir: "Increasingly likely Europe faces prolonged broad-based price increases." Iran warned US Navy not to approach Hormuz. USD bid. AUD/USD firm ahead of RBA Tuesday. DXY 98.0-98.5 consolidation.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>ECB Kazimir:</strong> Europe faces prolonged price increases</div>
+        <div class="dc-event"><strong>Iran:</strong> Warned US Navy not to enter Hormuz</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="dc-label">Tuesday - May 5</div>
+      <div class="dc-title">RBA 4.35%. ECB Kazimir: June Inevitable.</div>
+      <div class="dc-body">RBA hiked to 4.35% — third hike of 2026 (8-1 vote). Statement confirmed second-round effects materialising. ECB Kazimir: "Policy tightening in June is all but inevitable" — strongest ECB language of the cycle. Spain Services PMI 47.9 vs 52.0 — massive miss. New Zealand Q1 employment 0.2% vs 0.3% (slight miss).</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>RBA:</strong> +25bp to 4.35%. Third hike 2026.</div>
+        <div class="dc-event"><strong>Kazimir:</strong> June ECB tightening inevitable.</div>
+        <div class="dc-event"><strong>Spain PMI:</strong> 47.9 vs 52.0</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="dc-label">Wednesday - May 6</div>
+      <div class="dc-title">ADP Beat. Dual-Regime Market.</div>
+      <div class="dc-body">ADP employment: 109K vs 99K forecast — small beat. USD strengthened briefly. AUD/USD held gains on RBA. EUR/USD slightly bullish on oil dip. Australia trade data starting to circulate: March trade deficit collapsed to -A$1,841M vs +A$4,100M forecast — massive negative surprise. EIA crude inventories. USD/JPY H4 ADX still 43.6 (V.Strong) from April 30 intervention.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>ADP:</strong> 109K (vs 99K exp — slight beat)</div>
+        <div class="dc-event"><strong>AUS Trade:</strong> -A$1,841M vs +A$4,100M (shock miss)</div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="day-card">
+      <div class="dc-label">Thursday - May 7</div>
+      <div class="dc-title">Ceasefire Optimism — Peak Risk-On of the Week.</div>
+      <div class="dc-body">Trump: "If Iran agrees, epic fury will be at an end. Hormuz will be open to all." Pakistani source confirmed US and Iran closing in on memorandum. EUR/USD surged to 1.1772 day high. Dollar-Shekel fell 1.1% (lowest since 1993). Oil WTI dropped toward $91. Dutch gas -6.5%. Gold rebounded to $4,738. German IP: +5.0% MoM (vs +1.0% forecast — massive beat). Eurozone retail sales: +1.2% YoY (beat). UK Services PMI: 52.7 (strong beat). UK all-sector PMI: 51.5 expansion. Jobless claims: 200K vs 205K (slight beat). Risk-on peak day of the week.</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>Trump:</strong> Peace framework emerging. EUR/USD 1.1772.</div>
+        <div class="dc-event"><strong>WTI:</strong> Fell toward $91. Dutch gas -6.5%.</div>
+        <div class="dc-event"><strong>German IP:</strong> +5.0% MoM (massive beat)</div>
+        <div class="dc-event"><strong>UK Services PMI:</strong> 52.7</div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="dc-label">Friday - May 8</div>
+      <div class="dc-title">Iran Resumption. Risk-Off Reversal. NFP Today.</div>
+      <div class="dc-body">Overnight: US forces struck Iranian ports. Both sides exchanged fire. Ceasefire optimism shattered. DXY bounced from 97.80 to 98.20. Oil rebounded +1.18% to $95.93. SPX futures -0.38% to 7,337. EUR/USD slightly bearish. Halifax house prices -0.1% (matched). US construction spending +0.6% vs +0.2% (beat). US Court blocked Trump's 10% global tariffs — adds policy uncertainty. NFP + CAD employment at 12:30 GMT. Michigan sentiment at 14:00 GMT. Two competing forces today: war escalation (USD bullish) vs potential NFP miss (USD bearish).</div>
+      <div class="dc-events">
+        <div class="dc-event"><strong>Iran:</strong> Military exchanges resumed. Risk-off.</div>
+        <div class="dc-event"><strong>US Court:</strong> Blocked 10% global tariffs.</div>
+        <div class="dc-event"><strong>NFP:</strong> 12:30 GMT — consensus +62K</div>
+        <div class="dc-event"><strong>CAD Employment:</strong> 12:30 GMT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">Weekly Data Summary</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Beats This Week</div>
+      <div class="data-row"><span class="lbl">RBA (May 5)</span><span class="val beat">Hike +25bp to 4.35%. Third hike 2026.</span></div>
+      <div class="data-row"><span class="lbl">German IP (May 7)</span><span class="val beat">+5.0% MoM vs +1.0% exp</span></div>
+      <div class="data-row"><span class="lbl">German Exports (May 7)</span><span class="val beat">+0.5% vs -1.7% forecast</span></div>
+      <div class="data-row"><span class="lbl">Eurozone Retail Sales (May 7)</span><span class="val beat">+1.2% YoY vs +1.0% exp</span></div>
+      <div class="data-row"><span class="lbl">UK Services PMI (May 7)</span><span class="val beat">52.7 — clear expansion</span></div>
+      <div class="data-row"><span class="lbl">ADP (May 6)</span><span class="val beat">109K vs 99K exp</span></div>
+      <div class="data-row"><span class="lbl">US Const. Spending (May 8)</span><span class="val beat">+0.6% vs +0.2% exp</span></div>
+      <div class="data-row"><span class="lbl">US Jobless Claims (May 7)</span><span class="val beat">200K vs 205K exp</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Misses and Surprises</div>
+      <div class="data-row"><span class="lbl">AUS Trade Balance (May 7)</span><span class="val miss">-A$1,841M vs +A$4,100M forecast</span></div>
+      <div class="data-row"><span class="lbl">Spain Services PMI (May 5)</span><span class="val miss">47.9 vs 52.0 forecast</span></div>
+      <div class="data-row"><span class="lbl">EZ Services PMI (May 5)</span><span class="val miss">47.6-47.4 — contraction</span></div>
+      <div class="data-row"><span class="lbl">EZ Construction PMI (May 7)</span><span class="val miss">41.7 vs 44.6 prior</span></div>
+      <div class="data-row"><span class="lbl">NZ Employment Q1 (May 6)</span><span class="val miss">+0.2% vs +0.3% exp</span></div>
+      <div class="data-row"><span class="lbl">Iran ceasefire (May 8)</span><span class="val miss">Military exchanges resumed overnight</span></div>
+      <div class="data-row"><span class="lbl">US Court (May 8)</span><span class="val inline">Blocked 10% global tariffs — policy uncertainty</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NFP SCENARIOS -->
+<div class="tab-panel" id="tab-nfp">
+  <div class="sec-label">NFP April 2026 — 12:30 GMT Today</div>
+  <div class="note-box">Consensus: +62K (vs +178K prior). Unemployment rate: 4.3% (unchanged expected). This is the most consequential US data point of the month. The NFP and Iran escalation are competing for market direction simultaneously. The NFP matters more for medium-term positioning; Iran matters more for the intraday move.</div>
+
+  <div class="nfp-grid">
+    <div class="nfp-card bear">
+      <div class="nfp-title">Bearish USD — Soft NFP</div>
+      <p><strong style="color:var(--text);">Scenario:</strong> NFP below 80K and/or unemployment above 4.3%.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">This triggers:</strong> First credible evidence the energy shock is hitting employment — exactly the "backside" Powell said the Fed needs to see. Fed pivot repricing begins. 2026 cut odds surge.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">Market reaction:</strong> DXY tests 97.50. EUR/USD above 1.1800. Gold above $4,820. AUD/USD above 0.7250. USD/JPY tests 153.50. EUR/CAD (Signal #1) advances toward 1.6400.</p>
+    </div>
+    <div class="nfp-card bull">
+      <div class="nfp-title">Bullish USD — Strong NFP</div>
+      <p><strong style="color:var(--text));">Scenario:</strong> NFP above 150K and/or unemployment below 4.3%.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">This triggers:</strong> US resilience confirmed. Fed higher-for-longer indefinitely justified. No pivot in 2026. Safe-haven USD bid amplified by Iran escalation.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">Market reaction:</strong> DXY pushes toward 99.00. EUR/USD tests 1.1650. Gold tests $4,680. AUD/USD tests 0.7148. USD/JPY approaches intervention zone 157.</p>
+    </div>
+    <div class="nfp-card neut">
+      <div class="nfp-title">Neutral — In-Line NFP</div>
+      <p><strong style="color:var(--text);">Scenario:</strong> NFP 50K-100K, unemployment at 4.3%.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">This triggers:</strong> In-line result means Iran geopolitics dominate. USD direction determined by headline risk from Hormuz, not employment data.</p>
+      <p style="margin-top:8px;"><strong style="color:var(--text);">Market reaction:</strong> EUR/USD 1.1680-1.1750 range. Gold 4,730-4,790. AUD/USD 0.7170-0.7230. Direction switches hourly on Iran headlines. No clean setups until Monday.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">Signal Implications by NFP Scenario</div>
+  <div class="card">
+    <table class="data-table">
+      <thead><tr><th>Signal</th><th>NFP Soft (USD bear)</th><th>NFP Strong (USD bull)</th><th>NFP Neutral</th></tr></thead>
+      <tbody>
+        <tr><td class="pair-name">EUR/CAD #1</td><td class="t-bull">Advances. 1.6140 target. EUR+CAD weakness.</td><td class="t-neut">Stalls near 1.5986. Entry improves.</td><td class="t-warn">Iran determines.</td></tr>
+        <tr><td class="pair-name">EUR/NZD #2</td><td class="t-bull">EUR strengthens above 2.0000. Trigger fires.</td><td class="t-neut">Holds below 2.0000. Wait.</td><td class="t-warn">Iran determines.</td></tr>
+        <tr><td class="pair-name">AUD/NZD #4</td><td class="t-neut">AUD bid but trade deficit headwind. Neutral.</td><td class="t-neut">AUD pressured. Range holds.</td><td class="t-warn">Trade deficit dominant.</td></tr>
+        <tr><td class="pair-name">USD/JPY Sell</td><td class="t-bull">USD/JPY falls sharply. Test 153.50.</td><td class="t-warn">Tests 157 zone. Short signal triggers.</td><td class="t-warn">H4 ADX 47.1 still points lower medium-term.</td></tr>
+        <tr><td class="pair-name">Gold XAU</td><td class="t-bull">Breaks $4,820+. W1 ADX trend resumes.</td><td class="t-neut">Tests $4,680. W1 structure holds.</td><td class="t-warn">Range 4,730-4,790.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ADX MOMENTUM GAUGE -->
+<div class="tab-panel" id="tab-adx">
+  <div class="note-box">MT Momentum Gauge — May 8, 2026 readings. ADX thresholds: below 20 = WEAK, 20-25 = NEUTRAL, 25-40 = STRONG, above 40 = VERY STRONG.</div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <table class="adx-table">
+      <thead><tr><th>Pair</th><th>H1</th><th>H4</th><th>D1</th><th>W1</th><th>Key Development</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td>EUR/USD</td><td><span class="adx-s">STRONG 26.1</span></td><td><span class="adx-s">STRONG 26.8</span></td><td><span class="adx-n">NEUTRAL 21.6</span></td><td><span class="adx-w">WEAK 14.1</span></td><td style="font-size:11px;color:var(--blue);">NEW: H1 and H4 both Strong for the first time. EUR gaining multi-timeframe momentum. Aligns with Kazimir ECB June signal. This is a structural shift — EUR now has confirmed momentum at two timeframes.</td></tr>
+        <tr><td>GBP/USD</td><td><span class="adx-s">STRONG 26.5</span></td><td><span class="adx-w">WEAK 18.5</span></td><td><span class="adx-w">WEAK 16.9</span></td><td><span class="adx-w">WEAK 13.0</span></td><td style="font-size:11px;color:var(--text2);">H1 Strong only. UK Services PMI 52.7 produced intraday momentum. No structure beyond H1. GBP/USD remains range-bound at medium timeframes pending BoE catalyst.</td></tr>
+        <tr class="hl"><td>USD/JPY</td><td><span class="adx-w">WEAK 18.5</span></td><td><span class="adx-vs">V.STRONG 47.1</span></td><td><span class="adx-n">NEUTRAL 24.9</span></td><td><span class="adx-n">NEUTRAL 22.3</span></td><td style="font-size:11px;color:var(--blue);">H4 increased to 47.1 (V.Strong) — up from 43.6 last week. The Japan intervention from April 30 is still building in the medium-term ADX. This is now the highest H4 reading in the table. Sell-rallies thesis has maximum structural support.</td></tr>
+        <tr class="hl"><td>USD/CHF</td><td><span class="adx-n">NEUTRAL 20.6</span></td><td><span class="adx-s">STRONG 38.9</span></td><td><span class="adx-n">NEUTRAL 21.5</span></td><td><span class="adx-s">STRONG 25.5</span></td><td style="font-size:11px;color:var(--blue);">H4 surged to 38.9 (near V.Strong). W1 Strong 25.5. Iran escalation Friday is driving CHF safe-haven flows. USD/CHF has the second strongest H4 reading in the table.</td></tr>
+        <tr><td>USD/CAD</td><td><span class="adx-s">STRONG 31.5</span></td><td><span class="adx-w">WEAK 15.8</span></td><td><span class="adx-n">NEUTRAL 24.5</span></td><td><span class="adx-n">NEUTRAL 22.4</span></td><td style="font-size:11px;color:var(--text2);">H1 Strong but H4 weak. USD/CAD showing intraday directionality — likely oil-driven. CAD Employment at 12:30 GMT today is the catalyst for whether H4 builds or collapses.</td></tr>
+        <tr><td>AUD/USD</td><td><span class="adx-s">STRONG 26.0</span></td><td><span class="adx-n">NEUTRAL 23.4</span></td><td><span class="adx-w">WEAK 14.3</span></td><td><span class="adx-s">STRONG 34.5</span></td><td style="font-size:11px;color:var(--text2);">H1 Strong, W1 Strong (34.5) — structural weekly anchor intact despite trade deficit shock. H4 Neutral means mid-term direction undecided. Trade deficit -A$1,841M creates uncertainty about RBA's third hike follow-through.</td></tr>
+        <tr class="hl"><td>NZD/USD</td><td><span class="adx-s">STRONG 27.6</span></td><td><span class="adx-s">STRONG 30.5</span></td><td><span class="adx-w">WEAK 14.6</span></td><td><span class="adx-w">WEAK 15.1</span></td><td style="font-size:11px;color:var(--yellow);">H1+H4 both Strong — unusual for NZD. Likely a risk-on Thursday squeeze + partial Iran ceasefire trade. D1 and W1 remain structurally Weak. COT -46.3K extreme short. This is a reactive move, not a trend change. Treat as a better entry for short setups, not a reversal.</td></tr>
+        <tr class="hl"><td>XAU/USD</td><td><span class="adx-n">NEUTRAL 22.2</span></td><td><span class="adx-s">STRONG 33.8</span></td><td><span class="adx-n">NEUTRAL 21.2</span></td><td><span class="adx-vs">V.STRONG 40.8</span></td><td style="font-size:11px;color:var(--blue);">W1 V.Strong 40.8 (fifth consecutive week). H4 strengthened to Strong 33.8. Gold's weekly trend is the most persistent structural read in the table. The Iran re-escalation Friday adds fresh safe-haven premium. NFP soft = gold above $4,820.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert-box blue">
+    <div class="alert-title">ADX Summary — Three Key Developments This Week</div>
+    <p style="margin-bottom:8px;"><strong style="color:var(--text);">EUR/USD H1+H4 both Strong:</strong> First time in this cycle both short and medium-term EUR momentum are confirmed simultaneously. Combined with Kazimir's June ECB hike confirmation, this is the strongest EUR structural setup yet. Watch NFP — if soft, this becomes the breakout catalyst.</p>
+    <p style="margin-bottom:8px;"><strong style="color:var(--text);">USD/JPY H4 47.1 (V.Strong) — increasing:</strong> The April 30 intervention ADX reading is actually strengthening week-over-week (43.6 → 47.1). This is the most persistent single-instrument ADX anomaly in the table. Sell-rallies thesis remains structurally confirmed.</p>
+    <p><strong style="color:var(--text);">NZD H1+H4 both Strong — do not chase:</strong> NZD showing H4 momentum for the first time. This is Thursday's ceasefire-driven short-squeeze. D1 and W1 are still structurally Weak (14-15). COT -46.3K. This is the market creating a better entry for NZD short setups, not confirming a trend change.</p>
+  </div>
+</div>
+
+<!-- COT SIGNALS -->
+<div class="tab-panel" id="tab-signals">
+  <div class="note-box">CFTC COT data: week ending April 29 (released May 2). Next release today May 9 at close. The Australia trade deficit shock is the primary new risk to Signal #4 this week. EUR structural confirmation (ADX H1+H4 both Strong + Kazimir June) strengthens Signals #1 and #2.</div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #1 — EUR/CAD BUY</div><span class="tag bull">ACTIVE — STRENGTHENED</span></div>
+    <div class="sig-body">EUR ADX now H1+H4 both Strong simultaneously — structural momentum confirmed for the first time. Kazimir "June tightening all but inevitable" remains the catalyst anchor. EUR net long +35,712 vs CAD -38,476. EUR/CAD at ~1.5926. A soft NFP today = EUR/USD above 1.1762 = EUR/CAD pushes toward 1.6088 trigger. A strong NFP = better entry levels in the 1.5900-1.5986 range. The ECB June meeting remains the resolution catalyst regardless of NFP direction. Signal conviction at highest point since tracking began.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 daily close above 1.6088</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Zone</div><div class="smi-val">1.5900-1.6088</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">1.6400+</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.5900</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Invalidation</div><div class="smi-val bear">ECB delays June OR CAD COT flips net long</div></div>
+      <div class="sig-meta-item"><div class="smi-label">ADX Upgrade</div><div class="smi-val bull">H1+H4 both Strong (new)</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #2 — EUR/NZD BUY</div><span class="tag warn">WATCH — 2.0000 TRIGGER</span></div>
+    <div class="sig-body">EUR ADX structural improvement adds momentum confirmation to the thesis. EUR net long +35,712 vs NZD extreme short -46,300. Combined: 82,012. NZD H4 ADX spike (30.5 Strong) from Thursday's ceasefire is a short-squeeze, not a trend — D1 14.6 and W1 15.1 both Weak confirm this. The H4 NZD spike creates a temporary headwind for EUR/NZD below 2.0000 but does not change the structural case. Watch for the 2.0000 daily close trigger as the NZD ceasefire bounce fades. ECB June hike remains the medium-term catalyst.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">Daily H4 close above 2.0000</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Zone</div><div class="smi-val">1.9900-2.0050</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">2.0400</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.9800</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Invalidation</div><div class="smi-val bear">RBNZ emergency hike OR NZD COT flips long</div></div>
+      <div class="sig-meta-item"><div class="smi-label">NZD Note</div><div class="smi-val warn">H4 Strong is ceasefire noise</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">Signal #4 — AUD/NZD BUY</div><span class="tag warn">REDUCED CONVICTION — REASSESSING</span></div>
+    <div class="sig-body">The Australia trade deficit shock (-A$1,841M vs +A$4,100M forecast) is a material fundamental development. Imports surged 14.1% while exports fell 2.7% — this signals domestic demand is outpacing export capacity and raises questions about the sustainability of the RBA's tightening cycle. If domestic demand weakens sharply, the RBA's third-hike follow-through is less certain. AUD/USD W1 ADX remains Strong at 34.5 — the structural weekly case is intact. However, H4 23.4 (Neutral) and D1 14.3 (Weak) are not building toward the sustained mid-term trend needed for a 1.2500 target. NZD H4 30.5 (Strong) from ceasefire squeeze temporarily closes the ADX advantage. Reducing signal conviction to watch. Signal is not invalidated but conviction has decreased. COT divergence (118K) still the structural anchor — waiting for AUD to re-establish H4 momentum before adding risk.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Status</div><div class="smi-val warn">Reduced conviction</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 close above 1.2200 — wait for NFP clarity</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">1.2500</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close below 1.2080</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Invalidation</div><div class="smi-val bear">AUD COT drops below +50K in Friday CFTC release</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Key Risk</div><div class="smi-val bear">AUS trade deficit complicates RBA path</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-header"><div class="sig-pair">USD/JPY — Sell Rallies</div><span class="tag bear">STRUCTURALLY CONFIRMED — H4 47.1</span></div>
+    <div class="sig-body">H4 ADX at 47.1 (V.Strong) and increasing — the April 30 Japan intervention is still structurally growing in the medium-term timeframe week-over-week (43.6 last week, 47.1 this week). The intervention ceiling at 157-160 is the most confirmed structural level in the entire FX complex right now. Iran escalation Friday is providing a temporary USD safe-haven bid but this competes against the 47.1 H4 momentum which is pointing structurally lower. June BoJ hike at 60% is the structural resolution catalyst. CFTC COT today: if JPY net short deepened further beyond -102,059, the squeeze thesis gets another upgrade.</div>
+    <div class="sig-meta-grid">
+      <div class="sig-meta-item"><div class="smi-label">Entry Trigger</div><div class="smi-val warn">H4 daily close above 157.50 — sell into</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Sell Zone</div><div class="smi-val bear">157.50-159.50</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Target</div><div class="smi-val bull">153.80</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Stop</div><div class="smi-val bear">Daily close above 161.00</div></div>
+      <div class="sig-meta-item"><div class="smi-label">H4 ADX</div><div class="smi-val bear">47.1 V.Strong (increasing)</div></div>
+      <div class="sig-meta-item"><div class="smi-label">Invalidation</div><div class="smi-val bear">BoJ abandons normalization path</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FX ANALYSIS -->
+<div class="tab-panel" id="tab-fx">
+  <div class="sec-label">Daily Bias Table — Friday May 8</div>
+  <div class="card" style="margin-bottom:20px;">
+    <table class="data-table">
+      <thead><tr><th>Pair</th><th>Bias</th><th>Today Level</th><th>Key Driver</th></tr></thead>
+      <tbody>
+        <tr><td class="pair-name">EUR/USD</td><td class="t-bear">Slightly bearish</td><td>1.1700</td><td style="font-size:11px;color:var(--text2);">Iran escalation adds USD safe-haven bid. H1+H4 Strong confirms structure. NFP determines direction.</td></tr>
+        <tr><td class="pair-name">GBP/USD</td><td class="t-neut">Neutral</td><td>1.3540</td><td style="font-size:11px;color:var(--text2);">UK PMI resilient. Iran risk-off weighs. H1 Strong only.</td></tr>
+        <tr><td class="pair-name">USD/JPY</td><td class="t-bear">Sell rallies</td><td>~155.50</td><td style="font-size:11px;color:var(--text2);">H4 47.1 V.Strong. Iran safe-haven may push briefly higher. Sell toward 157-160.</td></tr>
+        <tr><td class="pair-name">USD/CHF</td><td class="t-bull">Bullish</td><td>0.7820</td><td style="font-size:11px;color:var(--text2);">H4 38.9 Strong surging. Iran safe-haven CHF competing with USD bid. USD/CHF may range 0.780-0.787.</td></tr>
+        <tr><td class="pair-name">USD/CAD</td><td class="t-neut">Neutral (CAD jobs today)</td><td>1.3590</td><td style="font-size:11px;color:var(--text2);">CAD Employment 12:30 GMT + oil rebound. H1 Strong 31.5. Both data and oil in play.</td></tr>
+        <tr><td class="pair-name">AUD/USD</td><td class="t-neut">Neutral</td><td>0.7200</td><td style="font-size:11px;color:var(--text2);">Trade deficit -A$1,841M complicates. W1 34.5 structural. NFP + Iran determine day.</td></tr>
+        <tr><td class="pair-name">NZD/USD</td><td class="t-bear">Bearish</td><td>0.5900</td><td style="font-size:11px;color:var(--text2);">H4 Strong spike = better entry for shorts. COT -46.3K. D1/W1 Weak. Fade the spike.</td></tr>
+        <tr><td class="pair-name">EUR/GBP</td><td class="t-bear">Slightly bearish</td><td>0.8640</td><td style="font-size:11px;color:var(--text2);">EUR H4 Strong vs GBP H4 Weak. EUR constructive medium-term. Day: UK PMI > Eurozone PMI.</td></tr>
+        <tr><td class="pair-name">EUR/JPY</td><td class="t-bull">Bullish</td><td>184.00</td><td style="font-size:11px;color:var(--text2);">EUR H1+H4 Strong + JPY H4 V.Strong pointing lower. Both confirm EUR/JPY upside medium-term.</td></tr>
+        <tr><td class="pair-name">EUR/CAD</td><td class="t-bull">Bullish (Signal #1)</td><td>1.5926</td><td style="font-size:11px;color:var(--text2);">EUR ADX upgrade + Kazimir June. Entry zone current levels. NFP soft = advances.</td></tr>
+        <tr><td class="pair-name">EUR/NZD</td><td class="t-bull">Bullish (Signal #2)</td><td>Below 2.0000</td><td style="font-size:11px;color:var(--text2);">EUR H4 Strong vs NZD H4 ceasefire noise. Wait for 2.0000 trigger. Signal intact.</td></tr>
+        <tr><td class="pair-name">AUD/NZD</td><td class="t-neut">Neutral (reduced)</td><td>1.2212</td><td style="font-size:11px;color:var(--text2);">AUS trade deficit + NZD H4 spike = reduced conviction. CFTC release today is key.</td></tr>
+        <tr><td class="pair-name">XAU/USD</td><td class="t-bull">Bullish</td><td>4,775</td><td style="font-size:11px;color:var(--text2);">W1 40.8 V.Strong. H4 Strong 33.8. Iran escalation safe-haven. NFP soft = above $4,820.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- METALS -->
+<div class="tab-panel" id="tab-metals">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Gold — XAU/USD</div>
+      <div class="kpi" style="margin-bottom:14px;"><div class="kpi-label">Friday Price</div><div class="kpi-value">$4,775</div><div class="kpi-sub up">W1 ADX 40.8 V.Strong (5th consecutive). H4 33.8 Strong.</div></div>
+      <div class="data-row"><span class="lbl">W1 ADX (5th week V.Strong)</span><span class="val beat">40.8 — most persistent in table</span></div>
+      <div class="data-row"><span class="lbl">H4 ADX</span><span class="val beat">33.8 — STRONG (recovering)</span></div>
+      <div class="data-row"><span class="lbl">Prior support confirmed</span><span class="val">$4,500 area (held twice)</span></div>
+      <div class="data-row"><span class="lbl">Key resistance</span><span class="val">$4,820 / $4,880</span></div>
+      <div class="data-row"><span class="lbl">Iran escalation (today)</span><span class="val beat">Fresh safe-haven premium</span></div>
+      <div class="data-row"><span class="lbl">NFP soft scenario</span><span class="val beat">Gold above $4,820. Targets $4,880.</span></div>
+      <div class="data-row"><span class="lbl">NFP strong scenario</span><span class="val miss">Test $4,680. W1 structure holds.</span></div>
+      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:4px;font-size:12px;color:var(--text2);line-height:1.65;">Five consecutive weeks of W1 ADX at V.Strong (40.8+) — this is the longest continuous V.Strong reading in the MT Gauge's history. The $4,500 support held cleanly twice. The $4,775 rebound is structurally significant — the weekly bull trend from January 2026 remains intact. Today's Iran escalation adds fresh safe-haven premium. The NFP is the catalyst that determines whether this week's rebound extends or stalls. In either case, the W1 ADX structure means sustained downside is structurally unlikely.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Silver — XAG/USD</div>
+      <div class="kpi" style="margin-bottom:14px;"><div class="kpi-label">Friday Price</div><div class="kpi-value">$75.50+</div><div class="kpi-sub up">Above $75.50. Targeting $77.96 breakout level.</div></div>
+      <div class="data-row"><span class="lbl">Thursday high (ceasefire day)</span><span class="val beat">Surged above $76 on risk-on</span></div>
+      <div class="data-row"><span class="lbl">Friday: Iran re-escalation</span><span class="val inline">Partial pullback, geopolitical floor</span></div>
+      <div class="data-row"><span class="lbl">Key breakout level</span><span class="val">$77.96</span></div>
+      <div class="data-row"><span class="lbl">200-day SMA</span><span class="val">$70.43</span></div>
+      <div data-row style="padding:7px 0;font-size:12px;display:flex;justify-content:space-between;"><span style="color:var(--text2);">German IP beat +5.0%</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--green);">Industrial demand signal for silver</span></div>
+      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:4px;font-size:12px;color:var(--text2);line-height:1.65;">Silver tried to break above $76 on Thursday's ceasefire optimism. The Iran re-escalation Friday has partially reversed that. The $77.96 level remains the technical key. German IP +5.0% MoM is a bullish industrial demand signal for silver — Europe's industrial base recovering faster than PMIs suggested. The structural case (6-year supply deficit, China 836-tonne record imports, solar manufacturing demand) is intact. Reclaim $77.96 on a daily close and momentum returns.</div>
+    </div>
+  </div>
+</div>
+
+<!-- GEO MAP -->
+<div class="tab-panel" id="tab-geo">
+  <div class="alert-box red" style="margin-bottom:16px;">
+    <div class="alert-title">Iran: Peace → War in 24 Hours — Binary Risk at Maximum</div>
+    <p>Thursday 08:00: Trump peace tweet. EUR/USD 1.1772. Oil $91. Friday 06:00: US struck Iranian ports. Both sides exchanged fire. This is the starkest illustration of the regime this market is operating in: geopolitical binary risk that overrides fundamentals hourly. The structural positions (EUR/CAD, USD/JPY sell-rallies, gold) are designed to survive this volatility. Single-session trades on geopolitical headlines are the highest-risk activity in this environment. Do not day-trade Iran headlines. Position structurally and manage stops.</p>
+  </div>
+  <div id="geomap"></div>
+  <div style="margin-top:10px;display:flex;gap:20px;font-size:11px;font-family:'IBM Plex Mono',monospace;flex-wrap:wrap;">
+    <span style="color:var(--red);">&#9632; Active escalation</span>
+    <span style="color:var(--yellow);">&#9632; Diplomatic track</span>
+    <span style="color:var(--green);">&#9632; Resolved / stable</span>
+    <span style="color:var(--blue);">&#9632; CB / institutional</span>
+  </div>
+</div>
+
+<!-- WEEK AHEAD -->
+<div class="tab-panel" id="tab-ahead">
+  <div class="note-box">Week of May 11-15. The defining development will be: (1) whether Iran ceasefire or escalation becomes the base case, (2) NFP follow-through on USD direction, (3) CFTC COT release Friday May 9 (today) — AUD and JPY positioning will be key for Signal #4 reassessment and squeeze thesis.</div>
+  <div class="card">
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">TODAY</div><div class="cd-dt">9 May</div></div>
+      <div class="cal-body">
+        <div class="cb-event">CFTC COT Report Released (after US close)</div>
+        <div class="cb-note">The critical read for the week. JPY positioning: if net short deepened past -102,059, squeeze thesis gets its strongest confirmation yet. AUD positioning: if +71,869 held or increased despite trade deficit — Signal #4 conviction restored. If AUD dropped significantly (below +50K), Signal #4 is reassessed. CAD positioning: continued covering or reversal tells EUR/CAD signal quality for the week ahead.</div>
+        <span class="impact crit">CRITICAL — SIGNAL REASSESSMENT</span>
+      </div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">MON-TUE</div><div class="cd-dt">11-12 May</div></div>
+      <div class="cal-body">
+        <div class="cb-event">Iran Situation + China Trade Data (Apr)</div>
+        <div class="cb-note">Iran direction over the weekend will set Monday open sentiment. China trade data provides the Asia demand picture — relevant for AUD (iron ore/LNG exports). Any Iran de-escalation on Sunday = risk-on Monday gap. Any Iran escalation = risk-off gap. Prepare both scenarios over the weekend.</div>
+        <span class="impact high">HIGH — IRAN BINARY + CHINA DATA</span>
+      </div>
+    </div>
+    <div class="cal-item">
+      <div class="cal-date-box"><div class="cd-day">FRI</div><div class="cd-dt">15 May</div></div>
+      <div class="cal-body">
+        <div class="cb-event">Powell Chair Term Ends — Warsh Confirmed</div>
+        <div class="cb-note">Powell's chair tenure formally ends May 15. Warsh will be confirmed and sworn in. Markets will begin pricing Warsh's hawkish inflation views and skepticism of forward guidance immediately. First Warsh statements as Chair will be market-moving on USD. Dual force remains: Kazimir ECB June (EUR bullish) vs Warsh premium (USD bullish). Watch for any pre-confirmation Warsh statements this week.</div>
+        <span class="impact med">MEDIUM-HIGH — USD STRUCTURAL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<footer>
+  <span>The Macro Terminal - May 8, 2026 - Weekly Synthesis - Week 19</span>
+  <span>Proprietary Research - Internal Use Only</span>
+</footer>
+
+<script>
+var Cl={gold:"#c9a84c",red:"#e05252",green:"#4caf82",yellow:"#e8c46a",blue:"#5b9bd5",text:"#d4d8e2",text2:"#8a93a6",border:"#1e2530"};
+
+function switchTab(id){
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-panel").forEach(function(p){p.classList.remove("active");});
+  document.getElementById("tab-"+id).classList.add("active");
+  var tabs=["overview","tracker","nfp","adx","signals","fx","metals","geo","ahead"];
+  document.querySelectorAll(".tab")[tabs.indexOf(id)].classList.add("active");
+  if(id==="geo") initMap();
+  if(id==="overview") initPerfChart();
+}
+
+var perfInited=false;
+function initPerfChart(){
+  if(perfInited) return;
+  perfInited=true;
+  var pd=[
+    {p:"EUR/USD",v:+0.40},{p:"GBP/USD",v:+0.30},{p:"USD/JPY",v:-0.30},
+    {p:"AUD/USD",v:+0.10},{p:"EUR/CAD",v:+0.50},{p:"XAU/USD",v:+1.80},
+    {p:"XAG/USD",v:+2.50},{p:"WTI Oil",v:+2.00}
+  ];
+  new Chart(document.getElementById("perfChart").getContext("2d"),{
+    type:"bar",
+    data:{
+      labels:pd.map(function(d){return d.p;}),
+      datasets:[{
+        label:"Weekly %",
+        data:pd.map(function(d){return d.v;}),
+        backgroundColor:pd.map(function(d){return d.v>=0?"rgba(76,175,130,0.55)":"rgba(224,82,82,0.55)";}),
+        borderColor:pd.map(function(d){return d.v>=0?"rgba(76,175,130,0.9)":"rgba(224,82,82,0.9)";}),
+        borderWidth:1,borderRadius:3,borderSkipped:false
+      }]
+    },
+    options:{
+      maintainAspectRatio:true,
+      plugins:{legend:{display:false},tooltip:{backgroundColor:Cl.border,borderColor:Cl.gold,borderWidth:1,titleColor:Cl.gold,bodyColor:Cl.text,callbacks:{label:function(c){return" "+(c.parsed.y>0?"+":"")+c.parsed.y.toFixed(2)+"%";}}}},
+      scales:{
+        x:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:11}}},
+        y:{grid:{color:Cl.border},ticks:{color:Cl.text2,font:{family:"IBM Plex Mono",size:10},callback:function(v){return v+"%";}}}
+      }
+    }
+  });
+}
+
+var mapInited=false;
+function initMap(){
+  if(mapInited) return;
+  mapInited=true;
+  setTimeout(function(){
+    var map=L.map("geomap",{center:[28,52],zoom:3,attributionControl:false});
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:18}).addTo(map);
+    var nodes=[
+      {lat:26.6,lng:56.5,col:Cl.red,r:16,lbl:"Strait of Hormuz — MILITARY EXCHANGES RESUMED",info:"US struck Iranian ports overnight Friday. Both sides exchanged fire. Thursday ceasefire optimism fully reversed. Oil +1.18% to $95.93. This is the maximum binary risk event in the market. Trump: ceasefire 'still holds' technically, but Iran reviewing 14-point peace plan. Weekend Iran headlines = Monday gap risk in either direction."},
+      {lat:35.69,lng:51.39,col:Cl.red,r:11,lbl:"Tehran — Reviewing 14-Point Peace Plan",info:"Iran reviewing US 14-point peace proposal. Highly binary outcome. US military response resumed while diplomatic track continues simultaneously. Any Iran deal confirmation = EUR/USD above 1.1800, oil below $90. Any collapse = DXY toward 99."},
+      {lat:33.68,lng:73.05,col:Cl.yellow,r:7,lbl:"Islamabad — Diplomatic Track Active",info:"Pakistan mediation ongoing. Both military and diplomatic tracks active simultaneously. Weekend outcome determines Monday open sentiment."},
+      {lat:48.0,lng:37.0,col:Cl.red,r:8,lbl:"Ukraine — Russian Escalation Continues",info:"619-drone attack and ongoing escalation. European energy anxiety sustained. Adds to Eurozone stagflation risk."},
+      {lat:35.69,lng:139.69,col:Cl.yellow,r:10,lbl:"Tokyo — BoJ June Hike 60%",info:"USD/JPY H4 ADX 47.1 V.Strong — intervention from Apr 30 still strengthening week-over-week. Sell-rallies thesis maximally confirmed. CFTC COT today: if JPY net short deepened past -102K, June squeeze thesis gets strongest confirmation yet."},
+      {lat:50.11,lng:8.68,col:Cl.blue,r:10,lbl:"Frankfurt — ECB June Near-Confirmed",info:"Kazimir: June tightening all but inevitable. EUR H1+H4 both Strong for first time. EUR/CAD (Signal #1) and EUR/NZD (Signal #2) are the primary expressions. HICP 3.0% structurally supports."},
+      {lat:51.5,lng:-0.12,col:Cl.blue,r:9,lbl:"London — BoE State-Contingent",info:"UK Services PMI 52.7 — clear expansion. All-sector PMI 51.5. GBP fundamentally sound but H4 ADX weak. BoE next meeting is the catalyst for GBP structural momentum."},
+      {lat:38.9,lng:-77.03,col:Cl.blue,r:10,lbl:"Washington — NFP 12:30 GMT + Warsh May 15",info:"NFP consensus +62K vs +178K prior. If confirmed: first evidence energy shock hitting employment. Fed pivot path reopens. USD sells sharply. Warsh chair term begins May 15 — hawkish premium beginning to build."},
+      {lat:-35.28,lng:149.13,col:Cl.yellow,r:9,lbl:"Canberra — RBA 4.35% + Trade Deficit Shock",info:"RBA hiked to 4.35% (third hike 2026). But March trade balance: -A$1,841M vs +A$4,100M — massive miss. Imports +14.1%, exports -2.7%. Complicates RBA's forward path. AUD/NZD Signal #4 conviction reduced pending CFTC data today."},
+      {lat:-37.0,lng:174.5,col:Cl.yellow,r:6,lbl:"Auckland — RBNZ Hold vs RBA 4.35%",info:"RBNZ at 2.25% vs RBA 4.35% = 210bps gap. NZD COT extreme short -46.3K. NZD H4 Strong is Thursday ceasefire noise. D1+W1 weak. AUD/NZD thesis intact but reduced conviction from trade data."}
+    ];
+    nodes.forEach(function(n){
+      L.circleMarker([n.lat,n.lng],{radius:n.r,fillColor:n.col,color:n.col,weight:2,opacity:0.9,fillOpacity:0.35})
+        .addTo(map)
+        .bindPopup(
+          "<div style=\"background:#0f1218;color:#d4d8e2;border:1px solid #c9a84c;padding:10px 12px;font-family:'IBM Plex Mono',monospace;font-size:11px;min-width:220px;border-radius:4px;line-height:1.6;\">"
+          +"<strong style=\"color:#c9a84c;\">"+n.lbl+"</strong><br><br>"+n.info+"</div>",
+          {maxWidth:290}
+        );
+    });
+  },200);
+}
+</script>
+</body>
+</html>
