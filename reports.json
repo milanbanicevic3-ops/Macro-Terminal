@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-05-10",
+  "file": "2026-05-10.html",
+  "title": "Sunday Weekly Debrief - May 10, 2026",
+  "thesis": "DXY broke 98 to 97.84 on NFP composition weakness. JPY shorts collapsed -102K to -61.7K (+40K cover) - post-intervention squeeze halfway through. CAD covered hard -38.5K to -14.7K. Gold extended to $4,715 with W1 ADX V.STRONG 40.80. CPI Tuesday May 12 is the binary event for everything bullish. Warsh confirmation Mon, Powell term ends Fri.",
+  "bias": {
+    "EURUSD": "bullish",
+    "GBPUSD": "bearish",
+    "USDJPY": "bearish",
+    "AUDUSD": "bullish",
+    "NZDUSD": "bearish",
+    "USDCAD": "neutral",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "JPY COT -61,738 (+40K cover)",
+    "DXY 97.84 broke 98",
+    "Gold $4,715 W1 V.STRONG",
+    "NFP +115K composition weak",
+    "CPI Tue May 12 binary",
+    "Warsh confirmation Mon"
+  ]
+}
+  {
   "date": "2026-05-08",
   "title": "Weekly Synthesis. NFP Today. US-Iran Escalation. EUR H4 Strong.",
   "thesis": "NFP consensus +62K vs 178K prior — first potential evidence energy shock hitting employment. US-Iran ceasefire Thursday fully reversed by military exchanges Friday. EUR/USD H1+H4 both Strong for first time. USD/JPY H4 ADX 47.1 V.Strong increasing. Australia trade deficit -A$1,841M shock complicates AUD/NZD Signal #4. Gold W1 40.8 V.Strong fifth consecutive week.",
