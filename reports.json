@@ -1,186 +1,237 @@
 [
   {
-  "date": "2026-05-10",
-  "file": "2026-05-10.html",
-  "title": "Sunday Weekly Debrief - May 10, 2026",
-  "thesis": "DXY broke 98 to 97.84 on NFP composition weakness. JPY shorts collapsed -102K to -61.7K (+40K cover) - post-intervention squeeze halfway through. CAD covered hard -38.5K to -14.7K. Gold extended to $4,715 with W1 ADX V.STRONG 40.80. CPI Tuesday May 12 is the binary event for everything bullish. Warsh confirmation Mon, Powell term ends Fri.",
-  "bias": {
-    "EURUSD": "bullish",
-    "GBPUSD": "bearish",
-    "USDJPY": "bearish",
-    "AUDUSD": "bullish",
-    "NZDUSD": "bearish",
-    "USDCAD": "neutral",
-    "USDCHF": "bearish",
-    "XAUUSD": "bullish",
-    "XAGUSD": "bullish"
+    "date": "2026-05-10",
+    "file": "2026-05-10.html",
+    "title": "Sunday Weekly Debrief - May 10, 2026",
+    "thesis": "DXY broke 98 to 97.84 on NFP composition weakness. JPY shorts collapsed -102K to -61.7K (+40K cover) - post-intervention squeeze halfway through. CAD covered hard -38.5K to -14.7K. Gold extended to $4,715 with W1 ADX V.STRONG 40.80. CPI Tuesday May 12 is the binary event for everything bullish. Warsh confirmation Mon, Powell term ends Fri.",
+    "bias": {
+      "EURUSD": "bullish",
+      "GBPUSD": "bearish",
+      "USDJPY": "bearish",
+      "AUDUSD": "bullish",
+      "NZDUSD": "bearish",
+      "USDCAD": "neutral",
+      "USDCHF": "bearish",
+      "XAUUSD": "bullish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "JPY COT -61,738 (+40K cover)",
+      "DXY 97.84 broke 98",
+      "Gold $4,715 W1 V.STRONG",
+      "NFP +115K composition weak",
+      "CPI Tue May 12 binary",
+      "Warsh confirmation Mon"
+    ]
   },
-  "highlights": [
-    "JPY COT -61,738 (+40K cover)",
-    "DXY 97.84 broke 98",
-    "Gold $4,715 W1 V.STRONG",
-    "NFP +115K composition weak",
-    "CPI Tue May 12 binary",
-    "Warsh confirmation Mon"
-  ]
-}
   {
-  "date": "2026-05-08",
-  "title": "Weekly Synthesis. NFP Today. US-Iran Escalation. EUR H4 Strong.",
-  "thesis": "NFP consensus +62K vs 178K prior — first potential evidence energy shock hitting employment. US-Iran ceasefire Thursday fully reversed by military exchanges Friday. EUR/USD H1+H4 both Strong for first time. USD/JPY H4 ADX 47.1 V.Strong increasing. Australia trade deficit -A$1,841M shock complicates AUD/NZD Signal #4. Gold W1 40.8 V.Strong fifth consecutive week.",
-  "bias": {
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "XAUUSD": "bullish",
-    "USDJPY": "bearish",
-    "NZDUSD": "bearish",
-    "EURUSD": "bearish"
+    "date": "2026-05-08",
+    "file": "2026-05-08.html",
+    "title": "Weekly Synthesis. NFP Today. US-Iran Escalation. EUR H4 Strong.",
+    "thesis": "NFP consensus +62K vs 178K prior - first potential evidence energy shock hitting employment. US-Iran ceasefire Thursday fully reversed by military exchanges Friday. EUR/USD H1+H4 both Strong for first time. USD/JPY H4 ADX 47.1 V.Strong increasing. Australia trade deficit -A$1,841M shock complicates AUD/NZD Signal #4. Gold W1 40.8 V.Strong fifth consecutive week.",
+    "bias": {
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "XAUUSD": "bullish",
+      "USDJPY": "bearish",
+      "NZDUSD": "bearish",
+      "EURUSD": "bearish"
+    },
+    "highlights": [
+      "NFP 12:30 GMT +62K exp",
+      "Iran escalation resumed",
+      "EUR H4 Strong new",
+      "AUS trade deficit shock"
+    ]
   },
-  "highlights": ["NFP 12:30 GMT +62K exp", "Iran escalation resumed", "EUR H4 Strong new", "AUS trade deficit shock"],
-  "file": "2026-05-08.html"
-},
   {
-  "date": "2026-05-06",
-  "title": "Midweek Brief. RBA 4.35% Third Hike. ECB June Inevitable. ADP Today.",
-  "thesis": "RBA hiked to 4.35% (8-1), third hike of 2026, confirmed second-round effects. ECB Kazimir: June tightening all but inevitable. AUD H1 ADX 40.0 V.Strong. USD/JPY H4 ADX 43.61 V.Strong from intervention. ADP 12:15 GMT is the USD catalyst. NFP Friday defines the week.",
-  "bias": {
-    "AUDUSD": "bullish",
-    "AUDNZD": "bullish",
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "XAUUSD": "bullish",
-    "USDJPY": "bearish",
-    "NZDUSD": "bearish"
+    "date": "2026-05-06",
+    "file": "2026-05-06.html",
+    "title": "Midweek Brief. RBA 4.35% Third Hike. ECB June Inevitable. ADP Today.",
+    "thesis": "RBA hiked to 4.35% (8-1), third hike of 2026, confirmed second-round effects. ECB Kazimir: June tightening all but inevitable. AUD H1 ADX 40.0 V.Strong. USD/JPY H4 ADX 43.61 V.Strong from intervention. ADP 12:15 GMT is the USD catalyst. NFP Friday defines the week.",
+    "bias": {
+      "AUDUSD": "bullish",
+      "AUDNZD": "bullish",
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "XAUUSD": "bullish",
+      "USDJPY": "bearish",
+      "NZDUSD": "bearish"
+    },
+    "highlights": [
+      "RBA 4.35% third hike",
+      "ECB June inevitable",
+      "ADP 12:15 GMT",
+      "AUD H1 ADX 40.0"
+    ]
   },
-  "highlights": ["RBA 4.35% third hike", "ECB June inevitable", "ADP 12:15 GMT", "AUD H1 ADX 40.0"],
-  "file": "2026-05-06.html"
-},
   {
-  "date": "2026-05-03",
-  "title": "Sunday Debrief. JPY -102,059 Despite Intervention. CFTC COT. CB Week Synthesis.",
-  "thesis": "JPY net short deepened to -102,059 DESPITE Japan's $34.5B intervention - specs bought the dip. AUD +71,869 building. New Signal #4: AUD/NZD BUY with 118K COT divergence. FOMC correction: easing bias was retained, not removed. RBA May 5 hike and NFP May 8 are the week's catalysts. Warsh chair term begins May 15.",
-  "bias": {
-    "AUDUSD": "bullish",
-    "AUDNZD": "bullish",
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "USDCHF": "bullish",
-    "XAUUSD": "bullish",
-    "USDJPY": "bearish"
+    "date": "2026-05-03",
+    "file": "2026-05-03.html",
+    "title": "Sunday Debrief. JPY -102,059 Despite Intervention. CFTC COT. CB Week Synthesis.",
+    "thesis": "JPY net short deepened to -102,059 DESPITE Japan's $34.5B intervention - specs bought the dip. AUD +71,869 building. New Signal #4: AUD/NZD BUY with 118K COT divergence. FOMC correction: easing bias was retained, not removed. RBA May 5 hike and NFP May 8 are the week's catalysts. Warsh chair term begins May 15.",
+    "bias": {
+      "AUDUSD": "bullish",
+      "AUDNZD": "bullish",
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bullish",
+      "USDJPY": "bearish"
+    },
+    "highlights": [
+      "JPY -102,059 extreme",
+      "AUD +71,869 building",
+      "Signal #4 AUD/NZD new",
+      "RBA hike May 5"
+    ]
   },
-  "highlights": ["JPY -102,059 extreme", "AUD +71,869 building", "Signal #4 AUD/NZD new", "RBA hike May 5"],
-  "file": "2026-05-03.html"
-},
   {
-  "date": "2026-05-01",
-  "title": "Weekly Synthesis. Japan Intervenes. FOMC Hawkish. ECB 3 Hikes. BoE Dovish.",
-  "thesis": "Japan confirmed FX intervention - USD/JPY ADX H1 hit 63.88. FOMC 8-4 removed 2026 cuts, 160bps Fed-ECB gap. ECB hawkish pivot: 3 hikes priced. BoE dovish surprise: 75bps cuts priced 2026. EUR/CAD and EUR/NZD signals strengthened. RBA May 5 hike next catalyst.",
-  "bias": {
-    "EURUSD": "bullish",
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "EURGBP": "bullish",
-    "AUDUSD": "bullish",
-    "GBPUSD": "bearish",
-    "XAUUSD": "bullish"
+    "date": "2026-05-01",
+    "file": "2026-05-01.html",
+    "title": "Weekly Synthesis. Japan Intervenes. FOMC Hawkish. ECB 3 Hikes. BoE Dovish.",
+    "thesis": "Japan confirmed FX intervention - USD/JPY ADX H1 hit 63.88. FOMC 8-4 removed 2026 cuts, 160bps Fed-ECB gap. ECB hawkish pivot: 3 hikes priced. BoE dovish surprise: 75bps cuts priced 2026. EUR/CAD and EUR/NZD signals strengthened. RBA May 5 hike next catalyst.",
+    "bias": {
+      "EURUSD": "bullish",
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "EURGBP": "bullish",
+      "AUDUSD": "bullish",
+      "GBPUSD": "bearish",
+      "XAUUSD": "bullish"
+    },
+    "highlights": [
+      "Japan intervened ADX 63.88",
+      "FOMC no 2026 cuts",
+      "ECB 3 hikes priced",
+      "BoE dovish 75bps"
+    ]
   },
-  "highlights": ["Japan intervened ADX 63.88", "FOMC no 2026 cuts", "ECB 3 hikes priced", "BoE dovish 75bps"],
-  "file": "2026-05-01.html"
-},
   {
-  "date": "2026-04-29",
-  "title": "Midweek Brief. BoJ Hawkish Hold 6-3. FOMC Today. ECB and BoE Tomorrow.",
-  "thesis": "BoJ held 0.75% but three dissenters voted for 1.0%. Core CPI revised to 2.8%. June hike confirmed as base case. EUR below 1.1700. USD/CHF is momentum pair (ADX H1+H4 Strong). Triple decision day: AUD CPI, BoC, FOMC. ECB and BoE tomorrow resolve all COT signals.",
-  "bias": {
-    "EURCAD": "bullish",
-    "USDCHF": "bullish",
-    "GBPNZD": "bullish",
-    "EURUSD": "bearish",
-    "XAUUSD": "bullish"
+    "date": "2026-04-29",
+    "file": "2026-04-29.html",
+    "title": "Midweek Brief. BoJ Hawkish Hold 6-3. FOMC Today. ECB and BoE Tomorrow.",
+    "thesis": "BoJ held 0.75% but three dissenters voted for 1.0%. Core CPI revised to 2.8%. June hike confirmed as base case. EUR below 1.1700. USD/CHF is momentum pair (ADX H1+H4 Strong). Triple decision day: AUD CPI, BoC, FOMC. ECB and BoE tomorrow resolve all COT signals.",
+    "bias": {
+      "EURCAD": "bullish",
+      "USDCHF": "bullish",
+      "GBPNZD": "bullish",
+      "EURUSD": "bearish",
+      "XAUUSD": "bullish"
+    },
+    "highlights": [
+      "BoJ 6-3 hawkish",
+      "June hike confirmed",
+      "FOMC 18:00 GMT",
+      "ECB + BoE tomorrow"
+    ]
   },
-  "highlights": ["BoJ 6-3 hawkish", "June hike confirmed", "FOMC 18:00 GMT", "ECB + BoE tomorrow"],
-  "file": "2026-04-29.html"
-},
   {
-  "date": "2026-04-26",
-  "title": "Sunday Debrief. JPY -94,460 Extreme. CFTC COT Data. ADX Momentum Gauge.",
-  "thesis": "JPY net short at 19-year extreme -94,460. AUD confirmed net long +64,817 from CFTC raw data. EUR COT +41,324. CAD -58,834. Five central bank decisions in 72 hours - BoJ Apr 28, BoC Apr 29, FOMC Apr 29, ECB + BoE Apr 30. EUR/CAD BUY is top signal. Gold weekly ADX 46.1 - Very Strong.",
-  "bias": {
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "GBPNZD": "bullish",
-    "AUDUSD": "bullish",
-    "GBPUSD": "bullish",
-    "XAUUSD": "bullish"
+    "date": "2026-04-26",
+    "file": "2026-04-26.html",
+    "title": "Sunday Debrief. JPY -94,460 Extreme. CFTC COT Data. ADX Momentum Gauge.",
+    "thesis": "JPY net short at 19-year extreme -94,460. AUD confirmed net long +64,817 from CFTC raw data. EUR COT +41,324. CAD -58,834. Five central bank decisions in 72 hours - BoJ Apr 28, BoC Apr 29, FOMC Apr 29, ECB + BoE Apr 30. EUR/CAD BUY is top signal. Gold weekly ADX 46.1 - Very Strong.",
+    "bias": {
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "GBPNZD": "bullish",
+      "AUDUSD": "bullish",
+      "GBPUSD": "bullish",
+      "XAUUSD": "bullish"
+    },
+    "highlights": [
+      "JPY -94,460 extreme",
+      "AUD +64,817 confirmed",
+      "5 CBs in 72hrs",
+      "Gold ADX 46.1"
+    ]
   },
-  "highlights": ["JPY -94,460 extreme", "AUD +64,817 confirmed", "5 CBs in 72hrs", "Gold ADX 46.1"],
-  "file": "2026-04-26.html"
-},
   {
-  "date": "2026-04-24",
-  "title": "Weekly Synthesis. EUR Corrects 1.5%. Gold -2.5%. DXY Recovers. PMI Miss.",
-  "thesis": "EUR/USD fell from 1.1849 high to 1.1665 on ZEW miss, PMI contraction, and USD safe-haven bid. Gold corrected to $4,688. Oil +10% on Hormuz uncertainty. Central bank cascade Apr 28-30 resolves all four COT signals - BoJ, BoC, ECB, BoE in 72 hours.",
-  "bias": {
-    "EURCAD": "bullish",
-    "CADJPY": "bearish",
-    "GBPNZD": "bullish",
-    "USDJPY": "bullish",
-    "EURUSD": "bearish",
-    "XAUUSD": "bearish"
+    "date": "2026-04-24",
+    "file": "2026-04-24.html",
+    "title": "Weekly Synthesis. EUR Corrects 1.5%. Gold -2.5%. DXY Recovers. PMI Miss.",
+    "thesis": "EUR/USD fell from 1.1849 high to 1.1665 on ZEW miss, PMI contraction, and USD safe-haven bid. Gold corrected to $4,688. Oil +10% on Hormuz uncertainty. Central bank cascade Apr 28-30 resolves all four COT signals - BoJ, BoC, ECB, BoE in 72 hours.",
+    "bias": {
+      "EURCAD": "bullish",
+      "CADJPY": "bearish",
+      "GBPNZD": "bullish",
+      "USDJPY": "bullish",
+      "EURUSD": "bearish",
+      "XAUUSD": "bearish"
+    },
+    "highlights": [
+      "EUR/USD -1.5%",
+      "Gold -2.5%",
+      "PMI miss",
+      "BoJ-BoC-ECB-BoE next week"
+    ]
   },
-  "highlights": ["EUR/USD -1.5%", "Gold -2.5%", "PMI miss", "BoJ-BoC-ECB-BoE next week"],
-  "file": "2026-04-24.html"
-},
   {
-  "date": "2026-04-22",
-  "title": "Midweek Brief. UK CPI 3.3% Beat. ZEW Miss. COT Signals Reassessed.",
-  "thesis": "UK CPI 3.3% y/y beat BoE hike near-certain Apr 30. Germany ZEW -17.2 miss improves EUR/CAD entry. NZ CPI 3.1% y/y complicated EUR/NZD and NZD/JPY signals - paused not cancelled. Flash PMIs Thursday are the macro checkpoint.",
-  "bias": {
-    "GBPUSD": "bullish",
-    "EURCAD": "bullish",
-    "GBPNZD": "bullish",
-    "NZDUSD": "bullish",
-    "EURUSD": "neutral",
-    "CADJPY": "bearish",
-    "XAUUSD": "bullish"
+    "date": "2026-04-22",
+    "file": "2026-04-22.html",
+    "title": "Midweek Brief. UK CPI 3.3% Beat. ZEW Miss. COT Signals Reassessed.",
+    "thesis": "UK CPI 3.3% y/y beat BoE hike near-certain Apr 30. Germany ZEW -17.2 miss improves EUR/CAD entry. NZ CPI 3.1% y/y complicated EUR/NZD and NZD/JPY signals - paused not cancelled. Flash PMIs Thursday are the macro checkpoint.",
+    "bias": {
+      "GBPUSD": "bullish",
+      "EURCAD": "bullish",
+      "GBPNZD": "bullish",
+      "NZDUSD": "bullish",
+      "EURUSD": "neutral",
+      "CADJPY": "bearish",
+      "XAUUSD": "bullish"
+    },
+    "highlights": [
+      "UK CPI 3.3% beat",
+      "ZEW -17.2 miss",
+      "NZ CPI 3.1% y/y",
+      "BoE hike Apr 30"
+    ]
   },
-  "highlights": ["UK CPI 3.3% beat", "ZEW -17.2 miss", "NZ CPI 3.1% y/y", "BoE hike Apr 30"],
-  "file": "2026-04-22.html"
-},
   {
-  "date": "2026-04-20",
-  "title": "Monday Brief. Hormuz Re-closed. Iran Refuses Talks. Ueda Dovish G20.",
-  "thesis": "Hormuz re-closed Saturday, Iran fired on tankers, US seized Iranian vessel Monday. Risk-off gap open. Ueda G20 dovish remarks collapsed BoJ April hike odds to 15%. CAD CPI 12:30 GMT is COT Signal timing trigger. EUR/CAD and EUR/NZD COT signals improving on risk-off dip.",
-  "bias": {
-    "EURUSD": "bullish",
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "CADJPY": "bearish",
-    "NZDJPY": "bearish",
-    "XAUUSD": "neutral",
-    "GBPUSD": "bearish"
+    "date": "2026-04-20",
+    "file": "2026-04-20.html",
+    "title": "Monday Brief. Hormuz Re-closed. Iran Refuses Talks. Ueda Dovish G20.",
+    "thesis": "Hormuz re-closed Saturday, Iran fired on tankers, US seized Iranian vessel Monday. Risk-off gap open. Ueda G20 dovish remarks collapsed BoJ April hike odds to 15%. CAD CPI 12:30 GMT is COT Signal timing trigger. EUR/CAD and EUR/NZD COT signals improving on risk-off dip.",
+    "bias": {
+      "EURUSD": "bullish",
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "CADJPY": "bearish",
+      "NZDJPY": "bearish",
+      "XAUUSD": "neutral",
+      "GBPUSD": "bearish"
+    },
+    "highlights": [
+      "Hormuz re-closed",
+      "Iran refuses talks",
+      "Ueda dovish 15% hike",
+      "CAD CPI today"
+    ]
   },
-  "highlights": ["Hormuz re-closed", "Iran refuses talks", "Ueda dovish 15% hike", "CAD CPI today"],
-  "file": "2026-04-20.html"
-},
   {
-  "date": "2026-04-19",
-  "title": "Sunday Debrief. EUR CFTC Flip +33,559. JPY Squeeze. Hormuz Whipsaw.",
-  "thesis": "EUR flipped to net long +33,559 - largest repositioning of the year. JPY covering from -20,870 to +10,534. USD basket -18,555 net short. Hormuz opened Friday then closed Saturday. Top signals: EUR/CAD buy, EUR/NZD buy, CAD/JPY sell, NZD/JPY sell.",
-  "bias": {
-    "EURUSD": "bullish",
-    "EURCAD": "bullish",
-    "EURNZD": "bullish",
-    "CADJPY": "bearish",
-    "NZDJPY": "bearish",
-    "XAUUSD": "bullish",
-    "SPX": "bullish"
+    "date": "2026-04-19",
+    "file": "2026-04-19.html",
+    "title": "Sunday Debrief. EUR CFTC Flip +33,559. JPY Squeeze. Hormuz Whipsaw.",
+    "thesis": "EUR flipped to net long +33,559 - largest repositioning of the year. JPY covering from -20,870 to +10,534. USD basket -18,555 net short. Hormuz opened Friday then closed Saturday. Top signals: EUR/CAD buy, EUR/NZD buy, CAD/JPY sell, NZD/JPY sell.",
+    "bias": {
+      "EURUSD": "bullish",
+      "EURCAD": "bullish",
+      "EURNZD": "bullish",
+      "CADJPY": "bearish",
+      "NZDJPY": "bearish",
+      "XAUUSD": "bullish",
+      "SPX": "bullish"
+    },
+    "highlights": [
+      "EUR CFTC +33,559",
+      "JPY squeeze +10,534",
+      "Oil -10%",
+      "Hormuz whipsaw"
+    ]
   },
-  "highlights": ["EUR CFTC +33,559", "JPY squeeze +10,534", "Oil -10%", "Hormuz whipsaw"],
-  "file": "2026-04-19.html"
-},
   {
     "date": "2026-04-17",
+    "file": "2026-04-17.html",
     "title": "Weekly Synthesis. COT Regime Flip. AUD and GBP Net Short. USD Bounce.",
     "thesis": "AUD flipped to -10,693 net short while price hit 4-year high - classic distribution. GBP flipped to -3,689. JPY shorts deepened to -20,870. USD bounced Friday on oil rebound to $94. De-escalation trade fully priced. BoJ Apr 28 and ECB Apr 30 are the binary events.",
     "bias": {
@@ -192,11 +243,16 @@
       "EURUSD": "neutral",
       "SPX": "bullish"
     },
-    "highlights": ["AUD COT flip", "JPY -20,870", "DXY 98.26", "S-P 500 ATH 7041"],
-    "file": "2026-04-17.html"
+    "highlights": [
+      "AUD COT flip",
+      "JPY -20,870",
+      "DXY 98.26",
+      "S-P 500 ATH 7041"
+    ]
   },
   {
     "date": "2026-04-14",
+    "file": "2026-04-14.html",
     "title": "Easter Catch-Up Sunday Debrief. Apr 9-14. Hormuz Blockade Active.",
     "thesis": "Hormuz naval blockade confirmed Apr 13. Full whipsaw week - ceasefire dissolved, new blockade imposed. RBNZ hawkish pivot suspended NZD bearish thesis. DXY at 6-week low 98.36. EUR/USD pushed to 1.1787.",
     "bias": {
@@ -208,11 +264,16 @@
       "USDCAD": "bearish",
       "SPX": "bullish"
     },
-    "highlights": ["Hormuz blockade Apr 13", "Gold $4,780", "DXY 98.36", "EUR/USD 1.1787"],
-    "file": "2026-04-14.html"
+    "highlights": [
+      "Hormuz blockade Apr 13",
+      "Gold $4,780",
+      "DXY 98.36",
+      "EUR/USD 1.1787"
+    ]
   },
   {
     "date": "2026-04-08",
+    "file": "2026-04-08.html",
     "title": "Ceasefire 2.0 + RBNZ Pivot. Oil -16%. Gold $4,813. NZD Thesis Revised.",
     "thesis": "Trump 2-week conditional ceasefire triggers risk-on. Oil -16%. Gold +2.3%. RBNZ hawkish hold with 4.2% inflation forecast - NZD short thesis suspended. COT AUD/CAD and EUR/GBP both confirmed. FOMC minutes 2pm EST today.",
     "bias": {
@@ -225,11 +286,16 @@
       "EURGBP": "bearish",
       "SPX": "bullish"
     },
-    "highlights": ["Gold $4,813", "Oil -16%", "EUR/USD 1.17", "RBNZ hawkish"],
-    "file": "2026-04-08.html"
+    "highlights": [
+      "Gold $4,813",
+      "Oil -16%",
+      "EUR/USD 1.17",
+      "RBNZ hawkish"
+    ]
   },
   {
     "date": "2026-04-05",
+    "file": "2026-04-05.html",
     "title": "Weekly Debrief. Trump Reversed Apr 2. Silver -6.75%. NFP +178k. DXY Below 100.",
     "thesis": "De-escalation lasted 24 hours. Trump vowed intensified strikes Apr 2. Silver crashed -6.75%. Strong NFP 178k but DXY broke below 100 - markets pricing stagflation not Fed hikes. Iran struck South Pars Saturday.",
     "bias": {
@@ -241,11 +307,16 @@
       "USDJPY": "neutral",
       "SPX": "neutral"
     },
-    "highlights": ["Silver -6.75%", "NFP +178k", "DXY below 100", "South Pars struck"],
-    "file": "2026-04-05.html"
+    "highlights": [
+      "Silver -6.75%",
+      "NFP +178k",
+      "DXY below 100",
+      "South Pars struck"
+    ]
   },
   {
     "date": "2026-04-01",
+    "file": "2026-04-01.html",
     "title": "Iran De-Escalation Signal. S-P +2.91%. Gold $4,720.",
     "thesis": "Trump confirms US operations end in 2-3 weeks. Biggest equity day since May. Gold at 8-day high on USD weakness. Hormuz still closed - relief rally not regime change.",
     "bias": {
@@ -257,11 +328,16 @@
       "AUDNZD": "bullish",
       "SPX": "bullish"
     },
-    "highlights": ["S-P +2.91%", "Gold $4,720", "USDJPY 158.8", "Hormuz closed"],
-    "file": "2026-04-01.html"
+    "highlights": [
+      "S-P +2.91%",
+      "Gold $4,720",
+      "USDJPY 158.8",
+      "Hormuz closed"
+    ]
   },
   {
     "date": "2026-03-29",
+    "file": "2026-03-29.html",
     "title": "MRKT System Down. USDJPY 160.25. Gold +2.96%.",
     "thesis": "Iran conflict oil shock locks Fed into stagflationary hold. Q1 end rebalancing adds noise. AUD weakest major on CPI miss. USDJPY at intervention trigger level.",
     "bias": {
@@ -274,11 +350,16 @@
       "NZDUSD": "bearish",
       "SPX": "bearish"
     },
-    "highlights": ["USDJPY 160.25", "Fed Hike 52%", "AUD CPI 3.7%", "VIX 31"],
-    "file": "2026-03-29.html"
+    "highlights": [
+      "USDJPY 160.25",
+      "Fed Hike 52%",
+      "AUD CPI 3.7%",
+      "VIX 31"
+    ]
   },
   {
     "date": "2026-03-28",
+    "file": "2026-03-28.html",
     "title": "Iran Deadline Extension. Gold $4,507. Equities Correction.",
     "thesis": "Geopolitical oil shock triggering stagflationary regime shift. Fed hawkish hold, 52% rate hike odds, S-P 500 breaks 200-DMA. Gold dual-demand bid.",
     "bias": {
@@ -290,7 +371,11 @@
       "AUDUSD": "bearish",
       "SPX": "bearish"
     },
-    "highlights": ["Oil $110+", "Fed 3.50-3.75%", "10Y yield 4.447%", "VIX 31.05"],
-    "file": "2026-03-28.html"
+    "highlights": [
+      "Oil $110+",
+      "Fed 3.50-3.75%",
+      "10Y yield 4.447%",
+      "VIX 31.05"
+    ]
   }
 ]
