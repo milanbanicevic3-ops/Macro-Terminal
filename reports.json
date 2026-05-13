@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-13",
+    "file": "2026-05-13.html",
+    "title": "Midweek Brief - May 13, 2026. CPI Hot, Regime Flipped.",
+    "thesis": "US CPI printed hot - Headline 3.8% vs 3.7%, Core m/m 0.4% vs 0.3% - right at the Sunday-flagged threshold. Fed cuts removed, 17bp of HIKES priced through April 2027. DXY recovered to 98.275 from 97.84. Iran-US ceasefire 'on life support' per Trump, oil $100-102. Sunday Setup 1 EUR/USD long thesis invalidated. Setup 2 USD/JPY short thesis strengthened (BoJ June hike 70%). Setup 3 gold held with only -$9. New Setup 4 NZD/USD short added - H4 ADX collapsed back to WEAK confirming last week's NZD strength was noise. PPI today and Retail Sales Thursday are referendum on CPI thesis.",
+    "bias": {
+      "EURUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDJPY": "sell rallies",
+      "AUDUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCAD": "neutral",
+      "USDCHF": "bearish",
+      "XAUUSD": "bullish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "CPI hot - Core 0.4% mm",
+      "Fed 17bp hikes priced",
+      "DXY 98.275 recovered",
+      "Iran ceasefire on life support",
+      "Gold only -$9 on hot CPI",
+      "BoJ June hike 70% priced"
+    ]
+  },
+  {
     "date": "2026-05-10",
     "file": "2026-05-10.html",
     "title": "Sunday Weekly Debrief - May 10, 2026",
