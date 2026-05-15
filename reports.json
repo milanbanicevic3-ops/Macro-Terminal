@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-15",
+    "file": "2026-05-15.html",
+    "title": "Weekly Synthesis - May 15, 2026. CPI Hot, PPI 6.0% 4-Year High, Warsh Assumes.",
+    "thesis": "Three consecutive hot prints confirmed the inflation regime: CPI 3.8% hd / 0.4% core mm Tuesday (right at Sunday-flagged threshold), PPI 6.0% YoY four-year high Wednesday with Core PPI +1.0% mm, Retail Sales Control Group beat Thursday. 10Y broke to 4.51% (highest since June 2025), 30Y to 5.056% fresh 10-month high, Japan 10Y at 1997 levels. Warsh assumed Fed Chair Friday inheriting hawkish repricing. Setup 3 XAU/USD long stopped at $4,640 (gold $4,572). Setups 1, 3 in profit; Setup 2 USDJPY entry zone live at MoF intervention. New Setup 4 AUDUSD short on crowded +78K COT long unwind. Trump-Xi closed with no Iran resolution.",
+    "bias": {
+      "EURUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDJPY": "sell rallies",
+      "AUDUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCAD": "neutral",
+      "USDCHF": "bullish",
+      "XAUUSD": "neutral",
+      "XAGUSD": "neutral"
+    },
+    "highlights": [
+      "PPI 6.0% YoY 4-yr high",
+      "10Y 4.51% / 30Y 5.056%",
+      "Gold stopped at $4,640",
+      "Warsh assumes Fed Chair",
+      "AUDUSD H1 ADX V.STRONG 50.93",
+      "NZDUSD H1 ADX V.STRONG 50.49"
+    ]
+  },
+  {
     "date": "2026-05-13",
     "file": "2026-05-13.html",
     "title": "Midweek Brief - May 13, 2026. CPI Hot, Regime Flipped.",
