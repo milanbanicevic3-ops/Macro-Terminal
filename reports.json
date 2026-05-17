@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-17",
+    "file": "2026-05-17.html",
+    "title": "Sunday Weekly Debrief - May 17, 2026. CPI/PPI/Retail Sales Confirmed Regime, Warsh Assumed.",
+    "thesis": "Three consecutive prints confirmed inflation as the regime not a question: CPI 0.4% core mm Tuesday, PPI 6.0% YoY four-year high Wednesday with Core PPI +1.0% mm, Retail Sales Control Group beat Thursday. 10Y at 4.51% highest since June 2025, 30Y at 5.056% fresh 10-month high, Japan 10Y at 1997 levels. Warsh assumed Fed Chair Friday with hawkish repricing already done. CFTC week ending May 12: JPY shorts REBUILT to -75,102 (was -61,738), AUD record long +84,990, GBP covered hard to -43,059 but cable kept falling, NZD covered to -39,150, USD Idx building +3,187, EUR longs trap +40,200. Equity Index COT: S-P 500 specs -143.8K, VIX shorts DOUBLED -49.0K. Setups 1, 3, 4 in profit. Setup 3 XAU/USD long stopped clean at $4,640 by named-event Thesis Invalidation. Setup 5 GBP/USD short added. Setup 2 USD/JPY shown with both directional options. Three Week Ahead scenarios tied to UK CPI Wed, FOMC Minutes Wed, AU Employment Thu, and Iran tail risk.",
+    "bias": {
+      "EURUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDJPY": "neutral",
+      "AUDUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCAD": "bullish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "JPY COT shorts rebuilt -75K",
+      "AUD record long +85K max pain",
+      "GBP covered -43K but falling",
+      "10Y at 4.51% June 2025 high",
+      "VIX shorts doubled to -49K",
+      "Gold stopped at $4,640 by TI"
+    ]
+  },
+  {
     "date": "2026-05-15",
     "file": "2026-05-15.html",
     "title": "Weekly Synthesis - May 15, 2026. CPI Hot, PPI 6.0% 4-Year High, Warsh Assumes.",
