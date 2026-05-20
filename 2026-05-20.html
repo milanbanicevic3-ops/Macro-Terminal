@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Macro Terminal — May 20, 2026 Midweek Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1117;--navy2:#0f1520;--navy3:#151d2e;--navy4:#1c2538;
+  --gold:#D4AF37;--gold2:#c9a84c;--gold3:rgba(212,175,55,0.15);--gold4:rgba(212,175,55,0.3);
+  --text:#dde3ed;--text2:#8a96a8;--text3:#4a5568;
+  --green:#3fb87a;--green2:rgba(63,184,122,0.12);
+  --red:#e05c6a;--red2:rgba(224,92,106,0.12);
+  --blue:#5b9bd5;--blue2:rgba(91,155,213,0.12);
+  --border:rgba(255,255,255,0.055);
+  --radius:8px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.65;min-height:100vh}
+
+.header{background:linear-gradient(180deg,#060a0f 0%,#0d1420 100%);border-bottom:1px solid var(--gold4);padding:24px 40px}
+.h-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.logo-mark{width:54px;height:54px;border-radius:8px;background:var(--gold3);border:1px solid var(--gold4);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);letter-spacing:.02em}
+.h-title-block{flex:1}
+.h-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);letter-spacing:.02em;margin-bottom:2px}
+.h-sub{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.12em}
+.h-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2);text-align:right}
+.h-date-big{font-family:'Playfair Display',serif;font-size:18px;color:var(--text);font-style:italic;margin-bottom:2px}
+
+.delta-box{background:linear-gradient(135deg,rgba(212,175,55,.05) 0%,rgba(212,175,55,.02) 100%);border:1px solid var(--gold4);border-radius:8px;padding:18px 22px;margin:20px 40px}
+.delta-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);font-style:italic;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.delta-title::before{content:"\25B3";font-size:16px}
+.delta-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+.delta-item{font-size:12.5px;line-height:1.55;color:var(--text2);padding-left:14px;position:relative}
+.delta-item::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--gold)}
+.delta-item strong{color:var(--text)}
+
+.alerts{padding:0 40px;margin-bottom:18px}
+.alert{background:var(--navy3);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 16px;margin-bottom:8px;font-size:12.5px;line-height:1.6;color:var(--text2)}
+.alert::before{content:"\25B6";color:var(--gold);font-weight:bold;margin-right:8px}
+.alert strong{color:var(--text)}
+.alert.red{border-left-color:var(--red)}
+.alert.red::before{color:var(--red)}
+.alert.green{border-left-color:var(--green)}
+.alert.green::before{color:var(--green)}
+
+.tab-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 40px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{padding:14px 16px;font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;font-family:'IBM Plex Sans',sans-serif}
+.tab-btn:hover{color:var(--text2)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.panel{display:none;padding:30px 40px;max-width:1280px;margin:0 auto;animation:fadeIn .25s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.page-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.page-title::before{content:"";width:3px;height:26px;background:var(--gold);border-radius:2px}
+.page-sub{font-size:12px;color:var(--text3);margin-bottom:24px;padding-left:13px}
+.sec-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:24px 0 10px}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s}
+.kpi:hover{border-color:var(--gold4)}
+.kpi-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:6px;font-weight:600}
+.kpi-val.gold{color:var(--gold)}
+.kpi-val.green{color:var(--green)}
+.kpi-val.red{color:var(--red)}
+.kpi-note{font-size:11px;color:var(--text2);line-height:1.5}
+
+.card{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:14px}
+.card-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);margin-bottom:8px}
+.card-body{font-size:13px;color:var(--text2);line-height:1.7}
+.card-body strong{color:var(--text)}
+.card-body em{color:var(--text);font-style:italic}
+
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.three-col,.two-col{grid-template-columns:1fr}}
+
+.tbl{width:100%;border-collapse:collapse;font-size:12px;background:var(--navy3);border-radius:6px;overflow:hidden;margin-bottom:14px}
+.tbl th{padding:10px 12px;text-align:left;font-size:9.5px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;background:var(--navy4);border-bottom:1px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.015)}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:11px}
+.t-pair{color:var(--text);font-weight:500}
+
+.tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 9px;border-radius:11px;letter-spacing:.02em}
+.tg{background:var(--gold3);color:var(--gold);border:0.5px solid var(--gold4)}
+.tgr{background:var(--red2);color:var(--red);border:0.5px solid rgba(224,92,106,.25)}
+.tgn{background:var(--green2);color:var(--green);border:0.5px solid rgba(63,184,122,.25)}
+.tgb{background:var(--blue2);color:var(--blue);border:0.5px solid rgba(91,155,213,.25)}
+.tgx{background:rgba(255,255,255,.04);color:var(--text3);border:0.5px solid var(--border)}
+
+.sig-card{background:var(--navy3);border:1px solid var(--gold4);border-radius:10px;padding:20px 22px;margin-bottom:16px;position:relative}
+.sig-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.sig-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold)}
+.sig-status{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);background:var(--gold3);border:1px solid var(--gold4);padding:4px 10px;border-radius:14px;letter-spacing:.05em}
+.sig-status.red{color:var(--red);background:var(--red2);border-color:rgba(224,92,106,.3)}
+.sig-status.green{color:var(--green);background:var(--green2);border-color:rgba(63,184,122,.3)}
+.sig-body{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.sig-body strong{color:var(--text)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sig-cell{background:var(--navy4);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px}
+.sig-cell-label{font-size:9.5px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.sig-cell-val{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text);line-height:1.5}
+@media(max-width:700px){.sig-grid{grid-template-columns:1fr 1fr}}
+.opt-divider{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin:14px 0 8px;padding-top:10px;border-top:1px dashed var(--gold4)}
+
+.cal-card{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:center}
+.cal-day{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);text-align:center}
+.cal-day-num{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);line-height:1}
+.cal-day-mo{text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.cal-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.cal-body{font-size:12px;color:var(--text2);line-height:1.6}
+.cal-impact{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.05em;text-align:right;color:var(--gold)}
+
+#geomap{height:380px;border-radius:8px;border:0.5px solid var(--border);background:var(--navy3)}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:11px;color:var(--text2)}
+.map-legend span::before{content:"\25A0";margin-right:5px}
+.legend-red::before{color:var(--red)}
+.legend-blue::before{color:var(--blue)}
+.legend-green::before{color:var(--green)}
+.legend-gold::before{color:var(--gold)}
+
+.outcome-yes{color:var(--green);font-weight:600}
+.outcome-faded{color:var(--text3);font-weight:600}
+.outcome-no{color:var(--red);font-weight:600}
+
+.footer{padding:30px 40px 40px;text-align:center;font-size:10.5px;color:var(--text3);border-top:0.5px solid var(--border);margin-top:40px}
+.footer-name{font-family:'Playfair Display',serif;color:var(--gold);font-size:13px;letter-spacing:.04em;margin-bottom:4px}
+
+@media(max-width:900px){
+  .header,.alerts,.delta-box,.panel,.footer,.tab-nav{padding-left:20px;padding-right:20px}
+  .delta-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="h-top">
+    <div class="logo-mark">MT</div>
+    <div class="h-title-block">
+      <div class="h-title">The Macro Terminal</div>
+      <div class="h-sub">FX &middot; Macro &middot; Geopolitical Intelligence</div>
+    </div>
+    <div class="h-date">
+      <div class="h-date-big">Midweek Brief</div>
+      <div>20 May 2026 &middot; Week 21</div>
+    </div>
+  </div>
+</div>
+
+<div class="delta-box">
+  <div class="delta-title">Delta &mdash; What Changed Since Sunday May 17</div>
+  <ul class="delta-list">
+    <li class="delta-item"><strong>UK CPI sticky: headline 3.3%, core 4.2%:</strong> Above the Setup 5 threshold but BoE hike pricing did not revive &mdash; markets still price cuts, just less aggressive. UK unemployment rose to ~4.9-5.0%, wages slowing. Political/fiscal stress (30Y above 5%) dominates cable.</li>
+    <li class="delta-item"><strong>Risk-off finally arriving:</strong> SPX -0.7% to 7,353.61, third consecutive down session, now 2.2% below the record high. The Sunday-flagged VIX short-squeeze setup is starting to express as equities crack under the yield weight.</li>
+    <li class="delta-item"><strong>10Y at 4.60%, 30Y 5.15-5.20%:</strong> The long-end repricing is the dominant driver. Gold capitulation accelerating to H4 ADX V.STRONG 46.05, spot $4,470. Setup 3 gold long was already stopped Friday.</li>
+    <li class="delta-item"><strong>FOMC Minutes pending tonight 18:00 GMT:</strong> First major Warsh-era read. Expected 8-4 split with three members favoring removal of easing-bias language. This is the live Setup 1 Thesis Invalidation event.</li>
+  </ul>
+</div>
+
+<div class="alerts">
+  <div class="alert"><strong>FOUR OF FIVE SETUPS IN PROFIT GOING INTO THE FOMC MINUTES:</strong> EUR/USD short approaching conservative target 1.15. NZD/USD short on track to 0.5700. AUD/USD short at conservative target 0.7080 (partial booked, runner to 0.6950, stop at breakeven). GBP/USD short held alive. USD/JPY Option A short active at intervention zone, Option B long entry missed. The Sunday Scenario A (hawkish regime continues) is confirming print by print.</div>
+  <div class="alert red"><strong>USD/JPY INTERVENTION IMMINENT:</strong> Pair above 159. FinMin Katayama practically pre-announced intervention at the G7 meeting, US is supportive, and Japan promised not to sell its large US Treasury holdings to fund it. H4 ADX collapsed to WEAK 10.55 &mdash; extreme compression across all timeframes. When MoF moves, expect a sharp DXY-wide ripple, not just USD/JPY.</div>
+  <div class="alert"><strong>TONIGHT AND TOMORROW:</strong> FOMC Minutes 18:00 GMT (Setup 1 binary) plus Nvidia earnings after US close (risk-sentiment catalyst, equities already fragile). Thursday: AU Employment 01:30 (Setup 4 binary), Flash PMIs across Germany/UK/US, NZ Q1 Retail Sales 22:45 (Setup 3 binary). Heavy two-day window for the complex.</div>
+</div>
+
+<div class="tab-nav" id="tabnav">
+  <button class="tab-btn active" data-tab="snapshot">Snapshot</button>
+  <button class="tab-btn" data-tab="synthesis">Binary Day Synthesis</button>
+  <button class="tab-btn" data-tab="adx">MT Momentum Gauge</button>
+  <button class="tab-btn" data-tab="status">Setup Status</button>
+  <button class="tab-btn" data-tab="setups">FX Top Setups</button>
+  <button class="tab-btn" data-tab="bias">FX Outlook</button>
+  <button class="tab-btn" data-tab="metals">Metals</button>
+  <button class="tab-btn" data-tab="geo">Geopolitical Map</button>
+  <button class="tab-btn" data-tab="ahead">Days Ahead</button>
+</div>
+
+<!-- TAB 1: SNAPSHOT -->
+<div class="panel active" id="p-snapshot">
+  <h2 class="page-title">Snapshot</h2>
+  <div class="page-sub">Wednesday May 20 levels &middot; UK CPI printed, FOMC Minutes pending tonight</div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">DXY</div><div class="kpi-val green">~99.40</div><div class="kpi-note">Six-week highs. Support 99.00, resistance 99.50-100.00. USD bid intact.</div></div>
+    <div class="kpi"><div class="kpi-label">EUR/USD</div><div class="kpi-val red">~1.1615</div><div class="kpi-note">Setup 1 short approaching 1.15 target. H4 ADX V.STRONG 42.42.</div></div>
+    <div class="kpi"><div class="kpi-label">USD/JPY</div><div class="kpi-val">~159.00</div><div class="kpi-note">Intervention imminent. H4 ADX WEAK 10.55 compression. Setup 2 Option A active.</div></div>
+    <div class="kpi"><div class="kpi-label">GBP/USD</div><div class="kpi-val red">~1.3407</div><div class="kpi-note">UK core CPI 4.2% sticky but hike pricing didn't revive. Setup 5 held. Political/fiscal stress dominant.</div></div>
+    <div class="kpi"><div class="kpi-label">AUD/USD</div><div class="kpi-val red">~0.7100</div><div class="kpi-note">Setup 4 at conservative target. Partial booked, runner to 0.6950. AU jobs Thu binary.</div></div>
+    <div class="kpi"><div class="kpi-label">NZD/USD</div><div class="kpi-val red">~0.5840</div><div class="kpi-note">Setup 3 on track to 0.5700. H4 ADX STRONG 33.53.</div></div>
+    <div class="kpi"><div class="kpi-label">Gold / Silver</div><div class="kpi-val red">$4,470 / $75</div><div class="kpi-note">Capitulation accelerating. Gold H4 ADX V.STRONG 46.05. 10Y at 4.60%.</div></div>
+    <div class="kpi"><div class="kpi-label">SPX / WTI</div><div class="kpi-val red">7,353 / ~$103</div><div class="kpi-note">SPX -0.7% third down day, 2.2% below ATH. Oil holding $100+. Risk-off arriving.</div></div>
+  </div>
+
+  <h3 class="sec-label">Two Things That Matter Today And Tomorrow</h3>
+
+  <div class="card">
+    <div class="card-title">Tonight: FOMC Minutes Are The Warsh-Era Read</div>
+    <div class="card-body">The April 29 FOMC minutes release at 18:00 GMT is the live Setup 1 Thesis Invalidation event and the resolver for the Sunday scenarios. Expected to show an 8-4 split with three members favoring removal of the "easing bias" language &mdash; hawkish if confirmed. <strong>The nuance worth holding:</strong> despite the headline repricing, the rates market only prices roughly 13-17bp of tightening by December, with the first full 25bp hike priced only by April 2027. The consensus is that Warsh, despite his hawkish reputation, will not aggressively enter a hike cycle. <strong>The current USD strength is more a function of safe-haven demand and the long-end yield surge than of aggressive Fed hiking expectations.</strong> Hawkish minutes lock Scenario A and the short complex continues. Dovish minutes (concern about consumer weakness, labor softening) trigger Setup 1's Thesis Invalidation and risk a sharp unwind of overstretched USD longs. Nvidia earnings after the US close add a second catalyst into already-fragile equities.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Tomorrow: AU Employment And NZ Retail Sales Hit Two Setups</div>
+    <div class="card-body">AU Employment Thursday 01:30 GMT is the Setup 4 Thesis Invalidation event &mdash; hot jobs combined with the hawkish RBA Minutes from Tuesday would risk an AUD short squeeze. With Setup 4 already at conservative target and partial booked, the runner to 0.6950 carries breakeven-stop risk only. NZ Q1 Retail Sales Thursday 22:45 GMT is the Setup 3 Thesis Invalidation event &mdash; a strong print reviving the NZ growth narrative would challenge the short. Flash PMIs across Germany, UK, and US through the day test the broader regime: a German manufacturing PMI below 50 would pressure EUR and reinforce Setup 1; a hot US PMI extends the USD bid. <strong>Thursday is the heaviest single day of the week for the complex.</strong></div>
+  </div>
+</div>
+
+<!-- TAB 2: BINARY DAY SYNTHESIS -->
+<div class="panel" id="p-synthesis">
+  <h2 class="page-title">Binary Day Synthesis</h2>
+  <div class="page-sub">UK CPI resolved, FOMC Minutes pending, risk-off arriving</div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">UK Core CPI</div><div class="kpi-val red">4.2%</div><div class="kpi-note">Sticky, above 4.0%. But BoE hike pricing did NOT revive.</div></div>
+    <div class="kpi"><div class="kpi-label">UK Headline CPI</div><div class="kpi-val">3.3%</div><div class="kpi-note">Persistent. UK unemployment ~4.9-5.0% rising, wages slowing.</div></div>
+    <div class="kpi"><div class="kpi-label">Fed Hike Pricing</div><div class="kpi-val">13-17bp</div><div class="kpi-note">By Dec. First full 25bp only by Apr 2027. Not aggressive.</div></div>
+    <div class="kpi"><div class="kpi-label">SPX From ATH</div><div class="kpi-val red">-2.2%</div><div class="kpi-note">Third consecutive down session. Risk-off arriving.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UK CPI: Sticky Number, Absent Mechanism</div>
+    <div class="card-body">UK core CPI printed 4.2%, above the 4.0% line. On its face that is GBP-supportive &mdash; persistent price pressure discourages aggressive BoE cuts. <strong>But the mechanism that would actually rescue cable did not appear: BoE hike pricing did not revive.</strong> Markets continue to price BoE cuts through 2026, just at a slower pace. Meanwhile UK unemployment rose to roughly 4.9-5.0% and wages ex-bonus continued slowing &mdash; softer labor that argues for cuts, not hikes. Layered on top is the political and fiscal stress: Starmer fighting to hold his position, a possible left-leaning successor (Burnham or Streeting), and 30Y gilt yields above 5% drawing explicit Liz Truss comparisons. <strong>The net is that GBP/USD stays bearish on the political and fiscal story, not on a CPI-driven BoE bid that never materialized.</strong> Setup 5 stays alive because the named-event Thesis Invalidation ("sticky core reviving BoE hike pricing") did not trigger &mdash; the number hit but the mechanism did not.</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title" style="font-size:14px">FOMC Minutes: The Live Binary</div>
+      <div class="card-body">Tonight's minutes are the resolver. Hawkish (8-4 split, removal of easing-bias language) confirms the post-CPI/PPI regime and locks Scenario A &mdash; the short complex continues. Dovish (concern about consumer weakness, the 211k jobless claims as a softening signal) triggers Setup 1 Thesis Invalidation. <strong>The asymmetry to respect: USD positioning is stretched, so a dovish surprise produces a sharper unwind than a hawkish confirmation produces continuation.</strong> Reduce risk into the print.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">Risk-Off Finally Arriving</div>
+      <div class="card-body">SPX -0.7% to 7,353.61, third consecutive down session, 2.2% below the record. <strong>This is the VIX short-squeeze setup from Sunday's COT data beginning to express</strong> &mdash; equity specs were at -143.8K and VIX shorts doubled to -49.0K right as the long-end yield surge (30Y 5.15-5.20%) starts compressing the equity risk premium. Nvidia earnings tonight are the catalyst that could accelerate or arrest it. A disappointment into this fragility is the tail that turns a three-day drift into a real de-risking event.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">The Iran Overlay Stays Unresolved</div>
+    <div class="card-body">Two and a half months into the conflict, no comprehensive deal. Trump postponed a planned Iran strike after requests from Saudi, Qatar, and UAE leaders, reviving peace hopes &mdash; but a rumored partial oil-sanctions removal proved incorrect and the brief risk-on move reversed. <strong>Oil holds above $100; a deal would not drop oil quickly because supply routes take months to normalize.</strong> The standing risk: Trump may attempt another de-escalation headline to calm markets ahead of midterm season and the summer driving period when expensive fuel becomes a political liability. A genuine de-escalation plus oil selling is the combination that would flip the USD lower and reopen EUR/USD and gold longs &mdash; but until both appear together, the dollar-strength regime holds.</div>
+  </div>
+</div>
+
+<!-- TAB 3: MT MOMENTUM GAUGE -->
+<div class="panel" id="p-adx">
+  <h2 class="page-title">MT Momentum Gauge</h2>
+  <div class="page-sub">ADX readings May 20 &middot; Below 20 WEAK &middot; 20-25 NEUTRAL &middot; 25-40 STRONG &middot; Above 40 V.STRONG</div>
+
+  <table class="tbl">
+    <thead><tr><th>Pair</th><th>H1</th><th>H4</th><th>D1</th><th>W1</th><th>vs Sunday</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">EUR/USD</td><td><span class="tag tg">STRONG 36.95</span></td><td><span class="tag tg" style="background:rgba(212,175,55,.3);color:#fff">V.STRONG 42.42</span></td><td><span class="tag tgr">WEAK 19.15</span></td><td><span class="tag tgr">WEAK 19.33</span></td><td>H4 held V.STRONG. W1 rising to 19.33 (near NEUTRAL) &mdash; first weekly structure forming on the short.</td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td><span class="tag tgr">WEAK 11.05</span></td><td><span class="tag tg">STRONG 25.13</span></td><td><span class="tag tgr">WEAK 16.72</span></td><td><span class="tag tgr">WEAK 11.94</span></td><td>H1 collapsed from V.STRONG 49.9 &mdash; cable consolidating after the move. H4 cooled to STRONG. Momentum spent intraday, waiting on FOMC.</td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td><span class="tag tgr">WEAK 18.33</span></td><td><span class="tag tgr">WEAK 10.55</span></td><td><span class="tag tgx">NEUTRAL 23.63</span></td><td><span class="tag tgr">WEAK 19.43</span></td><td><strong>H4 collapsed to WEAK 10.55</strong> &mdash; extreme intervention compression. D1 cooled to NEUTRAL. MoF suffocating momentum across all timeframes.</td></tr>
+      <tr><td class="t-pair">USD/CHF</td><td><span class="tag tg" style="background:rgba(212,175,55,.3);color:#fff">V.STRONG 40.66</span></td><td><span class="tag tg">STRONG 36.80</span></td><td><span class="tag tgr">WEAK 18.21</span></td><td><span class="tag tgx">NEUTRAL 22.99</span></td><td>H1 V.STRONG + H4 STRONG &mdash; multi-TF momentum rebuilt. USD winning the safe-haven contest against CHF.</td></tr>
+      <tr><td class="t-pair">USD/CAD</td><td><span class="tag tgx">NEUTRAL 23.26</span></td><td><span class="tag tg" style="background:rgba(212,175,55,.3);color:#fff">V.STRONG 40.92</span></td><td><span class="tag tgr">WEAK 17.51</span></td><td><span class="tag tgx">NEUTRAL 22.63</span></td><td>H4 held V.STRONG. CAD weakness vs USD structural despite oil at $103.</td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td><span class="tag tg">STRONG 33.64</span></td><td><span class="tag tg">STRONG 33.54</span></td><td><span class="tag tgr">WEAK 15.09</span></td><td><span class="tag tg">STRONG 35.53</span></td><td>Clean H1 + H4 STRONG. Healthy dual-timeframe momentum on the short. At conservative target.</td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td><span class="tag tg">STRONG 33.47</span></td><td><span class="tag tg">STRONG 33.53</span></td><td><span class="tag tgr">WEAK 15.06</span></td><td><span class="tag tgr">WEAK 13.54</span></td><td>Clean H1 + H4 STRONG. Same healthy structure as AUD. On track to 0.5700.</td></tr>
+      <tr><td class="t-pair">XAU/USD</td><td><span class="tag tg">STRONG 34.77</span></td><td><span class="tag tg" style="background:rgba(212,175,55,.3);color:#fff">V.STRONG 46.05</span></td><td><span class="tag tgr">WEAK 18.63</span></td><td><span class="tag tg">STRONG 36.11</span></td><td><strong>H4 V.STRONG 46.05</strong> &mdash; gold capitulation now has structural medium-term momentum (was 33.97 Sunday). The selldown is accelerating, not stalling.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="three-col">
+    <div class="card">
+      <div class="card-title" style="font-size:14px">The Shorts Have Clean Structure</div>
+      <div class="card-body">EUR/USD H4 V.STRONG 42.42, AUD/USD H1+H4 STRONG, NZD/USD H1+H4 STRONG, USD/CAD H4 V.STRONG 40.92, USD/CHF H1 V.STRONG + H4 STRONG. <strong>The dollar-strength complex has the cleanest dual-timeframe momentum of the cycle.</strong> The setups are not fighting structure &mdash; they are riding it.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">USD/JPY Compression Is Extreme</div>
+      <div class="card-body">H4 ADX at WEAK 10.55 is among the lowest readings in the table all cycle. <strong>MoF intervention is suffocating momentum at every timeframe except a barely-NEUTRAL D1.</strong> The pair is coiled. When intervention fires or BoJ June 17 resolves, the release will be violent in whichever direction wins. Setup 2 keeps both options live for exactly this reason.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">Gold Capitulation Accelerating</div>
+      <div class="card-body">H4 ADX jumped to V.STRONG 46.05 from 33.97 Sunday. <strong>The gold selldown is gaining structural momentum, not exhausting.</strong> W1 at 36.11 (was 38.51) is cooling toward the structural-break threshold. With Setup 3 long already stopped Friday, the read now is whether a re-entry setup forms &mdash; and the accelerating H4 momentum says not yet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 4: SETUP STATUS -->
+<div class="panel" id="p-status">
+  <h2 class="page-title">Setup Status &mdash; Midweek Check</h2>
+  <div class="page-sub">All five Sunday setups, current state and management actions</div>
+
+  <table class="tbl">
+    <thead><tr><th>Setup</th><th>Direction</th><th>Entry Ref</th><th>Now</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">EUR/USD</td><td>Short</td><td class="mono">~1.165 Sun</td><td class="mono">~1.1615</td><td><span class="outcome-yes">IN PROFIT, near 1.15 target</span></td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td>Opt A short / Opt B long</td><td class="mono">158.50-159.50 / 157.50-158</td><td class="mono">~159.00</td><td><span class="outcome-faded">A active, B entry missed</span></td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td>Short</td><td class="mono">~0.586 Sun</td><td class="mono">~0.5840</td><td><span class="outcome-yes">IN PROFIT, to 0.5700</span></td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td>Short</td><td class="mono">~0.7180 Fri</td><td class="mono">~0.7100</td><td><span class="outcome-yes">PARTIAL TP at 0.7080, runner to 0.6950</span></td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td>Short</td><td class="mono">~1.335 Sun</td><td class="mono">~1.3407</td><td><span class="outcome-yes">HELD ALIVE, thesis intact</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <div class="card-title">Setup 4 AUD/USD &mdash; Partial Booked, Runner Active</div>
+    <div class="card-body">AUD/USD reached the conservative target of 0.7080 (spot ~0.7100, intraday touched target). <strong>Partial profit booked at 0.7080. The runner stays on toward the aggressive target 0.6950 with the stop moved to breakeven at 0.7180</strong> &mdash; the remaining position now carries zero downside risk. AU Employment Thursday 01:30 GMT is the Thesis Invalidation event: hot jobs combined with Tuesday's hawkish RBA Minutes would risk a short squeeze. Because the stop is at breakeven, a squeeze on hot data costs nothing on the runner; soft data extends toward 0.6950. <strong>This is the cleanest risk profile in the book right now: locked profit plus a free runner into a binary.</strong></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Setup 5 GBP/USD &mdash; Held Alive On Intact Thesis</div>
+    <div class="card-body">UK core CPI printed 4.2%, above the 4.0% line in the Thesis Invalidation. <strong>But the named event was specifically "sticky core reviving BoE hike pricing" &mdash; and hike pricing did not revive.</strong> Markets still price BoE cuts through 2026. The bearish cable thesis was never a bet against UK inflation; it was a bet on UK political and fiscal stress (Starmer instability, possible left-leaning successor, 30Y gilts above 5%, Liz Truss parallels). That story is fully intact and arguably deeper this week. The trade stays open. <strong>This is also a clean illustration of last week's framework rule:</strong> the Thesis Invalidation bundled a number (core >= 4.0%) with a mechanism (hike pricing revival). The number hit, the mechanism did not. Going forward, Thesis Invalidations should name the mechanism alone, not a number that may move independently of the mechanism it is meant to signal.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Setup 2 USD/JPY &mdash; Option A Active, Option B Missed</div>
+    <div class="card-body">The pair never gave the 157.50-158.00 retracement that Option B (long, intervention-exhaustion play) required &mdash; it ground straight up through 159. <strong>Option B entry is missed.</strong> Option A (short, sell rallies into 158.50-159.50) is active and the pair is in the zone, with MoF intervention pre-announced and imminent. The risk on Option A is that intervention produces a sharp down-spike that fills the short well, or that BoJ June 17 dovishness lets the carry trade reassert and stops the short. The H4 ADX at WEAK 10.55 means the pair is coiled &mdash; whichever way it releases will be fast. <strong>Keep Option A position size modest until the intervention fires; the compression resolves violently.</strong></div>
+  </div>
+</div>
+
+<!-- TAB 5: FX TOP SETUPS -->
+<div class="panel" id="p-setups">
+  <h2 class="page-title">FX Top Setups &mdash; Management Update</h2>
+  <div class="page-sub">Five setups from Sunday, updated for the rest of the week</div>
+
+  <div class="sig-card">
+    <div class="sig-head">
+      <div class="sig-title">Setup 1 &mdash; EUR/USD SHORT (RUNNING, NEAR TARGET)</div>
+      <span class="sig-status">IN PROFIT, FOMC MINUTES TONIGHT</span>
+    </div>
+    <div class="sig-body">In profit from Sunday ~1.165 to ~1.1615, approaching conservative target 1.1500. H4 ADX held V.STRONG 42.42; W1 rising to 19.33 (first weekly structure forming). FOMC Minutes tonight is the live Thesis Invalidation event. Consider trailing stop to lock partial gains into the print given the asymmetry of a dovish surprise on stretched USD longs.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">Position running from pullback sells; add only on H4 rejection of 1.1680-1.1720</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">Running; adds 1.1680-1.1720</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.1500 &middot; Aggressive: 1.1400</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.1790 (consider trail to 1.1700 into FOMC)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 1.1790</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">US FOMC Minutes Wed May 20 reveal materially dovish 2027 dot-path concerns about consumer weakness, retracing the post-PPI repricing</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head">
+      <div class="sig-title">Setup 2 &mdash; USD/JPY &mdash; OPTION A ACTIVE</div>
+      <span class="sig-status">OPTION B MISSED, INTERVENTION IMMINENT</span>
+    </div>
+    <div class="sig-body">Pair ground straight up through 159 without the 157.50-158.00 retracement Option B needed &mdash; Option B entry missed. Option A short active in the 158.50-159.50 zone with MoF intervention pre-announced. H4 ADX WEAK 10.55 = extreme compression, violent release expected. Keep position size modest until intervention fires.</div>
+    <div class="opt-divider">Option A &mdash; Short (Active)</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close back below 158.00 after rejection from 158.50-159.50 zone</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">158.50 &ndash; 159.50</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">154.50</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">160.20</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 160.20 clears intervention ceiling</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoJ June 17 fails to deliver hike OR Bessent-Katayama explicitly rule out further coordination</div></div>
+    </div>
+    <div class="opt-divider">Option B &mdash; Long (Entry Missed, Reference Only)</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">MISSED &mdash; pair did not retrace to 157.50-158.00</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">157.50 &ndash; 158.00 (not reached)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">161.00</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">156.80</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close below 156.80</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoJ June 17 delivers hike with hawkish forward guidance forcing immediate JPY repricing</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head">
+      <div class="sig-title">Setup 3 &mdash; NZD/USD SHORT (RUNNING)</div>
+      <span class="sig-status">IN PROFIT, NZ RETAIL SALES THU BINARY</span>
+    </div>
+    <div class="sig-body">In profit from Sunday ~0.586 to ~0.5840, on track toward conservative target 0.5700. H4 ADX STRONG 33.53 (strengthening from 27.16 Sunday). Clean H1 + H4 momentum. NZ Q1 Retail Sales Thursday 22:45 GMT is the Thesis Invalidation event. Add on bounces into 0.5870-0.5910.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">Running; add on H4 rejection of 0.5870-0.5910 OR H4 close below 0.5800</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">Running; adds 0.5870-0.5910</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 0.5700 &middot; Aggressive: 0.5500</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">0.6000 (consider trail to 0.5950)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 0.6000</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">RBNZ pivots hawkish OR NZ Q1 Retail Sales Thu May 21 prints meaningfully strong reviving growth narrative</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head">
+      <div class="sig-title">Setup 4 &mdash; AUD/USD SHORT (PARTIAL BOOKED, FREE RUNNER)</div>
+      <span class="sig-status">CONSERVATIVE TARGET HIT, RUNNER TO 0.6950</span>
+    </div>
+    <div class="sig-body"><strong>Conservative target 0.7080 reached. Partial profit booked. Stop moved to breakeven 0.7180 &mdash; the runner now carries zero downside risk.</strong> H4 ADX STRONG 33.54. The runner targets the aggressive 0.6950. AU Employment Thursday 01:30 GMT is the Thesis Invalidation event &mdash; with the stop at breakeven, a hot-jobs squeeze costs nothing on the runner while soft data extends the move.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">Position running; partial booked at 0.7080</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">Original 0.7180-0.7220 (filled)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 0.7080 (BOOKED) &middot; Aggressive: 0.6950 (runner)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">Breakeven 0.7180 on runner</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 0.7260</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">AU Employment Thu May 21 prints materially hot AND RBA Minutes hawkish, OR China stimulus announcement triggering risk-on reversal</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head">
+      <div class="sig-title">Setup 5 &mdash; GBP/USD SHORT (HELD ALIVE)</div>
+      <span class="sig-status">THESIS INTACT, HIKE PRICING DID NOT REVIVE</span>
+    </div>
+    <div class="sig-body">UK core CPI printed 4.2% (above 4.0%) but BoE hike pricing did not revive &mdash; markets still price cuts. The named-event Thesis Invalidation did not trigger. The bearish thesis was always political and fiscal (Starmer instability, possible left-leaning successor, 30Y gilts above 5%, Liz Truss parallels), and that story is intact and deeper this week. Cable at ~1.3407. H4 ADX cooled to STRONG 25.13, H1 collapsed to WEAK 11.05 &mdash; consolidating after the move, waiting on FOMC. Sell rallies into 1.3400-1.3450 or breakdown below 1.3300.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 rejection of 1.3400-1.3450 OR H4 close below 1.3300</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">Rally: 1.3400-1.3450 &middot; Breakdown: below 1.3300</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.3150 &middot; Aggressive: 1.3000</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.3510</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 1.3510</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">UK political crisis resolves cleanly with a non-left-leaning successor restoring fiscal confidence, OR BoE explicitly signals a hike restoring the GBP yield premium</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 6: FX OUTLOOK -->
+<div class="panel" id="p-bias">
+  <h2 class="page-title">FX Outlook</h2>
+  <div class="page-sub">Day and swing bias going into FOMC Minutes &middot; Wednesday May 20 levels</div>
+
+  <div class="card">
+    <div class="card-title">Where The Complex Stands Into FOMC</div>
+    <div class="card-body"><strong>USD</strong> bid at six-week highs but the strength is yields plus safe-haven, not aggressive Fed hiking (market prices only 13-17bp by Dec). <strong>EUR</strong> short clean on H4 V.STRONG; Eurozone GDP weak, German PMI watch Thursday. <strong>JPY</strong> in extreme intervention compression at 159; MoF move imminent. <strong>GBP</strong> sticky CPI but no hike-pricing revival; political/fiscal stress dominant. <strong>AUD</strong> at conservative target, runner free into Thursday jobs. <strong>NZD</strong> clean short to 0.5700; NZ Retail Sales Thursday. <strong>CHF</strong> losing safe-haven contest to USD; H1 V.STRONG. <strong>CAD</strong> oil at $103 not enough to offset USD; H4 V.STRONG.</div>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>Pair</th><th>Day Bias</th><th>Swing Bias</th><th>Key Level</th><th>Driver</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">EUR/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.1615</td><td>Setup 1 near target. H4 V.STRONG. FOMC binary.</td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.3407</td><td>Setup 5 alive. Political/fiscal stress dominant.</td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tg">Setup 2 Option A</span></td><td class="mono">159.00</td><td>Intervention imminent. H4 WEAK compression.</td></tr>
+      <tr><td class="t-pair">USD/CHF</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.7900</td><td>H1 V.STRONG. USD wins haven contest day.</td></tr>
+      <tr><td class="t-pair">USD/CAD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.3760</td><td>H4 V.STRONG. Oil bid insufficient.</td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.7100</td><td>Setup 4 at target. Runner to 0.6950. Jobs Thu.</td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.5840</td><td>Setup 3 to 0.5700. Retail Sales Thu.</td></tr>
+      <tr><td class="t-pair">EUR/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">184.68</td><td>EUR weak + JPY intervention zone.</td></tr>
+      <tr><td class="t-pair">EUR/GBP</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.8668</td><td>UK CPI sticky supports GBP marginally vs EUR.</td></tr>
+      <tr><td class="t-pair">EUR/CHF</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.9168</td><td>CHF safe-haven over weak EUR.</td></tr>
+      <tr><td class="t-pair">EUR/CAD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.5968</td><td>CAD oil bid + EUR weakness.</td></tr>
+      <tr><td class="t-pair">EUR/AUD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.6360</td><td>Both weak; AUD short unwind tilts cross up.</td></tr>
+      <tr><td class="t-pair">EUR/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.9937</td><td>NZD weakest commodity leg.</td></tr>
+      <tr><td class="t-pair">GBP/JPY</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">213.17</td><td>BoJ hike risk + UK political crisis.</td></tr>
+      <tr><td class="t-pair">GBP/CHF</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.0567</td><td>CHF haven + Starmer crisis.</td></tr>
+      <tr><td class="t-pair">GBP/AUD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.8881</td><td>AUD unwind vs GBP political stress.</td></tr>
+      <tr><td class="t-pair">GBP/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">2.3008</td><td>NZD weakest; UK story mixed.</td></tr>
+      <tr><td class="t-pair">AUD/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">113.09</td><td>Risk-off + AUD unwind.</td></tr>
+      <tr><td class="t-pair">AUD/CAD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.9790</td><td>Oil bid CAD + AUD unwind.</td></tr>
+      <tr><td class="t-pair">AUD/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.2197</td><td>RBA hawkish vs RBNZ dovish repricing risk.</td></tr>
+      <tr><td class="t-pair">NZD/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">92.85</td><td>NZD weak + JPY haven.</td></tr>
+      <tr><td class="t-pair">CAD/JPY</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">115.76</td><td>Oil bid CAD vs BoJ hike risk.</td></tr>
+      <tr><td class="t-pair">CHF/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">201.70</td><td>BoJ hiking while SNB static favors JPY.</td></tr>
+      <tr><td class="t-pair">XAU/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">$4,470</td><td>Capitulation accelerating. H4 V.STRONG 46.05.</td></tr>
+      <tr><td class="t-pair">XAG/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">$75</td><td>Tracking gold down. Industrial bid weak risk-off.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TAB 7: METALS -->
+<div class="panel" id="p-metals">
+  <h2 class="page-title">Metals</h2>
+  <div class="page-sub">Capitulation accelerating, not stalling. Re-entry not yet.</div>
+
+  <div class="card">
+    <div class="card-title">Gold &mdash; H4 Momentum Says Not Yet On Re-Entry</div>
+    <div class="card-body">Gold at $4,470, down another $70 from Sunday's $4,540 and $245 from the May 10 reference of $4,715. <strong>The H4 ADX jumped to V.STRONG 46.05 from 33.97 Sunday &mdash; the selldown is gaining structural medium-term momentum, not exhausting.</strong> 10Y at 4.60% and 30Y 5.15-5.20% keep real yields elevated, removing gold's support pillar. The structural read: CB buying and the long-term debt/tariff story remain intact reasons to own gold over a 12-month horizon, but on the current week's timeframe the rates story dominates and the H4 momentum says the bottom is not in. <strong>Re-entry remains gated on the three named events from Sunday: Iran escalation, dovish FOMC Minutes, or failed Flash PMIs reviving a real-yield retrace.</strong> None has triggered. Watch for D1 close back above $4,640 as the re-entry trigger after any of them.</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Gold Wed</div><div class="kpi-val red">$4,470</div><div class="kpi-note">-$70 from Sun, -$245 from May 10</div></div>
+    <div class="kpi"><div class="kpi-label">Gold H4 ADX</div><div class="kpi-val red">46.05</div><div class="kpi-note">V.STRONG. Capitulation accelerating.</div></div>
+    <div class="kpi"><div class="kpi-label">10Y Yield</div><div class="kpi-val red">4.60%</div><div class="kpi-note">Real yields elevated, gold pillar removed.</div></div>
+    <div class="kpi"><div class="kpi-label">30Y Yield</div><div class="kpi-val red">5.15-5.20%</div><div class="kpi-note">Multi-decade high zone.</div></div>
+    <div class="kpi"><div class="kpi-label">Silver</div><div class="kpi-val red">~$75</div><div class="kpi-note">Tracking gold. Risk-off saps industrial bid.</div></div>
+    <div class="kpi"><div class="kpi-label">Re-Entry Trigger</div><div class="kpi-val">$4,640</div><div class="kpi-note">D1 close above, after a named event</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-body"><strong>The structural view worth noting:</strong> metals react negatively to the fiscal and monetary discipline Warsh advocates, and rates are trading deeper into the hike zone (bonds falling, yields rising). New metal longs are best deferred until Warsh's policy direction is clearer. The one scenario that flips this fast is a genuine de-escalation paired with oil selling &mdash; that drops yields, weakens USD, and reopens both EUR/USD and gold longs simultaneously. Until oil sells and a deal lands together, the metals stay pressured.</div>
+  </div>
+</div>
+
+<!-- TAB 8: GEOPOLITICAL MAP -->
+<div class="panel" id="p-geo">
+  <h2 class="page-title">Geopolitical Map</h2>
+  <div class="page-sub">Iran unresolved, attack postponed, oil $103. Warsh-era FOMC tonight.</div>
+
+  <div id="geomap"></div>
+  <div class="map-legend">
+    <span class="legend-red">Active escalation / military</span>
+    <span class="legend-blue">Diplomatic / mediation</span>
+    <span class="legend-gold">CB / institutional event</span>
+    <span class="legend-green">Stable / de-escalating</span>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Iran: Attack Postponed, Deal Still Eludes</div>
+    <div class="card-body">Two and a half months in, no comprehensive US-Iran deal. Iran submitted an updated proposal the White House deemed "insufficient." Trump postponed a planned strike after requests from Saudi, Qatar, and UAE leaders &mdash; reviving peace hopes. A rumored partial oil-sanctions removal proved incorrect, reversing a brief risk-on move. <strong>Oil holds above $103 because even a deal would not normalize supply routes for months</strong> (the Aramco director's recent point). The standing dynamic: Trump has incentive to engineer de-escalation headlines ahead of midterm season and summer driving, when expensive fuel becomes a political liability. <strong>A genuine de-escalation paired with oil selling is the single combination that flips the USD-strength regime</strong> &mdash; it would drop yields, weaken the dollar, and reopen EUR/USD and gold longs. Until both appear together, the regime holds.</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title" style="font-size:14px">USD/JPY Intervention Pre-Announced</div>
+      <div class="card-body">USD/JPY above 159 as markets judge Japanese authorities not reacting aggressively enough. The April 30 intervention proved insufficient. FinMin Katayama practically pre-announced the next move at the G7 meeting, the US is supportive, and Japan promised not to sell its large US Treasury holdings to fund it. <strong>A real intervention now looks inevitable.</strong> When it fires, expect a sharp DXY-wide ripple, not just a USD/JPY move &mdash; yen strength comes from selling USD, which Japan as the largest Treasury holder transmits across the dollar complex.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">UK Political And Fiscal Stress Deepens</div>
+      <div class="card-body">Starmer fighting to hold his position; Labour preparing for succession with Andy Burnham and Wes Streeting as contenders. 30Y gilt yields above 5%, the highest in two decades, drawing explicit Liz Truss comparisons. UK unemployment rose to ~4.9-5.0%, wages slowing. <strong>Sticky core CPI at 4.2% did not rescue cable because the market's concern is fiscal credibility and political instability, not whether the BoE cuts one meeting later.</strong> Setup 5 short rides this. BoE Governor Bailey testimony today adds a headline risk.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">FOMC Minutes Tonight &mdash; The Warsh-Era Center Of Gravity</div>
+    <div class="card-body">Powell's term ended; Warsh has officially taken over. His policy views remain a partial unknown, and his first major speech is awaited. Tonight's April 29 FOMC minutes will show the level of hawkish discussion within the board and members' readiness to move rates in June. <strong>With Warsh at the helm, the overall policy direction could shift meaningfully &mdash; the minutes and continuing Fed commentary give the read on where the board's center of gravity sits.</strong> The market's current position: only 13-17bp of tightening priced by December, first full 25bp by April 2027. Hawkish minutes confirm the regime and lock Scenario A; dovish minutes risk a sharp unwind of stretched USD longs. A weak 20-year Treasury auction today is a secondary risk &mdash; poor demand pushes yields higher (USD-supportive short-term) but also signals fiscal strain (USD-negative medium-term).</div>
+  </div>
+</div>
+
+<!-- TAB 9: DAYS AHEAD -->
+<div class="panel" id="p-ahead">
+  <h2 class="page-title">Days Ahead &mdash; May 20 to 22</h2>
+  <div class="page-sub">FOMC Minutes tonight, AU jobs and PMIs Thursday, Japan CPI Friday</div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">20</div><div class="cal-day-mo">Wed</div></div>
+    <div class="cal-content">
+      <div class="cal-title">BoE Bailey Testimony (13:15) &middot; 20Y Treasury Auction &middot; FOMC Minutes (18:00) &middot; Nvidia Earnings (after close)</div>
+      <div class="cal-body"><strong>FOMC Minutes are the live Setup 1 Thesis Invalidation event and the Sunday-scenario resolver.</strong> Hawkish locks Scenario A and the short complex; dovish triggers Setup 1 exit and risks a sharp USD-long unwind. BoE Bailey testimony is a GBP headline risk for Setup 5. The 20Y auction tests bond demand &mdash; weak demand lifts yields. Nvidia earnings after the US close hit already-fragile equities (SPX 2.2% below ATH, third down day) &mdash; a disappointment is the tail that turns the drift into a de-risking event and accelerates the VIX squeeze.</div>
+    </div>
+    <div class="cal-impact">CRITICAL<br>USD GBP RISK</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">21</div><div class="cal-day-mo">Thu</div></div>
+    <div class="cal-content">
+      <div class="cal-title">AU Employment (01:30) &middot; Flash PMIs DE/UK/US (07:30 / 08:30 / 13:45) &middot; US Jobless Claims (12:30) &middot; NZ Q1 Retail Sales (22:45)</div>
+      <div class="cal-body"><strong>The heaviest single day for the complex.</strong> AU Employment is the Setup 4 Thesis Invalidation event &mdash; hot jobs plus Tuesday's hawkish RBA Minutes risks an AUD squeeze, but the runner sits on a breakeven stop so the cost is zero. NZ Q1 Retail Sales is the Setup 3 Thesis Invalidation event &mdash; a strong print revives the NZ growth narrative. Flash PMIs test the regime across three regions: a German manufacturing PMI below 50 pressures EUR and reinforces Setup 1; a hot US PMI extends the USD bid. US Jobless Claims (consensus ~225k) gauge whether the labor softening from the 211k prior is a trend.</div>
+    </div>
+    <div class="cal-impact">CRITICAL<br>AUD NZD EUR USD</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">22</div><div class="cal-day-mo">Fri</div></div>
+    <div class="cal-content">
+      <div class="cal-title">Japan National Core CPI (00:30) &middot; Canada Retail Sales (12:30) &middot; US Michigan Sentiment Final (14:00)</div>
+      <div class="cal-body">Japan National Core CPI feeds the BoJ June 17 hike pricing that underpins Setup 2 &mdash; a hot print strengthens the JPY structural case and the Option A short. Canada Retail Sales is the CAD catalyst into the USD/CAD H4 V.STRONG trend. US Michigan Sentiment Final, especially the inflation expectations component, is the last USD data point of the week &mdash; an upward revision reinforces the hawkish bias. Position squaring into the weekend with Iran tail risk and the pending MoF intervention both live. Gold W1 ADX resets on the Friday close.</div>
+    </div>
+    <div class="cal-impact">HIGH<br>JPY CAD USD</div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">The Midweek Playbook</div>
+    <div class="card-body"><strong>Into tonight:</strong> reduce risk ahead of FOMC Minutes given the asymmetry &mdash; stretched USD longs unwind harder on a dovish surprise than they extend on a hawkish confirmation. Consider trailing the EUR/USD short stop to 1.1700 and the NZD/USD short stop to 0.5950 to lock partial gains. Nvidia earnings compound the risk into the close. <strong>Thursday:</strong> AU Employment hits the Setup 4 runner (breakeven stop, zero cost) and NZ Retail Sales hits Setup 3. Watch German PMI for the EUR read. <strong>Friday:</strong> Japan CPI supports the USD/JPY structural case; position squaring into the weekend. <strong>Standing tail risk:</strong> MoF intervention can fire any time &mdash; when it does, expect a DXY-wide ripple, manage all USD-pair exposure accordingly, not just USD/JPY. A genuine Iran de-escalation paired with oil selling is the regime-flipper that reopens EUR/USD and gold longs.</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('p-' + target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    if (target === 'geo' && window._mtmap) window._mtmap.invalidateSize();
+  });
+});
+
+function initMap(){
+  const map = L.map('geomap', {scrollWheelZoom:false}).setView([28, 45], 3);
+  window._mtmap = map;
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution:'',
+    subdomains:'abcd',
+    maxZoom:10
+  }).addTo(map);
+  const markers = [
+    {lat:26.5,lng:56.4,col:'#e05c6a',title:'Strait of Hormuz',body:'Effectively closed 10 weeks. Oil $103. Deal would not normalize supply for months.'},
+    {lat:32.4,lng:53.7,col:'#e05c6a',title:'Iran (Tehran)',body:'Updated proposal deemed insufficient. Attack postponed after Gulf leaders requests.'},
+    {lat:33.9,lng:35.5,col:'#e05c6a',title:'Lebanon / Israel border',body:'Israeli strikes on Iranian enrichment infrastructure ongoing.'},
+    {lat:24.7,lng:46.7,col:'#5b9bd5',title:'Saudi / Qatar / UAE',body:'Gulf leaders requested Trump postpone the strike. Mediation channel active.'},
+    {lat:38.9,lng:-77.0,col:'#D4AF37',title:'Washington / FOMC Minutes tonight',body:'Warsh-era first read. 8-4 split expected. Only 13-17bp hikes priced by Dec. 20Y auction risk.'},
+    {lat:50.1,lng:8.7,col:'#D4AF37',title:'ECB / Frankfurt',body:'Hawkish members push June hike. Eurozone GDP weak. German PMI Thu key.'},
+    {lat:35.7,lng:139.7,col:'#D4AF37',title:'BoJ / Tokyo + MoF',body:'USD/JPY above 159. Katayama pre-announced intervention at G7. Move imminent. Japan CPI Fri.'},
+    {lat:51.5,lng:-0.1,col:'#e05c6a',title:'London &mdash; UK fiscal stress',body:'Core CPI 4.2% but no hike pricing. 30Y gilts above 5%. Starmer crisis. Bailey testimony today.'},
+    {lat:39.9,lng:116.4,col:'#3fb87a',title:'Beijing',body:'PBoC LPR held. China demand concerns weigh on AUD. Trump-Xi tariff follow-up.'}
+  ];
+  markers.forEach(m => {
+    L.circleMarker([m.lat, m.lng], {radius:8, color:m.col, fillColor:m.col, fillOpacity:0.6, weight:2})
+      .addTo(map)
+      .bindPopup('<div style="font-family:IBM Plex Sans;color:#0D1117"><strong>'+m.title+'</strong><br><span style="font-size:11px">'+m.body+'</span></div>');
+  });
+}
+window.addEventListener('load', initMap);
+</script>
+
+<div class="footer">
+  <div class="footer-name">The Macro Terminal</div>
+  <div>Midweek Brief &middot; 20 May 2026 &middot; Week 21</div>
+  <div style="margin-top:6px">Proprietary Research &mdash; Original Analysis</div>
+</div>
+
+</body>
+</html>
