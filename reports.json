@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-20",
+    "file": "2026-05-20.html",
+    "title": "Midweek Brief - May 20, 2026. UK CPI Sticky, FOMC Minutes Tonight, Risk-Off Arriving.",
+    "thesis": "UK core CPI printed 4.2% sticky but BoE hike pricing did NOT revive - markets still price cuts. UK unemployment rose to ~4.9-5.0%, wages slowing, 30Y gilts above 5%, Starmer political crisis deepening. FOMC Minutes pending tonight 18:00 GMT - first Warsh-era read, expected 8-4 split. Despite hawkish headline, market only prices 13-17bp tightening by Dec, first full 25bp by April 2027 - USD strength is safe-haven plus yields, not aggressive Fed. Risk-off arriving: SPX -0.7% third down day, 2.2% below ATH, VIX short-squeeze setup expressing. 10Y at 4.60%, 30Y 5.15-5.20%. Gold capitulation accelerating to H4 ADX V.STRONG 46.05, spot $4,470. USD/JPY above 159, MoF intervention pre-announced and imminent. Four of five Sunday setups in profit: EUR/USD near 1.15, NZD/USD to 0.5700, AUD/USD partial booked at 0.7080 runner to 0.6950, GBP/USD held alive. USD/JPY Option A active, Option B missed.",
+    "bias": {
+      "EURUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDJPY": "neutral",
+      "AUDUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCAD": "bullish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "UK core CPI 4.2% sticky",
+      "FOMC Minutes tonight binary",
+      "SPX -2.2% from ATH risk-off",
+      "Gold $4,470 H4 V.STRONG 46",
+      "USDJPY intervention imminent",
+      "AUDUSD partial TP at 0.7080"
+    ]
+  },
+  {
     "date": "2026-05-17",
     "file": "2026-05-17.html",
     "title": "Sunday Weekly Debrief - May 17, 2026. CPI/PPI/Retail Sales Confirmed Regime, Warsh Assumed.",
