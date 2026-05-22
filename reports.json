@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-22",
+    "file": "2026-05-22.html",
+    "title": "Friday Weekly Synthesis - May 22, 2026. Inflation Regime Institutionally Anchored, USD/JPY to Standby.",
+    "thesis": "The week confirmed and institutionally anchored the inflation regime: FOMC minutes showed more policymakers open to a rate hike, December hike priced 40-50%, DXY logged an eighth consecutive higher-high session. AU unemployment spiked to 4.5% (4.5-year high), US flash PMIs strong (manufacturing 55.3) while Eurozone PMIs stayed soft, Japan core CPI undershot. Beneath the strong headlines the quality of US growth is narrowing - consumption concentrated in energy and gasoline while discretionary sectors weaken, a stagflation signature with energy masking a tiring consumer. Week scorecard: EUR/USD short WIN in profit, AUD/USD short WIN partial booked at 0.7080 with free runner, NZD/USD and GBP/USD shorts scratched into consolidation, USD/JPY short the featured miss as the pair ground toward 160 against ineffective intervention. Every named-event Thesis Invalidation behaved correctly. Next week May 25-29: Memorial Day Monday US closed, US Core PCE Friday the anchor, Eurozone flash CPI, US GDP revision. Three active setups carried: EUR/USD short (SL 1.1710), USD/CAD long (rotate-in, H4 V.STRONG 40.69), AUD/USD short (re-load on bounce). USD/JPY moved to standby into BoJ June 17.",
+    "bias": {
+      "EURUSD": "bearish",
+      "GBPUSD": "neutral",
+      "USDJPY": "neutral",
+      "AUDUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCAD": "bullish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "FOMC minutes hawkish Dec 40-50%",
+      "AU unemployment spiked 4.5%",
+      "US PMI 55.3 EZ PMI soft",
+      "USDCAD H4 V.STRONG 40.69 rotate-in",
+      "USDJPY to standby into BoJ Jun 17",
+      "US Core PCE Fri the anchor"
+    ]
+  },
+  {
     "date": "2026-05-20",
     "file": "2026-05-20.html",
     "title": "Midweek Brief - May 20, 2026. UK CPI Sticky, FOMC Minutes Tonight, Risk-Off Arriving.",
