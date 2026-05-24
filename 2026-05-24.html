@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Macro Terminal — May 24, 2026 Sunday Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0D1117;--navy2:#0f1520;--navy3:#151d2e;--navy4:#1c2538;
+  --gold:#D4AF37;--gold2:#c9a84c;--gold3:rgba(212,175,55,0.15);--gold4:rgba(212,175,55,0.3);
+  --text:#dde3ed;--text2:#8a96a8;--text3:#4a5568;
+  --green:#3fb87a;--green2:rgba(63,184,122,0.12);
+  --red:#e05c6a;--red2:rgba(224,92,106,0.12);
+  --blue:#5b9bd5;--blue2:rgba(91,155,213,0.12);
+  --border:rgba(255,255,255,0.055);
+  --radius:8px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;line-height:1.65;min-height:100vh}
+
+.header{background:linear-gradient(180deg,#060a0f 0%,#0d1420 100%);border-bottom:1px solid var(--gold4);padding:24px 40px}
+.h-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.logo-mark{width:54px;height:54px;border-radius:8px;background:var(--gold3);border:1px solid var(--gold4);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);letter-spacing:.02em}
+.h-title-block{flex:1}
+.h-title{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold);letter-spacing:.02em;margin-bottom:2px}
+.h-sub{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.12em}
+.h-date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text2);text-align:right}
+.h-date-big{font-family:'Playfair Display',serif;font-size:18px;color:var(--text);font-style:italic;margin-bottom:2px}
+
+.delta-box{background:linear-gradient(135deg,rgba(212,175,55,.05) 0%,rgba(212,175,55,.02) 100%);border:1px solid var(--gold4);border-radius:8px;padding:18px 22px;margin:20px 40px}
+.delta-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);font-style:italic;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.delta-title::before{content:"\25B3";font-size:16px}
+.delta-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}
+.delta-item{font-size:12.5px;line-height:1.55;color:var(--text2);padding-left:14px;position:relative}
+.delta-item::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--gold)}
+.delta-item strong{color:var(--text)}
+
+.alerts{padding:0 40px;margin-bottom:18px}
+.alert{background:var(--navy3);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 16px;margin-bottom:8px;font-size:12.5px;line-height:1.6;color:var(--text2)}
+.alert::before{content:"\25B6";color:var(--gold);font-weight:bold;margin-right:8px}
+.alert strong{color:var(--text)}
+.alert.red{border-left-color:var(--red)}
+.alert.red::before{color:var(--red)}
+.alert.green{border-left-color:var(--green)}
+.alert.green::before{color:var(--green)}
+
+.tab-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 40px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-btn{padding:14px 16px;font-size:11px;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all .15s;font-family:'IBM Plex Sans',sans-serif}
+.tab-btn:hover{color:var(--text2)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.panel{display:none;padding:30px 40px;max-width:1280px;margin:0 auto;animation:fadeIn .25s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.page-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.page-title::before{content:"";width:3px;height:26px;background:var(--gold);border-radius:2px}
+.page-sub{font-size:12px;color:var(--text3);margin-bottom:24px;padding-left:13px}
+.sec-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:24px 0 10px}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:22px}
+.kpi{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s}
+.kpi:hover{border-color:var(--gold4)}
+.kpi-label{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:6px;font-weight:600}
+.kpi-val.gold{color:var(--gold)}
+.kpi-val.green{color:var(--green)}
+.kpi-val.red{color:var(--red)}
+.kpi-note{font-size:11px;color:var(--text2);line-height:1.5}
+
+.card{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:14px}
+.card-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold);margin-bottom:8px}
+.card-body{font-size:13px;color:var(--text2);line-height:1.7}
+.card-body strong{color:var(--text)}
+.card-body em{color:var(--text);font-style:italic}
+
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.three-col,.two-col{grid-template-columns:1fr}}
+
+.tbl{width:100%;border-collapse:collapse;font-size:12px;background:var(--navy3);border-radius:6px;overflow:hidden;margin-bottom:14px}
+.tbl th{padding:10px 12px;text-align:left;font-size:9.5px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;background:var(--navy4);border-bottom:1px solid var(--border)}
+.tbl td{padding:10px 12px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.55}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.015)}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:11px}
+.t-pair{color:var(--text);font-weight:500}
+
+.tag{display:inline-block;font-size:10px;font-weight:500;padding:2px 9px;border-radius:11px;letter-spacing:.02em}
+.tg{background:var(--gold3);color:var(--gold);border:0.5px solid var(--gold4)}
+.tgr{background:var(--red2);color:var(--red);border:0.5px solid rgba(224,92,106,.25)}
+.tgn{background:var(--green2);color:var(--green);border:0.5px solid rgba(63,184,122,.25)}
+.tgb{background:var(--blue2);color:var(--blue);border:0.5px solid rgba(91,155,213,.25)}
+.tgx{background:rgba(255,255,255,.04);color:var(--text3);border:0.5px solid var(--border)}
+
+.sig-card{background:var(--navy3);border:1px solid var(--gold4);border-radius:10px;padding:20px 22px;margin-bottom:16px;position:relative}
+.sig-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap;gap:8px}
+.sig-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold)}
+.sig-status{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);background:var(--gold3);border:1px solid var(--gold4);padding:4px 10px;border-radius:14px;letter-spacing:.05em}
+.sig-status.red{color:var(--red);background:var(--red2);border-color:rgba(224,92,106,.3)}
+.sig-status.green{color:var(--green);background:var(--green2);border-color:rgba(63,184,122,.3)}
+.sig-body{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:14px}
+.sig-body strong{color:var(--text)}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sig-cell{background:var(--navy4);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px}
+.sig-cell-label{font-size:9.5px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.sig-cell-val{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text);line-height:1.5}
+@media(max-width:700px){.sig-grid{grid-template-columns:1fr 1fr}}
+
+.opt-divider{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin:14px 0 8px;padding-top:10px;border-top:1px dashed var(--gold4)}
+
+.tl{position:relative;padding-left:28px;margin-bottom:8px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:0;width:1px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:20px}
+.tl-item::before{content:"";position:absolute;left:-25px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--navy4);border:2px solid var(--text3)}
+.tl-item.gold::before{border-color:var(--gold);background:var(--gold3)}
+.tl-item.red::before{border-color:var(--red);background:var(--red2)}
+.tl-day{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:3px;text-transform:uppercase;letter-spacing:.1em}
+.tl-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
+.tl-body{font-size:12px;color:var(--text2);line-height:1.65}
+.tl-data{margin-top:6px}
+.tl-data span{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--gold);margin-right:14px;margin-bottom:2px}
+
+.cal-card{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:10px;display:grid;grid-template-columns:80px 1fr auto;gap:16px;align-items:center}
+.cal-day{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);text-align:center}
+.cal-day-num{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);line-height:1}
+.cal-day-mo{text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.cal-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.cal-body{font-size:12px;color:var(--text2);line-height:1.6}
+.cal-impact{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.05em;text-align:right;color:var(--gold)}
+
+.scenario{background:var(--navy3);border:1px solid var(--gold4);border-radius:10px;padding:20px 22px;margin-bottom:16px}
+.scenario.green{border-color:rgba(63,184,122,.4)}
+.scenario.red{border-color:rgba(224,92,106,.4)}
+.scenario-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+.scenario-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold)}
+.scenario-prob{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:4px 10px;border-radius:14px;letter-spacing:.05em;background:var(--gold3);color:var(--gold);border:1px solid var(--gold4)}
+.scenario-prob.green{background:var(--green2);color:var(--green);border-color:rgba(63,184,122,.3)}
+.scenario-prob.red{background:var(--red2);color:var(--red);border-color:rgba(224,92,106,.3)}
+.scenario-sec-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:14px 0 6px}
+.scenario-body{font-size:12.5px;color:var(--text2);line-height:1.7}
+.scenario-body strong{color:var(--text)}
+.pair-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pair-chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:3px 9px;border-radius:5px;background:var(--navy4);border:0.5px solid var(--border);color:var(--text)}
+.pair-chip.short{border-color:rgba(224,92,106,.35);color:var(--red)}
+.pair-chip.long{border-color:rgba(63,184,122,.35);color:var(--green)}
+
+.chart-wrap{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:14px}
+.chart-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px}
+.chart-sub{font-size:11px;color:var(--text3);margin-bottom:14px}
+.chart-canvas-box{position:relative;height:280px;max-height:280px}
+canvas{max-height:280px !important}
+
+#geomap{height:380px;border-radius:8px;border:0.5px solid var(--border);background:var(--navy3)}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:11px;color:var(--text2)}
+.map-legend span::before{content:"\25A0";margin-right:5px}
+.legend-red::before{color:var(--red)}
+.legend-blue::before{color:var(--blue)}
+.legend-green::before{color:var(--green)}
+.legend-gold::before{color:var(--gold)}
+
+.outcome-yes{color:var(--green);font-weight:600}
+.outcome-faded{color:var(--text3);font-weight:600}
+.outcome-no{color:var(--red);font-weight:600}
+
+.footer{padding:30px 40px 40px;text-align:center;font-size:10.5px;color:var(--text3);border-top:0.5px solid var(--border);margin-top:40px}
+.footer-name{font-family:'Playfair Display',serif;color:var(--gold);font-size:13px;letter-spacing:.04em;margin-bottom:4px}
+
+@media(max-width:900px){
+  .header,.alerts,.delta-box,.panel,.footer,.tab-nav{padding-left:20px;padding-right:20px}
+  .delta-list{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="h-top">
+    <div class="logo-mark">MT</div>
+    <div class="h-title-block">
+      <div class="h-title">The Macro Terminal</div>
+      <div class="h-sub">FX &middot; Macro &middot; Geopolitical Intelligence</div>
+    </div>
+    <div class="h-date">
+      <div class="h-date-big">Sunday Brief</div>
+      <div>24 May 2026 &middot; Week 21 Close</div>
+    </div>
+  </div>
+</div>
+
+<div class="delta-box">
+  <div class="delta-title">Delta &mdash; What The Weekend COT And Iran Headlines Changed</div>
+  <ul class="delta-list">
+    <li class="delta-item"><strong>JPY shorts hit a new cycle extreme -93,905</strong> (was -75,102), shorts added +25,251. The squeeze spring is wound tighter than at any point this cycle &mdash; and USD/JPY ADX is now WEAK on all four timeframes, maximally coiled into BoJ June 17.</li>
+    <li class="delta-item"><strong>CAD shorts nearly doubled to -31,231</strong> (was -16,242). Positioning confirms the USD/CAD long, and USD/CAD H4 ADX strengthened to V.STRONG 44.9 &mdash; the strongest, cleanest trend on the entire board.</li>
+    <li class="delta-item"><strong>Iran agreement-draft progress, oil dropped to ~$92:</strong> Arabic sources report both sides reacted positively to a draft via Pakistani mediation. Simultaneously CENTCOM flagged a "critical stage" and Iran declared highest readiness. A firm deal is the USD-regime flipper &mdash; the dominant two-sided risk alongside Friday's PCE.</li>
+    <li class="delta-item"><strong>USD Index futures flipped net short -479</strong> (was +3,187) even as the dollar rallied. The USD bid is not a crowded long &mdash; it has room from a positioning standpoint, but specs are quietly fading it.</li>
+  </ul>
+</div>
+
+<div class="alerts">
+  <div class="alert"><strong>POSITIONING AND PRICE STRUCTURE ARE POINTING THE SAME WAY:</strong> This week the COT signals and the Top Setups converge rather than diverge &mdash; CAD short-build confirms the USD/CAD long, the AUD record long confirms the AUD short, the JPY extreme confirms the squeeze-standby. When positioning and technicals align, conviction rises. The one exception is GBP, where a fresh short-rebuild in COT meets a fully ranging price (ADX WEAK everywhere) &mdash; a positioning signal without momentum, carried at lower conviction.</div>
+  <div class="alert red"><strong>THE IRAN SWING FACTOR IS LIVE AND TWO-SIDED:</strong> A confirmed US-Iran de-escalation plus sustained oil selling would unwind the safe-haven dollar bid, lift EUR and AUD on risk-on, and threaten the EUR/USD and AUD/USD shorts. The same move helps USD/CAD long via lower oil pressuring CAD. The skeptical read is that the core obstacles (uranium stockpile, sanctions, Hormuz control) remain unresolved. Treat it as the primary risk to the short complex this week, not a base case.</div>
+  <div class="alert"><strong>WEEK AHEAD:</strong> Monday May 25 is Memorial Day, US markets closed. The anchor is US Core PCE Friday May 29, with Eurozone flash CPI the same day and US Q1 GDP revision midweek. Reduce size into the PCE-plus-month-end combination. Full COT signal set with your five fields is in the COT Positioning tab.</div>
+</div>
+
+<div class="tab-nav" id="tabnav">
+  <button class="tab-btn active" data-tab="snapshot">Snapshot</button>
+  <button class="tab-btn" data-tab="tracker">Week Tracker</button>
+  <button class="tab-btn" data-tab="performance">Performance Scorecard</button>
+  <button class="tab-btn" data-tab="cot">COT Positioning</button>
+  <button class="tab-btn" data-tab="adx">MT Momentum Gauge</button>
+  <button class="tab-btn" data-tab="setups">FX Top Setups</button>
+  <button class="tab-btn" data-tab="bias">FX Outlook</button>
+  <button class="tab-btn" data-tab="metals">Metals</button>
+  <button class="tab-btn" data-tab="geo">Geopolitical Map</button>
+  <button class="tab-btn" data-tab="ahead">Week Ahead</button>
+</div>
+
+<!-- TAB 1: SNAPSHOT -->
+<div class="panel active" id="p-snapshot">
+  <h2 class="page-title">Snapshot</h2>
+  <div class="page-sub">Sunday May 24 levels &middot; Positioning extremes + Iran swing factor into PCE week</div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">DXY</div><div class="kpi-val green">~99.3</div><div class="kpi-note">Holding gains. Spec positioning flipped net short, not a crowded long.</div></div>
+    <div class="kpi"><div class="kpi-label">EUR/USD</div><div class="kpi-val red">~1.1600</div><div class="kpi-note">Failed at 1.1620. EZ PMI contraction. COT longs trimmed to +33.5K.</div></div>
+    <div class="kpi"><div class="kpi-label">USD/JPY</div><div class="kpi-val">~159.15</div><div class="kpi-note">Dip bought toward 159.24. COT short extreme -93.9K. ADX WEAK all TFs.</div></div>
+    <div class="kpi"><div class="kpi-label">USD/CAD</div><div class="kpi-val green">~1.3771</div><div class="kpi-note">"Strong Buy." H4 ADX V.STRONG 44.9. COT CAD short doubled.</div></div>
+    <div class="kpi"><div class="kpi-label">GBP/USD</div><div class="kpi-val red">~1.3440</div><div class="kpi-note">Rejected 1.3463. COT short rebuilt -64.3K. ADX WEAK, ranging.</div></div>
+    <div class="kpi"><div class="kpi-label">AUD/USD</div><div class="kpi-val red">~0.7140</div><div class="kpi-note">Broke 0.7153, near lows. COT record long +85.6K holds. Unwind risk.</div></div>
+    <div class="kpi"><div class="kpi-label">Gold / Silver</div><div class="kpi-val">$4,515 / $76</div><div class="kpi-note">Consolidating. COT longs trimmed to +159.8K. Below $4,640 re-entry.</div></div>
+    <div class="kpi"><div class="kpi-label">WTI / SPX</div><div class="kpi-val red">~$92 / ~7,050-7,100</div><div class="kpi-note">Oil dropped on Iran draft. Equities sold off ~4% on the week, risk-off.</div></div>
+  </div>
+
+  <h3 class="sec-label">Three Things That Matter Going Into PCE Week</h3>
+
+  <div class="card">
+    <div class="card-title">The COT Extremes Are The Story</div>
+    <div class="card-body">Three positioning extremes define the week. <strong>JPY net short hit a fresh cycle extreme at -93,905</strong> &mdash; specs piled in another 25,251 shorts as the pair ground toward 160, even as ADX went WEAK on every timeframe. That is a spring under maximum tension into BoJ June 17: if the BoJ delivers anything hawkish, the squeeze is violent. <strong>CAD net short nearly doubled to -31,231</strong>, confirming the USD/CAD long that already had the board's strongest momentum (H4 V.STRONG 44.9). <strong>AUD held its record long at +85,644</strong> &mdash; the crowded position that keeps the unwind risk live. The cleanest read of the tape: positioning and price structure are aligned, which is why the COT signals and Top Setups reinforce each other this week rather than conflict.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Iran Is The Swing Factor, And It Is Genuinely Two-Sided</div>
+    <div class="card-body">Over the weekend, Arabic sources reported the US and Iran reacted positively to an agreement draft, with new Pakistani mediation narrowing differences and Rubio sounding cautiously optimistic. Oil dropped to roughly $92 from $98. <strong>But the same weekend brought a CENTCOM "critical stage" blockade statement and an Iranian "highest readiness" declaration</strong> &mdash; the familiar hope-and-threat whipsaw. The honest assessment is skeptical: the core obstacles (handover of enriched uranium, sanctions removal, and control of Hormuz, where Iran is even weighing a transit toll with Oman that Trump opposes) are exactly the issues that have stalled every prior round. <strong>If a firm deal lands and oil keeps falling, it is the regime-flipper</strong> &mdash; the safe-haven dollar bid unwinds, EUR and AUD rally on risk-on, and the short complex is threatened. The one setup it helps is USD/CAD long, since lower oil pressures the loonie. Weight it as the primary risk to the shorts, not as the base case.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">PCE Friday Tests Whether The Regime Can Sustain Itself</div>
+    <div class="card-body">Monday is Memorial Day, US closed, so the data compresses into a short week culminating in <strong>US Core PCE on Friday May 29</strong> &mdash; the Fed's preferred inflation gauge and the resolver of the inflation-regime question that the hawkish FOMC minutes set up. The backdrop still holds: US PMIs show the economy not yet significantly hit by the energy crisis, which strengthens the dollar's safe-haven status, while the growth underneath narrows toward energy-driven consumption. <strong>A hot core PCE confirms the regime and supports every USD setup; a soft print, especially with weak consumer components, triggers the EUR/USD Thesis Invalidation, threatens the dollar longs, and is the most likely gold re-entry catalyst above $4,640.</strong> Eurozone flash CPI the same day is the other side of the EUR/USD binary. Reduce discretionary size into the PCE-plus-month-end close.</div>
+  </div>
+</div>
+
+<!-- TAB 2: WEEK TRACKER -->
+<div class="panel" id="p-tracker">
+  <h2 class="page-title">Week Tracker &mdash; May 18 to 23</h2>
+  <div class="page-sub">From the binary stack to institutional confirmation to weekend Iran progress</div>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-day">Mon-Tue &mdash; 18-19 May</div>
+      <div class="tl-title">China Data, Japan GDP, RBA Minutes, UK Labor Softer.</div>
+      <div class="tl-body">China data mixed, Japan Q1 GDP fed BoJ pricing, RBA Minutes a hawkish hold. UK unemployment ticked up, wages slowing. Trump postponed an Iran strike after Gulf-leader requests. USD held firm into the midweek binary stack.</div>
+      <div class="tl-data"><span>UK labor softer</span><span>Iran strike postponed</span></div>
+    </div>
+    <div class="tl-item gold">
+      <div class="tl-day">Wednesday &mdash; 20 May</div>
+      <div class="tl-title">FOMC Minutes HAWKISH. UK CPI Weaker. AUD Partial Booked.</div>
+      <div class="tl-body">FOMC minutes showed more policymakers open to a rate hike &mdash; the institutional anchor. December hike priced 40-50%. UK CPI confirmed weaker (one-off adjustments), hike odds reduced. AUD/USD short partial booked at conservative target 0.7080.</div>
+      <div class="tl-data"><span>FOMC hawkish</span><span>UK CPI weaker</span><span>AUD partial 0.7080</span></div>
+    </div>
+    <div class="tl-item gold">
+      <div class="tl-day">Thursday &mdash; 21 May</div>
+      <div class="tl-title">AU Unemployment 4.5% Spike. US PMIs Strong, EZ Soft.</div>
+      <div class="tl-body">Australia April unemployment hit a 4.5-year high at 4.5% (poll 4.3%), lessening RBA hike risk. US flash PMIs strong (manufacturing 55.3), jobless claims firm 209k. Eurozone and UK composite PMIs in contraction. Weak NZ dairy auction. The USD divergence got cleaner.</div>
+      <div class="tl-data"><span>AU unemp 4.5%</span><span>US PMI 55.3</span><span>EZ/UK PMI contraction</span></div>
+    </div>
+    <div class="tl-item gold">
+      <div class="tl-day">Friday &mdash; 22 May</div>
+      <div class="tl-title">Japan Core CPI Undershoots. Warsh Sworn In. UK Retail Drop.</div>
+      <div class="tl-body">Japan core CPI fell more than expected, 1.8% to 1.4% YoY, tempering BoJ hike odds &mdash; USD/JPY toward 159.24. Warsh sworn in at the White House with Trump present, inflation-fighting mandate emphasized. UK April retail sales dropped more than expected, pressuring GBP. DXY held its gains.</div>
+      <div class="tl-data"><span>Japan core 1.4%</span><span>Warsh sworn in</span><span>UK retail weak</span></div>
+    </div>
+    <div class="tl-item red">
+      <div class="tl-day">Saturday &mdash; 23 May</div>
+      <div class="tl-title">CFTC COT Confirms Extremes. Iran Agreement Draft Progress.</div>
+      <div class="tl-body">CFTC week ending May 19: JPY shorts deepened to -93,905 cycle extreme, CAD shorts nearly doubled to -31,231, GBP shorts rebuilt to -64,307, AUD record long held +85,644, USD Index flipped net short. Iran agreement-draft progress via Pakistani mediation, both sides reacting positively, oil to ~$92 &mdash; against a CENTCOM "critical stage" statement and Iranian "highest readiness."</div>
+      <div class="tl-data"><span>JPY -93.9K extreme</span><span>CAD short doubled</span><span>Iran draft progress</span><span>oil ~$92</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">The Week's Underlying Story</div>
+    <div class="card-body">Week 21 took the inflation regime that Week 20 confirmed and gave it an institutional anchor: hawkish FOMC minutes, a sworn-in Warsh with an explicit inflation-fighting mandate, and a market pricing hikes rather than cuts. Every data print resolved in the same direction &mdash; strong US activity, soft European activity, a tempered BoJ. <strong>The positioning caught up violently:</strong> specs piled into JPY and CAD shorts and held the AUD long, leaving the COT picture at multiple extremes by Saturday's release. Then the weekend introduced the one genuine counter-force &mdash; Iran agreement-draft progress and a sharp oil drop &mdash; that, if it firms, unwinds the entire safe-haven dollar premium the regime rests on. <strong>The week confirmed the regime; the weekend planted the seed of the scenario that could break it; PCE Friday is the referee.</strong></div>
+  </div>
+</div>
+
+<!-- TAB 3: PERFORMANCE SCORECARD -->
+<div class="panel" id="p-performance">
+  <h2 class="page-title">Performance Scorecard</h2>
+  <div class="page-sub">Week 21 setups &middot; Honest end-of-week review</div>
+
+  <div class="card">
+    <div class="card-title">Week 21 Outcome Summary</div>
+    <div class="card-body">Two clean wins, two scratches, and one featured miss that has been correctly reclassified. <strong>EUR/USD short and the AUD/USD partial were the wins;</strong> the named-event Thesis Invalidation discipline behaved perfectly all week, with the AU jobs and UK CPI events resolving in the theses' favor rather than false-triggering. The honest miss was the USD/JPY short, which fought the trend &mdash; now moved to a squeeze-standby into BoJ June 17 rather than a featured directional trade.</div>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>Setup</th><th>Direction</th><th>Entry Ref</th><th>Friday Close</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">EUR/USD</td><td>Short</td><td class="mono">~1.165</td><td class="mono">~1.1620</td><td><span class="outcome-yes">WIN, in profit</span></td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td>Short</td><td class="mono">~0.7180</td><td class="mono">~0.7153</td><td><span class="outcome-yes">WIN, partial booked 0.7080 + free runner</span></td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td>Short</td><td class="mono">~0.586</td><td class="mono">~0.5880</td><td><span class="outcome-faded">SCRATCH, gave back midweek gain</span></td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td>Short</td><td class="mono">~1.335</td><td class="mono">~1.3434</td><td><span class="outcome-faded">SCRATCH, held correctly, consolidated</span></td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td>Option A short</td><td class="mono">158.50-159.50</td><td class="mono">~159.14</td><td><span class="outcome-no">MISS, reclassified to standby</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="two-col">
+    <div class="card" style="border-color:rgba(63,184,122,.25);background:var(--green2)">
+      <div class="card-title" style="color:var(--green)">What Worked</div>
+      <div class="card-body"><strong>EUR/USD short rode the clean fundamental divergence</strong> &mdash; soft Eurozone PMIs against strong US PMIs and a hawkish FOMC. AUD/USD hit its conservative target, the partial was booked, and the runner sits on a breakeven stop as a free option. <strong>The named-event Thesis Invalidation discipline did exactly its job:</strong> AU unemployment spiking to 4.5% was the Setup 4 test and resolved soft (dovish RBA), so the short thesis held; UK CPI was the Setup 5 test and came weaker with hike odds reduced, so the reworded mechanism-only Thesis Invalidation correctly stayed valid. Nothing exited on noise.</div>
+    </div>
+    <div class="card" style="border-color:rgba(224,92,106,.25);background:var(--red2)">
+      <div class="card-title" style="color:var(--red)">What Didn't &mdash; And The Fix</div>
+      <div class="card-body"><strong>The USD/JPY short was the honest miss,</strong> fighting the pair as it ground from 159 toward 160 while soft Japan CPI undermined the BoJ-hike thesis and intervention proved limited and temporary. The structural short case is real &mdash; and the COT just confirmed it is more extreme than ever at -93,905 &mdash; but it has been the wrong side for over two weeks because the yield differential grinds the pair higher regardless. <strong>The fix, applied this week: stop featuring a direction and move it to a squeeze-standby that only triggers on a BoJ June 17 hawkish catalyst.</strong> The COT signal codifies this &mdash; entry only on an H4 close below 157.00 after the BoJ acts, not before. The positioning extreme means the eventual squeeze, when it comes, should be sharp.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Framework Note Carried Forward</div>
+    <div class="card-body">The NZD and GBP scratches reinforce the lesson that once COT positioning has unwound an extreme, the residual move needs a fresh catalyst, and absent one the pair ranges. This week the rotation is explicit: <strong>USD/CAD becomes the featured continuation</strong> because it is the rare case where a fresh positioning build (CAD shorts doubling) coincides with the board's strongest momentum (H4 V.STRONG 44.9). GBP, by contrast, shows a fresh COT short-rebuild against a fully ranging price &mdash; carried as a lower-conviction COT signal rather than a featured setup precisely because the momentum is absent.</div>
+  </div>
+</div>
+
+<!-- TAB 4: COT POSITIONING -->
+<div class="panel" id="p-cot">
+  <h2 class="page-title">COT Positioning</h2>
+  <div class="page-sub">CFTC Legacy Futures Only &middot; Week ending Tue May 19, released Sat May 23</div>
+
+  <div class="card">
+    <div class="card-title">The Week's Positioning Extremes</div>
+    <div class="card-body"><strong>JPY net short hit a fresh cycle extreme at -93,905</strong> (was -75,102), with shorts added +25,251 as the pair ground toward 160. The squeeze spring is wound tighter than at any point this cycle. <strong>CAD net short nearly doubled to -31,231</strong> (was -16,242), shorts +10,621 &mdash; positioning aligning with the board's strongest momentum trend. <strong>GBP net short rebuilt to -64,307</strong> (was -43,059), fully reversing the prior cover. <strong>AUD held its record long at +85,644.</strong> <strong>The USD Index flipped to net short -479</strong> (was +3,187) even as the dollar rallied &mdash; the rally is not a crowded long, so it has room from positioning, but specs are quietly fading it. <strong>Gold longs trimmed to +159,833</strong> (was +171,600) as the capitulation normalized exposure.</div>
+  </div>
+
+  <h3 class="sec-label">FX Net Positions &mdash; Week Ending May 19</h3>
+  <div class="three-col">
+    <div class="card"><div class="card-title" style="font-size:14px">JPY <span class="tag tgr" style="margin-left:6px">CYCLE EXTREME SHORT</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-93,905</strong><br>Prior: -75,102 &middot; Net -18,803<br>Shorts +25,251. Deepest of the cycle. Squeeze spring loaded into BoJ June 17.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">CAD <span class="tag tgr" style="margin-left:6px">SHORT DOUBLED</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-31,231</strong><br>Prior: -16,242 &middot; Net -14,989<br>Shorts +10,621. Confirms USD/CAD long with H4 V.STRONG 44.9.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">GBP <span class="tag tgr" style="margin-left:6px">SHORT REBUILT</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-64,307</strong><br>Prior: -43,059 &middot; Net -21,248<br>Shorts +9,718, longs -11,530. Prior cover fully reversed. But price ranging.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">AUD <span class="tag tgr" style="margin-left:6px">RECORD LONG HOLDS</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">+85,644</strong><br>Prior: +84,990 &middot; Net +654<br>Crowded long intact. Unwind risk persists into the short.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">EUR <span class="tag tgr" style="margin-left:6px">LONG TRIMMING</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">+33,513</strong><br>Prior: +40,200 &middot; Net -6,687<br>Shorts +15,936. Specs adding shorts into the falling pair. Confirms EUR/USD short.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">USD INDEX <span class="tag tgb" style="margin-left:6px">FLIPPED NET SHORT</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-479</strong><br>Prior: +3,187 &middot; Net -3,666<br>Specs fading the rally. Not a crowded long &mdash; USD has positioning room.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">NZD <span class="tag tgr" style="margin-left:6px">DEEPER SHORT</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-40,613</strong><br>Prior: -39,150 &middot; Net -1,463<br>Weak dairy auction. Underperforming G10. Ranging on the chart.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">CHF <span class="tag tgr" style="margin-left:6px">STABLE EXTREME</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">-36,937</strong><br>Prior: -36,197 &middot; Net -740<br>Still deep short. SNB anti-appreciation bias. Lost haven contest to USD.</div></div>
+    <div class="card"><div class="card-title" style="font-size:14px">GOLD <span class="tag tg" style="margin-left:6px">LONG TRIMMING</span></div><div class="card-body"><strong style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:18px">+159,833</strong><br>Prior: +171,600 &middot; Net -11,789<br>Specs reducing into capitulation. Forced-unwind risk normalizing.</div></div>
+  </div>
+
+  <h3 class="sec-label">CFTC Net Position Chart &mdash; Week Ending May 19</h3>
+  <div class="chart-wrap">
+    <div class="chart-title">Non-Commercial Net Positions</div>
+    <div class="chart-sub">Released May 23 &mdash; week ending May 19, 2026</div>
+    <div class="chart-canvas-box"><canvas id="cot-net"></canvas></div>
+  </div>
+
+  <h3 class="sec-label">Week-On-Week Position Change</h3>
+  <div class="chart-wrap">
+    <div class="chart-title">Net Position Change May 12 to May 19</div>
+    <div class="chart-sub">Negative = more bearish for currency &middot; Positive = more bullish</div>
+    <div class="chart-canvas-box"><canvas id="cot-change"></canvas></div>
+  </div>
+
+  <h3 class="sec-label">COT Signals &mdash; Positioning-Derived Trades</h3>
+  <div class="card">
+    <div class="card-body">Five signals derived from this week's positioning extremes. Each carries an exact bar-close entry trigger, entry zone, target, stop, and a named-event thesis invalidation. Signals 1, 2, 4, and 5 align with the Top Setups; Signal 3 (GBP) is positioning-only, carried at lower conviction because price is ranging.</div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">COT Signal 1 &mdash; USD/CAD LONG</div><span class="sig-status">CAD SHORT DOUBLED + H4 V.STRONG 44.9</span></div>
+    <div class="sig-body">CAD net short nearly doubled to -31,231 as USD/CAD posted the board's strongest momentum. Positioning and price structure both point higher.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close above 1.3780 confirming continuation</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">1.3720 &ndash; 1.3770</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.3950 &middot; Aggressive: 1.4135 and above</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.3680</div></div>
+      <div class="sig-cell" style="grid-column:span 2"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoC turns explicitly hawkish, OR a confirmed US-Iran de-escalation triggers a broad risk-on dollar selloff lifting CAD</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">COT Signal 2 &mdash; AUD/USD SHORT</div><span class="sig-status">RECORD LONG +85,644 UNWIND</span></div>
+    <div class="sig-body">AUD held its record net long. The crowded position keeps the unwind risk live, reinforced by the AU unemployment spike to 4.5%.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 0.7120</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">0.7150 &ndash; 0.7200 (sell bounces)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 0.6950 &middot; Aggressive: 0.6800</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">0.7270</div></div>
+      <div class="sig-cell" style="grid-column:span 2"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">China announces major stimulus triggering a commodity-currency risk-on reversal, OR RBA explicitly signals a hike</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">COT Signal 3 &mdash; GBP/USD SHORT</div><span class="sig-status red">SHORT REBUILT -64,307, BUT RANGING</span></div>
+    <div class="sig-body">GBP net short rebuilt hard, fully reversing the prior cover. Positioning is bearish, but price is fully ranging (ADX WEAK on all timeframes) &mdash; carried at lower conviction, needs a fresh catalyst.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 1.3400 breaking the range</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">1.3430 &ndash; 1.3470 (sell rallies)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.3200 &middot; Aggressive: 1.3000</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.3520</div></div>
+      <div class="sig-cell" style="grid-column:span 2"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">UK political crisis resolves cleanly with a non-left-leaning successor, OR BoE explicitly signals a hike</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">COT Signal 4 &mdash; EUR/USD SHORT</div><span class="sig-status">LONG LIQUIDATION, SHORTS BUILDING</span></div>
+    <div class="sig-body">EUR longs trimmed to +33,513 with shorts +15,936 &mdash; specs adding shorts into the falling pair against Eurozone PMI contraction.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 1.1580</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">1.1620 &ndash; 1.1660 (sell rallies)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.1450 &middot; Aggressive: 1.1400</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.1710</div></div>
+      <div class="sig-cell" style="grid-column:span 2"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">Eurozone flash CPI surprises sharply hot reviving aggressive ECB hike pricing, OR US PCE undershoots materially</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card" style="border-color:rgba(91,155,213,.4)">
+    <div class="sig-head"><div class="sig-title">COT Signal 5 &mdash; USD/JPY SHORT (SQUEEZE, CATALYST-GATED)</div><span class="sig-status" style="color:var(--blue);background:var(--blue2);border-color:rgba(91,155,213,.3)">EXTREME -93,905, WAIT FOR BoJ</span></div>
+    <div class="sig-body">The most extreme short of the cycle. This is a squeeze trade that triggers only on a BoJ June 17 hawkish catalyst &mdash; not before. The positioning means the eventual squeeze should be sharp.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 157.00 only after a BoJ hawkish catalyst</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">157.00 &ndash; 158.00 on confirmed squeeze</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 155.50 &middot; Aggressive: 152.50</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">160.50</div></div>
+      <div class="sig-cell" style="grid-column:span 2"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoJ June 17 holds fully dovish with no hawkish guidance, leaving the carry trade intact</div></div>
+    </div>
+  </div>
+
+  <h3 class="sec-label">Equity Index Positioning &mdash; Context</h3>
+  <div class="card">
+    <div class="card-body">No fresh equity-index COT in this currency-and-metals Legacy release, but the established setup is now expressing in price: specs were heavily net short the S&P E-Mini with VIX shorts doubled, and equities sold off roughly 4% on the week into the ~7,050-7,100 area. <strong>The risk-off that the positioning implied has begun.</strong> If a firm Iran de-escalation lands, the equity-short squeeze and the VIX unwind could reverse it sharply; if PCE runs hot and yields press higher, the de-risking extends. Either way, the equity tape is now the cross-asset confirmation of the rates-and-energy regime, not a separate story.</div>
+  </div>
+</div>
+
+<!-- TAB 5: MT MOMENTUM GAUGE -->
+<div class="panel" id="p-adx">
+  <h2 class="page-title">MT Momentum Gauge</h2>
+  <div class="page-sub">ADX readings Sunday May 24 &middot; Below 20 WEAK &middot; 20-25 NEUTRAL &middot; 25-40 STRONG &middot; Above 40 V.STRONG</div>
+
+  <table class="tbl">
+    <thead><tr><th>Pair</th><th>H1</th><th>H4</th><th>D1</th><th>W1</th><th>Read</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">EUR/USD</td><td><span class="tag tgr">WEAK 11.58</span></td><td><span class="tag tg">STRONG 28.64</span></td><td><span class="tag tgr">WEAK 19.52</span></td><td><span class="tag tgr">WEAK 12.06</span></td><td>H4 still STRONG but cooling. Directional structure intact into the holiday week.</td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td><span class="tag tgr">WEAK 16.36</span></td><td><span class="tag tgr">WEAK 15.41</span></td><td><span class="tag tgr">WEAK 15.13</span></td><td><span class="tag tgr">WEAK 11.94</span></td><td>WEAK on every timeframe. Fully ranging &mdash; COT bearish but no momentum.</td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td><span class="tag tgr">WEAK 10.76</span></td><td><span class="tag tgr">WEAK 12.72</span></td><td><span class="tag tgr">WEAK 19.79</span></td><td><span class="tag tgr">WEAK 19.48</span></td><td><strong>WEAK on all four timeframes &mdash; maximally coiled.</strong> With COT -93.9K, a spring under tension into BoJ.</td></tr>
+      <tr><td class="t-pair">USD/CHF</td><td><span class="tag tgr">WEAK 19.24</span></td><td><span class="tag tgx">NEUTRAL 21.70</span></td><td><span class="tag tgr">WEAK 17.04</span></td><td><span class="tag tgx">NEUTRAL 22.98</span></td><td>Quiet. USD won the haven contest but momentum rested into the weekend.</td></tr>
+      <tr><td class="t-pair">USD/CAD</td><td><span class="tag tg">STRONG 27.76</span></td><td><span class="tag tg" style="background:rgba(212,175,55,.3);color:#fff">V.STRONG 44.90</span></td><td><span class="tag tgr">WEAK 18.04</span></td><td><span class="tag tgx">NEUTRAL 22.14</span></td><td><strong>H4 V.STRONG 44.9, strengthening &mdash; the strongest, cleanest trend on the board.</strong> Featured continuation.</td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td><span class="tag tgr">WEAK 11.94</span></td><td><span class="tag tgr">WEAK 19.40</span></td><td><span class="tag tgr">WEAK 16.60</span></td><td><span class="tag tg">STRONG 35.53</span></td><td>Intraday momentum gone, but W1 STRONG 35.53 holds the structural short. Sell bounces.</td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td><span class="tag tgr">WEAK 12.54</span></td><td><span class="tag tgr">WEAK 16.88</span></td><td><span class="tag tgr">WEAK 16.49</span></td><td><span class="tag tgr">WEAK 13.54</span></td><td>Fully ranging. Weak dairy supports the short but no momentum to ride.</td></tr>
+      <tr><td class="t-pair">XAU/USD</td><td><span class="tag tgr">WEAK 12.15</span></td><td><span class="tag tg">STRONG 26.72</span></td><td><span class="tag tgx">NEUTRAL 20.76</span></td><td><span class="tag tg">STRONG 36.11</span></td><td>Consolidating $4,515. H4 cooled but holds STRONG. Below $4,640 re-entry.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="three-col">
+    <div class="card">
+      <div class="card-title" style="font-size:14px">USD/CAD The Clean Standout</div>
+      <div class="card-body">Into a thin holiday weekend with almost everything cooling to WEAK, USD/CAD H4 ADX strengthened to V.STRONG 44.9. <strong>It is the one pair where fresh positioning (CAD shorts doubling) and momentum point the same way</strong> &mdash; the highest-conviction trade on the board, and the featured continuation for the week.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">USD/JPY Maximally Coiled</div>
+      <div class="card-body">WEAK on all four timeframes is rare &mdash; it means the pair is compressed to the point of stored energy. <strong>Paired with the -93,905 COT short extreme, this is a spring under maximum tension.</strong> The release direction is binary on BoJ June 17. The squeeze signal is built to catch it, not to anticipate it.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">High-Beta Momentum Rests, Structure Holds</div>
+      <div class="card-body">AUD and NZD H4 cooled to WEAK on the risk-sentiment bounce, but AUD W1 STRONG 35.53 holds the bigger picture. <strong>The shorts are structurally intact but tactically resting</strong> &mdash; the approach is to sell bounces into the COT-signal zones, not to chase a breakdown that has lost intraday momentum.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 6: FX TOP SETUPS -->
+<div class="panel" id="p-setups">
+  <h2 class="page-title">FX Top Setups &mdash; Week May 25-29</h2>
+  <div class="page-sub">Four managed trades &middot; Targets aligned to the confirmed COT signal levels</div>
+
+  <div class="card">
+    <div class="card-body">The four managed setups for the week. They align with COT Signals 1, 2, 4, and 5 &mdash; positioning and price structure converge this week, which raises conviction. GBP/USD short is carried as a COT signal only, not a featured setup, because price is ranging. Memorial Day Monday means thin liquidity; the week resolves on Friday's PCE.</div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">Setup 1 &mdash; USD/CAD LONG (FEATURED)</div><span class="sig-status">STRONGEST CONVICTION, POSITIONING + MOMENTUM</span></div>
+    <div class="sig-body">The highest-conviction trade. CAD net short doubled to -31,231 while USD/CAD H4 ADX strengthened to V.STRONG 44.9 &mdash; the rare alignment of fresh positioning and strongest momentum. Buy dips into 1.3720-1.3760. A firm Iran de-escalation that lowers oil actually helps this trade by pressuring CAD.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 hold of 1.3720-1.3760 then close above 1.3780 (buy dips)</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">1.3720 &ndash; 1.3760</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.3950 &middot; Aggressive: 1.4135 and above</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.3680</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close below 1.3680 breaks the uptrend structure</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoC turns explicitly hawkish, OR a confirmed US-Iran de-escalation triggers a broad risk-on dollar selloff lifting CAD</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">Setup 2 &mdash; EUR/USD SHORT (CONTINUATION)</div><span class="sig-status">CLEANEST FUNDAMENTAL, IN PROFIT</span></div>
+    <div class="sig-body">Carried from last week in profit. EZ composite PMIs in contraction against strong US data and a hawkish FOMC. COT longs trimmed to +33,513 with shorts building. H4 ADX STRONG 28.64 holds the structure. Sell rallies into 1.1620-1.1660; a breakdown below 1.1580 confirms continuation. Primary risk is a firm Iran deal lifting EUR on risk-on.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 1.1580, OR H4 rejection of 1.1620-1.1660 on a rally</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">1.1620 &ndash; 1.1660</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 1.1450 &middot; Aggressive: 1.1400</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">1.1710</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 1.1710</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">Eurozone flash CPI surprises sharply hot reviving aggressive ECB hike pricing, OR US PCE undershoots materially</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card">
+    <div class="sig-head"><div class="sig-title">Setup 3 &mdash; AUD/USD SHORT (RE-LOAD ON BOUNCE)</div><span class="sig-status">FREE RUNNER LIVE, RECORD COT LONG</span></div>
+    <div class="sig-body">Keep the free runner from last week (partial booked 0.7080, breakeven stop). The COT record long +85,644 and AU unemployment spike to 4.5% reinforce the structural short; W1 ADX STRONG 35.53 holds the bigger picture even as H4 cooled. Re-add on a bounce into 0.7150-0.7200. Primary risk is a firm Iran deal driving risk-on.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 0.7120, OR H4 rejection of 0.7150-0.7200 on a bounce</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">0.7150 &ndash; 0.7200</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 0.6950 &middot; Aggressive: 0.6800</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">0.7270</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 0.7270</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">China announces major stimulus triggering a commodity-currency risk-on reversal, OR RBA explicitly signals a hike</div></div>
+    </div>
+  </div>
+
+  <div class="sig-card" style="border-color:rgba(91,155,213,.4)">
+    <div class="sig-head"><div class="sig-title">Setup 4 &mdash; USD/JPY SHORT (SQUEEZE-STANDBY)</div><span class="sig-status" style="color:var(--blue);background:var(--blue2);border-color:rgba(91,155,213,.3)">CATALYST-GATED ON BoJ JUNE 17</span></div>
+    <div class="sig-body">Held as a squeeze-standby, not an active trade. COT net short hit a cycle extreme -93,905 and ADX is WEAK on all four timeframes &mdash; maximally coiled. The structural short is more loaded than ever, but it triggers only on a BoJ June 17 hawkish catalyst, not while the pair grinds in the intervention zone. No directional entry before the BoJ acts; the prior weeks proved that featuring a direction here loses.</div>
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-cell-label">Entry Trigger</div><div class="sig-cell-val">H4 close below 157.00 only after a BoJ hawkish catalyst</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Entry Zone</div><div class="sig-cell-val">157.00 &ndash; 158.00 on confirmed squeeze</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Target</div><div class="sig-cell-val">Conservative: 155.50 &middot; Aggressive: 152.50</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Stop</div><div class="sig-cell-val">160.50</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Technical Invalidation</div><div class="sig-cell-val">H4 close above 160.50 on a sustained intervention-zone break</div></div>
+      <div class="sig-cell"><div class="sig-cell-label">Thesis Invalidation</div><div class="sig-cell-val">BoJ June 17 holds fully dovish with no hawkish guidance, leaving the carry trade intact</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 7: FX OUTLOOK -->
+<div class="panel" id="p-bias">
+  <h2 class="page-title">FX Outlook</h2>
+  <div class="page-sub">Bias into the holiday-shortened PCE week &middot; Sunday May 24 levels</div>
+
+  <div class="card">
+    <div class="card-title">Where The Complex Stands</div>
+    <div class="card-body"><strong>USD</strong> bid and not crowded (spec positioning flipped net short), so it has room &mdash; conditional on PCE. <strong>CAD</strong> the cleanest short with positioning and momentum aligned. <strong>EUR</strong> weak on PMI contraction, COT long-trimming. <strong>JPY</strong> coiled at a positioning extreme into BoJ. <strong>AUD/NZD</strong> structurally soft but tactically ranging. <strong>GBP</strong> bearish positioning, no momentum. <strong>Gold</strong> consolidating below re-entry. <strong>The Iran deal is the swing factor that would flip the risk-sensitive pairs.</strong></div>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>Pair</th><th>Day Bias</th><th>Swing Bias</th><th>Key Level</th><th>Driver</th></tr></thead>
+    <tbody>
+      <tr><td class="t-pair">USD/CAD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.3771</td><td>Setup 1. H4 V.STRONG 44.9. COT CAD short doubled.</td></tr>
+      <tr><td class="t-pair">EUR/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.1600</td><td>Setup 2. EZ PMI contraction. PCE + EZ CPI binary.</td></tr>
+      <tr><td class="t-pair">AUD/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.7140</td><td>Setup 3. Record COT long. Re-load bounce.</td></tr>
+      <tr><td class="t-pair">USD/JPY</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgb">Standby</span></td><td class="mono">159.15</td><td>Setup 4 squeeze-standby. COT -93.9K. BoJ Jun 17.</td></tr>
+      <tr><td class="t-pair">GBP/USD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.3440</td><td>COT short rebuilt but ranging. Lower conviction.</td></tr>
+      <tr><td class="t-pair">NZD/USD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.5880</td><td>Weak dairy. Underperforming. Ranging.</td></tr>
+      <tr><td class="t-pair">USD/CHF</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">0.7870</td><td>USD wins haven contest. SNB dovish.</td></tr>
+      <tr><td class="t-pair">EUR/JPY</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">184.80</td><td>EUR weak vs JPY squeeze risk.</td></tr>
+      <tr><td class="t-pair">EUR/GBP</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.8652</td><td>EUR weaker; both soft.</td></tr>
+      <tr><td class="t-pair">EUR/CHF</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.9149</td><td>CHF over weak EUR.</td></tr>
+      <tr><td class="t-pair">EUR/CAD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.6005</td><td>CAD edge + EUR weakness.</td></tr>
+      <tr><td class="t-pair">EUR/AUD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">1.6280</td><td>Both soft; balance.</td></tr>
+      <tr><td class="t-pair">EUR/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">1.9290</td><td>NZD weakest leg.</td></tr>
+      <tr><td class="t-pair">GBP/JPY</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">213.44</td><td>Carry vs BoJ squeeze risk.</td></tr>
+      <tr><td class="t-pair">GBP/CHF</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">1.0575</td><td>CHF haven + UK fiscal stress.</td></tr>
+      <tr><td class="t-pair">GBP/AUD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">1.8840</td><td>Both ranging.</td></tr>
+      <tr><td class="t-pair">GBP/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgn">Bullish</span></td><td class="mono">2.2280</td><td>NZD weakest leg.</td></tr>
+      <tr><td class="t-pair">AUD/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">113.35</td><td>AUD soft + JPY squeeze.</td></tr>
+      <tr><td class="t-pair">AUD/CAD</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">0.9815</td><td>CAD strength + AUD softness.</td></tr>
+      <tr><td class="t-pair">AUD/NZD</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">1.1830</td><td>Both soft; AUD jobs vs NZ dairy.</td></tr>
+      <tr><td class="t-pair">NZD/JPY</td><td><span class="tag tgr">Bearish</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">95.75</td><td>NZD weak + JPY squeeze.</td></tr>
+      <tr><td class="t-pair">CAD/JPY</td><td><span class="tag tgn">Bullish</span></td><td><span class="tag tgx">Neutral</span></td><td class="mono">115.45</td><td>CAD vs BoJ squeeze risk.</td></tr>
+      <tr><td class="t-pair">CHF/JPY</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">202.00</td><td>BoJ squeeze vs SNB dovish.</td></tr>
+      <tr><td class="t-pair">XAU/USD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">$4,515</td><td>Consolidating below $4,640 re-entry.</td></tr>
+      <tr><td class="t-pair">XAG/USD</td><td><span class="tag tgx">Neutral</span></td><td><span class="tag tgr">Bearish</span></td><td class="mono">$76</td><td>Tracking gold. Industrial bid soft.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TAB 8: METALS -->
+<div class="panel" id="p-metals">
+  <h2 class="page-title">Metals</h2>
+  <div class="page-sub">Consolidating below re-entry. PCE and Iran are the two triggers.</div>
+
+  <div class="card">
+    <div class="card-title">Gold &mdash; Coiled Between Two Catalysts</div>
+    <div class="card-body">Gold consolidated near $4,515 with central-bank buying cited as support, H4 ADX STRONG 26.72 holding but cooled. COT longs trimmed to +159,833 from +171,600 &mdash; the forced-unwind risk is normalizing as specs reduce exposure. <strong>Two named catalysts could break the consolidation in opposite directions.</strong> A soft US Core PCE Friday would retrace rate-hike pricing, drop real yields, and is the most likely trigger for a re-entry above $4,640. A confirmed Iran de-escalation, by contrast, would remove the residual safe-haven bid and let the dollar-and-yields complex press gold lower again &mdash; though if it also drops real yields via lower inflation expectations, the net effect is ambiguous. <strong>Until one of these lands, gold stays in the gated-watch posture: no new longs, re-entry only on a D1 close above $4,640 after a named event.</strong></div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Gold Sun</div><div class="kpi-val">$4,515</div><div class="kpi-note">Consolidating, CB buying support cited</div></div>
+    <div class="kpi"><div class="kpi-label">Gold COT</div><div class="kpi-val">+159,833</div><div class="kpi-note">Trimmed from +171.6K. Unwind risk normalizing.</div></div>
+    <div class="kpi"><div class="kpi-label">Gold H4 ADX</div><div class="kpi-val">26.72</div><div class="kpi-note">STRONG but cooled from 30.22.</div></div>
+    <div class="kpi"><div class="kpi-label">Re-Entry Trigger</div><div class="kpi-val">$4,640</div><div class="kpi-note">D1 close above, after a named event</div></div>
+    <div class="kpi"><div class="kpi-label">Silver</div><div class="kpi-val">~$76</div><div class="kpi-note">Tracking gold. COT +24.7K, trimming.</div></div>
+    <div class="kpi"><div class="kpi-label">WTI Oil</div><div class="kpi-val red">~$92</div><div class="kpi-note">Dropped on Iran draft. Below $100 only if Hormuz reopens.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-body"><strong>The PCE-and-Iran pivot for metals:</strong> a hot core PCE that confirms the inflation regime keeps real yields elevated and gold pressured. A soft core PCE retraces rate-hike pricing and is the cleaner re-entry trigger. Layered on top, the Iran outcome moves oil and the broader inflation premium &mdash; a deal that sustains the oil drop toward and below $100 would, over time, ease the inflation worries that have underpinned the gold bid, but a durable break below $100 is unrealistic unless Hormuz fully reopens. Watch both prints; do not chase the consolidation in either direction before they land.</div>
+  </div>
+</div>
+
+<!-- TAB 9: GEOPOLITICAL MAP -->
+<div class="panel" id="p-geo">
+  <h2 class="page-title">Geopolitical Map</h2>
+  <div class="page-sub">Iran agreement-draft progress vs CENTCOM "critical stage." Oil to ~$92. BoJ coiled.</div>
+
+  <div id="geomap"></div>
+  <div class="map-legend">
+    <span class="legend-red">Active escalation / military</span>
+    <span class="legend-blue">Diplomatic / mediation</span>
+    <span class="legend-gold">CB / institutional event</span>
+    <span class="legend-green">Stable / de-escalating</span>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">Iran: The Closest Thing To Progress Yet, Against The Loudest Threats</div>
+    <div class="card-body">The weekend produced the genuine progress signal the conflict has lacked: Arabic sources reported the US and Iran reacted positively to an agreement draft, new Pakistani mediation narrowed differences, and Rubio sounded cautiously optimistic, with Trump signaling the next few days as critical. Oil fell to roughly $92. <strong>But the same window brought a CENTCOM statement that the Iran blockade reached a "critical stage" and an Iranian declaration of highest readiness across all operations</strong> &mdash; the hope-and-threat pattern at maximum amplitude. The skeptical read: the obstacles that have stalled every prior round remain &mdash; handover of enriched uranium, sanctions removal, and control of Hormuz, where Iran is weighing a transit-toll system with Oman that Trump opposes. <strong>A firm deal plus sustained oil selling is the single combination that flips the dollar regime</strong> &mdash; it unwinds the safe-haven bid, lifts EUR and AUD, and threatens the short complex while helping USD/CAD. Weight it as the primary risk to the shorts, not as the base case, and respect that a durable oil break below $100 likely requires Hormuz reopening.</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title" style="font-size:14px">BoJ Coiled, MoF Intervention Spent</div>
+      <div class="card-body">USD/JPY sits near 159 with ADX WEAK on all four timeframes and COT shorts at a cycle extreme -93,905. Suspected intervention through recent weeks shook markets without lasting effect &mdash; confirming intervention alone cannot reverse the trend while the yield differential dominates. <strong>The BoJ June 17 meeting is the catalyst that resolves the coil.</strong> A hawkish hike forces the squeeze the positioning is primed for; a dovish hold leaves the carry trade intact. The squeeze-standby is built to catch the former without betting on it in advance.</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:14px">Warsh Sworn In, Inflation Mandate Explicit</div>
+      <div class="card-body">Warsh was sworn in at the White House with Trump present &mdash; an unusual venue underscoring the political context. He inherits a Fed facing presidential pressure for lower rates, growing FOMC divisions, and a market pricing hikes rather than cuts, with inflation above target and an energy shock worsening it. Trump emphasized Warsh's independence while making the political line clear: inflation must be stopped. <strong>Friday's PCE is the first major data test of whether the restrictive lean the minutes revealed is justified by the data or running ahead of a narrowing economy.</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 10: WEEK AHEAD -->
+<div class="panel" id="p-ahead">
+  <h2 class="page-title">Week Ahead &mdash; May 25 to 29</h2>
+  <div class="page-sub">Memorial Day Monday, US closed &middot; PCE Friday the anchor &middot; Iran the swing factor</div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">25</div><div class="cal-day-mo">Mon</div></div>
+    <div class="cal-content">
+      <div class="cal-title">Memorial Day &mdash; US Markets Closed &middot; UK Bank Holiday</div>
+      <div class="cal-body">Thin liquidity, no US or UK data. The week compresses into Tuesday-Friday. In thin conditions, Iran headlines and any BoJ or MoF commentary carry outsized weight. Do not initiate fresh size into the holiday tape.</div>
+    </div>
+    <div class="cal-impact">LOW<br>HOLIDAY</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">26</div><div class="cal-day-mo">Tue</div></div>
+    <div class="cal-content">
+      <div class="cal-title">US Conference Board Consumer Confidence &middot; US Durable Goods</div>
+      <div class="cal-body">First US data after the holiday. Consumer Confidence is an early read on the narrowing-growth thesis &mdash; a soft print supports the tiring-consumer story under the strong headlines. Durable Goods gauges business investment. Both feed USD positioning into PCE.</div>
+    </div>
+    <div class="cal-impact">MEDIUM<br>USD</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">27</div><div class="cal-day-mo">Wed</div></div>
+    <div class="cal-content">
+      <div class="cal-title">RBNZ Rate Decision &middot; US Q1 GDP Second Estimate</div>
+      <div class="cal-body">RBNZ is the NZD catalyst &mdash; relevant to whether the NZD short re-activates from its ranging cooldown. US Q1 GDP revision tests the growth narrative; a downward revision feeds the stagflation read while inflation stays hot. Mid-week positioning into the Thursday-Friday cluster.</div>
+    </div>
+    <div class="cal-impact">HIGH<br>NZD USD</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">28</div><div class="cal-day-mo">Thu</div></div>
+    <div class="cal-content">
+      <div class="cal-title">US Jobless Claims &middot; German Regional CPI &middot; Eurozone Confidence Surveys</div>
+      <div class="cal-body">German regional CPI begins the Eurozone inflation read that culminates Friday &mdash; the Setup 2 EUR/USD Thesis Invalidation event starts here. Hot German CPI revives ECB hike pricing and threatens the EUR short; soft confirms the dovish path. US Jobless Claims continue the labor-softening watch after the firm 209k.</div>
+    </div>
+    <div class="cal-impact">HIGH<br>EUR USD</div>
+  </div>
+
+  <div class="cal-card">
+    <div class="cal-day"><div class="cal-day-num">29</div><div class="cal-day-mo">Fri</div></div>
+    <div class="cal-content">
+      <div class="cal-title">US Core PCE &middot; Eurozone Flash CPI &middot; Month-End Flows</div>
+      <div class="cal-body"><strong>The week's anchor. US Core PCE is the Fed's preferred gauge and the resolver of the inflation-regime question.</strong> Hot core PCE confirms the regime and supports every USD setup; soft core PCE &mdash; especially with soft consumer components &mdash; triggers the EUR/USD Thesis Invalidation, threatens the dollar longs, and is the most likely gold re-entry catalyst. Eurozone flash CPI is the other side of the EUR/USD binary. Month-end rebalancing adds noise &mdash; reduce discretionary size into the close.</div>
+    </div>
+    <div class="cal-impact">CRITICAL<br>USD EUR GOLD</div>
+  </div>
+
+  <div class="card" style="margin-top:18px">
+    <div class="card-title">The Week-Ahead Playbook</div>
+    <div class="card-body"><strong>Bias:</strong> USD-bid continuation is the base case &mdash; positioning and momentum align behind USD/CAD long, EUR/USD short, and the AUD/USD short &mdash; but conviction is conditional on PCE confirming and on Iran not delivering a firm deal. <strong>Mon-Tue:</strong> hold exposure, no fresh size into the holiday tape; Consumer Confidence Tuesday is the first tell on the narrowing-growth thesis. <strong>Wed:</strong> RBNZ for NZD, US GDP revision for the growth read. <strong>Thu:</strong> German regional CPI starts the EUR binary &mdash; manage the EUR/USD short accordingly. <strong>Fri:</strong> Core PCE is the resolver. Hot PCE locks the USD complex; soft PCE triggers the EUR/USD Thesis Invalidation, threatens the longs, and opens the gold re-entry above $4,640. <strong>USD/JPY stays squeeze-standby throughout</strong> &mdash; no directional entry until BoJ June 17. <strong>The Iran swing factor overrides the calendar:</strong> a confirmed de-escalation plus sustained oil selling flips the risk-sensitive pairs, threatens the EUR and AUD shorts, and helps USD/CAD &mdash; manage the short complex with that asymmetry in mind. Reduce size into the Friday PCE-plus-month-end combination, which can whipsaw violently.</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('p-' + target).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    if (target === 'geo' && window._mtmap) window._mtmap.invalidateSize();
+    if (target === 'cot' && !window._cotInit) initCharts();
+  });
+});
+
+function initMap(){
+  const map = L.map('geomap', {scrollWheelZoom:false}).setView([28, 45], 3);
+  window._mtmap = map;
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution:'', subdomains:'abcd', maxZoom:10
+  }).addTo(map);
+  const markers = [
+    {lat:26.5,lng:56.4,col:'#e05c6a',title:'Strait of Hormuz',body:'Iran weighing transit toll with Oman, Trump opposes. Oil break below $100 needs Hormuz reopening.'},
+    {lat:32.4,lng:53.7,col:'#5b9bd5',title:'Iran (Tehran)',body:'Reacted positively to agreement draft via Pakistani mediation. But declared highest readiness.'},
+    {lat:33.7,lng:73.0,col:'#5b9bd5',title:'Pakistan',body:'New mediation channel narrowing US-Iran differences this week.'},
+    {lat:25.3,lng:51.5,col:'#5b9bd5',title:'Gulf mediation',body:'Saudi/Qatar/UAE channel active. Rubio cautiously optimistic, Trump says next days critical.'},
+    {lat:38.9,lng:-77.0,col:'#D4AF37',title:'Washington / Warsh-era Fed',body:'Warsh sworn in, inflation mandate explicit. FOMC minutes hawkish. Core PCE Fri May 29.'},
+    {lat:50.1,lng:8.7,col:'#D4AF37',title:'ECB / Frankfurt',body:'EZ composite PMI in contraction. Flash CPI Fri May 29 the EUR binary.'},
+    {lat:35.7,lng:139.7,col:'#D4AF37',title:'BoJ / Tokyo',body:'USD/JPY near 160, ADX WEAK all TFs. COT short extreme -93.9K. BoJ June 17 the catalyst.'},
+    {lat:51.5,lng:-0.1,col:'#5b9bd5',title:'London',body:'UK retail dropped, CPI weaker. Cable ranging, COT short rebuilt. Bank holiday Mon.'},
+    {lat:-35.3,lng:149.1,col:'#e05c6a',title:'Australia',body:'Unemployment 4.5%, 4.5-yr high. COT record long +85.6K. Short thesis intact.'},
+    {lat:-41.3,lng:174.8,col:'#5b9bd5',title:'New Zealand',body:'Weak dairy auction. RBNZ decision Wed May 27.'}
+  ];
+  markers.forEach(m => {
+    L.circleMarker([m.lat, m.lng], {radius:8, color:m.col, fillColor:m.col, fillOpacity:0.6, weight:2})
+      .addTo(map)
+      .bindPopup('<div style="font-family:IBM Plex Sans;color:#0D1117"><strong>'+m.title+'</strong><br><span style="font-size:11px">'+m.body+'</span></div>');
+  });
+}
+
+function initCharts(){
+  if(window._cotInit) return;
+  window._cotInit = true;
+  const labels = ['EUR','GBP','JPY','CAD','CHF','AUD','NZD','USD Idx'];
+  const netPos = [33.5, -64.3, -93.9, -31.2, -36.9, 85.6, -40.6, -0.5];
+  const netChg = [-6.7, -21.2, -18.8, -15.0, -0.7, 0.7, -1.5, -3.7];
+  const colors = netPos.map(v => v >= 0 ? 'rgba(63,184,122,0.7)' : 'rgba(224,92,106,0.7)');
+  const chgColors = netChg.map(v => v >= 0 ? 'rgba(63,184,122,0.7)' : 'rgba(224,92,106,0.7)');
+  new Chart(document.getElementById('cot-net'), {
+    type:'bar',
+    data:{labels:labels, datasets:[{label:'Net Position (K contracts)', data:netPos, backgroundColor:colors, borderColor:'#D4AF37', borderWidth:1}]},
+    options:{responsive:true, maintainAspectRatio:true, plugins:{legend:{labels:{color:'#dde3ed'}}},
+      scales:{x:{ticks:{color:'#8a96a8'},grid:{color:'rgba(255,255,255,0.05)'}},y:{ticks:{color:'#8a96a8'},grid:{color:'rgba(255,255,255,0.05)'}}}}
+  });
+  new Chart(document.getElementById('cot-change'), {
+    type:'bar',
+    data:{labels:labels, datasets:[{label:'WoW Net Change (K contracts)', data:netChg, backgroundColor:chgColors, borderColor:'#D4AF37', borderWidth:1}]},
+    options:{responsive:true, maintainAspectRatio:true, plugins:{legend:{labels:{color:'#dde3ed'}}},
+      scales:{x:{ticks:{color:'#8a96a8'},grid:{color:'rgba(255,255,255,0.05)'}},y:{ticks:{color:'#8a96a8'},grid:{color:'rgba(255,255,255,0.05)'}}}}
+  });
+}
+window.addEventListener('load', function(){ initMap(); initCharts(); });
+</script>
+
+<div class="footer">
+  <div class="footer-name">The Macro Terminal</div>
+  <div>Sunday Brief &middot; 24 May 2026 &middot; Week 21 Close</div>
+  <div style="margin-top:6px">Proprietary Research &mdash; Original Analysis</div>
+</div>
+
+</body>
+</html>
