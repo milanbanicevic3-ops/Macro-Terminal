@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-24",
+    "file": "2026-05-24.html",
+    "title": "Sunday Brief - May 24, 2026. COT Extremes Confirm USD Complex, Iran Draft the Swing Factor.",
+    "thesis": "CFTC week ending May 19 printed multiple positioning extremes: JPY net short hit a fresh cycle extreme -93,905 (shorts +25,251), CAD net short nearly doubled to -31,231 confirming the USD/CAD long that has the board's strongest momentum (H4 V.STRONG 44.9), GBP short rebuilt to -64,307, AUD held a record long +85,644, USD Index flipped net short -479 even as the dollar rallied, gold longs trimmed to +159,833. Positioning and price structure converge this week so COT signals and Top Setups reinforce. Weekend Iran development is the swing factor: US-Iran reacted positively to an agreement draft via Pakistani mediation and oil dropped to ~$92, against a CENTCOM critical-stage statement and Iranian highest-readiness declaration - a firm deal plus sustained oil selling would unwind the safe-haven dollar bid and threaten the EUR and AUD shorts while helping USD/CAD. Equities sold off ~4% on the week into ~7,050-7,100 as the short positioning expressed. Memorial Day Monday US closed; US Core PCE Friday May 29 the anchor with Eurozone flash CPI the same day. Four Top Setups: USD/CAD long featured (cons 1.3950, agg 1.4135+), EUR/USD short (target 1.1450/1.1400, SL 1.1710), AUD/USD short (cons 0.6950, agg 0.6800), USD/JPY squeeze-standby into BoJ June 17 (cons 155.50, agg 152.50). Five COT signals provided with full entry/zone/target/stop/thesis-invalidation.",
+    "bias": {
+      "USDCAD": "bullish",
+      "EURUSD": "bearish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "GBPUSD": "bearish",
+      "NZDUSD": "bearish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "JPY COT short cycle extreme -93.9K",
+      "CAD short doubled, USDCAD H4 44.9",
+      "AUD record long +85.6K holds",
+      "USD Index flipped net short",
+      "Iran draft progress, oil to $92",
+      "US Core PCE Fri the anchor"
+    ]
+  },
+  {
     "date": "2026-05-22",
     "file": "2026-05-22.html",
     "title": "Friday Weekly Synthesis - May 22, 2026. Inflation Regime Institutionally Anchored, USD/JPY to Standby.",
