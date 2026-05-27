@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-27",
+    "file": "2026-05-27.html",
+    "title": "Midweek Brief - May 27, 2026. RBNZ Hawkish, BoJ Squeeze Building, USD/CAD Long the Clean Winner.",
+    "thesis": "Holiday-shortened week building to Friday US Core PCE, with risks skewed up given the hot CPI/PPI precedent and base effects. RBNZ delivered a hawkish hold with roughly three hikes now priced by year-end and July at 80% - NZD re-rated higher, so the low-conviction COT NZD short is stood aside. BoJ Ueda turned hawkish with ~75% odds of a June 16-17 hike, lifting the yen and pushing USD/JPY H1 ADX to STRONG 30.91 - the squeeze case is forming early ahead of the catalyst, against the cycle-extreme COT short -93,905. AU CPI softened to 3.7% (below 3.8% expected), mildly dovish, reinforcing the AUD short. Eurozone composite PMI fell deeper into contraction at 47.5, Q1 GDP missed, German confidence at multi-year low. Iran re-escalated with new US strikes even as negotiations continue; oil rallied toward $105 then capped. USD/CAD long remains the featured clean winner in profit at ~1.380, H4 ADX V.STRONG 44.49 for a fourth reading, resilient even to the oil rally because the broad dollar bid and doubled CAD short dominate. EUR/USD and AUD/USD shorts rested on momentum but fundamentals held; both sell-rally/sell-bounce into PCE. Stop trailed up on USD/CAD toward 1.3740.",
+    "bias": {
+      "USDCAD": "bullish",
+      "EURUSD": "bearish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "NZDUSD": "neutral",
+      "GBPUSD": "bearish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "RBNZ hawkish hold, NZD re-rated",
+      "BoJ squeeze building, Ueda hawkish",
+      "AU CPI soft 3.7% reinforces short",
+      "USDCAD long featured, H4 44.49",
+      "EZ composite PMI 47.5 contraction",
+      "US Core PCE Fri the anchor"
+    ]
+  },
+  {
     "date": "2026-05-24",
     "file": "2026-05-24.html",
     "title": "Sunday Brief - May 24, 2026. COT Extremes Confirm USD Complex, Iran Draft the Swing Factor.",
