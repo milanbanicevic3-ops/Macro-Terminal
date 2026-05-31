@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-05-31",
+    "file": "2026-05-31.html",
+    "title": "Sunday Brief - May 31, 2026. COT Confirms the Rotation, MoU Awaits Trump Signature.",
+    "thesis": "Fresh CFTC release week ending May 26 printed three positioning extremes plus one significant outlier confirming the rotated book. JPY net short hit a new cycle extreme -114,667 (was -93,905, shorts +27,152) - the squeeze fuel is loaded heavier than at any prior point this cycle into BoJ June 16-17. CAD short nearly doubled to -68,882 (was -31,231, net change -37,651) - specs went max bearish into the Iran-deal narrative, creating a tinderbox that resolves on the Trump MoU decision and Wednesday BoC. AUD record long finally unwinding to +60,155 from +85,644 (longs -22,454) - the crowded-position-unwind thesis playing out, validates Setup 4 runner no-add rule. NZD short covered to -34,179 from -40,613 - specs rotating bullish into hawkish RBNZ, confirms Setup 2 long. Gold longs normalized to +154,260 - less crowded, healthier setup for gated Setup 3. Iran 60-day MoU was agreed Thursday covering Hormuz reopening, blockade lift, no-nuclear commitment, but Trump asked few days to consider and weekend brought friction: Trump demands unrestricted Hormuz access (rejecting Iran-Oman joint management), blockade still active, Bessent signals more action possible. Sunday ADX: NZD H1 V.STRONG 61.59 highest on board, USD/JPY H1 STRONG 33.49 building, XAU H1 V.STRONG 44.35 momentum returning. Book carries three actives (USD/JPY short cycle extreme, NZD/USD long firing, XAU/USD long gated above $4,640) plus AUD runner. EUR stand aside until ECB Thursday. USD/CAD no fresh position - tinderbox resolves on Trump statement plus BoC Wed.",
+    "bias": {
+      "USDJPY": "bearish",
+      "NZDUSD": "bullish",
+      "XAUUSD": "bullish",
+      "AUDUSD": "neutral",
+      "USDCAD": "neutral",
+      "EURUSD": "neutral",
+      "GBPUSD": "neutral",
+      "USDCHF": "bearish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "JPY COT new extreme -114,667",
+      "CAD short doubled -68,882 tinderbox",
+      "AUD long unwinding -25,489",
+      "NZD H1 V.STRONG 61.59 firing",
+      "MoU agreed, Trump approval pending",
+      "ECB Thu and NFP Fri the resolvers"
+    ]
+  },
+  {
     "date": "2026-05-29",
     "file": "2026-05-29.html",
     "title": "Friday Weekly Synthesis - May 29, 2026. The Week the Regime Tipped on Soft PCE and Iran Memorandum.",
