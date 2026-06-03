@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-03",
+    "file": "2026-06-03.html",
+    "title": "Midweek Brief - June 3, 2026. The Regime Tip Paused, Book Under Pressure.",
+    "thesis": "The Friday May 29 regime tip has paused, not deepened, putting the active book under real tactical pressure though no stops have hit. Trump has not signed the Iran MoU and is now demanding written nuclear concessions in a preliminary deal, extending the formalization timeline rather than closing it. US ISM Manufacturing rose to 54.5 from 52.3 (strongest in months) reinforcing the USD bid, German May preliminary CPI surprised soft at -0.2% m/m (vs +0.1% expected), Eurozone flash CPI held at 3.0% headline with core 2.2% setting up the ECB hike Thursday. Australian May CPI accelerated to 4.4% from 4.3% intensifying RBA hike bets - the AUD runner's TI risk is now elevated. NZD H1 ADX collapsed from V.STRONG 61.59 Sunday to NEUTRAL 23.32 Wednesday - the momentum signal that drove Setup 2 conviction has died, price within 50 pips of the 0.5870 stop, no TI formally triggered. USD/JPY short offside at 159.5-159.8 but BoJ June 16-17 catalyst intact and COT cycle-extreme short -114,667 still loaded. Gold broke through $4,500 floor to $4,486 (-0.75%), Setup 3 gated never triggered (no loss), conditions receded. USD/CAD recovered to 1.384 vindicating the doubled-CAD-short COT positioning; no fresh position taken on the tinderbox. ECB Thursday and NFP Friday are the catalysts that resolve the partial reversal. The NZD/USD long is the judgment-call setup: framework letter says hold to stop, framework spirit (momentum died) leans toward closing on tactical weakness. Fed long-pause under Warsh remains the base case.",
+    "bias": {
+      "USDJPY": "bearish",
+      "NZDUSD": "neutral",
+      "XAUUSD": "neutral",
+      "AUDUSD": "bearish",
+      "USDCAD": "neutral",
+      "EURUSD": "neutral",
+      "GBPUSD": "neutral",
+      "USDCHF": "bullish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "Trump not signed, nuclear concessions added",
+      "US ISM 54.5 strong, USD recovered",
+      "AU CPI 4.4% accelerated, RBA hike risk",
+      "NZD H1 collapsed 61.59 to 23.32",
+      "Gold broke $4,500 floor to $4,486",
+      "ECB Thu and NFP Fri the resolvers"
+    ]
+  },
+  {
     "date": "2026-05-31",
     "file": "2026-05-31.html",
     "title": "Sunday Brief - May 31, 2026. COT Confirms the Rotation, MoU Awaits Trump Signature.",
