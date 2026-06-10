@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-10",
+    "file": "2026-06-10.html",
+    "title": "Midweek Brief - June 10, 2026. CPI Day. BoC Decision. Iran-Israel Largest Escalation Since April.",
+    "thesis": "US CPI day with CROFX early estimates pointing to headline 4.2% (highest since June 2023) and core 3.0% — if confirmed, regime acceleration not a reaction trade. Markets currently pricing 30bp of Fed hikes through December 2026. BoC decision follows at 13:45 GMT, expected hold on labour market concern and USMCA uncertainty with new 10% US tariff on Canadian products. ECB hike expected Thursday June 11 — CROFX: EUR has no strength vs USD, only brief EUR spike possible if hawkish July guidance delivered. Nikkei reported BoJ intends to lift rates to 1.0% at June 16-17 meeting — USD/JPY reclaimed 160 wiping out five weeks of intervention effects. MoF waiting for BoJ rather than pre-emptively intervening. CROFX analysis: BoJ hike alone insufficient for JPY recovery, needs explicit forward hawkish guidance. Iran-Israel largest escalation since April ceasefire: Lebanon collapsed the framework — Israel struck south Beirut Hezbollah targets, Iran launched ~10 ballistic missiles toward northern Israel, Israel struck Iranian targets including Mahshahr petrochemical complex, Iran halted with explicit threat declaring US bases legitimate targets. Trump publicly broke with Netanyahu — first US-Israeli split of this cycle. Hormuz reopening narrative functionally dead. July 9 flagged as urgency deadline by CROFX. All three Sunday setups carry intact — no Thesis Invalidation events triggered. AUD/USD short elevated to Priority 1 on full 4-TF ADX confirmation (H1/H4/D1/W1 all STRONG) — only pair with four-timeframe momentum today. USD/CAD D1 STRONG intact, entry on H4 close above 1.3960 post-BoC. USD/JPY watching for bearish H4 rejection 159.50-160.00 ahead of June 16-17.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "EURUSD": "bearish",
+      "NZDUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDCHF": "neutral",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "CPI early estimate 4.2% headline / 3.0% core",
+      "BoC hold expected, statement language binary",
+      "Nikkei BoJ 1.0% hike June 16-17",
+      "Iran-Israel direct exchange, Hormuz dead",
+      "AUD/USD 4-TF momentum only full confirmation",
+      "ECB hike Thu, EUR no USD strength"
+    ]
+  },
+  {
     "date": "2026-06-07",
     "file": "2026-06-07.html",
     "title": "Sunday Weekly Debrief - June 7, 2026. NFP Blowout Reasserts USD Regime. Three High-Conviction Setups.",
