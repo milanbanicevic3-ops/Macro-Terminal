@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-14",
+    "file": "2026-06-14.html",
+    "title": "Sunday Weekly Debrief - June 14, 2026. Iran Deal Text Confirmed. JPY + CAD COT New Cycle Extremes. BoJ + FOMC Resolution Week.",
+    "thesis": "Pakistan PM confirmed final agreed text of Iran-US peace deal reached Saturday. Markets pricing Hormuz reopening - risk-on impulse expected Monday open. Structural analysis: Iran non-negotiables (enrichment right, simultaneous sanctions removal, frozen assets, no missile talks, high-enriched uranium stays in Iran) remain incompatible with US demands - deal text is a framework not a durable resolution without Khamenei explicit endorsement. Fresh CFTC data (period ending June 9) shows three COT extremes all deepening simultaneously: JPY net short -145,818 (new cycle record, -16,251 WoW) heading into Tuesday confirmed BoJ hike to 1.0%; CAD net short -119,999 (new cycle record, -25,888 WoW, two consecutive massive builds); EUR long collapsed from +48,866 to +13,932 (-34,934 WoW, largest single-week EUR long liquidation of 2026); AUD long unwind accelerated to +18,160 from +41,812 (-23,652 WoW), approaching net neutral. USD/JPY H4 ADX moved to STRONG (26.61) - first H4 momentum signal. AUD/USD H4/D1/W1 all STRONG. USD/CAD D1 STRONG (33.24) strengthened. All three setups carry with zero Thesis Invalidation events triggered: USD/CAD long (Priority 2, D1 STRONG, CAD -119,999 extreme, FOMC Wednesday, TI BoC hawkish hold removing easing guidance); AUD/USD short (Priority 1, 3-TF momentum, COT approaching net neutral, Iran bounce = entry, TI RBA patience language restoration); USD/JPY short (Priority 3, H4 STRONG developing, COT -145,818 record into live BoJ, TI no hike plus removes inflation vigilance language). Week 25 is the most event-dense of 2026: BoJ Tuesday early GMT, RBA Tuesday, FOMC Wednesday 18:00 GMT, SNB Thursday, BoE Thursday, NZD GDP Wednesday, UK CPI Wednesday.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "bearish",
+      "EURUSD": "bearish",
+      "NZDUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDCHF": "neutral",
+      "XAUUSD": "bullish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "Pakistan PM confirms Iran-US deal text",
+      "JPY COT -145,818 new cycle record into BoJ",
+      "CAD COT -119,999 new cycle record",
+      "EUR long crash -34,934 WoW largest 2026",
+      "AUD COT unwind -23,652 approaching neutral",
+      "BoJ Tue + FOMC Wed resolve all 3 setups"
+    ]
+  },
+  {
     "date": "2026-06-12",
     "file": "2026-06-12.html",
     "title": "Friday Weekly Synthesis - June 12, 2026. Week 24 Close. All Three Setups Intact. BoJ + FOMC June 16-17 Resolution Week.",
