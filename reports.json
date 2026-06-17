@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-17",
+    "file": "2026-06-17.html",
+    "title": "Midweek Brief - June 17, 2026. BoJ Hikes to 1.0% No Squeeze. RBA Holds Disappoints. FOMC Today. Iran MOU Signed, Ceremony Friday.",
+    "thesis": "BoJ raised rates to 1.0% Tuesday as expected (7-1 vote, Ueda absent, highest since 1995) but JPY did not strengthen materially since no 50bp surprise was delivered. Wholesale inflation hit 6.3% in May confirming pass-through risk. RBA held Tuesday but AUD fell as statement lacked sufficient hawkish content given Iran de-escalation reducing inflation premium - swaps now price only 16bp further tightening through year-end. Q1 GDP 0.3% q/q, unemployment 4.5% (4.5-year high). Trump, Vance, and Iran's Ghalibaf electronically signed the US-Iran peace MOU - formal ceremony confirmed for Friday June 19 at Burgenstock, Switzerland. Trump stated Hormuz will be fully open by Friday. Structural analysis flags Iranian draft terms (blockade lift, sanctions suspension, Lebanon ceasefire, Hormuz reopening, $300bn reconstruction fund, $24bn frozen funds released) as more favorable to Iran than the US, with minimal substantive nuclear resolution and enriched uranium likely remaining in-country - working base case is ceasefire holds through summer/midterms with renewed escalation risk after. Oil collapsed to $75-80 on the de-escalation, removing the energy-driven inflation premium that anchored recent G10 hawkishness. FOMC decision today 18:00 GMT - Warsh's inaugural press conference, hold expected, oil collapse gives latitude for less hawkish tone. AUD/USD setup downgraded this session - ADX confirmation dropped from full 4-timeframe STRONG to D1/W1 only as Iran-deal risk-on bounce cost H1/H4 momentum; fundamental case intact, technical conviction weaker. USD/JPY short mechanism shifted from JPY-specific BoJ squeeze to broad USD weakness from Iran deal - original Thesis Invalidation event (BoJ no-hike) has now passed without triggering since BoJ did hike, requiring reframing next session. USD/CAD long facing first genuine two-sided test as oil collapse (CAD negative) offsets broad USD weakness (USD/CAD negative) - FOMC tonight is the resolver.",
+    "bias": {
+      "USDCAD": "neutral",
+      "AUDUSD": "bearish",
+      "USDJPY": "bearish",
+      "EURUSD": "neutral",
+      "NZDUSD": "neutral",
+      "GBPUSD": "neutral",
+      "USDCHF": "bearish",
+      "XAUUSD": "neutral",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "BoJ hiked to 1.0%, no JPY squeeze on no-surprise",
+      "RBA held, AUD fell on insufficient hawkishness",
+      "Iran MOU electronically signed, ceremony Friday",
+      "Oil collapsed to $75-80 on de-escalation",
+      "FOMC today 18:00 GMT, Warsh inaugural",
+      "AUD/USD setup downgraded, momentum weakened"
+    ]
+  },
+  {
     "date": "2026-06-14",
     "file": "2026-06-14.html",
     "title": "Sunday Weekly Debrief - June 14, 2026. Iran Deal Text Confirmed. JPY + CAD COT New Cycle Extremes. BoJ + FOMC Resolution Week.",
