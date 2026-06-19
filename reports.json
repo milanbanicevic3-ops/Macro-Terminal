@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-19",
+    "file": "2026-06-19.html",
+    "title": "Friday Weekly Synthesis - June 19, 2026. Warsh Eliminates Forward Guidance. Dollar to One-Year High. Iran MOU Signing Ceremony Today.",
+    "thesis": "FOMC held 12-0 but markets read it hawkish - dollar hit one-year high as Warsh eliminated forward guidance entirely, submitted no Chair dot, cut the statement to roughly 150 words, and launched five task forces (communications, balance sheet, data sources, AI/productivity, inflation framework) to rebuild Fed operations from first principles. SCP showed a fractured 50/50 committee split on rate direction by year-end - Warsh described colleagues' dots as submitted with pencils and big erasers. Reaffirmed 2% target as non-negotiable. S&P 500 fell 1.2pct, yields rose. This is a structural change expected to produce materially higher volatility on every future data release. SNB held at 0.00pct, nudged inflation forecast to 0.6pct for 2026 on oil, raised FX intervention willingness against CHF strength. BoE held at 3.75pct - Bailey's pooled interview revealed genuine three-part caution despite being encouraged by Iran de-escalation: needs to see peace settle, needs energy-infrastructure damage assessment, needs to confirm inflation persistence given the UK's softened backdrop. Direct review of official RBA and BoJ statements produced two corrections to earlier mid-week characterizations: RBA's hold was genuinely balanced and explicitly retains hawkish optionality, not a dovish capitulation; BoJ's forward guidance was genuinely hawkish (explicit commitment to continue raising rates), with both dissents being hawkish rather than dovish. Iran has published a fully signed MOU, in effect immediately per Iran, with formal ceremony today at Burgenstock, Switzerland - confirmed terms include permanent ceasefire including Lebanon, Hormuz reopening with 30-day demining window, $300bn+ reconstruction fund, full sanctions removal schedule deferred to a 60-day final agreement requiring UN Security Council ratification. New domestic US political friction emerged this week as Trump allies publicly criticize the deal's sanctions relief scope, asset access terms, and fund size. ADX exploded across the board post-FOMC - EUR/USD H1 VERY STRONG 50.76, USD/CAD H1 VERY STRONG 59.90 with H4 also VERY STRONG 39.33 and D1 STRONG 40.21, confirming the most extreme multi-timeframe technical reading of the brief series. USD/CAD long elevated to clear Priority 1. AUD/USD short intact, fundamentally clarified as domestic-data-driven rather than RBA-dovishness-driven, though H1 lagging the week's broad dollar move. USD/JPY short's named Thesis Invalidation (BoJ no-hike) has passed without triggering since BoJ did hike - setup requires explicit new Thesis Invalidation or closure before carrying further, per standing rule against inventing replacement conditions.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "bullish",
+      "EURUSD": "bearish",
+      "NZDUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bullish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "Warsh eliminates forward guidance, no Chair dot",
+      "Dollar to one-year high despite FOMC hold",
+      "BoJ/RBA corrections from primary source review",
+      "Iran MOU formal signing today at Burgenstock",
+      "USD/CAD H1 VERY STRONG 59.9 - extreme reading",
+      "USD/JPY Thesis Invalidation expired - needs new TI"
+    ]
+  },
+  {
     "date": "2026-06-17",
     "file": "2026-06-17.html",
     "title": "Midweek Brief - June 17, 2026. BoJ Hikes to 1.0% No Squeeze. RBA Holds Disappoints. FOMC Today. Iran MOU Signed, Ceremony Friday.",
