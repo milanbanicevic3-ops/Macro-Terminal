@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-06-28",
+    "file": "2026-06-28.html",
+    "title": "Sunday Weekly Debrief - June 28, 2026. Two-Week Catch-Up. USD/CAD Series-High Confirmation. USD/JPY Nears 1986 Level. AUD Flips Net Short.",
+    "thesis": "Two-week brief gap covered following analyst vacation. Dollar rallied over 2 percent on the basket since the June 17 FOMC, six consecutive up days on the Warsh hawkish shock. May PCE confirmed the elevated inflation picture - headline 4.1 percent YoY, core 3.4 percent YoY, both in line with expectations but more than double the Fed target, with personal spending and income both beating. Markets now fully price a September hike with another nearly priced by March 2027. USD/JPY reached 161.92, one tick from the 2024 high of 161.96 - a break sends the pair to levels last seen in 1986. Japan Finance Minister Katayama renewed intervention warnings and reportedly held an undisclosed call with US Treasury Secretary Bessent. Oil fell over 30 percent across May-June as Hormuz traffic genuinely normalized toward pre-conflict levels per the US Energy Secretary, though a fresh incident this week saw a projectile strike the container vessel Ever Lovely, and Iran's parliament accused the US of violating the memorandum by stoking Hormuz tensions and backing an Israeli agent. Separately, Israel and Lebanon reportedly signed a preliminary deal with a US-facilitated trilateral military coordination framework, a genuinely positive parallel development. Australian May CPI showed a mixed signal - headline cooled to 4.0 percent largely on a fuel excise cut and lower oil prices, but trimmed-mean core rose to 3.6 percent, the highest since September 2024. Fresh CFTC data (period ending June 23) confirmed three major positioning shifts: AUD flipped to outright net short for the first time in this series (-13,012, -8,887 WoW), completing the multi-week unwind thesis; GBP shorts accelerated violently (-105,719, -34,134 WoW), the steepest single-week move recorded for any currency in this series; CAD remained at the most extreme single reading in the entire series (-146,792). USD/CAD long remains the clear Priority 1 setup with three consecutive weeks of confirmation and a series-high D1 ADX reading of 50.62. AUD/USD short thesis has fully completed and awaits explicit confirmation on new levels or closure. A new GBP/USD short signal is flagged on the extreme COT acceleration but awaits a named Thesis Invalidation before promotion to a full setup. USD/JPY has no active directional thesis currently - the original short setup expired weeks ago and the pair's approach to the historic 1986 trigger level awaits fresh direction.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "EURUSD": "bearish",
+      "NZDUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "neutral"
+    },
+    "highlights": [
+      "Two-week gap, dollar rallied 2pct since FOMC",
+      "USD/JPY 161.92, one tick from 1986 trigger level",
+      "AUD COT flipped net short, unwind thesis completed",
+      "GBP COT shorts steepest single-week move in series",
+      "CAD COT -146,792, most extreme reading in series",
+      "NFP Thursday first major test of new Fed regime"
+    ]
+  },
+  {
     "date": "2026-06-19",
     "file": "2026-06-19.html",
     "title": "Friday Weekly Synthesis - June 19, 2026. Warsh Eliminates Forward Guidance. Dollar to One-Year High. Iran MOU Signing Ceremony Today.",
