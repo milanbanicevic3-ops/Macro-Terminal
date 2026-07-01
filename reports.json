@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-07-01",
+    "file": "2026-07-01.html",
+    "title": "Midweek Brief - July 1, 2026. Yen at 40-Year Low. Gold Below $4,000. Warsh Speaks at Sintra. NFP Thursday.",
+    "thesis": "Two historic levels broken simultaneously on Q3 open: USD/JPY at 162.69 is a 40-year low for the yen (above the 2024 high of 161.96, entering 1986 territory) with MoF intervention warnings active and Katayama-Bessent call confirmed but content undisclosed. Gold broke below $4,000 for the first time since the early conflict period on USD strength and reduced geopolitical premium. Dollar entered Q3 at its strongest level since May 2025, posting the best two-week performance since peak Iran-Israel conflict. DXY at 101.1, September hike priced at 72%. German June CPI soft at 2.3% vs 2.6% expected, raising risk of Eurozone CPI downside surprise today and questioning the ECB July hike probability that ECB sources this week said could be revived by a nasty inflation surprise. Oil WTI at $70 essentially pre-conflict levels - the energy-driven inflation justification for the hawkish repricing is mechanically fading and will show in CPI data in 2-3 months. Warsh, Lagarde, and Bailey speaking at ECB Sintra Forum today - Warsh's first public appearance since the FOMC and the real swing factor for near-term USD direction. Analyst assessment explicit: dollar is stretched at current levels, expects pullback, standing aside on new positions pending NFP Thursday (compressed to Thursday due to July 4 US holiday closure). USD/CAD D1 VERY STRONG 52.2, series-high maintained. AUD/USD 4-TF momentum fully restored (H1/H4/D1/W1 all STRONG or VERY STRONG). Canada employment and US NFP both release Thursday 12:30 GMT - double-event compressed window. GBP/USD short signal still awaiting Thesis Invalidation. USD/JPY direction still awaiting explicit input.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "EURUSD": "bearish",
+      "NZDUSD": "bearish",
+      "GBPUSD": "bearish",
+      "USDCHF": "bullish",
+      "XAUUSD": "bearish",
+      "XAGUSD": "bearish"
+    },
+    "highlights": [
+      "USD/JPY 162.69 — yen at 40-year low",
+      "Gold broke below $4,000 for first time",
+      "Dollar best two-week run since March conflict peak",
+      "German CPI soft 2.3% vs 2.6%, EZ CPI risk today",
+      "Warsh at Sintra today, first appearance post-FOMC",
+      "NFP Thursday compressed, US closed Friday July 4"
+    ]
+  },
+  {
     "date": "2026-06-28",
     "file": "2026-06-28.html",
     "title": "Sunday Weekly Debrief - June 28, 2026. Two-Week Catch-Up. USD/CAD Series-High Confirmation. USD/JPY Nears 1986 Level. AUD Flips Net Short.",
