@@ -1,5 +1,30 @@
 [
   {
+    "date": "2026-07-03",
+    "file": "2026-07-03.html",
+    "title": "Friday Brief - July 3, 2026. NFP Badly Misses. Japan Intervenes. Both Active Setups Stress-Tested and Downgraded.",
+    "thesis": "First genuine test of the hawkish-USD narrative since the June 17 FOMC. June NFP missed badly at +57K vs +110K expected with -74K in prior revisions - worst print in four months. Unemployment fell to 4.2% from 4.3%, a mixed signal more consistent with labor force exit than genuine strength. Japan confirmed spot market intervention after USD/JPY breached 162, a 40-year low - bond yields did not follow the move, the clear tell this was intervention rather than structural dollar weakness. USD/JPY H1 ADX hit 52.19, the most extreme single-timeframe reading recorded in this entire brief series. Warsh, Lagarde, Bailey, and Macklem shared a panel at the ECB Sintra Forum and all four struck a notably softer tone - Warsh explicitly said inflation risks have decreased due to falling oil prices, while offering no forward guidance per his standing framework. Eurozone flash CPI dropped to 2.8% from 3.2% (core to 2.4%), following a softer German print earlier in the week, materially reducing ECB July hike urgency and contradicting prior ECB source commentary about a potential nasty surprise reviving hike odds. Critically, bond yields have NOT confirmed a genuine dovish regime change - SOFR futures remain in hike territory and yields are still up roughly 60bp since March, meaning this is being treated as a checkpoint requiring confirmation, not a confirmed trend reversal. Both active setups were honestly stress-tested rather than defended by default: USD/CAD long downgraded from High to Medium conviction as the Fed-BoC divergence thesis was directly challenged, though D1 ADX barely moved (52.33) and no Thesis Invalidation triggered; AUD/USD short downgraded to Low-Medium as H1/H4 momentum genuinely stalled (dropped to NEUTRAL from STRONG) with sources explicitly split on risk-on vs risk-off interpretation, though D1/W1 medium-term structure remains intact. USD/JPY remains without an active position - analyst's unsolicited lean is toward the intervention fading rather than starting a genuine trend, given no accompanying BoJ policy change, with PM Takaichi's dovish-leaning board appointments flagged as a structural medium-term headwind to the JPY-strength case regardless. Next week's ISM Services Monday and BoC Business Outlook Survey are flagged as the genuine confirmation tests for both the broader dollar narrative and the USD/CAD setup specifically.",
+    "bias": {
+      "USDCAD": "bullish",
+      "AUDUSD": "bearish",
+      "USDJPY": "neutral",
+      "EURUSD": "neutral",
+      "NZDUSD": "neutral",
+      "GBPUSD": "neutral",
+      "USDCHF": "neutral",
+      "XAUUSD": "bullish",
+      "XAGUSD": "bullish"
+    },
+    "highlights": [
+      "NFP badly misses: +57K vs +110K expected",
+      "Japan confirms intervention, yields didn't follow",
+      "USD/JPY H1 ADX 52.19 - most extreme in series",
+      "Sintra: Warsh, Lagarde, Bailey, Macklem all softer",
+      "Eurozone CPI drops to 2.8% from 3.2%",
+      "Both active setups honestly downgraded, not defended"
+    ]
+  },
+  {
     "date": "2026-07-01",
     "file": "2026-07-01.html",
     "title": "Midweek Brief - July 1, 2026. Yen at 40-Year Low. Gold Below $4,000. Warsh Speaks at Sintra. NFP Thursday.",
