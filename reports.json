@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-05",
+  "file": "2026-07-05.html",
+  "title": "Sunday Session Brief - July 5, 2026. NFP Miss Drives Risk-On. GBP/USD Promoted to Top Setup on COT Extreme. AUD/USD Short Thesis Closed.",
+  "thesis": "June NFP missed badly at +57K vs +110K expected, pulling DXY off its highs toward 100.00-100.85 and reopening the case for earlier Fed cuts than the market was pricing into the print. Three of four source models converge independently on a risk-on, softer-dollar read; one source's macro conclusion was internally stale, still carrying an 80%-hike-by-December narrative from earlier in the week that the print itself invalidates, and was discarded entirely rather than laundered into the brief. Bond yields have NOT confirmed a genuine dovish regime change, consistent with the 07-03 assessment - this stays a checkpoint, not a confirmed reversal, and every bullish-USD-weakness read in this brief carries that ceiling. GBP/USD is promoted to a full Top Setup for the first time this session on the steepest single-week COT short acceleration in the series (-105,719 net, -34,134 WoW, June 23 report) plus a genuine Thesis Invalidation: FOMC Minutes or subsequent US labor data confirming the market is pricing cuts faster than currently expected, with Wednesday's Minutes the near-term test. USD/CAD long carries at Medium conviction unchanged from 07-03 - D1 ADX remains Very Strong at 51.69, the highest D1 reading across the entire pair set, and CAD COT shorts are still building (-13,891 WoW), but the Fed-BoC divergence pillar stays under live stress pending BoC's own guidance. AUD/USD's original short thesis is closed outright rather than carried at a discount: the COT long extreme that built the case has fully unwound to outright net short and is still deepening (-8,887 WoW), today's daily bias consensus is 3-of-4 bullish, and no fresh technical or macro catalyst exists to justify a new short - standing aside until one does, rather than re-entering the same idea at new levels. USD/JPY remains without a position; BoJ intervention is confirmed, the bias table is now unanimously bearish near-term, and medium-term structural bullish case (BoJ real-yield gap) requires actual price stabilization in the 161.50-162.00 zone before it becomes a genuine signal rather than color. One source's COT summary this session also mischaracterized EUR as net short; the CFTC print shows EUR non-commercial positioning net long by over 30,000 contracts, and the CFTC data overrides the AI summary per standing house policy. Week ahead: RBA Tuesday, RBNZ Wednesday (binary vol event for NZD), FOMC Minutes Wednesday, US Core CPI Thursday (the primary risk to the entire risk-on thesis this week), Canada employment Friday (direct stress test for the USD/CAD setup).",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "AUDUSD": "bullish",
+    "USDJPY": "bearish",
+    "EURUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "NFP badly misses: +57K vs +110K expected",
+    "GBP/USD promoted to Top Setup, TI defined for first time",
+    "COT still June 23 vintage - June 30 report not yet released",
+    "USD/CAD D1 ADX 51.69 - highest reading across the pair set",
+    "AUD/USD short thesis closed, not carried - no fresh signal",
+    "One source's COT read on EUR contradicted by CFTC data, discarded"
+  ]
+},
+  {
     "date": "2026-07-03",
     "file": "2026-07-03.html",
     "title": "Friday Brief - July 3, 2026. NFP Badly Misses. Japan Intervenes. Both Active Setups Stress-Tested and Downgraded.",
