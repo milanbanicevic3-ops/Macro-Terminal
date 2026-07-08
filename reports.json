@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-08",
+  "file": "2026-07-08.html",
+  "title": "Midweek Brief - July 8, 2026. RBNZ Delivers Confirmed Hawkish Hike. Majority of Sources Get the Call Wrong. GBP/USD Upgraded on Momentum, FOMC Minutes the Live Test.",
+  "thesis": "RBNZ delivered a confirmed 25bp hike today, vindicating the hawkish RBNZ arc that has run through this series since May and built on a genuine 3-3 vote split at the prior meeting plus roughly 80% market-implied hike odds. A majority of this session's source models got the actual outcome wrong in opposite directions - one reported a surprise cut to 2.50%, one reported a dovish hold projecting cuts to 3.0% by 2027 - and both were discarded rather than laundered into the brief, alongside one source's entire macro section which cited an internally stale DXY level and a meeting date that had already passed. GBP/USD is upgraded from Medium to Medium-High conviction: the one open caution from the 07-05 brief, Neutral H1 momentum against a Strong H4, has resolved to confirmed Strong on both timeframes, while the Thesis Invalidation faces its first live test this afternoon when FOMC Minutes are released. USD/CAD long carries at Medium conviction with a new caution flag rather than a downgrade - D1 ADX remains Very Strong and essentially unchanged week over week, but today's daily bias table leans against the pair for the first time since the setup was built, on CAD strength from steady Trade Balance data and a broadly softer near-term dollar read across sources. AUD/USD remains unpositioned but is flagged for active monitoring: D1 and W1 momentum have both rebuilt to Strong since the short was closed on 07-05, a genuine technical development, though per standing discipline it is not promoted without an explicit new Thesis Invalidation. USD/JPY stays as commentary only - spot is pressing back toward the 162 handle across every surviving source, but ADX readings are neutral-to-weak across all four timeframes, the same exhaustion signature flagged after the prior intervention bounce, meaning price is making highs without momentum confirmation. Gold is presented with an explicit tension this session: source consensus reads neutral to cautiously bullish, while the desk's own analytical framework continues favoring sales into rallies on the view that the current pullback likely needs an extended consolidation period before a genuine bottom, consistent with prior cycles in this pattern. Week ahead: FOMC Minutes today 18:00 GMT is the immediate catalyst, followed by China CPI/PPI Thursday and a Friday double print of US Non-Farm Payrolls and Canada Employment that directly stress-tests the USD/CAD setup.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "AUDUSD": "bullish",
+    "USDJPY": "bullish",
+    "EURUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "RBNZ hikes 25bp, confirmed - majority of sources called it wrong",
+    "GBP/USD upgraded to Medium-High on confirmed H1/H4 momentum",
+    "FOMC Minutes today 18:00 GMT - live test of GBP/USD TI",
+    "USD/CAD D1 ADX holds 50.84 Very Strong, daily bias flips bearish",
+    "AUD/USD momentum rebuilding, watching for a fresh TI, not promoted yet",
+    "Proprietary gold view stays a seller against a mixed source consensus"
+  ]
+},
+  {
   "date": "2026-07-05",
   "file": "2026-07-05.html",
   "title": "Sunday Session Brief - July 5, 2026. NFP Miss Drives Risk-On. GBP/USD Promoted to Top Setup on COT Extreme. AUD/USD Short Thesis Closed.",
