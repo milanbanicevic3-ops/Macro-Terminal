@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-10",
+  "file": "2026-07-10.html",
+  "title": "Friday Brief - July 10, 2026. Iran Strikes Oil Tankers, US Hits Back. Sources Miss the Story. Both Active Setups Downgraded on Real Deterioration.",
+  "thesis": "The dominant story today was geopolitical, not monetary, and most source models missed its weight. Iran struck oil tankers in the Strait of Hormuz and the US answered with airstrikes on Iranian targets, sending WTI back above $73 and erasing roughly two weeks of decline in a single move, with the timing tied to a former Iranian supreme leader's funeral that drew large crowds and left the door open to further hostilities. Two of four source models still framed the session as generic risk-on; two others carried DXY levels 2 to 4 points off every other read and were discarded, along with one unconfirmed narrative about a Japanese pension-fund driven yen short squeeze. RBNZ's hawkish hike, confirmed midweek, was formally finalized at OCR 2.50 percent with explicit language leaving the door open to further tightening, and is being read by some as a signal other hawkish-leaning central banks, ECB included, might look past the recent oil pullback and tighten again regardless of energy prices easing. Both active setups were genuinely downgraded rather than defended by default. USD/CAD long moved from Medium to Low-Medium: D1 momentum remains Very Strong and technically intact, but today's oil spike is a direct, live tailwind for CAD working against the pair through the same channel the original thesis leans on, stacked on Wednesday's bearish daily-bias flag, with Canada employment landing as a same-day binary test. GBP/USD short moved from Medium-High back to Medium: Wednesday's momentum-based upgrade did not hold, with H1 dropping from Strong to Weak and D1 from Neutral to Weak, even though the fundamental case is unchanged and the Thesis Invalidation did not trigger against Wednesday's FOMC Minutes, which were not dovish. NZD/USD stands out as the cleanest technical and fundamental alignment of the week, confirmed hawkish hike paired with the single strongest ADX reading across the entire pair set, but remains unpositioned pending an explicit Thesis Invalidation per standing discipline. USD/JPY stays commentary only, showing its first real H1 momentum confirmation of the week but with direction still genuinely contested across sources. Gold's proprietary desk view continued favoring sales into rallies for a second consecutive session, against a source consensus leaning neutral to bullish on geopolitical premium. Weekend risk is flagged as elevated given the live, ongoing conflict and no scheduled central bank event to absorb a headline before Monday's open.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "neutral",
+    "EURUSD": "neutral",
+    "AUDUSD": "neutral",
+    "USDCHF": "bullish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "bearish"
+  },
+  "highlights": [
+    "Iran strikes oil tankers, US airstrikes on Iran, WTI back above $73",
+    "Majority of sources missed the escalation, framed session as risk-on",
+    "USD/CAD downgraded to Low-Medium on oil-driven CAD tailwind",
+    "GBP/USD downgraded back to Medium as momentum reversed",
+    "NZD/USD cleanest setup on the board, no TI yet, not positioned",
+    "Weekend geopolitical risk flagged - no CB event to backstop a headline"
+  ]
+},
+  {
   "date": "2026-07-08",
   "file": "2026-07-08.html",
   "title": "Midweek Brief - July 8, 2026. RBNZ Delivers Confirmed Hawkish Hike. Majority of Sources Get the Call Wrong. GBP/USD Upgraded on Momentum, FOMC Minutes the Live Test.",
