@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-12",
+  "file": "2026-07-12.html",
+  "title": "Sunday Session Brief - July 12, 2026. Quiet Week Into a Loaded Calendar. NZD/USD Formalized as a Contrarian Short. One Source Discarded on a Checkable Factual Error.",
+  "thesis": "This was a genuinely quiet week functioning as a coiled spring ahead of the heaviest calendar stretch since the mid-June FOMC and BoJ resolution week: US CPI, a BoC decision that directly tests the USD/CAD Thesis Invalidation, an ECB decision, Warsh's Congressional testimony, and both UK CPI and employment all land within a five day window. One source's entire output was discarded this session on a clean, checkable factual error rather than a judgment call - it referred to the sitting Fed Chair by a name that has not held the role since May and named the wrong RBA and SNB governors as well, on top of a DXY level roughly six points off every other read. COT data is fresh again this week, resolving the staleness flagged two weeks ago, with the report covering July 7. USD/CAD long recovers modestly to Medium after Friday's Low-Medium flag: oil's pullback to roughly 70 dollars partially reverses the direct CAD tailwind from Friday's escalation spike, and CAD's fresh COT extreme of -173,126 held through that spike without meaningful short covering, though Wednesday's BoC decision is a same-week binary event directly on the setup's own Thesis Invalidation. GBP/USD short holds at Medium with levels refreshed to updated stop and target zones; two soft signals are worth watching together rather than individually, real COT short-covering this week and a modest easing in Fed hike odds, neither disqualifying the thesis on its own. NZD/USD, flagged as the board's cleanest bullish setup across the two prior sessions, is formalized this session as a short rather than a long - a deliberate, explicitly contrarian fade against the week's unanimous bullish source consensus and Strong H4/D1 momentum, built on the view that a hawkish RBNZ hike already roughly 80 percent priced functions as a sell-the-news event once delivered, and that broader safe-haven positioning into JPY and CHF is the dominant force in the pair rather than the rate decision itself. USD/JPY remains commentary only; overnight yen strength on GPIF domestic-reallocation headlines is read as likely tactical rather than the start of a structural move, and the standing rule against positioning in this pair is unchanged regardless of signal quality.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "bearish",
+    "AUDUSD": "neutral",
+    "USDCHF": "bullish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "One source discarded on a checkable factual error - wrong Fed Chair, wrong RBA/SNB governors",
+    "COT data fresh again (July 7 report), CAD short at a fresh series extreme",
+    "USD/CAD recovers to Medium, BoC decision Wed is a direct live TI test",
+    "GBP/USD holds Medium, levels refreshed to updated stop/target zones",
+    "NZD/USD formalized as a deliberate contrarian short, against source and momentum consensus",
+    "Heaviest calendar week since mid-June: CPI, BoC, ECB, Warsh testimony, UK data"
+  ]
+},
+  {
   "date": "2026-07-10",
   "file": "2026-07-10.html",
   "title": "Friday Brief - July 10, 2026. Iran Strikes Oil Tankers, US Hits Back. Sources Miss the Story. Both Active Setups Downgraded on Real Deterioration.",
