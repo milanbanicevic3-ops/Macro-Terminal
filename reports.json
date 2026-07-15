@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-15",
+  "file": "2026-07-15.html",
+  "title": "Midweek Brief - July 15, 2026. Whipsaw Week: CPI Reverses Escalation-Driven Dollar Strength. USD/CAD's Strongest Technical Setup of the Series Faces a Live BoC Test Today.",
+  "thesis": "This is a pre-event snapshot, published ahead of today's BoC decision and Warsh Senate testimony, and should be read as a state of the world that is expected to move within hours rather than a settled read. Iran-US conflict re-escalated hard over the weekend: US forces struck Iranian military targets including missile systems, drones, and related infrastructure, Iran retaliated against US regional interests, Hormuz traffic fell to near-minimal levels, and Trump reimposed a blockade on Iranian oil shipping plus a 20 percent toll on vessels transiting under US naval escort, pushing oil back toward 80 dollars. Monday's dollar strength on that escalation, which briefly pushed September Fed hike pricing to fully priced and July meeting odds to 43 percent from 22 percent on Sunday, fully reversed by Tuesday when June CPI showed core inflation cooling for the first time this cycle, the second consecutive month of genuinely cooler data after the earlier NFP miss. The desk's own proprietary framework stays deliberately disciplined against chasing that dollar weakness with fresh shorts, citing two live risks that could reverse it just as fast: a hawkish surprise from Warsh's Senate testimony today, following his House testimony yesterday, or the reheating Iran conflict keeping an oil-driven inflation floor under the picture regardless of what core CPI just showed. The plan on record is to wait for Thursday's Retail Sales as confirmation that the CPI cooling reflects genuine consumer weakness rather than an energy base effect before adding fresh USD-short exposure. One source was discarded entirely for the second time in three sessions on the same class of error, again naming the wrong sitting Fed Chair alongside a DXY level roughly three points off every surviving read, now treated as a pattern warranting elevated scrutiny going forward rather than a fresh isolated catch each time. USD/CAD long carries the strongest technical setup of the entire series into today's live event risk: momentum has gone Very Strong across H1, H4, and D1 simultaneously, a genuinely rare triple-timeframe confirmation, landing on the exact day the BoC decides whether its hold explicitly removes easing guidance, the precise condition of this setup's own Thesis Invalidation. GBP/USD short holds at Medium on a genuinely mixed momentum picture, H1 improved to Strong while H4 slipped to Neutral and D1 remains Weak, with no fundamental change and UK CPI tomorrow the nearest domestic test. NZD/USD short's Thesis Invalidation did not trigger today, since the tape does not show a clean, decisive risk-on move with broad safe-haven currency weakness, but the position remains genuinely uncomfortable to hold on technicals, with Strong momentum across H1, H4, and D1 running against it for a second consecutive session. Gold's proprietary sell bias, now in its third consecutive session, is explicitly conditioned on today's Warsh testimony rather than stated as an unqualified view, with a genuine tail scenario flagged where a Fed pause or cut alongside rising yields could send gold parabolic rather than lower. Forward calendar through the rest of the week: Thursday brings US Retail Sales, the desk's own trigger point for potential fresh USD-short entries, alongside UK CPI and US Initial Jobless Claims; Friday brings US Housing Starts, Industrial Production, and Michigan Consumer Sentiment as the closing data points of an exceptionally dense week.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Pre-event snapshot - BoC decision and Warsh Senate testimony still pending as published",
+    "Weekend Iran-US escalation: US strikes, Iran retaliation, Hormuz near-minimal, oil toward $80",
+    "Core CPI cools for first time this cycle, fully reversing Monday's escalation-driven dollar strength",
+    "USD/CAD momentum Very Strong across H1/H4/D1 simultaneously, rarest reading in the series",
+    "One source discarded twice in three sessions on the same wrong-Fed-Chair error - now a flagged pattern",
+    "Desk stays disciplined: no fresh USD shorts until Thursday Retail Sales confirms genuine softness"
+  ]
+},
+  {
   "date": "2026-07-12",
   "file": "2026-07-12.html",
   "title": "Sunday Session Brief - July 12, 2026. Quiet Week Into a Loaded Calendar. NZD/USD Formalized as a Contrarian Short. One Source Discarded on a Checkable Factual Error.",
