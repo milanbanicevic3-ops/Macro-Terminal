@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-17",
+  "file": "2026-07-17.html",
+  "title": "Friday Brief - July 17, 2026. Fed Settles Into a Long Pause. GBP/USD and NZD/USD Shorts Both Downgraded on a Real Structural Headwind. BoC Leaves the USD/CAD Thesis Genuinely Unresolved.",
+  "thesis": "This week resolved into a genuine Fed long pause rather than a clean directional outcome. Both June CPI and PPI came in cooler than expected, largely on falling energy prices but with real core softening too, effectively removing the chance of a near-term hike and pulling September odds below 60 percent from more than fully priced earlier in the week on the Iran-driven oil spike. The dollar fell to a one-month low. Warsh's Senate testimony on Wednesday was confirmed word for word identical to his House remarks two days earlier, offering no incremental signal in either direction, reaffirming only that the Committee has no tolerance for persistently elevated inflation without committing to a path. Thursday's Retail Sales complicated the clean weak-consumer narrative that would have justified the desk's own pre-set trigger for fresh dollar shorts: headline growth was almost entirely a gasoline-price effect, but core retail sales rose a solid 0.5 percent, aided by Amazon Prime Day and World Cup-related spending, meaning the trigger did not fire. The Bank of Canada held its policy rate at 2.25 percent on Wednesday as expected; the full statement text, reviewed directly rather than through any single source's characterization, is genuinely neutral, describing the current rate as appropriate and closing with fully standard two-sided language about being prepared to adjust policy as needed, with growth actually described more positively than expected and CAD's depreciation attributed by the Bank itself to a widening yield differential rather than a policy signal. This did not deliver the explicit hawkish removal of easing guidance the USD/CAD Thesis Invalidation specifically required, but it was not a dovish signal either, leaving the setup's core question genuinely unresolved rather than confirmed or invalidated. The dominant and most consequential development this week is a reframing of the entire FX picture: with the dollar itself unlikely to have a large standalone move under a genuine pause, currencies already in an active tightening cycle, specifically RBNZ, RBA, and BoE, are expected to keep outperforming it directly, a conclusion reached independently of any AI source. This is a direct, structural challenge to two of the desk's three active positions. GBP/USD short is downgraded from Medium to Low-Medium: sterling has a genuine, specific catalyst this week in reports that incoming PM Burnham is considering a fiscally conservative Chancellor, which rallied both the currency and gilts on reduced budget-crisis risk, stacking a real political tailwind for GBP on top of the structural hawkish-outperformer argument working against the short, while the technical picture remains genuinely unresolved across timeframes. NZD/USD short is downgraded from Medium to Low-Medium on the same structural logic applied even more directly, since RBNZ's hike is the cleanest hawkish central bank story of the past two weeks, compounded by H4 momentum intensifying to its strongest reading yet against the position for a second consecutive session, even though the position's formal Thesis Invalidation, a decisive broad risk-on move with safe-haven currency weakness, has still not technically triggered. Gold's proprietary sell bias enters a fourth consecutive session unchanged, with the underlying mechanism explained in full this week: cooling inflation removes gold's rationale as a hedge rather than requiring a rally, and the only genuine long-term buy trigger the desk would recognize is the Fed staying on pause or cutting while inflation is still rising, the opposite of the cooling-inflation, patient-Fed combination actually in play. USD/JPY remains the one clean, undisputed theme of the week, the single currency that has not benefited from the broad dollar softness, still commentary only per the standing rule. Weekend Iran-US headline risk remains exactly as live as it has been for three consecutive Fridays, with no scheduled central bank event to backstop it before Monday's open.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "neutral",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bearish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Fed settles into a long pause - core retail sales denies the desk's own USD-short trigger",
+    "BoC holds at 2.25%, statement genuinely neutral, USD/CAD Thesis Invalidation left unresolved",
+    "Warsh Senate testimony identical to House remarks, zero new guidance",
+    "GBP/USD short downgraded to Low-Medium on a real political catalyst plus structural headwind",
+    "NZD/USD short downgraded to Low-Medium, H4 momentum hits strongest reading yet against it",
+    "Gold sell bias enters fourth consecutive session, full mechanism explained this week"
+  ]
+},
+  {
   "date": "2026-07-15",
   "file": "2026-07-15.html",
   "title": "Midweek Brief - July 15, 2026. Whipsaw Week: CPI Reverses Escalation-Driven Dollar Strength. USD/CAD's Strongest Technical Setup of the Series Faces a Live BoC Test Today.",
