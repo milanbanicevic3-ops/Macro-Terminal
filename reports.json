@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-19",
+  "file": "2026-07-19.html",
+  "title": "Sunday Session Brief - July 19, 2026. Lowest Source Consensus of the Series. GBP/USD Now Carries Four Independent Signals Against It. CAD COT Pushes to a Fresh Extreme.",
+  "thesis": "This was the lowest-consensus week of the series so far, with sources disagreeing on the basic regime more than in any prior brief and one headline claim treated with real skepticism after it was traced back to a report already covered four days earlier rather than a fresh development. Given that thin and disputed macro picture, positioning and technicals carried more analytical weight than usual this session. EUR/USD was the one pair with genuine unanimous agreement across every source, bearish, while most other pairs showed a wide, low-conviction spread. USD/CAD long holds at Medium with its Thesis Invalidation question from the prior Wednesday's central bank decision still formally unresolved; the technical and positioning case remains intact regardless, with CAD's net-short COT position pushing to a fresh series extreme and D1 and H4 momentum both reading Strong to Very Strong. GBP/USD short holds at Low-Medium, but the case for caution is broader than previously stated: COT short-covering is now a confirmed two-report trend, stacking on a structural fundamental headwind flagged the prior session and a political tailwind question that remains unresolved. This session adds a fourth, independent signal that deserves equal weight rather than a footnote: the pair sits in a genuine technical consolidation zone, with three of four ADX timeframes reading Weak and only the H4 timeframe marginally confirming trend strength. None of the four signals individually triggers the formal Thesis Invalidation, but the accumulation across positioning, fundamentals, and technicals in the same direction is the more important read than any single data point. NZD/USD short holds at Low-Medium for a third consecutive session, with H4 momentum remaining Very Strong against the position and no fresh currency futures positioning data available this week to check the other side of the argument; its own Thesis Invalidation, a decisive broad risk-on move with safe-haven currency weakness, has still not triggered. USD/JPY remains the single cleanest unanimous call across sources this week on direction and key level, though it stays commentary only per the standing rule against positioning in that pair. Gold and silver showed a genuine split in source view this week between geopolitical-premium bullishness and real-yield-driven bearishness, with the established framework from prior sessions carried forward unchanged: a durable long case requires a paused or cutting central bank alongside still-rising inflation, a combination not currently in play. The ECB's Thursday rate decision and press conference stand out as the week's single most consequential scheduled event and the most likely catalyst to reset the tone for the data-dense back half of the week, which also includes Canada CPI, UK CPI, Australian employment, Japanese CPI, US Q2 GDP, and US Core PCE.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "bullish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bearish",
+    "USDCHF": "bullish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Lowest cross-source consensus of the series; one stale headline traced and discarded",
+    "EUR/USD the sole unanimous call this week; most other pairs low-conviction and split",
+    "USD/CAD holds Medium, CAD COT net-short pushes to a fresh series extreme",
+    "GBP/USD short now carries four independent caution signals, none individually decisive",
+    "NZD/USD short enters a third session of adverse momentum with no fresh positioning data",
+    "ECB Thursday flagged as the week's single most consequential scheduled event"
+  ]
+},
+  {
   "date": "2026-07-17",
   "file": "2026-07-17.html",
   "title": "Friday Brief - July 17, 2026. Fed Settles Into a Long Pause. GBP/USD and NZD/USD Shorts Both Downgraded on a Real Structural Headwind. BoC Leaves the USD/CAD Thesis Genuinely Unresolved.",
