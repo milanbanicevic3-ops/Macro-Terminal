@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-22",
+  "file": "2026-07-22.html",
+  "title": "Midweek Brief - July 22, 2026. Genuine Middle East Escalation, Oil Up 25 Percent. USD/CAD Downgraded on Accumulating Headwinds While GBP/USD Gets Its First Supportive Signal in Three Sessions.",
+  "thesis": "This session marks a genuine escalation rather than a repeat of the stale-headline issue flagged two weeks earlier. The Houthi movement declared a naval blockade on Saudi Arabia through the Bab el-Mandeb strait, a chokepoint carrying roughly 12 percent of world trade, with immediate effect. Two US soldiers were killed as Iranian attacks on US regional bases intensified, with air raid sirens active across Gulf states. Oil is up roughly 25 percent from this month's lows, with drone strikes also disrupting loading at a Caspian pipeline terminal, adding a second supply-side risk channel beyond Hormuz and Bab el-Mandeb. The 10-year Treasury yield heading back toward its earlier war-driven highs despite last week's cooler CPI print suggests markets are pricing renewed escalation over a durable ceasefire, regardless of the official status of any existing agreement. One source is discarded entirely this session on the same class of error flagged repeatedly over the past two weeks, this time describing a dovish Fed pricing a rate cut and a Bank of Canada cut that never occurred, alongside fabricated geopolitical narratives corroborated nowhere else; this is now a well-established, repeated pattern rather than an isolated slip. Separately, one source's COT figures for GBP directly contradict verified CFTC data from two sessions earlier with the opposite sign, not merely a different number, and that source's positioning-based reasoning is discarded specifically for this reason. USD/CAD long is downgraded to Low-Medium on accumulating, genuine headwinds rather than a technical failure: the oil surge is a direct, live tailwind for CAD through the exact channel the setup's macro case has always leaned on the other way, momentum has cooled from Very Strong to a consistent Strong across most timeframes, and the prior week's BoC Thesis Invalidation question remains formally unresolved. GBP/USD short holds at Low-Medium but receives its first genuinely supportive development in three sessions: it is explicitly identified this week as one of the cleanest pairs for expressing a broad dollar-strength view, since it tracks the dollar directly rather than fighting the structural distortions that keep JPY and CHF from moving with the dollar cleanly. This does not erase the accumulated caution from prior sessions, but conviction holds rather than deteriorating further, reflecting the balance honestly. NZD/USD short also holds at Low-Medium with real relief for the first time since the position was opened, as H4 momentum cooled from Very Strong to Strong after three consecutive sessions of extreme adverse readings, while the daily bias table leans bearish across most sources for the first time in several sessions. Gold's sell bias continues for a fifth consecutive session with a softer framing, characterized as entering a ranging period after most of the move lower is judged complete, still without a genuine long-term buy case given persistently elevated yields. USD/JPY and USD/CHF are both flagged as clean structural expressions of the broader dollar-strength view but remain unpositioned, the former due to the standing rule against trading that pair and live intervention risk, the latter as a watch item tied to gold staying range-bound. Thursday stands out as the week's fulcrum, with the ECB rate decision, Eurozone and UK flash PMIs, and Japan CPI all landing in the same session on top of a live and still-worsening geopolitical backdrop.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "bullish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bullish",
+    "XAUUSD": "bearish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Genuine escalation confirmed: Bab el-Mandeb naval blockade declared, US soldiers killed, oil +25%",
+    "One source discarded again on a now well-established pattern of wrong central bank stances",
+    "GBP COT claim from one source directly contradicted by verified CFTC data, opposite sign",
+    "USD/CAD downgraded to Low-Medium on oil-driven CAD tailwind and cooling momentum",
+    "GBP/USD holds Low-Medium, gets first genuinely supportive development in three sessions",
+    "NZD/USD holds Low-Medium, adverse momentum cools from extreme for the first time since opening"
+  ]
+},
+  {
   "date": "2026-07-19",
   "file": "2026-07-19.html",
   "title": "Sunday Session Brief - July 19, 2026. Lowest Source Consensus of the Series. GBP/USD Now Carries Four Independent Signals Against It. CAD COT Pushes to a Fresh Extreme.",
