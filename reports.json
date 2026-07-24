@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-24",
+  "file": "2026-07-24.html",
+  "title": "Friday Brief - July 24, 2026. ECB Holds as Expected. GBP/USD Upgraded on Converging Evidence While USD/CAD Takes a Third Consecutive Downgrade. Chokepoint Risk Building Into the Weekend.",
+  "thesis": "This week closes on a genuine split between resilient US data and a geopolitical backdrop that keeps quietly worsening. US initial jobless claims printed at their lowest level since 1969, a very strong labor market signal, and the dollar has had a solid week against the basket on renewed September Fed hike focus. At the same time, the Middle East conflict shows no sign of settling, with the Bab el-Mandeb strait increasingly discussed as the next flashpoint after Hormuz; Saudi-flagged vessels have already been attacked and are rerouting via the Cape of Good Hope, while Chinese-flagged shipping continues passing unimpeded, and a credible scenario exists for oil to push above 100 dollars a barrel if the pattern extends to broader shipping tied to any US partner. The ECB held rates at 2.25 percent Thursday as roughly 95 percent of priced probability expected, with September now priced above 85 percent odds for a follow-up hike given the renewed conflict; the read on EUR is unflattering either way, since a hike would further slow an already-weak Eurozone growth picture while a hold reads as complacent on import-inflation risk. Sterling continued weakening on genuine domestic political and fiscal concerns rather than broad dollar strength alone, with investors unconvinced by the new UK Prime Minister's fiscal commitments and a newly announced business-rate cut funded from unsecured sources, compounded by reduced near-term BoE hike expectations following this week's UK inflation report. One source is discarded entirely for at least the fourth time this month, again describing a fully-priced Fed cutting cycle and a Bank of Canada rate cut that never occurred, the same false claim made earlier in the week, and repeating an identical false GBP net-long positioning claim from the prior session; this recurrence of specific, checkable errors rather than general noise means the source should be treated as unreliable by default going forward. GBP/USD short is upgraded from Medium to a stronger Medium conviction on two consecutive sessions of real, converging evidence: momentum jumped sharply this session, with H1 reaching Very Strong and H4 confirming Strong, stacking on the structural fundamental case named two sessions earlier and now reinforced by the fresh domestic political catalyst described above. Technical, fundamental, and political factors are all pointing the same direction for the first time since the position was built. USD/CAD long is downgraded to Low conviction for a third consecutive session on accumulating, genuine deterioration rather than a technical failure: H1 and H4 momentum both dropped to Weak this session, continuing directly from the prior session's cooling, while the underlying central bank Thesis Invalidation question remains formally unresolved and the oil-driven CAD tailwind persists. The position remains open only because no hard invalidation level or event has actually triggered, though the accumulated evidence now clearly outweighs what remains of the original case. NZD/USD short holds steady at Low-Medium with momentum roughly unchanged from the prior session, still working against the position without further relief or fresh deterioration, its own Thesis Invalidation still not triggered. Gold's sell bias continues for a sixth consecutive session with the expected pullback now judged complete, with no new gold positions being added regardless of near-term direction and attention instead focused on FX-side expressions of the broader dollar-strength view. Next week is flagged as the genuine test for everything in this brief, with the FOMC, a Bank of Japan meeting, and US Non-Farm Payrolls all landing within three days, on top of whatever the weekend's chokepoint risk produces.",
+  "bias": {
+    "USDCAD": "neutral",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "bullish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bullish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "US jobless claims lowest since 1969, dollar has a solid week on renewed Sept Fed hike focus",
+    "ECB holds at 2.25% as expected; September hike odds above 85%",
+    "One source discarded again, now repeating the same specific false GBP and BoC claims",
+    "GBP/USD upgraded on converging technical, fundamental, and fresh political evidence",
+    "USD/CAD downgraded to Low for a third consecutive session on accumulating deterioration",
+    "Bab el-Mandeb escalation risk flagged as credible and building into the weekend"
+  ]
+},
+  {
   "date": "2026-07-22",
   "file": "2026-07-22.html",
   "title": "Midweek Brief - July 22, 2026. Genuine Middle East Escalation, Oil Up 25 Percent. USD/CAD Downgraded on Accumulating Headwinds While GBP/USD Gets Its First Supportive Signal in Three Sessions.",
