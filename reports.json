@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-26",
+  "file": "2026-07-26.html",
+  "title": "Sunday Session Brief - July 26, 2026. War Escalates, Brent Back Above 100. GBP/USD Reverts to Medium as Friday's Upgrade Partially Unwinds. Busiest Central Bank Week of the Series Ahead.",
+  "thesis": "The war is intensifying rather than stabilizing. The US bombing campaign against Iran entered its thirteenth consecutive night, with attacks intensifying further after Houthi forces struck two Saudi vessels in the Red Sea. Trump has warned Iran will be held responsible for any further Houthi action and floated using frozen Iranian assets to cover shipping damages, rhetoric that, combined with a reported US troop buildup in the region, raises real questions about further escalation. Brent crude is back above 100 dollars a barrel for the first time since late May, up roughly 12 percent this week alone, with WTI up nearly 10 percent on the week and roughly 30 percent on the month. Yen stress drew in a second official voice this week: USD/JPY approached 164 as the 10-year Treasury yield broke above 4.70 percent for the first time since January 2025, prompting fresh verbal intervention warnings from Japan's Finance Ministry and an unusual direct comment from the US Treasury calling yen volatility undesirable while urging the BoJ to hike. One source is discarded entirely again this session, and the pattern is now unambiguous: it named central bank officials who no longer hold their posts in this timeline across at least three separate institutions, carried a dollar index figure roughly six points off every other surviving read, and included fabricated geopolitical stories corroborated nowhere else. This has recurred with the same category of error across multiple consecutive weeks and should be treated as unreliable by default going forward. GBP/USD short reverts from Friday's upgraded conviction back to a standard Medium, and this reversion is presented as a feature of the process rather than a failure of it: Friday's upgrade rested on a sharp momentum spike and converging fundamental evidence, but the momentum pillar reversed within 48 hours, with the relevant hourly indicator dropping from a very strong reading to neutral, the single largest such single-session swing recorded in this series. Separately, GBP's COT short-covering extended to a fourth consecutive report, now the longest sustained positioning trend of the entire series, further eroding the same pillar. The underlying fundamental case, tied to fiscal credibility concerns around the new UK government and reduced Bank of England hike expectations, has not reversed and still holds, but defending the prior upgrade level once its supporting evidence had already partially unwound would have been inconsistent with this desk's own discipline. USD/CAD long holds at Low conviction, unchanged, with short-timeframe momentum still weak and oil's renewed surge functioning as an even larger version of the CAD-supportive headwind already flagged, while the underlying central bank Thesis Invalidation question remains formally unresolved. NZD/USD short holds at Low-Medium with a genuine, if modest, positioning tailwind after its own meaningful COT short-covering this week, alongside unchanged momentum and a Thesis Invalidation that has still not triggered. Gold's sell bias continues for a seventh consecutive session, though this week's source consensus on the metal is genuinely split for the first time in the series, worth monitoring rather than acting on. The coming week is flagged as the busiest of the entire series to date, with the Federal Reserve, Bank of England, and Bank of Japan all delivering rate decisions within a three-day window, meaning every currently active position carries a direct, named catalyst.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "bullish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bearish",
+    "USDCHF": "bullish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "War escalates: 13th consecutive night of strikes, Brent back above $100 for first time since May",
+    "Yen stress draws comment from both Japan and the US Treasury in the same week",
+    "One source discarded again on an unambiguous, repeated pattern of wrong officials and figures",
+    "GBP/USD reverts to Medium as Friday's momentum-based upgrade partially unwinds within 48 hours",
+    "GBP COT short-covering extends to a fourth consecutive report, the longest trend in the series",
+    "FOMC, BoE, and BoJ all meet within three days - the busiest week of the series to date"
+  ]
+},
+  {
   "date": "2026-07-24",
   "file": "2026-07-24.html",
   "title": "Friday Brief - July 24, 2026. ECB Holds as Expected. GBP/USD Upgraded on Converging Evidence While USD/CAD Takes a Third Consecutive Downgrade. Chokepoint Risk Building Into the Weekend.",
