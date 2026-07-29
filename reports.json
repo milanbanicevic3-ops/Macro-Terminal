@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-29",
+  "file": "2026-07-29.html",
+  "title": "Midweek Brief - July 29, 2026. FOMC Day. Roughly a Third of the Market Prices a Surprise Hike. Middle East Swings Twice in 24 Hours. A New, Sourced Ground-Operation Report Surfaces.",
+  "thesis": "This is a pre-event snapshot published ahead of today's FOMC decision at 18:00 GMT, and should be read as the state of the world before that outcome rather than a settled account of the week. The decision itself carries genuine two-sided risk: markets price roughly 30 to 36 percent odds of a surprise 25 basis point hike, an elevated probability directly tied to the Committee's move away from forward guidance, which removes the usual pre-signaling that would otherwise rule a surprise out. The most likely outcome remains a hold accompanied by one or more hawkish dissents voting for a hike, a way to signal continued restrictiveness without directly contradicting public political pressure for lower rates. Risk appetite weakened into the decision after a rough week for AI-adjacent chip names that spread overnight into Asian tech indices, with post-close earnings from two major technology companies adding a second live catalyst on top of the Fed outcome. Oil swung sharply in both directions within 24 hours: a temporary pause in Middle East military operations and renewed talk of indirect contact between the US and Iran pulled crude down roughly 12 percent from Friday's peak, before Iran attempted a strike on US forces in the region overnight that was successfully intercepted, sending both benchmarks up more than 3.5 percent alongside a large reported crude inventory draw. A specific, newly sourced geopolitical risk emerged today, distinct from the general invasion-scenario analysis covered the previous week: intelligence relayed through a security source assesses that the US could authorize a limited ground operation to seize Iranian coastal territory, potentially overriding its own military leadership's caution, with Iran's military publicly warning against such a move and stating its forces are prepared to respond. On the data side, Australian second-quarter CPI printed genuinely soft against expectations, and the Australian dollar is the one major currency losing ground against the dollar today as a direct, confirmed result rather than a source disagreement. All three currently active setups hold conviction unchanged from the prior session, a deliberate choice reflecting that nothing new today was strong enough to move any of them ahead of the actual Fed outcome: USD/CAD long remains at Low conviction with weak short-timeframe momentum and an unresolved central bank Thesis Invalidation question; GBP/USD short remains at Medium with Thursday's Bank of England decision as the nearest direct test; NZD/USD short remains at Low-Medium with momentum continuing to cool further, extending a multi-session relief trend. Gold's sell bias continues into an eighth consecutive session, though today's price action and broader source consensus both lean bullish into the Fed decision, a tension worth revisiting directly once the outcome is known. The Bank of Japan meets Friday with a hold widely expected, and Core PCE data the same day closes out an exceptionally dense stretch of the calendar.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "neutral",
+    "USDJPY": "bullish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bearish",
+    "USDCHF": "bullish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "Pre-event snapshot - FOMC decision still pending as published, roughly a third odds of a surprise hike priced",
+    "Oil swings over 3.5% in both directions within 24 hours as Middle East situation stays fluid",
+    "New sourced report: possible limited US ground operation in Iran, distinct from prior scenario analysis",
+    "Australian Q2 CPI prints genuinely soft, confirmed data driving today's AUD underperformance",
+    "All three active setups hold conviction unchanged pending the FOMC outcome",
+    "Microsoft and Meta earnings after the close add a second live catalyst alongside the Fed decision"
+  ]
+},
+  {
   "date": "2026-07-26",
   "file": "2026-07-26.html",
   "title": "Sunday Session Brief - July 26, 2026. War Escalates, Brent Back Above 100. GBP/USD Reverts to Medium as Friday's Upgrade Partially Unwinds. Busiest Central Bank Week of the Series Ahead.",
