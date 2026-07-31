@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-07-31",
+  "file": "2026-07-31.html",
+  "title": "Friday Brief - July 31, 2026. Triple Central Bank Week Resolves. The Desk's Own Eight-Session USD-Bullish Framework Breaks. GBP/USD and NZD/USD Both Downgraded to Low.",
+  "thesis": "This week's central bank triple-header is now fully resolved, and the market's reaction to the outcomes proved more consequential than the decisions themselves. The Fed held at 3.50 to 3.75 percent for a fifth consecutive meeting on a 9-3 vote with three hawkish dissents, and Chair Warsh's press conference was substantively hawkish, repeatedly stressing that inflation remains too high and framing the dissents as healthy internal debate rather than something to downplay. Despite that tone, the dollar weakened, because markets had priced meaningfully more than a token probability of an actual hike going in and received only a hold with no forward guidance by comparison. September hike odds eased from fully priced before the meeting to roughly 75 percent afterward. The most consequential technical development of the week was a pronounced bear-steepening in the Treasury curve, with short-end yields falling while the 10, 20, and 30-year all pushed to levels last seen in 2008; this is read as markets demanding a larger risk premium for long-dated debt given an active war, above-target inflation, and heavy new issuance, rather than as a signal of stronger growth. That signal was serious enough that the desk's own established framework, a disciplined sell-gold and buy-dollar stance held for eight consecutive sessions, broke this week: most US dollar long positions were closed, and gold is now viewed as positioned to extend higher. This reversal is stated directly rather than folded into routine commentary, since it materially changes how every dollar-related position in this brief should be read. The Bank of England held at 3.75 percent, but the vote split hardened meaningfully to 6-3 from a prior 7-2, a genuine hawkish shift with a direct, positive read-through for sterling. The Bank of Japan held at 1.00 percent on an 8-1 vote, upgrading its FY2026 growth forecast while cutting the near-term inflation forecast and explicitly reiterating readiness to tighten further, though the yen has still not meaningfully benefited from that tone. Momentum expanded broadly and synchronously across the board this session, with six of eight tracked pairs showing Strong or Very Strong hourly readings, a genuine repricing event rather than routine noise. Two of the three currently active setups were downgraded to Low conviction this session on real, converging evidence rather than routine caution. GBP/USD short now faces three independent forces simultaneously: the hardened hawkish BoE vote split, broad post-FOMC dollar weakness, and the strongest bullish hourly momentum reading this pair has produced across the entire series to date. NZD/USD short faces the same broad dollar headwind stacked on its already-flagged fundamental and technical pressures, with the daily bias table now unanimous bullish against the position. USD/CAD long holds at Low with very little room remaining before a genuine closure decision becomes necessary, with oil dynamics, an unresolved central bank question, and now broad dollar weakness all working against it at once. The single most important open question heading into the coming week, which carries a comparatively light calendar, is whether this dollar move proves durable or fades as a post-event overreaction.",
+  "bias": {
+    "USDCAD": "neutral",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Fed holds 9-3 with three hawkish dissents, but dollar weakens on disappointed hike pricing",
+    "Bear-steepening Treasury curve, long yields at 2008 levels, reads as a Fed credibility question",
+    "Desk's eight-session USD-bullish, gold-sell framework breaks; USD longs closed, gold seen higher",
+    "BoE hawkish dissent count hardens to 6-3 from 7-2; BoJ holds 8-1, growth forecast upgraded",
+    "GBP/USD and NZD/USD both downgraded to Low on converging fundamental and technical evidence",
+    "Broadest, most synchronized momentum expansion of the entire series across the pair set"
+  ]
+},
+  {
   "date": "2026-07-29",
   "file": "2026-07-29.html",
   "title": "Midweek Brief - July 29, 2026. FOMC Day. Roughly a Third of the Market Prices a Surprise Hike. Middle East Swings Twice in 24 Hours. A New, Sourced Ground-Operation Report Surfaces.",
