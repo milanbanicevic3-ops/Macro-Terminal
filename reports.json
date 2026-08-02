@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-08-02",
+  "file": "2026-08-02.html",
+  "title": "Sunday Session Brief - August 2, 2026. Post-FOMC USD Downtrend Extends. Official BoE Minutes Confirm the Iran Interim Agreement Has Collapsed. USD/CAD at a Genuine Decision Point.",
+  "thesis": "The dollar downtrend that emerged after the FOMC extended through the weekend rather than fading, with the dollar index closing Friday near 99.91 and briefly piercing below the 100.00 level that had held through most of this series. USD/JPY produced the most extreme single momentum reading of the entire series this week, with multiple sources flagging suspected Bank of Japan or Ministry of Finance intervention behind a sharp move toward the 157 area, a real signal that Japan is finally acting on yen weakness after weeks of rhetoric with no follow-through, though the pair remains off-limits to trade under the standing rule. This week's COT report, dated July 28, predates the Federal Reserve, Bank of England, and Bank of Japan decisions delivered July 29 through 31, and reveals a genuine mechanical explanation for this week's price action: speculators added to both GBP and JPY shorts in the days immediately before both central banks delivered more hawkish outcomes than expected, a textbook setup for the kind of squeeze both pairs have shown since Friday. The official Bank of England Monetary Policy Committee minutes for the July meeting were obtained and reviewed directly this week, materially upgrading the desk's confidence in several details that had previously relied on secondary characterization. The Committee held at 3.75 percent on a 6 to 3 vote, a closer count than earlier reporting suggested, with three members preferring an immediate 25 basis point increase. One dissenting member's stated rationale explicitly cited the collapse of the US-Iran interim agreement as the key change in her assessment, the first official, on-the-record confirmation of something this desk had previously only inferred from market pricing in Treasury yields. The Committee as a whole, hold voters included, judged inflation risk to be skewed to the upside given persistently elevated energy prices following the Middle East conflict, with the likelihood of second-round effects on wages and prices identified as the central point of internal disagreement. The minutes also confirm the Committee's next scheduled decision falls on September 16, directly refuting a specific calendar claim from one source this week that a BoE decision was imminent this Thursday. USD/CAD long is presented this week as reaching a genuine decision point rather than another routine hold: the daily bias table now reads unanimous bearish for the pair, the broad dollar downtrend has extended, and the underlying central bank question and oil-driven headwind remain exactly where they were with no offsetting improvement, making the case for seriously weighing closure rather than continuing to carry the position on habit. GBP/USD short holds at Low conviction, now reinforced by the primary-source BoE detail described above, alongside the mechanical short-squeeze dynamic visible in this week's positioning data. NZD/USD short holds at Low conviction facing the same broad dollar headwind without the same specific squeeze mechanics. Friday's US Non-Farm Payrolls, alongside concurrent Canadian employment data, stands as the week's fulcrum and a genuine two-way risk: a strong print could sharply reverse the entire post-FOMC dollar downtrend, while a soft print would likely confirm and extend it.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "bearish",
+    "EURUSD": "neutral",
+    "AUDUSD": "neutral",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Post-FOMC dollar downtrend extends through the weekend, DXY briefly below 100.00",
+    "USD/JPY posts the largest momentum reading of the series on suspected intervention",
+    "Official BoE minutes obtained: 6-3 hold, one dissent explicitly cites Iran agreement collapse",
+    "COT predates the FOMC/BoE/BoJ decisions, revealing GBP and JPY shorts added into the event",
+    "USD/CAD flagged as a genuine decision point rather than a routine hold",
+    "Non-Farm Payrolls Friday is the week's fulcrum and a genuine two-way risk"
+  ]
+},
+  {
   "date": "2026-07-31",
   "file": "2026-07-31.html",
   "title": "Friday Brief - July 31, 2026. Triple Central Bank Week Resolves. The Desk's Own Eight-Session USD-Bullish Framework Breaks. GBP/USD and NZD/USD Both Downgraded to Low.",
