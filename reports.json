@@ -1,5 +1,30 @@
 [
   {
+  "date": "2026-08-05",
+  "file": "2026-08-05.html",
+  "title": "Midweek Brief - August 5, 2026. Oil Craters 5.7% on Hormuz Optimism, Equities Hit Fresh Records. GBP/USD Short Trades Within 8 Pips of Its Stop. USD/CAD's Decision Point Gets New Evidence Favoring a Hold.",
+  "thesis": "A genuine risk-on cascade dominated the session, triggered by a specific Treasury comment that a Hormuz arrangement could be finalized within a day or two rather than a vague de-escalation drift. WTI fell 5.69% to 75.77, and equities followed directly, with the S&P 500 and Dow both closing at fresh records (7,736.52 and 54,085.88). The dollar index stayed roughly flat near 99.85, meaning this reads as a risk-asset story rather than a clean dollar-weakness move. Gold's refusal to sell off into that backdrop, rising to roughly 4,088.50 alongside record equities and crashing oil, is flagged directly as the one signal that does not fit the clean risk-on narrative and is treated as the market's own hedge against talks that remain unfinalized. The Federal Reserve's July 29 decision produced the first three-way hawkish dissent since 2016, with Chair Warsh explicitly stating there is no tolerance for inflation and formally moving away from forward guidance, a combination that hands Friday's Non-Farm Payrolls outsized weight given the Committee has removed its own pre-signaling. Two specific and conflicting data points already feed that Friday decision: ISM Manufacturing printed a four-year high at 55.6 while JOLTS came in softer than forecast at 7.359 million, leaving genuine two-way risk into the print. The suspected Bank of Japan intervention flagged in the prior session is now confirmed and larger than understood: a joint US-Japan action ran August 1 through 3, the first joint intervention since 1998, with the Treasury reportedly selling EUR rather than only USD to buy JPY. USD/JPY has rebounded to 157.660 but sits below its 200-day moving average for the first time in roughly a year, and posted the single strongest momentum reading of the entire eight-pair, four-timeframe momentum table this session (H4 ADX 50.60, Very Strong). Two of the three currently active setups need direct attention rather than routine carry-forward this week. GBP/USD short is trading within roughly 8 pips of its stop, with the Bank of England's 6-3 hawkish hold (three members wanted an immediate hike to 4 percent) continuing to work against the position with no offsetting development since. USD/CAD long, flagged in the prior session as needing a deliberate close-or-hold decision, received genuine fresh evidence this session that argues for holding rather than closing: the oil crash is a direct, mechanical headwind for CAD as a major oil exporter, and the Bank of Canada has turned dovish while three Fed members dissented hawkish, sharpening the rate-divergence case behind the long even though nothing has technically triggered. The Thesis Invalidation for that setup is, if anything, further from triggering than in the prior session given the Bank of Canada's dovish tone. NZD/USD short remains the cleanest hold of the three, genuinely caught between today's risk-on tailwind and unimproved New Zealand fundamentals (Q2 unemployment rising to 5.6 percent, soft dairy prices, a Reserve Bank of New Zealand increasingly expected to cut), with its own Thesis Invalidation still a real distance from triggering since the risk-on move has not been accompanied by broad safe-haven currency weakness. A claimed Bank of England rate decision for this Thursday appearing across several source models was identified as an error and excluded from the calendar, since the Bank of England's actual decision already landed on July 30.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "neutral",
+    "USDJPY": "bearish",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "Oil craters 5.69% to 75.77 on a specific Hormuz deal signal, equities hit fresh records (SPX 7,736.52, Dow 54,085.88)",
+    "Gold holds near 4,088.50 despite the risk-on cascade - flagged as a genuine signal, not source noise",
+    "Fed's July 29 decision produced the first three-way hawkish dissent since 2016; Warsh drops forward guidance",
+    "Joint US-Japan yen intervention (Aug 1-3, first since 1998) confirmed larger than flagged prior session",
+    "GBP/USD short trades within 8 pips of its stop as BoE's 6-3 hawkish hold keeps working against the position",
+    "USD/CAD's flagged decision point gets fresh evidence favoring a hold: oil crash plus dovish BoC vs hawkish Fed dissent"
+  ]
+},
+  {
   "date": "2026-08-02",
   "file": "2026-08-02.html",
   "title": "Sunday Session Brief - August 2, 2026. Post-FOMC USD Downtrend Extends. Official BoE Minutes Confirm the Iran Interim Agreement Has Collapsed. USD/CAD at a Genuine Decision Point.",
