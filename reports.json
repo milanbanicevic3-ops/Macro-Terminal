@@ -1,5 +1,31 @@
 [
   {
+  "date": "2026-08-07",
+  "file": "2026-08-07.html",
+  "title": "Friday Brief - August 7, 2026. July NFP Craters -23k vs +83k Expected. Dollar Sold Broadly, September Hike Odds Fall to ~40%. GBP/USD and NZD/USD Shorts Both Likely Stopped.",
+  "thesis": "July payrolls delivered a genuine, confirmed miss rather than a soft beat dressed up as one: the US economy shed 23,000 jobs against a consensus of roughly 83,000 gained, one of the larger surprises of the year. The unemployment rate ticking down to 4.1 percent from 4.2 percent is not the reassuring read it appears on the surface, since it happened only because the labor force participation rate fell to 61.4 percent, its lowest level in over five years, meaning people left the workforce rather than found jobs. June was revised down to 20,000. Job losses concentrated in local government education, down 50,000, and retail trade, down 19,000. Markets read the print as a classic good-news-is-bad-news dollar-negative, rate-cut-supportive event: September hike odds fell to roughly 40 percent from roughly 55 percent pre-print, the 10-year Treasury yield eased 4 to 6 basis points to around 4.62 percent, the 2-year fell a sharper 6 to 8 basis points to around 4.17 percent, and the dollar index broke back below the 100.00 level it had been testing all week. Equities rose on the rate-relief read, with the S&P 500 on track for its best week since April. Only one proprietary source was received intact this session rather than the usual paired detailed source, and the four-model cross-check file had been generated before the release and still showed pre-print consensus estimates; the specific NFP figures, market-reaction levels, and Fed-odds repricing described in this brief were independently verified against live financial reporting given how consequential and unusual a negative headline print is, rather than taken on a single source's word. Two of three active setups need direct verification against the trading platform rather than routine carry-forward. GBP/USD short, which had been flagged the prior session as trading roughly 8 pips from its stop, is very likely stopped out: independent reporting confirms sterling jumped on the dollar-negative surprise, and the pair's H1 momentum reading of 25.31 (Strong) is the technical signature of a genuine breakout move. NZD/USD short's stop is also flagged as at risk, since pre-print source consensus already had the pair trading above its 0.5800 stop level before today's broad dollar weakness pushed further; today's D1 momentum reading of 26.68 (Strong) confirms real directional movement is present. Neither position was marked closed in the archive without confirmation, since exact fills were not available. USD/CAD long remains technically untriggered after three consecutive sessions of the underlying thesis drifting between supportive and unsupportive evidence, with today's broad dollar weakness serving as a fresh, independent headwind on top of the decision point flagged two sessions prior; Canadian employment data landed in the same release window with an outcome not yet available. Gold extended its rally into a fresh multi-week high above 4,300, posting Strong momentum readings across all four tracked timeframes (H1 32.90, H4 39.37, D1 25.36, W1 26.45), the broadest and most synchronized momentum expansion across the eight-pair set this session; the case for promoting it to a formal fourth setup was raised again but not decided unilaterally, pending a named Thesis Invalidation from the desk. The Strait of Hormuz situation remains genuinely two-sided rather than resolved: Iran reportedly struck targets described as hostile near Qeshm Island on Thursday night even as an Iran-Oman transit agreement was described as being in its final stages, with oil roughly flat to lower on the day and tracking a combined 9 percent loss for the week.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "bearish",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "July NFP craters to -23k vs +83k expected; unemployment ticks down to 4.1% only on a 5-year-low participation rate (61.4%)",
+    "Dollar sold broadly, yields fell, equities rose - September hike odds fall to ~40% from ~55% pre-print",
+    "GBP/USD short very likely stopped out; NZD/USD short's stop also flagged at risk - both pending platform confirmation",
+    "USD/CAD long stays untriggered for a third session; today's broad dollar weakness is a fresh headwind on the open decision point",
+    "Gold extends to a fresh multi-week high above 4,300 with Strong momentum across all four tracked timeframes",
+    "Only one proprietary source received intact this session; NFP figures and market reaction independently verified given the source gap",
+    "Strait of Hormuz still unresolved - Iran reportedly struck targets near Qeshm Island even as a transit deal was described as near final"
+  ]
+},
+  {
   "date": "2026-08-05",
   "file": "2026-08-05.html",
   "title": "Midweek Brief - August 5, 2026. Oil Craters 5.7% on Hormuz Optimism, Equities Hit Fresh Records. GBP/USD Short Trades Within 8 Pips of Its Stop. USD/CAD's Decision Point Gets New Evidence Favoring a Hold.",
