@@ -72,11 +72,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .ac-hl{display:flex;gap:6px;flex-wrap:wrap;}
 .ac-hl span{font-size:9px;font-family:'IBM Plex Mono',monospace;color:var(--text3);background:var(--surface2);padding:2px 7px;border-radius:2px;border:1px solid var(--border2);}
 .empty-state{text-align:center;padding:60px 20px;color:var(--text3);font-size:13px;}
-.instructions-btn{display:flex;align-items:center;gap:6px;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text3);background:none;border:1px solid var(--border2);padding:6px 14px;border-radius:3px;cursor:pointer;margin-bottom:20px;transition:color 0.15s;}
-.instructions-btn:hover{color:var(--gold);border-color:rgba(201,168,76,0.4);}
-.instructions-panel{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:20px;margin-bottom:24px;display:none;font-size:12px;color:var(--text2);line-height:1.75;}
-.instructions-panel code{font-family:'IBM Plex Mono',monospace;background:var(--bg);padding:2px 6px;border-radius:3px;font-size:11px;color:var(--gold);}
-.instructions-panel.open{display:block;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;display:flex;justify-content:space-between;align-items:center;z-index:1;position:relative;}
 </style>
 </head>
@@ -98,22 +93,6 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:14px
   </aside>
   <main class="main">
     <div class="hero">
-      <button class="instructions-btn" onclick="toggleInstructions()">&#43; How to Add Reports</button>
-      <div class="instructions-panel" id="instructions-panel">
-        <strong style="color:var(--text);display:block;margin-bottom:10px;">Adding a new report - 3 steps</strong>
-        1. Upload the HTML file named <code>YYYY-MM-DD.html</code> to the repository root.<br>
-        2. Add a new entry at the <strong>top</strong> of <code>reports.json</code>:<br>
-        <pre style="background:var(--bg);border-radius:4px;padding:12px;margin:10px 0;font-family:&#39;IBM Plex Mono&#39;,monospace;font-size:11px;color:var(--gold2);overflow-x:auto;">{
-  "date": "2026-04-28",
-  "title": "Report title here.",
-  "thesis": "One paragraph summary.",
-  "bias": { "EURUSD": "bullish", "XAUUSD": "bearish" },
-  "highlights": ["Key stat 1", "Key stat 2"],
-  "file": "2026-04-28.html"
-}</pre>
-        3. Commit. Wait 2 minutes. Refresh.<br><br>
-        <strong style="color:var(--red);">JSON rule:</strong> ASCII only. No em dashes, middle dots, or Unicode. Periods and hyphens only.
-      </div>
       <div id="featured-area"></div>
       <div id="archive-area"></div>
       <div class="empty-state" id="empty-state" style="display:none;">No reports found.</div>
@@ -280,9 +259,6 @@ function handleSearch(){
   render();
 }
 
-function toggleInstructions(){
-  document.getElementById("instructions-panel").classList.toggle("open");
-}
 
 loadReports();
 </script>
