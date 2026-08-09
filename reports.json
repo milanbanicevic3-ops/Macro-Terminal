@@ -1,5 +1,32 @@
 [
   {
+  "date": "2026-08-09",
+  "file": "2026-08-09.html",
+  "title": "Sunday Session Brief - August 9, 2026. Soft-Dollar Regime Holds Into CPI Week. GBP/USD and NZD/USD Confirmed Stopped. USD/CAD Long Recommended for Retirement After Four Sessions.",
+  "thesis": "The soft-dollar, risk-on regime triggered by Friday's NFP miss held through the weekend rather than fading. The dollar index sits in the mid-90s to high-90s range, off the 100.00 level it spent most of the prior week testing, while gold and silver both extended roughly six percent since Tuesday's close and equities closed their best week since April. The raw CFTC Commitment of Traders data, received this week as an actual file rather than narrative estimates, shows broad, real short-covering across nearly every major currency: Japanese yen net-short positioning covered by a massive 117,939 contracts week over week, the largest single-week shift in the tracked series, consistent with the confirmed joint US-Japan intervention. The one clear exception is the Canadian dollar, whose net-short position remains the most extreme and least-covered in the entire G10 set, essentially unchanged week over week even as every other currency's shorts meaningfully reduced. Wednesday's US CPI report, with consensus centered on 0.2 percent month over month for both headline and core, is now the week's single dominant catalyst and the direct test of whether this regime extends or reverses; a hot print would revive the Federal Reserve's three-member hawkish dissent bloc, while a soft or in-line print likely extends the current dollar weakness. Two of three active setups closed this week exactly as their mechanisms were designed to. GBP/USD short is confirmed stopped, with Friday's close of 1.3491 comfortably above the 1.34596 stop; the Bank of England's 6-3 hawkish hold plus Friday's dollar-negative payrolls miss were the two independent forces the position's own Thesis Invalidation clause had named. NZD/USD short is confirmed stopped, with Friday's close of 0.5895 well clear of the 0.5800 stop, though the exact written Thesis Invalidation condition (safe-haven currency weakness specifically) was not a perfect match for what actually happened, since the yen was strengthening rather than weakening even as the position stopped out. USD/CAD long, carried for a fourth consecutive session without triggering, closed Friday at 1.3939, further from its 1.4150 entry zone than at any prior point, while this week's source material flipped from favoring dollar strength against the Canadian dollar to explicitly recommending the short side, a reversal directly supported by the Canadian dollar's extreme, uncovered short positioning in the Commitment of Traders data. A direct recommendation was made to retire the setup as untriggered rather than carry it into a fifth session, while noting the named Thesis Invalidation itself never formally triggered. The Strait of Hormuz situation remains a reported but unconfirmed interim arrangement: a temporary two-to-four-month deal between Iran and Oman with no transit fees during that window, contingent on the United States lifting its naval blockade of Iranian ports, with full reopening still requiring mine clearance and Trump administration sign-off still unclear. This session also restored a stronger visual layer to the report template going forward: a key market metrics card row directly under the delta box showing real, sourced prices and period changes; a daily change bar chart; a clickable, currency-grouped pair grid with inline TradingView charts; and a qualitative scenario matrix for Wednesday's CPI outcomes, built without fabricated probability weights since no source this week provided sourced numeric odds for the three CPI scenarios specifically. A data-quality issue was also flagged directly: this week's ADX momentum file was confirmed, via checksum, to be an exact duplicate of the prior session's file rather than a fresh fill, and the Momentum Gauge is presented with that staleness clearly labeled rather than silently treated as current.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "bearish",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "Soft-dollar, risk-on regime holds through the weekend; gold and silver both up ~6% since Tuesday, DXY in the mid-99s",
+    "Raw CFTC COT data returns: JPY short-covering of 117,939 contracts is the largest single-week shift in the series",
+    "CAD remains the most extreme, least-covered short in the G10 set - directly cited by this week's bearish USD/CAD calls",
+    "GBP/USD and NZD/USD shorts both confirmed stopped on Friday's closes - archive updated to closed/loss",
+    "USD/CAD long goes a fourth session without triggering; direct recommendation made to retire it as the fundamental case reversed",
+    "Wednesday's US CPI (consensus +0.2% M/M headline and core) is the week's dominant catalyst and the real test of regime durability",
+    "Visual layer restored: key market metrics row, daily change bar chart, clickable currency-grouped pair grid with inline TradingView charts, and a qualitative CPI scenario matrix",
+    "Data-quality flag: this week's ADX file is a confirmed byte-identical duplicate of Friday's - Momentum Gauge labeled stale, not silently reused"
+  ]
+},
+  {
   "date": "2026-08-07",
   "file": "2026-08-07.html",
   "title": "Friday Brief - August 7, 2026. July NFP Craters -23k vs +83k Expected. Dollar Sold Broadly, September Hike Odds Fall to ~40%. GBP/USD and NZD/USD Shorts Both Likely Stopped.",
