@@ -1,5 +1,33 @@
 [
   {
+  "date": "2026-08-12",
+  "file": "2026-08-12.html",
+  "title": "Midweek Brief - August 12, 2026. US CPI Day, Still Pending at Publication. RBA Holds Hawkish, Gold Extends to a Fifth Session, Hormuz Talks Hit a Real Setback.",
+  "thesis": "This brief was built and published before its own dominant catalyst resolved: July's US CPI report releases at 12:30 GMT today, with consensus at 3.4 percent year over year headline (previous 3.5 percent) and 2.5 percent core (previous 2.6 percent), and every directional call in the report is explicitly framed as pre-release positioning rather than a forecast of the outcome. September Fed hike odds have already ticked up to roughly 52.5 percent from the approximately 40 percent low seen immediately after Friday's payrolls miss, suggesting some pre-positioning against a hotter print even without the number in hand. The Reserve Bank of Australia held its cash rate at 4.35 percent on Tuesday, unanimous, and struck a genuinely hawkish rather than routine tone, with Governor Bullock confirming the board actively discussed hiking and citing both above-target inflation and upside risk from the Middle East; trimmed mean and weighted mean CPI both rose to 3.6 percent even as the headline reading cooled, and markets are pricing roughly even odds of a further hike by year end. USD/JPY produced a real, sharp round trip this week, falling to roughly 155.20 intraday Monday before recovering more than 1.6 percent back to the high 157s by Tuesday's close, with comments from the US Treasury Secretary interpreted as implicit pressure toward a Bank of Japan hike and a warning from a former Bank of Japan official about further intervention episodes both working against the yen's weakness. Gold and silver both extended to fresh highs for a fifth consecutive session ahead of the CPI release, with gold trading between 4,381.74 and 4,406.50 dollars and silver between 65.37 and 65.83 dollars; one desk note on file indicates a prior profit target was already reached with partial profits taken and the remainder held as a potential new trend continuation, with the next addition planned contingent on today's CPI and Thursday's producer price data. Oil rose back above 82 dollars per barrel as the Strait of Hormuz negotiations hit a genuine setback rather than a resolution, with Iran reportedly adding fresh demands and the US president responding sharply enough to revive talk of renewed military action; the 10-year Treasury yield rising above 4.70 percent, a level reached only twice before since November 2024, reflects that same unresolved tension from the bond market's side. The book carried into today's release is deliberately light: both a GBP/USD and an NZD/USD short position closed the prior week exactly as their mechanisms were designed to, and the sole remaining position, a USD/CAD long that has now gone five consecutive sessions without reaching its 4,150 to 4,200 pip entry zone, was carried forward still open pending explicit confirmation of a standing recommendation, made two sessions prior, to retire the position as untriggered given its fully reversed fundamental backdrop; today's CPI print was flagged as a clean binary test for that specific position regardless of which way the broader recommendation is ultimately resolved. This week's momentum data shows gold posting the single highest reading across the entire eight-pair, four-timeframe set (H4 ADX 47.55, Very Strong), while USD/CAD posted simultaneous Strong readings on both the H4 and D1 timeframes for the first time since entering the book, a genuine change in the pair's technical character even though spot has not reached the entry zone.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "neutral",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "US CPI releases 12:30 GMT today, still pending at publication - consensus 3.4% headline / 2.5% core; every call in this brief is pre-release, not a forecast",
+    "September hike odds tick up to ~52.5% from the ~40% post-NFP low, ahead of the print",
+    "RBA holds 4.35% Tuesday, unanimous and genuinely hawkish - Bullock confirms a hike was actively discussed",
+    "USD/JPY round-trips a dip to 155.20 and back to 157.76 this week on intervention-risk commentary",
+    "Gold and silver extend to fresh highs for a fifth consecutive session; a prior profit target was already reached and partially booked",
+    "Oil back above $82 as Hormuz talks hit a real setback - Iran added demands, Trump responded sharply",
+    "US 10Y yield above 4.70%, only the third time at this level since November 2024",
+    "USD/CAD long carries into a fifth session still untriggered; standing recommendation to retire it remains unconfirmed, with today's CPI as a clean binary test",
+    "Gold's H4 momentum reading (47.55, Very Strong) is the single highest across the entire tracked set this week"
+  ]
+},
+  {
   "date": "2026-08-09",
   "file": "2026-08-09.html",
   "title": "Sunday Session Brief - August 9, 2026. Soft-Dollar Regime Holds Into CPI Week. GBP/USD and NZD/USD Confirmed Stopped. USD/CAD Long Recommended for Retirement After Four Sessions.",
