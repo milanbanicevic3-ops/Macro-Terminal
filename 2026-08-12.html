@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Macro Terminal — Midweek Brief — August 12, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;width:100%}
+:root{
+  --navy:#0D1117;--navy2:#0f1520;--navy3:#151d2e;--navy4:#1c2538;
+  --gold:#D4AF37;--gold2:#c9a84c;--gold3:rgba(212,175,55,0.15);--gold4:rgba(212,175,55,0.3);
+  --text:#dde3ed;--text2:#8a96a8;--text3:#4a5568;
+  --green:#3fb87a;--green2:rgba(63,184,122,0.12);
+  --red:#e05c6a;--red2:rgba(224,92,106,0.12);
+  --blue:#5b9bd5;--blue2:rgba(91,155,213,0.12);
+  --border:rgba(255,255,255,0.055);
+  --radius:8px;
+}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:1.65;min-height:100vh;overflow-x:hidden}
+
+.header{background:linear-gradient(180deg,#060a0f 0%,#0d1420 100%);border-bottom:1px solid var(--gold4);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:34px;height:34px;border-radius:6px;background:var(--gold3);border:1px solid var(--gold4);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.05em}
+.logo-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold);letter-spacing:.04em}
+.logo-sub{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-top:1px}
+.header-right{display:flex;align-items:center;gap:8px}
+.h-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--text3);border:0.5px solid var(--border);border-radius:20px;padding:4px 10px;letter-spacing:.06em}
+.h-grade{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);background:var(--gold3);border:0.5px solid var(--gold4);border-radius:20px;padding:4px 10px}
+
+.delta-wrap{background:linear-gradient(135deg,var(--navy3) 0%,var(--navy4) 100%);border-bottom:1px solid var(--gold4);padding:14px 40px}
+.delta-inner{max-width:1200px;margin:0 auto}
+.delta-title{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.delta-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.delta-item{font-size:12px;color:var(--text2);line-height:1.55;padding-left:14px;position:relative}
+.delta-item::before{content:"\2022";position:absolute;left:0;color:var(--gold)}
+.delta-item strong{color:var(--text)}
+
+.mkt-wrap{background:var(--navy2);border-bottom:1px solid var(--border);padding:16px 40px}
+.mkt-inner{max-width:1200px;margin:0 auto}
+.mkt-title{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.mkt-card{background:var(--navy3);border:0.5px solid var(--border);border-radius:6px;padding:10px 12px}
+.mkt-sym{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.05em}
+.mkt-px{font-family:'Playfair Display',serif;font-size:17px;color:var(--text);margin:3px 0}
+.mkt-chg{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600}
+.mkt-chg.up{color:var(--green)}
+.mkt-chg.down{color:var(--red)}
+.mkt-chg.flat{color:var(--text3)}
+.mkt-ctx{font-size:10px;color:var(--text3);margin-top:4px;line-height:1.4}
+
+.tabs-nav{display:flex;gap:4px;overflow-x:auto;background:var(--navy2);border-bottom:1px solid var(--border);padding:0 40px;position:sticky;top:64px;z-index:190}
+.tabs-nav::-webkit-scrollbar{height:3px}
+.tab-btn{white-space:nowrap;padding:12px 16px;font-size:11px;font-weight:500;color:var(--text2);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;font-family:'IBM Plex Sans',sans-serif;letter-spacing:.02em}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+.panel{display:none;padding:32px 40px;max-width:1200px;margin:0 auto;width:100%;animation:fadeIn .25s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.page-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.page-title::before{content:"";width:3px;height:26px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.page-sub{font-size:12px;color:var(--text3);margin-bottom:24px;padding-left:13px}
+.sec-label{font-size:9px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin:22px 0 10px}
+
+.card{background:var(--navy3);border:0.5px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:10px}
+.card.gold{border-color:var(--gold4);background:linear-gradient(135deg,var(--navy3) 75%,rgba(212,175,55,.03))}
+.card.danger{border-color:rgba(224,92,106,.25);background:var(--red2)}
+.card.success{border-color:rgba(63,184,122,.25);background:var(--green2)}
+.card-label{font-size:9px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
+.card-body{font-size:12px;color:var(--text2);line-height:1.75}
+.card-body strong{color:var(--text)}
+.card-body p{margin:0 0 10px}
+.card-body p:last-child{margin-bottom:0}
+.card-body .lead{color:var(--text)}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+
+.metric{background:var(--navy4);border:0.5px solid var(--border);border-radius:var(--radius);padding:12px;text-align:center}
+.metric.gold{border-color:var(--gold4)}
+.metric-val{font-family:'Playfair Display',serif;font-size:22px;color:var(--text)}
+.metric-val.gold{color:var(--gold)}
+.metric-val.green{color:var(--green)}
+.metric-val.red{color:var(--red)}
+.metric-label{font-size:9px;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:.06em}
+
+.tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;margin:2px 3px 2px 0}
+.tg{background:var(--gold3);color:var(--gold);border:0.5px solid var(--gold4)}
+.tgr{background:var(--red2);color:var(--red);border:0.5px solid rgba(224,92,106,.25)}
+.tgn{background:var(--green2);color:var(--green);border:0.5px solid rgba(63,184,122,.25)}
+.tgb{background:var(--blue2);color:var(--blue);border:0.5px solid rgba(91,155,213,.25)}
+.tgx{background:rgba(255,255,255,.04);color:var(--text3);border:0.5px solid var(--border)}
+
+.tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.tbl th{padding:7px 10px;text-align:left;font-size:9px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;background:var(--navy4);border-bottom:1px solid var(--border);position:sticky;top:0}
+.tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(255,255,255,.015)}
+.mono{font-family:'IBM Plex Mono',monospace;font-size:11px}
+.tbl-wrap{max-height:560px;overflow-y:auto;border:0.5px solid var(--border);border-radius:var(--radius)}
+
+.chart-wrap{background:var(--navy3);border:0.5px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:14px}
+.chart-wrap canvas{max-height:280px}
+
+.alert{border-radius:var(--radius);padding:11px 14px;margin-bottom:12px;display:flex;gap:9px;font-size:12px;line-height:1.6}
+.alert.info{background:var(--gold3);border:0.5px solid var(--gold4)}
+.alert.danger{background:var(--red2);border:0.5px solid rgba(224,92,106,.25)}
+.alert.success{background:var(--green2);border:0.5px solid rgba(63,184,122,.25)}
+.alert.blue{background:var(--blue2);border:0.5px solid rgba(91,155,213,.25)}
+.alert-icon{font-size:12px;flex-shrink:0;margin-top:1px}
+
+.setup-card{background:var(--navy3);border:1px solid var(--gold4);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px}
+.setup-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.setup-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold)}
+.setup-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{background:var(--navy4);border-radius:6px;padding:9px 12px}
+.field-label{font-size:9px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.field-val{font-size:12px;color:var(--text)}
+.field.ti{grid-column:1 / -1;border-left:3px solid var(--gold)}
+
+.tv-wrap{background:var(--navy3);border:0.5px solid var(--gold4);border-radius:var(--radius);padding:14px;margin-bottom:16px}
+.tv-header{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+#tvChartContainer{height:420px;border-radius:6px;overflow:hidden;background:var(--navy4)}
+.tv-placeholder{height:420px;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:12px;background:var(--navy4);border-radius:6px}
+
+.pair-group{margin-bottom:18px}
+.pair-group-label{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.pair-group-label::before{content:"";width:16px;height:1px;background:var(--gold4)}
+.pair-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.pair-card{background:var(--navy3);border:0.5px solid var(--border);border-radius:8px;padding:11px 13px;cursor:pointer;transition:border-color .15s,transform .15s}
+.pair-card:hover{border-color:var(--gold4);transform:translateY(-1px)}
+.pair-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pair-card-name{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--text)}
+.pair-card-px{font-size:13px;color:var(--text);font-family:'IBM Plex Mono',monospace;margin-bottom:6px}
+.pair-levels{display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-bottom:7px}
+.pair-levels span strong{color:var(--text2)}
+.driver-tags{display:flex;flex-wrap:wrap;gap:3px}
+.dtag{font-size:8.5px;padding:1px 6px;border-radius:8px;border:0.5px solid var(--border);color:var(--text3)}
+.dtag.primary{border-color:var(--gold4);color:var(--gold)}
+.dtag.secondary{border-color:rgba(91,155,213,.3);color:var(--blue)}
+
+#map{height:420px;border-radius:var(--radius);border:0.5px solid var(--border)}
+
+hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
+
+@media(max-width:900px){
+  .panel{padding:20px 16px}
+  .g2,.g3,.g4,.setup-fields{grid-template-columns:1fr}
+  .header,.delta-wrap,.tabs-nav,.mkt-wrap{padding-left:16px;padding-right:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-mark">MT</div>
+    <div>
+      <div class="logo-name">The Macro Terminal</div>
+      <div class="logo-sub">Midweek Brief &middot; 12 August 2026</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="h-badge">CPI Day</div>
+    <div class="h-grade">Consensus 3.4% Headline / 2.5% Core &mdash; Releases 12:30 GMT</div>
+  </div>
+</div>
+
+<div class="delta-wrap">
+  <div class="delta-inner">
+  <div class="delta-title">&#9670; Delta Box &mdash; What Changed Since the 08-09 Sunday Brief</div>
+  <div class="delta-list">
+    <div class="delta-item"><strong>RBA held at 4.35% Tuesday, unanimous, and stayed genuinely hawkish rather than just neutral.</strong> Governor Bullock said the board would "hike again if needed" and confirmed a hike was actively discussed at the meeting, citing inflation still above target and upside risk from the Middle East. AUD held its gains rather than fading post-decision.</div>
+    <div class="delta-item"><strong>USD/JPY had a real, sharp dip through Monday that fully round-tripped by Tuesday's close.</strong> The pair fell to roughly 155.20 intraday Monday before recovering more than 1.6% back to 157.76&ndash;157.78 &mdash; Bessent's comment that BoJ Governor Ueda will "do what's best" (read as pro-hike) and a former BoJ official's warning of further intervention episodes both worked against the dip.</div>
+    <div class="delta-item"><strong>Gold and silver both pushed to fresh highs ahead of today's CPI</strong> &mdash; gold $4,381.74&ndash;4,406.50, silver $65.37&ndash;65.83, both meaningfully above Friday's already-elevated closes. This is now five consecutive sessions of the same move extending.</div>
+    <div class="delta-item"><strong>Oil rose back above $82 as the Hormuz talks hit a real setback,</strong> not just noise: Iran reportedly added fresh demands, and Trump responded sharply, reviving talk of renewed military action. WTI is now roughly 10% above last week's low but still 13% below the July 23 peak &mdash; a genuine two-sided week for oil, not a clean recovery.</div>
+    <div class="delta-item"><strong>September hike odds ticked up to roughly 52.5% from the ~40% low seen right after Friday's NFP</strong> &mdash; still well below the near-certainty priced before July 29, but a real, if modest, reversal of the post-NFP dovish repricing heading into today's print.</div>
+    <div class="delta-item"><strong>US CPI (July) releases today at 12:30 GMT / 8:30 ET &mdash; still pending as this brief is built.</strong> Consensus: headline 3.4% YoY (prev 3.5%), core 2.5% YoY (prev 2.6%). This is the dominant, still-live catalyst of the day; nothing below should be read as knowing the outcome in advance.</div>
+  </div>
+  </div>
+</div>
+
+<div class="mkt-wrap">
+  <div class="mkt-inner">
+    <div class="mkt-title">&#9670; Key Market Metrics &mdash; Tuesday Aug 11 close / pre-CPI, &Delta; vs Friday Aug 7 close</div>
+    <div class="mkt-grid">
+      <div class="mkt-card"><div class="mkt-sym">EUR/USD</div><div class="mkt-px">1.1558</div><div class="mkt-chg flat">~flat</div><div class="mkt-ctx">Holding gains into CPI</div></div>
+      <div class="mkt-card"><div class="mkt-sym">GBP/USD</div><div class="mkt-px">1.3490</div><div class="mkt-chg flat">~flat</div><div class="mkt-ctx">No active position</div></div>
+      <div class="mkt-card"><div class="mkt-sym">USD/JPY</div><div class="mkt-px">157.77</div><div class="mkt-chg flat">~flat</div><div class="mkt-ctx">Round-tripped a dip to 155.20 Monday</div></div>
+      <div class="mkt-card"><div class="mkt-sym">USD/CAD</div><div class="mkt-px">~1.393</div><div class="mkt-chg down">Sources: bearish-leaning</div><div class="mkt-ctx">Active long still untriggered</div></div>
+      <div class="mkt-card"><div class="mkt-sym">AUD/USD</div><div class="mkt-px">0.7060</div><div class="mkt-chg up">Firm</div><div class="mkt-ctx">RBA hawkish hold Tuesday</div></div>
+      <div class="mkt-card"><div class="mkt-sym">USD/CHF</div><div class="mkt-px">~0.808</div><div class="mkt-chg flat">~flat</div><div class="mkt-ctx">Soft-USD tape continues</div></div>
+      <div class="mkt-card"><div class="mkt-sym">Gold</div><div class="mkt-px">$4,394</div><div class="mkt-chg up">+1.2% since Fri</div><div class="mkt-ctx">Fresh high, fifth session extending</div></div>
+      <div class="mkt-card"><div class="mkt-sym">Silver</div><div class="mkt-px">$65.60</div><div class="mkt-chg up">+2.8% since Fri</div><div class="mkt-ctx">Outperforming gold again</div></div>
+      <div class="mkt-card"><div class="mkt-sym">SPX 500</div><div class="mkt-px">~7,740</div><div class="mkt-chg down">-0.32% pre-CPI pullback</div><div class="mkt-ctx">Pulling back slightly into the print</div></div>
+      <div class="mkt-card"><div class="mkt-sym">WTI Crude</div><div class="mkt-px">&gt;$82</div><div class="mkt-chg up">+~5% since Fri</div><div class="mkt-ctx">Hormuz talks hit a real setback</div></div>
+      <div class="mkt-card"><div class="mkt-sym">DXY</div><div class="mkt-px">~99.50</div><div class="mkt-chg flat">~flat</div><div class="mkt-ctx">Modest recovery attempt, moves muted</div></div>
+      <div class="mkt-card"><div class="mkt-sym">US 10Y Yield</div><div class="mkt-px">&gt;4.70%</div><div class="mkt-chg up">Rising on oil-driven inflation risk</div><div class="mkt-ctx">Only the third time at this level since Nov 2024</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-nav" id="tabsNav">
+  <div class="tab-btn active" onclick="showTab('macro',this)">Macro Overview</div>
+  <div class="tab-btn" onclick="showTab('bias',this)">Bias Table</div>
+  <div class="tab-btn" onclick="showTab('events',this)">Key Events</div>
+  <div class="tab-btn" onclick="showTab('metals',this)">Metals &amp; Indices</div>
+  <div class="tab-btn" onclick="showTab('setups',this)">Top Setups</div>
+  <div class="tab-btn" onclick="showTab('session',this)">Session Layer</div>
+  <div class="tab-btn" onclick="showTab('momentum',this)">Momentum Gauge</div>
+  <div class="tab-btn" onclick="showTab('map',this)">Geo Map</div>
+  <div class="tab-btn" onclick="showTab('conclusion',this)">Analyst Conclusion</div>
+</div>
+
+<!-- MACRO -->
+<div class="panel active" id="p-macro">
+  <div class="page-title">Macro Overview</div>
+  <div class="page-sub">Regime, DXY, central banks, geopolitics &mdash; CPI still pending as this brief is built</div>
+
+  <div class="g4">
+    <div class="metric gold"><div class="metric-val gold">CPI Today</div><div class="metric-label">12:30 GMT, the day's live catalyst</div></div>
+    <div class="metric"><div class="metric-val">52.5%</div><div class="metric-label">Sept hike odds, up from ~40% post-NFP</div></div>
+    <div class="metric"><div class="metric-val red">&gt;$82</div><div class="metric-label">WTI, Hormuz talks hit a real setback</div></div>
+    <div class="metric"><div class="metric-val gold">4.70%+</div><div class="metric-label">US 10Y, third time at this level since Nov 2024</div></div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-label">Regime</div>
+    <div class="card-body">
+      <p><span class="lead">This brief is being built before today's CPI print, and everything in it should be read that way &mdash; the dominant theme is still open, not resolved.</span> Consensus sits at 3.4% YoY headline (prev 3.5%) and 2.5% YoY core (prev 2.6%). A print above roughly 3.6% headline would revive the Fed's hawkish dissent bloc and could reverse the entire post-NFP dollar-weakness regime; a print near or below consensus likely extends it. September hike odds have already ticked up to 52.5% from the ~40% low seen right after Friday's NFP, a sign positioning has been quietly de-risking into the print even without knowing the number.</p>
+      <p><span class="lead">Oil is the genuine wildcard sitting underneath the CPI story.</span> WTI is back above $82 after Iran reportedly added fresh demands to the Hormuz negotiations and Trump responded sharply &mdash; a real setback, not just headline noise, and one that revives talk of renewed military action. Higher energy costs feed directly into today's inflation read, and the 10-year yield rising above 4.70% (a level hit only twice before since Trump's November 2024 win) is the bond market's own pre-CPI hedge against that risk.</p>
+      <p><span class="lead">Gold and silver extending to fresh highs for a fifth consecutive session, even with yields rising, is worth sitting with rather than passing over.</span> Gold at $4,381.74&ndash;4,406.50 and silver at $65.37&ndash;65.83 are pricing something beyond just real-yield mechanics at this point &mdash; central bank demand and genuine geopolitical hedge demand both remain live explanations, and neither has faded despite the partial dollar stabilization.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">Central bank stances</div>
+  <div class="g3">
+    <div class="card"><div class="card-label">Fed</div><div class="card-body">
+      <p><span class="lead">Still on the July 29 hold with a three-way hawkish dissent, now facing its actual test today rather than a hypothetical one.</span> With forward guidance effectively retired, today's number has a more direct, undamped path into September pricing than it would have in a normal cycle.</p>
+    </div></div>
+    <div class="card"><div class="card-label">RBA</div><div class="card-body">
+      <p><span class="lead">Held 4.35% Tuesday, unanimous, and genuinely hawkish rather than a routine hold.</span> Bullock confirmed the board actively discussed hiking, citing inflation still above the 2-3% target band and upside risk from the Middle East. Trimmed mean and weighted mean CPI both rose to 3.6% from 3.5% even as headline cooled to 3.9% &mdash; core stickiness is the real story, and markets are pricing roughly 50% odds of another hike by year-end.</p>
+    </div></div>
+    <div class="card"><div class="card-label">BoJ / Yen</div><div class="card-body">
+      <p><span class="lead">USD/JPY's round trip through 155.20 and back to 157.76 this week is a real tell.</span> Bessent's comment that Governor Ueda will "do what's best" is being read as implicit pressure toward a hike, and a former BoJ official warned of further intervention episodes if the yen shows fresh weakness. With roughly 90bp of BoJ hikes priced through end-2027, further hawkish surprise room looks limited &mdash; especially with PM Takaichi opposed to hikes and holding future board-appointment leverage that could tilt the committee dovish over time.</p>
+    </div></div>
+    <div class="card"><div class="card-label">BoE</div><div class="card-body">
+      <p><span class="lead">Still on the hold with three members having voted to hike 25bp.</span> The Committee acknowledged easing inflation pressure but flagged upside risk from renewed geopolitical tension and energy uncertainty. Markets currently price roughly 65% odds of a November hike, though that pricing predates this week's oil rebound and may need reassessing once today's CPI and Thursday's UK GDP land.</p>
+    </div></div>
+    <div class="card"><div class="card-label">ECB / BoC</div><div class="card-body">
+      <p><span class="lead">ECB holds at 2.25%, roughly 68% odds priced for a September 10 hike per this week's sources.</span> BoC stays in an easing-leaning stance, balanced against the US rate outlook heading into today's CPI &mdash; directly relevant to the active USD/CAD long.</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- BIAS TABLE -->
+<div class="panel" id="p-bias">
+  <div class="page-title">Daily Bias Table</div>
+  <div class="page-sub">28 pairs, grouped by base currency &mdash; click any pair to load its chart. Levels are Tuesday Aug 11 close / pre-CPI; every pair here is genuinely two-sided until 12:30 GMT.</div>
+
+  <div class="alert danger"><div class="alert-icon">&#10007;</div><div><strong style="color:var(--red)">Read this before the grid below.</strong> CPI releases at 12:30 GMT today. Every bias tag below reflects the pre-release setup, not a forecast of the outcome. A hot print (headline &gt;3.6%) flips essentially every USD pair in this table; a soft or in-line print extends the current bias. Treat conviction tags as "conviction in the current regime holding," not "conviction in direction regardless of the print."</div></div>
+
+  <div class="tv-wrap" id="tvChartWrap">
+    <div class="tv-header">&#9670; Chart: <span id="tvChartSymbolLabel">Click a pair below to load it</span></div>
+    <div id="tvChartContainer"><div class="tv-placeholder">Select a pair from the grid below</div></div>
+  </div>
+
+  <div class="chart-wrap">
+    <canvas id="dailyChangeChart"></canvas>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">EUR base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('EURUSD')"><div class="pair-card-head"><span class="pair-card-name">EUR/USD</span><span class="tag tgn">Bullish, pre-CPI</span></div><div class="pair-card-px">1.1558</div><div class="pair-levels"><span>Down <strong>1.1520</strong></span><span>Up <strong>1.1650</strong></span></div><div class="driver-tags"><span class="dtag primary">CPI Today</span><span class="dtag secondary">ECB Steady</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURGBP')"><div class="pair-card-head"><span class="pair-card-name">EUR/GBP</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">0.8567</div><div class="pair-levels"><span>Down <strong>0.8543</strong></span><span>Up <strong>0.8600</strong></span></div><div class="driver-tags"><span class="dtag">UK GDP Thu</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURJPY')"><div class="pair-card-head"><span class="pair-card-name">EUR/JPY</span><span class="tag tg">Neutral-Bullish</span></div><div class="pair-card-px">182.36</div><div class="pair-levels"><span>Down <strong>180.00</strong></span><span>Up <strong>184.50</strong></span></div><div class="driver-tags"><span class="dtag primary">JPY Two-Way Risk</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURCHF')"><div class="pair-card-head"><span class="pair-card-name">EUR/CHF</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">0.9339</div><div class="pair-levels"><span>Down <strong>0.9280</strong></span><span>Up <strong>0.9400</strong></span></div><div class="driver-tags"><span class="dtag">Low Conviction</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURCAD')"><div class="pair-card-head"><span class="pair-card-name">EUR/CAD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~1.611</div><div class="pair-levels"><span>Down <strong>1.6050</strong></span><span>Up <strong>1.6250</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Weakness</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURAUD')"><div class="pair-card-head"><span class="pair-card-name">EUR/AUD</span><span class="tag tgr">Bearish</span></div><div class="pair-card-px">~1.638</div><div class="pair-levels"><span>Down <strong>1.6300</strong></span><span>Up <strong>1.6450</strong></span></div><div class="driver-tags"><span class="dtag primary">RBA Hawkish Hold</span></div></div>
+      <div class="pair-card" onclick="loadChart('EURNZD')"><div class="pair-card-head"><span class="pair-card-name">EUR/NZD</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">~1.961</div><div class="pair-levels"><span>Down <strong>1.9550</strong></span><span>Up <strong>1.9700</strong></span></div><div class="driver-tags"><span class="dtag">Low Conviction</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">GBP base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('GBPUSD')"><div class="pair-card-head"><span class="pair-card-name">GBP/USD</span><span class="tag tgn">Bullish, pre-CPI</span></div><div class="pair-card-px">1.3490</div><div class="pair-levels"><span>Down <strong>1.3400</strong></span><span>Up <strong>1.3550</strong></span></div><div class="driver-tags"><span class="dtag primary">CPI Today</span><span class="dtag secondary">UK GDP Thu</span></div></div>
+      <div class="pair-card" onclick="loadChart('GBPJPY')"><div class="pair-card-head"><span class="pair-card-name">GBP/JPY</span><span class="tag tgx">Avoid &mdash; two-way</span></div><div class="pair-card-px">~212.85</div><div class="pair-levels"><span>Down <strong>210.00</strong></span><span>Up <strong>215.00</strong></span></div><div class="driver-tags"><span class="dtag">Stretched positioning both ways</span></div></div>
+      <div class="pair-card" onclick="loadChart('GBPCHF')"><div class="pair-card-head"><span class="pair-card-name">GBP/CHF</span><span class="tag tg">Neutral-Bullish</span></div><div class="pair-card-px">~1.090</div><div class="pair-levels"><span>Down <strong>1.0839</strong></span><span>Up <strong>1.0950</strong></span></div><div class="driver-tags"><span class="dtag">Low Conviction</span></div></div>
+      <div class="pair-card" onclick="loadChart('GBPCAD')"><div class="pair-card-head"><span class="pair-card-name">GBP/CAD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~1.880</div><div class="pair-levels"><span>Down <strong>1.8700</strong></span><span>Up <strong>1.8950</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Weakness</span></div></div>
+      <div class="pair-card" onclick="loadChart('GBPAUD')"><div class="pair-card-head"><span class="pair-card-name">GBP/AUD</span><span class="tag tgr">Bearish</span></div><div class="pair-card-px">~1.910</div><div class="pair-levels"><span>Down <strong>1.9020</strong></span><span>Up <strong>1.9200</strong></span></div><div class="driver-tags"><span class="dtag primary">RBA Hawkish Hold</span></div></div>
+      <div class="pair-card" onclick="loadChart('GBPNZD')"><div class="pair-card-head"><span class="pair-card-name">GBP/NZD</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">~2.288</div><div class="pair-levels"><span>Down <strong>2.2800</strong></span><span>Up <strong>2.3000</strong></span></div><div class="driver-tags"><span class="dtag">Low Conviction</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">USD base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('USDJPY')"><div class="pair-card-head"><span class="pair-card-name">USD/JPY</span><span class="tag tgx">Avoid &mdash; two-way</span></div><div class="pair-card-px">157.77</div><div class="pair-levels"><span>Down <strong>155.20</strong></span><span>Up <strong>159.50</strong></span></div><div class="driver-tags"><span class="dtag primary">Intervention Risk</span><span class="dtag secondary">CPI Today</span></div></div>
+      <div class="pair-card" onclick="loadChart('USDCHF')"><div class="pair-card-head"><span class="pair-card-name">USD/CHF</span><span class="tag tgr">Bearish</span></div><div class="pair-card-px">~0.808</div><div class="pair-levels"><span>Down <strong>0.8000</strong></span><span>Up <strong>0.8100</strong></span></div><div class="driver-tags"><span class="dtag primary">CPI Today</span></div></div>
+      <div class="pair-card" onclick="loadChart('USDCAD')"><div class="pair-card-head"><span class="pair-card-name">USD/CAD</span><span class="tag tgr">Bearish &mdash; see Setups</span></div><div class="pair-card-px">~1.393</div><div class="pair-levels"><span>Down <strong>1.3620</strong></span><span>Up <strong>1.4000</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Short-Covering Risk</span><span class="dtag secondary">Direct read on active long</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">AUD base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('AUDUSD')"><div class="pair-card-head"><span class="pair-card-name">AUD/USD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">0.7060</div><div class="pair-levels"><span>Down <strong>0.6980</strong></span><span>Up <strong>0.7150</strong></span></div><div class="driver-tags"><span class="dtag primary">RBA Hawkish Hold</span></div></div>
+      <div class="pair-card" onclick="loadChart('AUDJPY')"><div class="pair-card-head"><span class="pair-card-name">AUD/JPY</span><span class="tag tgx">Avoid &mdash; binary risk passed</span></div><div class="pair-card-px">~111.4</div><div class="pair-levels"><span>Down <strong>109.50</strong></span><span>Up <strong>113.00</strong></span></div><div class="driver-tags"><span class="dtag">Carry unwind + intervention overhang</span></div></div>
+      <div class="pair-card" onclick="loadChart('AUDCHF')"><div class="pair-card-head"><span class="pair-card-name">AUD/CHF</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~0.570</div><div class="pair-levels"><span>Down <strong>0.5650</strong></span><span>Up <strong>0.5750</strong></span></div><div class="driver-tags"><span class="dtag">Broad agreement</span></div></div>
+      <div class="pair-card" onclick="loadChart('AUDCAD')"><div class="pair-card-head"><span class="pair-card-name">AUD/CAD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~0.984</div><div class="pair-levels"><span>Down <strong>0.9780</strong></span><span>Up <strong>0.9950</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Short-Covering Risk</span></div></div>
+      <div class="pair-card" onclick="loadChart('AUDNZD')"><div class="pair-card-head"><span class="pair-card-name">AUD/NZD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~1.201</div><div class="pair-levels"><span>Down <strong>1.1930</strong></span><span>Up <strong>1.2100</strong></span></div><div class="driver-tags"><span class="dtag">RBA/RBNZ divergence</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">NZD base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('NZDUSD')"><div class="pair-card-head"><span class="pair-card-name">NZD/USD</span><span class="tag tgx">Avoid</span></div><div class="pair-card-px">~0.589</div><div class="pair-levels"><span>Down <strong>0.5800</strong></span><span>Up <strong>0.5950</strong></span></div><div class="driver-tags"><span class="dtag">Thin liquidity, RBNZ hold, dairy volatility</span></div></div>
+      <div class="pair-card" onclick="loadChart('NZDJPY')"><div class="pair-card-head"><span class="pair-card-name">NZD/JPY</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">~93.0</div><div class="pair-levels"><span>Down <strong>91.50</strong></span><span>Up <strong>94.50</strong></span></div><div class="driver-tags"><span class="dtag">Low conviction</span></div></div>
+      <div class="pair-card" onclick="loadChart('NZDCAD')"><div class="pair-card-head"><span class="pair-card-name">NZD/CAD</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~0.822</div><div class="pair-levels"><span>Down <strong>0.8150</strong></span><span>Up <strong>0.8300</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Short-Covering Risk</span></div></div>
+      <div class="pair-card" onclick="loadChart('NZDCHF')"><div class="pair-card-head"><span class="pair-card-name">NZD/CHF</span><span class="tag tgn">Bullish</span></div><div class="pair-card-px">~0.476</div><div class="pair-levels"><span>Down <strong>0.4700</strong></span><span>Up <strong>0.4820</strong></span></div><div class="driver-tags"><span class="dtag">Broad agreement</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">CAD base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('CADJPY')"><div class="pair-card-head"><span class="pair-card-name">CAD/JPY</span><span class="tag tgx">Avoid &mdash; whipsaw risk</span></div><div class="pair-card-px">~113.2</div><div class="pair-levels"><span>Down <strong>111.50</strong></span><span>Up <strong>114.50</strong></span></div><div class="driver-tags"><span class="dtag">Oil swings + JPY intervention + BoC hold, conflicting</span></div></div>
+      <div class="pair-card" onclick="loadChart('CADCHF')"><div class="pair-card-head"><span class="pair-card-name">CAD/CHF</span><span class="tag tgr">Bearish</span></div><div class="pair-card-px">~0.580</div><div class="pair-levels"><span>Down <strong>0.5720</strong></span><span>Up <strong>0.5850</strong></span></div><div class="driver-tags"><span class="dtag primary">CAD Weakness</span></div></div>
+    </div>
+  </div>
+
+  <div class="pair-group">
+    <div class="pair-group-label">CHF base</div>
+    <div class="pair-grid">
+      <div class="pair-card" onclick="loadChart('CHFJPY')"><div class="pair-card-head"><span class="pair-card-name">CHF/JPY</span><span class="tag tgx">Neutral</span></div><div class="pair-card-px">~195.3</div><div class="pair-levels"><span>Down <strong>193.00</strong></span><span>Up <strong>197.00</strong></span></div><div class="driver-tags"><span class="dtag">Low conviction</span></div></div>
+    </div>
+  </div>
+
+  <div class="alert info" style="margin-top:4px"><div class="alert-icon">&#9670;</div><div><strong style="color:var(--gold)">This week's sources explicitly flag five pairs as avoid-only</strong> (GBP/JPY, AUD/JPY, NZD/USD, CAD/JPY, UK100) &mdash; stretched positioning, binary event risk already passed and priced, or thin summer liquidity. Tagged "Avoid" above rather than forced into a directional call.</div></div>
+</div>
+
+<!-- EVENTS -->
+<div class="panel" id="p-events">
+  <div class="page-title">Key Events This Week</div>
+  <div class="page-sub">GMT timestamped &mdash; verify against ForexFactory before publishing, especially exact times</div>
+
+  <table class="tbl">
+    <thead><tr><th>Date</th><th>Time (GMT)</th><th>Currency</th><th>Event</th><th>Impact</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">Wed Aug 12</td><td class="mono">12:30</td><td>USD</td><td>CPI (Jul) &mdash; headline &amp; core</td><td><span class="tag tgr">Very High</span> &mdash; consensus 3.4% / 2.5% YoY; the day's live catalyst, not yet released</td></tr>
+      <tr><td class="mono">Thu Aug 13</td><td class="mono">06:00</td><td>GBP</td><td>UK Q2 GDP (Prelim), Industrial/Manufacturing Production, Trade Balance</td><td><span class="tag tgr">High</span> &mdash; consensus +0.3% QoQ GDP</td></tr>
+      <tr><td class="mono">Thu Aug 13</td><td class="mono">&mdash;</td><td>USD</td><td>PPI (Jul)</td><td><span class="tag tg">Medium-High</span> &mdash; confirms or complicates today's CPI read</td></tr>
+      <tr><td class="mono">Fri Aug 14</td><td class="mono">&mdash;</td><td>USD</td><td>Retail Sales, Consumer Sentiment (Prelim)</td><td><span class="tag tg">Medium</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-label">Scenario Matrix &mdash; Today's US CPI (12:30 GMT, still pending)</div>
+  <table class="tbl">
+    <thead><tr><th>Scenario</th><th>DXY</th><th>Gold</th><th>SPX500</th><th>USD/JPY</th><th>Fed Pricing</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tgr">Hot (Headline &gt;3.6%, Core &gt;2.6%)</span></td><td>Sharp reversal higher, tests 100.50</td><td>Pulls back toward $4,127&ndash;4,000</td><td>Correction risk, 7,300&ndash;7,000 zone cited</td><td>Tests 160+, intervention resolve tested</td><td>Hawkish dissent bloc revives; Sept odds likely back above 55-60%</td></tr>
+      <tr><td><span class="tag tg">In-line (~3.4% / 2.5%)</span></td><td>Stays range-bound, mid-99s</td><td>Consolidates near highs, possible profit-taking</td><td>Grinds higher on relief</td><td>Holds 156-159.50 range</td><td>Current ~52.5% Sept odds roughly unchanged</td></tr>
+      <tr><td><span class="tag tgn">Soft (Headline &lt;3.2%, Core &lt;2.4%)</span></td><td>Fresh lows, sub-99.00 tested</td><td>Extends toward $4,450&ndash;4,585</td><td>Extends the rally further</td><td>Pressure toward 154-155, fresh intervention watch</td><td>Sept hike odds fall back toward the post-NFP ~40% low</td></tr>
+    </tbody>
+  </table>
+  <div class="card-body" style="font-size:11px;color:var(--text3);margin-top:8px;margin-bottom:16px">This matrix uses the specific hot/in-line/soft thresholds and asset targets given directly by this week's sources, not invented ones &mdash; but it remains a qualitative scenario framework, not a weighted forecast, since none of them attached numeric probabilities to the three outcomes.</div>
+
+  <div class="alert info"><div class="alert-icon">&#9670;</div><div><strong style="color:var(--gold)">One desk note worth surfacing directly: expectations are tilted toward a soft core print specifically</strong> &mdash; the view is headline ticking up on energy pass-through (oil's renewed rise) while core stays contained, which would read as an energy-driven, not demand-driven, inflation story and would reinforce the dollar-sell / September-pause case that Trump, Bessent, and Warsh are all understood to want. This is a directional view, not a certainty &mdash; treat it as one input alongside the consensus-based scenario matrix above.</div></div>
+</div>
+
+<!-- METALS -->
+<div class="panel" id="p-metals">
+  <div class="page-title">Metals &amp; Indices</div>
+  <div class="page-sub">Gold, Silver, US30, SPX500, GER40, WTI &mdash; Tuesday Aug 11 close / pre-CPI</div>
+
+  <table class="tbl">
+    <thead><tr><th>Instrument</th><th>Bias</th><th>Level</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td><strong style="color:var(--text)">Gold (XAUUSD)</strong></td><td><span class="tag tgn">Bullish</span></td><td class="mono">$4,381.74&ndash;4,406.50</td><td>Fifth consecutive session extending; one desk note flags a target already reached with partial profits taken, floating the rest for a potential new trend, next add planned post-CPI/PPI</td></tr>
+      <tr><td><strong style="color:var(--text)">Silver (XAGUSD)</strong></td><td><span class="tag tgn">Bullish</span></td><td class="mono">$65.37&ndash;65.83</td><td>Outperforming gold again; industrial + safe-haven demand both cited</td></tr>
+      <tr><td>SPX500</td><td><span class="tag tg">Neutral, pulling back</span></td><td class="mono">~7,728&ndash;7,757.64</td><td>-0.32% pre-CPI pullback off Tuesday's high; earnings resilience intact</td></tr>
+      <tr><td>US30</td><td><span class="tag tg">Neutral</span></td><td class="mono">~53,876&ndash;54,036.93</td><td>Consolidating just off records into the print</td></tr>
+      <tr><td>GER40</td><td><span class="tag tgn">Bullish</span></td><td class="mono">~26,140&ndash;26,319</td><td>Holding gains; EUR strength a modest headwind for exporters</td></tr>
+      <tr><td>Oil (WTI)</td><td><span class="tag tgn">Bullish, choppy</span></td><td class="mono">&gt;$82</td><td>~10% above last week's low but still 13% below the July 23 peak; Hormuz setback is the direct driver, not resolved</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert info"><div class="alert-icon">&#9670;</div><div><strong style="color:var(--gold)">Fourth consecutive session raising gold as a possible formal setup &mdash; this is the last pass-through I'll do without an explicit answer.</strong> The move is now five sessions old, multi-driver, and includes an explicit note that a prior target was already reached with profits taken. That's a real trade lifecycle happening in real time, which is exactly the kind of thing a formal Top Setup card is built to track. I'll keep it commentary-only until you say otherwise, but going forward I'll assume "no new instruction" means "leave as commentary" rather than re-asking each session.</div></div>
+</div>
+
+<!-- SETUPS -->
+<div class="panel" id="p-setups">
+  <div class="page-title">Top Setups</div>
+  <div class="page-sub">One position remains, still awaiting a decision, now with today's CPI as the binary catalyst</div>
+
+  <div class="setup-card">
+    <div class="setup-head"><div class="setup-name">USD/CAD &mdash; Long</div><span class="tag tgr">Still open, still my recommendation to retire &mdash; today's CPI is now the binary test</span></div>
+    <div class="card-body" style="margin-bottom:10px">
+      <p><span class="lead">I haven't heard back on Sunday's recommendation to retire this, so it's carrying into a fifth session as still technically open.</span> This week's sources continue to lean the same way they did Sunday: one explicitly calls it "mild bearish (lower USD/CAD) on soft USD bias and extreme CAD speculative shorts," citing support at 1.3880 with a stop above 1.4000 if positioned short &mdash; the opposite direction of the active long. Another flags it as no-trade given event risk overwhelm, with technical invalidation on a close below 1.3580.</p>
+      <p><span class="lead">Today's CPI is now a clean, binary test for this specific position.</span> A hot print would be dollar-positive and could finally push spot toward the 1.4150 entry zone that's eluded it for five sessions; an in-line or soft print extends the dollar weakness that's kept this pinned below 1.3950 the entire time. I'm not changing my recommendation &mdash; I still think this should be closed as untriggered rather than carried through the CPI release &mdash; but if you want to let today's print make the decision for you, that's a coherent alternative I can respect. I'd just rather you choose that deliberately than have it happen by default.</p>
+    </div>
+    <div class="setup-fields">
+      <div class="field"><div class="field-label">Entry Zone (never reached, 5 sessions)</div><div class="field-val">1.4150 &ndash; 1.4200</div></div>
+      <div class="field"><div class="field-label">Approx. Current Level</div><div class="field-val">~1.393, pre-CPI</div></div>
+      <div class="field"><div class="field-label">Stop / Target (if retained)</div><div class="field-val">1.4090 / 1.4320</div></div>
+      <div class="field ti"><div class="field-label">Thesis Invalidation</div><div class="field-val">BoC hawkish hold explicitly removing easing guidance &mdash; still technically unresolved; today's CPI is an independent catalyst that doesn't touch this specific clause but will likely move the pair more than any BoC statement would this week</div></div>
+    </div>
+  </div>
+
+  <div class="alert danger"><div class="alert-icon">&#10007;</div><div><strong style="color:var(--red)">Book status: no active positions besides USD/CAD.</strong> GBP/USD and NZD/USD shorts remain closed from Friday. This is a genuinely light book heading into today's CPI, which given the two-sided risk across nearly every pair in the Bias Table, seems like the right amount of exposure rather than a gap to fill.</div></div>
+</div>
+
+<!-- SESSION -->
+<div class="panel" id="p-session">
+  <div class="page-title">Session Layer</div>
+  <div class="page-sub">Overnight snapshot, danger zones, prop firm guidance</div>
+
+  <div class="card gold">
+    <div class="card-label">Today's snapshot</div>
+    <div class="card-body">
+      <p><span class="lead">Everything else this week is secondary to the 12:30 GMT CPI release.</span> Markets have already de-risked somewhat into it &mdash; September hike odds ticking up to 52.5% from 40% suggests some hedging against a hotter print, even without knowing the number.</p>
+      <p><span class="lead">Watch average hourly earnings alongside the headline and core prints, not just the two main numbers.</span> A slowdown in wage growth would reinforce a cooling-inflation-expectations narrative even if the headline number itself is noisy on energy pass-through.</p>
+    </div>
+  </div>
+
+  <div class="sec-label">Danger zones today and this week</div>
+  <table class="tbl">
+    <thead><tr><th>GMT Time</th><th>Event</th><th>Pairs Affected</th><th>Risk Level</th><th>Prop Firm Guidance</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">Wed 12:30</td><td>US CPI (Jul) &mdash; headline, core, average hourly earnings</td><td>All USD pairs, Gold, indices, the active USD/CAD long directly</td><td><span class="tag tgr">Very High</span></td><td>Do not add size into the release; this is the single most consequential data point of the month per this week's own sources</td></tr>
+      <tr><td class="mono">Ongoing</td><td>Strait of Hormuz &mdash; talks stalled, Iran added demands, Trump pushback</td><td>Oil, CAD, Gold, risk sentiment broadly</td><td><span class="tag tgr">High</span></td><td>This flipped from de-escalation to a real setback within days; treat as genuinely live, not a settled backdrop</td></tr>
+      <tr><td class="mono">Thu 06:00</td><td>UK Q2 GDP + Production + Trade</td><td>GBP pairs</td><td><span class="tag tg">Medium-High</span></td><td>No active GBP position; real volatility event regardless</td></tr>
+      <tr><td class="mono">Thu (time TBD)</td><td>US PPI (Jul)</td><td>USD pairs, follows through on today's CPI signal</td><td><span class="tag tg">Medium-High</span></td><td>Confirms or complicates today's CPI read &mdash; don't treat CPI in isolation this week</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MOMENTUM -->
+<div class="panel" id="p-momentum">
+  <div class="page-title">MT Momentum Gauge</div>
+  <div class="page-sub">ADX readings, last closed bar &mdash; source: Macro_Terminal_ADX12-08.xlsx, dated 12.08.2026, freshly filled</div>
+
+  <table class="tbl">
+    <thead><tr><th>Pair</th><th>H1</th><th>H4</th><th>D1</th><th>W1</th></tr></thead>
+    <tbody>
+      <tr><td>EUR/USD</td><td class="mono">14.77 <span class="tag tgr">WEAK</span></td><td class="mono">15.88 <span class="tag tgr">WEAK</span></td><td class="mono">27.12 <span class="tag tgn">STRONG</span></td><td class="mono">14.84 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td><strong style="color:var(--text)">GBP/USD</strong></td><td class="mono">10.45 <span class="tag tgr">WEAK</span></td><td class="mono">37.55 <span class="tag tgn">STRONG</span></td><td class="mono">22.08 <span class="tag tgx">NEUTRAL</span></td><td class="mono">8.96 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td><strong style="color:var(--text)">USD/JPY</strong></td><td class="mono">20.49 <span class="tag tgx">NEUTRAL</span></td><td class="mono">16.60 <span class="tag tgr">WEAK</span></td><td class="mono">36.47 <span class="tag tgn">STRONG</span></td><td class="mono">19.81 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td>USD/CHF</td><td class="mono">24.23 <span class="tag tgx">NEUTRAL</span></td><td class="mono">12.89 <span class="tag tgr">WEAK</span></td><td class="mono">19.03 <span class="tag tgr">WEAK</span></td><td class="mono">19.32 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td><strong style="color:var(--text)">USD/CAD</strong></td><td class="mono">12.39 <span class="tag tgr">WEAK</span></td><td class="mono">36.32 <span class="tag tgn">STRONG</span></td><td class="mono">26.58 <span class="tag tgn">STRONG</span></td><td class="mono">15.62 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td>AUD/USD</td><td class="mono">10.45 <span class="tag tgr">WEAK</span></td><td class="mono">16.55 <span class="tag tgr">WEAK</span></td><td class="mono">11.06 <span class="tag tgr">WEAK</span></td><td class="mono">20.58 <span class="tag tgx">NEUTRAL</span></td></tr>
+      <tr><td>NZD/USD</td><td class="mono">26.95 <span class="tag tgn">STRONG</span></td><td class="mono">13.80 <span class="tag tgr">WEAK</span></td><td class="mono">28.57 <span class="tag tgn">STRONG</span></td><td class="mono">11.73 <span class="tag tgr">WEAK</span></td></tr>
+      <tr><td><strong style="color:var(--text)">XAU/USD</strong></td><td class="mono">18.29 <span class="tag tgr">WEAK</span></td><td class="mono">47.55 <span class="tag tg">VERY STRONG</span></td><td class="mono">28.38 <span class="tag tgn">STRONG</span></td><td class="mono">24.71 <span class="tag tgn">STRONG</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert info" style="margin-top:14px"><div class="alert-icon">&#9670;</div><div><strong style="color:var(--gold)">Gold's H4 reading of 47.55 (Very Strong) is the single highest reading on the entire table</strong> &mdash; direct technical confirmation of the five-session rally described throughout this brief, and the standout of the week. <strong>USD/CAD posted Strong readings on both H4 (36.32) and D1 (26.58) simultaneously</strong> &mdash; real, multi-timeframe momentum is present on this pair for the first time since it entered the book, even though spot still hasn't reached the entry zone; worth factoring into whatever decision gets made on that position. <strong>GBP/USD's H4 spike to 37.55 (Strong)</strong> is notable given there's no active position to benefit from it &mdash; a reminder of how much movement has happened in a pair currently sitting on the sidelines.</div></div>
+</div>
+
+<!-- MAP -->
+<div class="panel" id="p-map">
+  <div class="page-title">Geopolitical &amp; Macro Map</div>
+  <div class="page-sub">Central banks in play and active geopolitical risk zones this week</div>
+  <div id="map"></div>
+</div>
+
+<!-- CONCLUSION -->
+<div class="panel" id="p-conclusion">
+  <div class="page-title">Analyst Conclusion</div>
+  <div class="page-sub">Dominant theme, primary risk, clearest setups</div>
+
+  <div class="card gold">
+    <div class="card-body" style="font-size:13px">
+      <p><span class="lead" style="color:var(--text)">This brief is genuinely written before its own dominant theme resolves &mdash; US CPI at 12:30 GMT is still pending, and everything above should be read as the setup, not the outcome.</span> Consensus sits at 3.4% headline and 2.5% core; September hike odds have already ticked up to 52.5% from the post-NFP low of roughly 40%, suggesting some pre-positioning against a hotter print even without the number in hand.</p>
+      <p><span class="lead" style="color:var(--text)">The primary risk sits at the intersection of two stories that are both live at once: oil's genuine setback in the Hormuz talks, and gold's fifth consecutive session of gains despite rising yields.</span> Both are telling a similar story from different angles &mdash; real, unresolved geopolitical risk that a clean CPI print alone won't fully settle. The 10-year yield above 4.70%, a level touched only twice before since November 2024, is the bond market pricing that same tension directly.</p>
+      <p><span class="lead" style="color:var(--text)">The book is light heading into today's release, and that's appropriate rather than a gap.</span> USD/CAD long remains the one open question, now with today's CPI as a clean binary test on top of an already-reversed fundamental backdrop and a Strong momentum reading confirming real movement is finally present. My recommendation from Sunday stands unchanged: retire it rather than let the CPI print decide by default. Gold's continued strength deserves a real decision on formal-setup status rather than another commentary-only pass next session.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://s3.tradingview.com/tv.js"></script>
+<script>
+function showTab(id, el){
+  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('p-'+id).classList.add('active');
+  el.classList.add('active');
+  window.scrollTo(0,0);
+  if(id === 'map'){ initMapOnce(); }
+}
+
+function loadChart(symbol){
+  var container = document.getElementById('tvChartContainer');
+  container.innerHTML = '';
+  try {
+    new TradingView.widget({
+      "autosize": true,
+      "symbol": "OANDA:" + symbol,
+      "interval": "240",
+      "timezone": "Etc/UTC",
+      "theme": "dark",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#151d2e",
+      "enable_publishing": false,
+      "hide_top_toolbar": false,
+      "save_image": false,
+      "container_id": "tvChartContainer"
+    });
+  } catch(e) {
+    container.innerHTML = '<div class="tv-placeholder">Chart failed to load for ' + symbol + '</div>';
+  }
+  document.getElementById('tvChartSymbolLabel').textContent = symbol;
+  document.getElementById('tvChartWrap').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+var mapInited = false;
+function initMapOnce(){
+  if(mapInited) return;
+  mapInited = true;
+  var map = L.map('map', {scrollWheelZoom:false}).setView([26,52], 3);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    maxZoom: 18
+  }).addTo(map);
+
+  var goldIcon = L.divIcon({className:'', html:'<div style="width:12px;height:12px;border-radius:50%;background:#D4AF37;border:2px solid #0D1117;box-shadow:0 0 6px rgba(212,175,55,0.8)"></div>'});
+  var redIcon = L.divIcon({className:'', html:'<div style="width:14px;height:14px;border-radius:50%;background:#e05c6a;border:2px solid #0D1117;box-shadow:0 0 8px rgba(224,92,106,0.9)"></div>'});
+
+  var cbNodes = [
+    {name:'Federal Reserve', lat:38.8919, lng:-77.0428, note:'CPI releases 12:30 GMT today \u2014 consensus 3.4% headline / 2.5% core. Sept hike odds at 52.5%, up from ~40% post-NFP.'},
+    {name:'Reserve Bank of Australia', lat:-33.8688, lng:151.2093, note:'Held 4.35% Tuesday, unanimous, genuinely hawkish. Bullock: board actively discussed hiking. Trimmed/weighted mean CPI both rose to 3.6%.'},
+    {name:'Bank of Japan / MoF', lat:35.6762, lng:139.6503, note:'USD/JPY round-tripped a dip to 155.20 and back to 157.76 this week. Bessent comments and intervention warnings both worked against yen weakness.'},
+    {name:'Bank of England', lat:51.5072, lng:-0.1276, note:'Still on hold with 3 hawkish dissents. UK Q2 GDP Thursday is the next test. ~65% odds priced for a November hike, may need reassessing given oil\u2019s rebound.'}
+  ];
+  var riskNodes = [
+    {name:'Strait of Hormuz', lat:26.5666, lng:56.2500, note:'Talks hit a real setback \u2014 Iran reportedly added fresh demands, Trump responded sharply. Oil back above $82, reviving talk of renewed military action.'}
+  ];
+
+  cbNodes.forEach(function(n){
+    L.marker([n.lat,n.lng], {icon:goldIcon}).addTo(map).bindPopup('<strong>'+n.name+'</strong><br>'+n.note);
+  });
+  riskNodes.forEach(function(n){
+    L.marker([n.lat,n.lng], {icon:redIcon}).addTo(map).bindPopup('<strong>'+n.name+'</strong><br>'+n.note);
+  });
+}
+
+var dailyCtx = document.getElementById('dailyChangeChart').getContext('2d');
+new Chart(dailyCtx, {
+  type: 'bar',
+  data: {
+    labels: ['EUR/USD','GBP/USD','USD/JPY','USD/CAD','AUD/USD','USD/CHF','Gold','Silver','SPX500','WTI'],
+    datasets: [{
+      label: '% change vs Fri Aug 7 close',
+      data: [0.0, -0.01, 0.01, -0.06, -0.10, 0.01, 1.22, 2.78, -0.20, 5.62],
+      backgroundColor: function(context){
+        var v = context.raw;
+        return v >= 0 ? 'rgba(63,184,122,0.65)' : 'rgba(224,92,106,0.65)';
+      },
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: '#8a96a8', callback: function(v){ return v + '%'; } }, grid: { color: 'rgba(255,255,255,0.04)' } },
+      y: { ticks: { color: '#8a96a8' }, grid: { color: 'rgba(255,255,255,0.04)' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
