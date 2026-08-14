@@ -1,5 +1,32 @@
 [
   {
+  "date": "2026-08-14",
+  "file": "2026-08-14.html",
+  "title": "Friday Brief - August 14, 2026. Goldilocks CPI + Soft PPI Confirmed. September Hike Odds Fall to ~30-35%. USD/JPY Breaks the Script, Back Above 159. USD/CAD Long Now Faces Confirmed Momentum Against It.",
+  "thesis": "July's US CPI landed exactly at consensus, a genuine Goldilocks outcome rather than a coin-flip resolved by luck: headline 3.4 percent year over year against a previous 3.5 percent, core 2.5 percent against a previous 2.6 percent. Thursday's producer price index added to the disinflation case with a flat 0.0 percent month over month headline reading, the first flat print since mid-2025, though the core producer price reading itself is subject to a genuine, unresolved conflict between two source materials as to whether it came in above or below expectations. September Federal Reserve hike odds fell to roughly 30 to 35 percent from the approximately 52.5 percent level flagged two sessions prior, a real and confirmed repricing rather than a still-pending scenario. USD/JPY did not follow the textbook soft-data script this week: the pair traded back above 159, having given back close to half of the gains from the early-August joint US-Japan intervention, despite a hawkish Bank of Japan Summary of Opinions released Monday and a reported softening in the Japanese prime minister's opposition to a near-term hike, both of which should on paper have been yen-supportive. That disconnect between hawkish policy signals and continued yen weakness was flagged directly as an unresolved puzzle rather than explained away. Oil became the week's most significant mover, with WTI trading near 83.50 dollars and Brent briefly touching 90 dollars for the first time since July 31, both up roughly 7 percent for the week, following a genuine setback in the Strait of Hormuz negotiations after the US president added new demands in response to Iran attempting to insert its own conditions, compounded by continued attacks in both the Strait of Hormuz and the Bab el-Mandeb strait, including a deadly Houthi strike on a cargo vessel. Gold and silver both pulled back from five consecutive sessions of gains, reading as profit-taking digestion rather than a change in the underlying thesis, with gold trading between 4,326.75 and 4,382.50 dollars and silver between 64.12 and 65.44 dollars, while US equities set fresh records on the confirmed soft-landing data. A data-quality issue was identified and flagged in full: this week's FX closing-price summary table arrived as a stale, digit-for-digit copy of the prior week's numbers for five major pairs, most consequentially understating USD/JPY by more than a full percentage point relative to the level described in the same document's own prose and in independently-sourced desk notes; the stale table values were not used where they conflicted with fresher sourcing. The sole remaining active position, a USD/CAD long that has not reached its entry zone across six or more consecutive sessions, carried forward for a third consecutive session without an explicit response to a standing recommendation to retire it as untriggered; this week's source material independently reached the same bearish-USD/CAD conclusion for a third straight session, and the momentum data provided the piece of evidence that had previously been missing, showing Strong ADX readings simultaneously across the H1, H4, and D1 timeframes for the first time since the position entered the book, a genuinely rare three-timeframe alignment pointing against the long. The recommendation to close the position was restated in direct terms rather than softened further.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "neutral",
+    "NZDUSD": "neutral",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "US CPI confirmed in-line (3.4% headline / 2.5% core); PPI soft (0.0% headline m/m, first flat print since mid-2025)",
+    "September hike odds fall to ~30-35% from ~52.5% pre-CPI - a real, confirmed repricing",
+    "USD/JPY breaks the soft-data script, trading back above 159 despite hawkish BoJ signals - flagged as an open puzzle, not explained away",
+    "Oil becomes the week's biggest mover: WTI ~$83.50, Brent briefly hit $90 (first since Jul 31) on a genuine Hormuz setback",
+    "Gold and silver pull back after five straight sessions higher - read as digestion, not reversal; momentum stays Strong on all four timeframes regardless",
+    "Data-quality flag: this week's FX summary table was a stale copy of last week's numbers for five pairs, most consequentially USD/JPY - fresher sourcing used instead",
+    "USD/CAD long carries a third consecutive session without action on the standing recommendation to retire it; momentum now confirms Strong readings on H1, H4, and D1 simultaneously, against the position",
+    "Open conflict flagged, not resolved: two sources disagree on whether core PPI beat or missed expectations"
+  ]
+},
+  {
   "date": "2026-08-12",
   "file": "2026-08-12.html",
   "title": "Midweek Brief - August 12, 2026. US CPI Day, Still Pending at Publication. RBA Holds Hawkish, Gold Extends to a Fifth Session, Hormuz Talks Hit a Real Setback.",
