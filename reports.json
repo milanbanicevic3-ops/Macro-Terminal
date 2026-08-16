@@ -1,5 +1,34 @@
 [
   {
+  "date": "2026-08-16",
+  "file": "2026-08-16.html",
+  "title": "Sunday Session Brief - August 16, 2026. USD/CAD Long Formally Retired. Soft-Dollar Regime Broadens as DXY Tests the 200-Day MA. Week Ahead: Three Scenarios for FOMC Minutes, UK CPI, and the Canada Tariff Deadline.",
+  "thesis": "The soft-dollar regime that began with the July payrolls miss two weeks prior broadened this week from a single-catalyst story into a structural theme, confirmed by three consecutive sessions of disinflationary data (CPI, PPI, and Retail Sales) that pushed September Fed hike odds down to roughly 27 to 33 percent. The dollar index closed the week at 99.67, testing its 200-day moving average near 99.20 for the first time this cycle, a level carrying genuine technical significance rather than an arbitrary round number. Gold's positioning data provided the clearest confirmation that this has become structural rather than tactical: the fresh CFTC Commitment of Traders data, with a report date of August 11, showed gold speculative net-long positioning at the 95th percentile, up more than 20,000 contracts in a single week, the strongest positioning shift of any instrument in this week's data set. The Strait of Hormuz situation escalated materially over the weekend rather than persisting as background risk: two ADNOC-linked tankers were attacked, shipping traffic through the strait moved close to a standstill, and the United States both threatened an indefinite naval blockade and reportedly signaled intent to designate the strait as US territory outright, a substantially more aggressive framing than in prior weeks. The USD/CAD long position, carried open across six or more consecutive sessions without reaching its entry zone, was formally retired at the trader's explicit instruction this session, logged as a scratch with no fill and no profit or loss rather than a win or a loss; the retirement looks well-timed against this week's data, since USD/CAD posted an H1 ADX momentum reading of 55.37, the single highest reading recorded anywhere in the tracked pair set to date, confirming a genuine, sharp breakdown now underway in exactly the direction the retired position had been fighting. The book carries zero active positions into the coming week. A new Week Ahead structure was introduced this session, built around three named scenarios rather than a single forecast, given how event-dense the coming week is: a Soft Landing Extends scenario tied to Wednesday's FOMC Minutes, Wednesday's UK CPI, and Friday's Global Flash PMIs; a Hormuz Escalation scenario tied to the ongoing, not calendar-scheduled, geopolitical risk in the Strait of Hormuz and Bab el-Mandeb; and a Hawkish Repricing scenario tied to Monday's Canada CPI, Wednesday's UK CPI, Thursday's Australia employment report, and a potentially more hawkish-than-priced FOMC Minutes release, explicitly flagged as the most internally contradictory of the three scenarios and the most likely to produce a choppy rather than trending week. A distinct and separate risk was also flagged: a threatened 50 percent US tariff on selected Canadian products carries an August 19 deadline, the same day as the FOMC Minutes and UK CPI, and remained unresolved as of the weekend. This week's Commitment of Traders data also surfaced a genuine divergence in Australian dollar positioning, with speculative shorts widening by over 6,000 contracts even as spot price firmed, a setup consistent with squeeze risk into Thursday's employment release. Source accuracy was confirmed clean this session: every currency's COT figures cited by the source material matched the raw CFTC file within rounding, in contrast to the FX-table staleness issue identified and flagged across the two prior sessions.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "bearish",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "USD/CAD long formally retired per explicit instruction - closed as an untriggered scratch, no fill, no P&L",
+    "Retirement validated by today's data: USD/CAD posts an H1 ADX of 55.37, the highest momentum reading recorded in this series to date",
+    "Soft-dollar regime broadens to a structural theme - 3 straight sessions of disinflationary data, Sept hike odds down to ~27-33%",
+    "DXY closes the week at 99.67, testing its 200-day moving average (~99.20) for the first time this cycle",
+    "Gold COT positioning hits the 95th percentile, up 20,000+ contracts in a week - the strongest positioning shift in this week's data",
+    "Strait of Hormuz escalates materially: tanker attacks, traffic near standstill, US threatens indefinite blockade and territorial claim",
+    "New Week Ahead block: three named scenarios (Soft Landing Extends, Hormuz Escalation, Hawkish Repricing), each tied to specific calendar events and listing which pairs it activates",
+    "COT data flags an AUD divergence - shorts widened even as spot firmed, squeeze risk into Thursday's employment print",
+    "Separate risk flagged: Aug 19 US-Canada tariff deadline lands the same day as FOMC Minutes and UK CPI, unresolved as of the weekend",
+    "Source accuracy note: this week's COT figures checked out cleanly against the raw CFTC file - no discrepancy to flag"
+  ]
+},
+  {
   "date": "2026-08-14",
   "file": "2026-08-14.html",
   "title": "Friday Brief - August 14, 2026. Goldilocks CPI + Soft PPI Confirmed. September Hike Odds Fall to ~30-35%. USD/JPY Breaks the Script, Back Above 159. USD/CAD Long Now Faces Confirmed Momentum Against It.",
