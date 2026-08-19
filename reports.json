@@ -1,5 +1,32 @@
 [
   {
+  "date": "2026-08-19",
+  "file": "2026-08-19.html",
+  "title": "Midweek Brief - August 19, 2026. UK CPI In-Line, Canada CPI Hot, US-Iran Ceasefire Expires. FOMC Minutes Pending 18:00 GMT - Two of Sunday's Three Week Ahead Scenarios Now Tested.",
+  "thesis": "This session was built around a genuine split between two simultaneous market stories rather than one clean narrative. Soft US activity data (payrolls, in-line July CPI, a weak Retail Sales print) has kept September Federal Reserve hike odds subdued at roughly 30 to 35 percent, an unchanged read from prior sessions. Separately, the US-Iran ceasefire expired on Monday, and the market is treating this as a genuine escalation rather than background risk: Iran reportedly threatened a fully offensive stance, Brent crude pushed to roughly 91 dollars on a fourth consecutive day of gains, the 30-year US Treasury yield rose above 5.30 percent for the first time since 2007, and Japanese government bond 10-year yields reached multi-decade highs. Today's two scheduled CPI releases landed on opposite sides of expectations: UK CPI matched consensus exactly at 2.9 percent headline (from 2.6 percent) and 2.6 percent core, a non-event that resolved neither toward nor away from a hawkish Bank of England repricing, while Canada CPI surprised meaningfully to the upside, with headline inflation accelerating to 3.0 percent on energy costs even as core held steady, a genuine and confirmed new data point rather than a confirmation of an existing trend. Separately, the threatened 50 percent US tariffs on Canadian goods, which had carried an August 19 deadline, were paused for three days to August 22 pending finalization of paperwork, with both sides describing negotiations as substantial progress, removing an immediate shock risk without resolving the underlying dispute. The Federal Reserve's July Open Market Committee minutes, from the divided 9 to 3 vote with three hawkish dissenters, were scheduled for release at 18:00 GMT and remained pending throughout the construction of this brief; multiple source materials explicitly named a hawkish tilt in the minutes, or a subsequent front-end-led rise in real yields, as the specific mechanism that would break the current soft-dollar regime. This session included a direct check-in against the three Week Ahead scenarios introduced the prior Sunday: the Hormuz Escalation scenario was assessed as confirmed and actively playing out given the ceasefire expiry and associated yield and oil moves; the Soft Landing Extends scenario remained genuinely pending, with today's in-line UK CPI neither confirming nor breaking it and tonight's minutes serving as the actual test; and the Hawkish Repricing scenario was assessed as partially confirmed, with the hot Canada CPI print supporting it and the in-line UK CPI print not supporting it, leaving the minutes as the deciding factor for whether the scenario would take hold broadly or remain confined to CAD specifically. The trading book remained flat with zero active positions, unchanged since the prior retirement of the USD/CAD long, though a short USD/CAD idea was named directly as the most consistently repeated call across this week's source material, reinforced independently by the hot Canada CPI print, the tariff-deadline pause, sustained oil strength, and two consecutive sessions of Strong technical momentum readings on the H4 and D1 timeframes; the idea was presented plainly rather than left implicit, but was not opened as a formal position without explicit instruction, particularly with the minutes still pending and capable of moving the pair meaningfully in either direction within hours.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "neutral",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "neutral",
+    "USDCHF": "bearish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "bearish"
+  },
+  "highlights": [
+    "US-Iran ceasefire expires Monday - genuine escalation, Brent near $91, US 30Y yield above 5.30% (highest since 2007), JGB 10Y at multi-decade highs",
+    "UK CPI delivers exactly in-line (2.9%/2.6%) - a non-event; Canada CPI surprises hot (3.0% headline on energy) - a real, confirmed upside surprise",
+    "US-Canada tariff deadline paused 3 days to Aug 22 pending paperwork, talks described as substantial progress",
+    "FOMC Minutes still pending at 18:00 GMT as this brief is built - the week's dominant, unresolved event",
+    "Direct scenario check-in against Sunday's Week Ahead: Hormuz Escalation confirmed and playing out; Soft Landing and Hawkish Repricing both remain genuinely open pending tonight's Minutes",
+    "Book stays flat; short USD/CAD named directly as the most consistently repeated call across sources, not opened without instruction",
+    "USD/CAD posts Strong momentum on H4 and D1 for a second straight session, confirming real movement behind the convergent bearish calls",
+    "This week's explicit source 'avoid' list is unusually long - GBP/JPY, AUD/JPY, CAD/JPY, USD/JPY longs, EUR/CHF, NZD broadly, CAD/CHF"
+  ]
+},
+  {
   "date": "2026-08-16",
   "file": "2026-08-16.html",
   "title": "Sunday Session Brief - August 16, 2026. USD/CAD Long Formally Retired. Soft-Dollar Regime Broadens as DXY Tests the 200-Day MA. Week Ahead: Three Scenarios for FOMC Minutes, UK CPI, and the Canada Tariff Deadline.",
