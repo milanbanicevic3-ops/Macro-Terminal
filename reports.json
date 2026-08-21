@@ -1,5 +1,33 @@
 [
   {
+  "date": "2026-08-21",
+  "file": "2026-08-21.html",
+  "title": "Friday Brief - August 21, 2026. Gold Breaks Above $4,500 for a Third Weekly Gain as Long-End Yields Hit 17-19 Year Highs. EUR/USD at Two-Month Highs. Jackson Hole Today Is the Test.",
+  "thesis": "This week's dollar weakness reflected a different and more structural driver than the rate-cut-odds narrative that had carried the prior three weeks. Long-end government bond yields reached their highest levels since 2007 in the United States and were near 17 to 19 year highs across major economies simultaneously, a pattern read as a fiscal-sustainability signal rather than a near-term rate-hike signal, even as short-end yields stayed contained consistent with the Federal Reserve remaining on hold. That specific divergence between a falling or flat short end and a rising long end was identified as the primary mechanism behind gold's push above 4,500 dollars for a third consecutive weekly gain, more so than geopolitical hedge demand alone, and behind EUR/USD's break to a fresh two-month high above 1.1600. The Wednesday release of the July Federal Open Market Committee minutes showed some officials open to a further hike if inflation remained elevated, but produced only a muted dollar reaction, since those hawkish views had been formed before softer payrolls, inflation, and retail sales data reshaped the picture in the interim. A more consequential development the same day was the US Treasury's announcement that it would at least double its long-end bond buyback operations, effective September 9 through November 4 and adding a minimum of 14 billion dollars in liquidity support to the 10-to-30-year segment this quarter; this was explicitly characterized as debt management rather than Federal Reserve quantitative easing, since the Treasury rather than the Fed intervened and the underlying fiscal deficit remained untouched, but the timing, immediately following a 30-year yield spike to 5.34 percent, functioned as a clear signal that the Treasury is monitoring the long end closely, and yields eased meaningfully afterward, with the 30-year falling to roughly 5.18 percent and the 10-year to roughly 4.66 percent. The Federal Reserve Chair's speech at the Jackson Hole symposium, scheduled for later in the day this brief was constructed, was identified as the single event most likely to test whether the current regime holds, with the specific named mechanism being a front-end-led rise in two-year yields and Fed-funds pricing that would signal the regime breaking, rather than headline tone alone. The Momentum Gauge for this session recorded the strongest and most broadly synchronized readings across the tracked pair set since the gauge began, including five separate Very Strong readings on a single table and gold posting Strong momentum simultaneously across all four tracked timeframes. The trading book remained flat for a third consecutive session. A short USD/CAD idea continued as the most consistently repeated call across source material, now reinforced by Brent crude near 93 dollars, though it was not opened without explicit instruction. On gold specifically, given three consecutive weeks of gains, a newly identified structural driver, and today's uniformly strong momentum readings, continued treatment of the position as commentary-only without a formal decision was named directly as itself a choice warranting an explicit answer rather than a default arrived at by habit, while also noting the desk's own prior caution that the same setup could reverse within a single session if short-end yields began rising, a risk Jackson Hole carried directly.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "neutral",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "Gold breaks above $4,500 for a third consecutive weekly gain; structural driver identified as a short/long yield divergence, not just geopolitical hedging",
+    "Long-end bond yields hit 17-19 year highs globally; US 30Y touched 5.34% (highest since 2007) before easing to ~5.18% on Treasury's buyback announcement",
+    "US Treasury doubles long-end bond buyback operations (Sept 9 - Nov 4) - debt management, not Fed QE, but a real signal it's watching the long end",
+    "FOMC Minutes land hawkish Wednesday night but barely move USD - the hawkish views predate the softer data since accumulated",
+    "EUR/USD breaks to a fresh two-month high above 1.1600 on broad USD weakness",
+    "Jackson Hole today: Fed Chair Warsh's speech is the dominant event and the specific test of whether this week's regime holds",
+    "Strongest, most broadly synchronized Momentum Gauge reading since tracking began - 5 Very Strong readings on one table, gold Strong across all 4 timeframes",
+    "Gold's commentary-only status flagged directly as itself a decision needing an explicit answer, after three straight weeks of the same question",
+    "Book stays flat for a third session; short USD/CAD remains the most consistently repeated cross-source call, still not opened without instruction"
+  ]
+},
+  {
   "date": "2026-08-19",
   "file": "2026-08-19.html",
   "title": "Midweek Brief - August 19, 2026. UK CPI In-Line, Canada CPI Hot, US-Iran Ceasefire Expires. FOMC Minutes Pending 18:00 GMT - Two of Sunday's Three Week Ahead Scenarios Now Tested.",
