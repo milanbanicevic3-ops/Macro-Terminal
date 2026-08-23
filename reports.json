@@ -1,5 +1,33 @@
 [
   {
+  "date": "2026-08-23",
+  "file": "2026-08-23.html",
+  "title": "Sunday Session Brief - August 23, 2026. Gold Settles Above $4,660 After a 5%+ Weekly Advance. DXY at a Three-Month Low. Canada Confirms Retaliatory Tariffs. Week Ahead: Core PCE, Jackson Hole, and a Trade-War Scenario.",
+  "thesis": "The soft-dollar, high-gold regime described in the prior session did not merely persist through the weekend but accelerated meaningfully. The dollar index broke decisively below the 99 level to close near 98.80, a three-month low, while gold extended its advance to settle around 4,661.60 dollars, more than five percent higher for the week, with silver testing the 70 dollar level and settling near 69.01. CFTC Commitment of Traders data, with a report date of August 18, confirmed genuine speculative conviction behind both moves rather than headline-driven spikes: gold net-long positioning rose further to approximately 222,189 contracts, and every individual currency figure cited by source material checked out cleanly against the raw CFTC file for a third consecutive session, with one notable correction identified and flagged: the US Dollar Index is net long 19,079 contracts, not net short as one source stated, and the CFTC does not publish a single aggregate net-USD figure across all currency contracts, meaning individual currencies being net short against the dollar should not be conflated with the dollar itself being net short. Multiple sources independently described this week's dollar weakness as self-reinforcing, a framing carried through this brief's Macro Overview as the reason the coming week's event risk deserves to be treated as more dangerous than a routine data week: a trend that feeds on itself tends to reverse sharply rather than gradually when it breaks. A genuine complication to the otherwise clean soft-dollar, oil-supported case for a weaker USD/CAD was identified via a catalyst scan that most other source material for the week had missed: Canada confirmed it will impose dollar-for-dollar retaliatory tariffs effective September 8, after the previously threatened US 50 percent tariffs on approximately 28 billion dollars of Canadian exports actually took effect and bilateral trade talks collapsed, directly contradicting at least one other source's characterization from the same weekend that trade conditions had recently improved. This session introduced a three-scenario Week Ahead structure for the coming trading week, tied to named calendar events: a Soft PCE, Balanced Jackson Hole scenario extending the current regime, tied to Wednesday's Core PCE release, Wednesday's Australian CPI, and Thursday's start of the Jackson Hole symposium; a Hot PCE, Hawkish Jackson Hole scenario representing the explicitly named regime-shift combination of simultaneously rising DXY, two-year yields, and Fed-funds pricing, which would hit EUR/USD, GBP/USD, AUD/USD, gold, and silver together given their shared underlying exposure; and a Trade War Escalation scenario, tied to the ongoing Canada dispute building toward the September 8 tariff date and confirmed by Friday's Canadian GDP release, explicitly identified as the one scenario capable of decoupling USD/CAD from the broader dollar trend rather than moving with it. Source material this week presented an unusually complete and fully specified portfolio-level framework, naming five highest-conviction setups directly, EUR/USD long, USD/CAD short, gold long, GBP/USD long, and AUD/NZD long, alongside an explicit warning against stacking EUR/USD, GBP/USD, AUD/USD, gold, and silver simultaneously at full size given their shared exposure to a single underlying trade, with aggregate risk from correlated USD-short and metals-long exposure capped at two percent of portfolio equity in that framework despite one percent individual-position limits. This full framework, including specific entry, stop, and target levels for gold, was presented in detail without being adopted, and gold's continued treatment as commentary-only rather than a formal position with a named Thesis Invalidation was explicitly flagged as itself now requiring a deliberate decision rather than remaining a default arrived at through repetition. The trading book remained flat with zero active positions. The Momentum Gauge for this session recorded the second consecutive week of the broadest synchronized readings in the tracked series, with six separate Very Strong readings appearing on a single table, including a new series-high H4 reading for EUR/USD.",
+  "bias": {
+    "USDCAD": "bearish",
+    "GBPUSD": "bullish",
+    "NZDUSD": "bullish",
+    "USDJPY": "neutral",
+    "EURUSD": "bullish",
+    "AUDUSD": "bullish",
+    "USDCHF": "bearish",
+    "XAUUSD": "bullish",
+    "XAGUSD": "bullish"
+  },
+  "highlights": [
+    "Gold settles above $4,660, up 5%+ for the week; DXY breaks below 99 to a three-month low near 98.80",
+    "CFTC data confirms real conviction behind the move - gold net longs at 222,189, up again this week",
+    "Canada confirms dollar-for-dollar retaliatory tariffs from Sept 8 after US tariffs took effect and talks collapsed - a genuine complication to the short-USD/CAD thesis missed by most other sources",
+    "COT correction: USD Index is net LONG 19,079 contracts, not net short as one source claimed - individual currency shorts against USD should not be conflated with USD itself being short",
+    "New Week Ahead 3-scenario block: Soft PCE/Balanced Jackson Hole, Hot PCE/Hawkish Jackson Hole (the named regime-shift trigger), and Trade War Escalation (the one scenario that could decouple USD/CAD from the broader dollar trend)",
+    "Source material names a full 5-setup portfolio framework (EUR/USD, USD/CAD, gold, GBP/USD, AUD/NZD long/short) with explicit correlated-risk warnings and a 2% aggregate cap - presented in full, not adopted",
+    "Gold's commentary-only status flagged as now requiring a deliberate decision, not another routine pass-through",
+    "Momentum Gauge posts a second straight week of the broadest synchronized readings in the series - 6 Very Strong readings on one table, a new series-high EUR/USD H4 print",
+    "Book stays flat; no active positions"
+  ]
+},
+  {
   "date": "2026-08-21",
   "file": "2026-08-21.html",
   "title": "Friday Brief - August 21, 2026. Gold Breaks Above $4,500 for a Third Weekly Gain as Long-End Yields Hit 17-19 Year Highs. EUR/USD at Two-Month Highs. Jackson Hole Today Is the Test.",
