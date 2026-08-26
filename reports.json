@@ -1,5 +1,32 @@
 [
   {
+  "date": "2026-08-26",
+  "file": "2026-08-26.html",
+  "title": "Midweek Brief - August 26, 2026. Oil Crashes 4% on Hormuz De-Escalation Signals, But a Real Tanker Attack Happened Days Earlier. AUD Hits a 12-Week High on Hot CPI. Core PCE and Nvidia Both Land Today.",
+  "thesis": "Oil posted its sharpest single-day decline since June 24, with Brent falling 3.9 percent to 88.58 dollars on Tuesday and extending lower into Wednesday's Asian session, after the US Secretary of State told allies that American strategy was shifting from military strikes to sanctions-only measures against Iran and claimed the Navy now controlled the Strait of Hormuz following mine-clearing operations. This de-escalation signal sat alongside a genuinely contradictory development from the same week: the tanker Metro Venetian was disabled near Oman in an attack likely carried out with a Houthi missile, and Iran separately flagged 46 vessels for alleged passage violations with seizure threats attached; unconfirmed reports of a ceasefire with free strait passage were circulating from Pakistani, Iranian, and Russian state sources and were explicitly treated as unconfirmed rather than corroborated fact. Gold's failure to give back gains despite oil's sharp pullback removing a portion of the geopolitical risk premium was read as meaningful evidence that the metal's multi-week strength is increasingly structural, tied to dollar-debasement and fiscal-sustainability concerns and official-sector demand, rather than primarily a geopolitical hedge trade, a reading reinforced by a Very Strong H4 momentum reading for gold on the session. The multi-week short-USD/CAD thesis this desk has tracked since early August was formally downgraded this session from a high-conviction short bias to neutral, with a mild short preferred only on strength, since source material explicitly cited the oil pullback as removing the primary support leg of that thesis; this sat alongside Canada's confirmed retaliatory tariffs of up to 50 percent on roughly 20 billion dollars of US goods, effective September 8, a second and independent headwind for the currency, even as broader trade-deal optimism had kept CAD's losses to only around one percent since the prior week's escalation became clear. Australian July CPI surprised meaningfully to the upside overnight, with headline inflation at 3.5 percent year over year against a 3.2 percent consensus and core inflation also exceeding forecast, driving September Reserve Bank of Australia hike odds from roughly 10 percent to roughly 35 percent and pushing AUD/USD to a twelve-week high. The session was constructed around a genuine two-part event day carrying independent gap risk on separate timelines: the US Core PCE, GDP second estimate, Durable Goods, and Personal Income and Spending data cluster at 12:30 GMT, feeding directly into Friday's Jackson Hole speech from Fed Chair Warsh, and Nvidia's earnings report after the US market close the same evening, with consensus at approximately 92.2 billion dollars in revenue representing 97 percent year-over-year growth, against a live cautionary backdrop of South Korea's Kospi index losing approximately 40 percent of its value over six weeks amid a leveraged AI-linked ETF unwind tied to Samsung and SK Hynix. Tuesday's unusually thin trading volume, the second-lowest of the year for major US equity indices, was read as the market genuinely positioning to wait for both catalysts rather than leaning into either beforehand. The trading book remained flat with zero active positions, and today's oil-driven downgrade of the USD/CAD thesis was used directly as a real-time illustration of the value of that discipline: a position opened purely on the oil-support leg of that thesis would have been meaningfully weakened by developments having nothing to do with Canada specifically. Two threads independent of the Iran and Fed narratives were also flagged for standalone tracking: the new Iran sanctions round deliberately avoided directly targeting China, the largest buyer of Iranian oil, and separate reporting indicated the US was preparing to raise China tariffs from 7.5 percent to 20 percent ahead of a planned Trump-Xi meeting scheduled for September 24.",
+  "bias": {
+    "USDCAD": "neutral",
+    "GBPUSD": "neutral",
+    "NZDUSD": "neutral",
+    "USDJPY": "neutral",
+    "EURUSD": "neutral",
+    "AUDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "bullish",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Oil crashes 3.9% (Brent), biggest daily drop since June 24, on Hormuz de-escalation signals from Rubio - but a real tanker attack (Metro Venetian, near Oman) happened days earlier",
+    "Gold holds near a 3-month high despite the oil-driven risk-premium drop - read as evidence the rally is increasingly structural, not just a geopolitical hedge",
+    "USD/CAD downgraded from a high-conviction short bias to neutral - the oil crash removed the primary support leg of the multi-week thesis; Canada's confirmed retaliatory tariffs (up to 50% on ~$20bn, effective Sept 8) add a second, independent headwind",
+    "Australian CPI surprises hot (3.5% vs 3.2% expected); Sept RBA hike odds jump from ~10% to ~35%; AUD/USD hits a 12-week high",
+    "Genuine two-part event day: US Core PCE/GDP cluster at 12:30 GMT feeds directly into Friday's Jackson Hole, then Nvidia reports after the close tonight (~$92.2bn consensus, +97% y/y)",
+    "Kospi down ~40% in six weeks on a leveraged AI-ETF unwind - live cautionary context for chip-sector risk into Nvidia's report",
+    "Book stays flat; today's oil-driven USD/CAD downgrade used as a real-time illustration of why single-factor theses weren't formalized as positions",
+    "Two independent threads flagged: new Iran sanctions deliberately avoided targeting China; US reportedly preparing to raise China tariffs from 7.5% to 20% ahead of the Sept 24 Trump-Xi meeting"
+  ]
+},
+  {
   "date": "2026-08-23",
   "file": "2026-08-23.html",
   "title": "Sunday Session Brief - August 23, 2026. Gold Settles Above $4,660 After a 5%+ Weekly Advance. DXY at a Three-Month Low. Canada Confirms Retaliatory Tariffs. Week Ahead: Core PCE, Jackson Hole, and a Trade-War Scenario.",
