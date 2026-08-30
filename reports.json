@@ -1,5 +1,33 @@
 [
   {
+  "date": "2026-08-30",
+  "file": "2026-08-30.html",
+  "title": "Sunday Session Brief - August 30, 2026. Warsh Confirmed Hawkish at Jackson Hole - Regime Flips. USD/JPY Traded Through 160, Japan Spent ~17.4 Trillion Yen Defending It. Week Ahead: Friday's NFP Is the Fulcrum.",
+  "thesis": "The multi-week soft-dollar, high-gold regime tracked across the prior four sessions broke this week on a specific, confirmed catalyst rather than drifting: Federal Reserve Chair Kevin Warsh's first Jackson Hole address was read as genuinely hawkish, stating that disinflation progress over the prior two years had been modest, that roughly half the components of the Personal Consumption Expenditures basket were still running above 3 percent, and that the Federal Reserve had work to do if underlying inflation failed to show clear and adequately paced progress toward the 2 percent target, while explicitly declining to offer forward guidance. Two-year Treasury yields rose directly in response, the dollar strengthened, and risk assets including gold sold off, with September rate-hike odds rising to approximately 55 to 57 percent from roughly 35 percent before the speech. USD/JPY traded through the 160 level on Friday, and Japan's response was confirmed rather than merely anticipated: reporting put intervention spending at approximately 15.4 trillion yen over the preceding month, a scale that source material across this session characterized as making further yen weakness genuinely asymmetric and identified as the single highest-conviction trading idea of the week despite acknowledging extreme execution risk. Gold and silver both fell sharply into Friday's close, with gold down 2.96 percent to 4,459.00 dollars and silver down 3.99 percent to 66.299 dollars, even as CFTC Commitment of Traders data with a report date of August 25 showed speculative gold net-long positioning still rising to approximately 243,334 contracts, a combination explicitly identified as elevating the risk of a further liquidation wave should Friday's employment report confirm rather than reverse the hawkish repricing. A genuine data-quality issue was identified and flagged directly this session, distinct from the FX-level staleness problems of prior weeks: one source model cited the Reserve Bank of Australia cash rate at 3.60 percent and the Reserve Bank of New Zealand official cash rate at 2.25 percent, both representing unexplained departures from the 4.35 percent and 2.50 percent levels confirmed repeatedly across every prior session this month with no corroborating primary-source confirmation or reported policy decision; both figures were treated as very likely erroneous and the previously verified rates were retained rather than adopted. A separate correction was made to a prior characterization that geopolitical factors were secondary this week: Iran continued to keep the Strait of Hormuz closed or materially restricted, the US Treasury imposed curbs on an Egyptian bank over alleged Iran-related activity, and the administration was reported to be pressing G20 countries over Iran-linked transactions ahead of this week's G20 finance ministers meeting. A three-scenario Week Ahead structure was built around Friday's US employment report as the genuine fulcrum of the coming week: a Hawkish Confirmation Extends scenario tied to Tuesday's ISM Manufacturing and JOLTS data, Wednesday's ADP report, and a payrolls beat of the roughly plus-58,000 consensus; a Payrolls Reversal scenario, explicitly the named regime-shift case, tied to a payrolls miss following July's negative 23,000 print and identified by the specific confirming signal of two-year yields and the dollar index declining together; and a Hormuz Tension Meets G20 Sanctions Pressure scenario tied to Monday and Tuesday's G20 finance ministers meeting and the ongoing Strait restriction, flagged as capable of producing an unusual combination in which gold could rally on safe-haven demand even against an otherwise hawkish Federal Reserve backdrop. The trading book remained flat with zero active positions, and gold's sharp decline this week was used directly as a real-world demonstration of the value of that discipline, since the metal's speculative positioning had continued building even as the price fell, and a position formalized without a firm invalidation point at any recent session would have faced a genuine drawdown this week despite an unchanged underlying structural thesis.",
+  "bias": {
+    "USDCAD": "bullish",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "bearish",
+    "EURUSD": "bearish",
+    "AUDUSD": "bearish",
+    "USDCHF": "bullish",
+    "XAUUSD": "bearish",
+    "XAGUSD": "bearish"
+  },
+  "highlights": [
+    "Warsh confirmed hawkish at Jackson Hole - the multi-week soft-dollar regime breaks on a specific, identifiable catalyst",
+    "USD/JPY traded through 160; Japan's ~17.4 trillion yen intervention spend over the past month is confirmed, not rhetorical",
+    "Gold falls 2.96% to $4,459, silver -3.99% to $66.30 - yet speculative gold longs kept building to 243,334 contracts right before the drop",
+    "September hike odds jump to ~55-57% from ~35% pre-speech - a real, confirmed repricing",
+    "Data-quality flag: this week's RBA (3.60%) and RBNZ (2.25%) rate figures conflict with weeks of verified data and are treated as erroneous, not adopted",
+    "Correction: Hormuz is not secondary background risk - Iran continues restricting the strait, Treasury curbed an Egyptian bank, administration pressing G20 over Iran-linked transactions",
+    "New Week Ahead 3-scenario block: Hawkish Confirmation Extends, Payrolls Reversal (the named regime-shift case), and Hormuz Tension Meets G20 Sanctions Pressure",
+    "Friday's NFP (consensus +58k after July's -23k) is the explicit fulcrum for the entire coming week",
+    "Book stays flat; this week's gold selloff used as a direct, real-world case for why the position was never formalized"
+  ]
+},
+  {
   "date": "2026-08-28",
   "file": "2026-08-28.html",
   "title": "Friday Brief - August 28, 2026. Fed Chair Warsh's First Jackson Hole Speech, Today at 14:00 GMT. Nvidia Adds $442B in a Day. Global Bond Stress Builds Into the Speech.",
