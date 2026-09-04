@@ -1,5 +1,34 @@
 [
   {
+  "date": "2026-09-04",
+  "file": "2026-09-04.html",
+  "title": "Friday Brief - September 4, 2026. US NFP Day - The Decisive Print. Yen Surges on Fresh Intervention and Hawkish BoJ Signals, USD/JPY Falls From Above 160 to ~156. Fed Hike Odds Cool as Williams Pushes Back.",
+  "thesis": "This session was built around today's US employment report as the genuinely decisive event flagged across two consecutive prior sessions, with the one-directional hawkish momentum from Federal Reserve Chair Warsh's Jackson Hole address having met real, credible pushback during the week rather than continuing unopposed. New York Federal Reserve President Williams directly challenged the market's roughly 70 percent September hike pricing, attributing the bond-yield spike to underlying economic strength rather than distress, while Fed Governor Waller separately signaled openness to a September hold if inflation continued easing; combined, September rate-hike odds eased from a range of roughly 68 to 71 percent earlier in the week to roughly 50 to 59 percent ahead of today's print. USD/JPY produced the most concrete expression of this shift, falling from trading through 160 on Tuesday to approximately 156 by Thursday's close, driven by a confirmed fresh round of joint US-Japan currency intervention combined with unusually direct hawkish signaling from Bank of Japan leadership: Governor Ueda and Deputy Governor Himino both left open the possibility of a September hike, while board member Hajime Takata, known as a hawk, specifically floated the possibility of a hike larger than 25 basis points or two consecutive hikes, pushing September Bank of Japan hike odds to approximately 77 percent with roughly 100 basis points of further tightening priced afterward, a genuine and rare monetary-policy divergence now working in the yen's favor. A significant but explicitly unconfirmed geopolitical development was presented with appropriate caution: reporting attributed to the Wall Street Journal indicated President Trump had privately told advisors he favored declaring the six-month Iran conflict over, betting that sustained economic pressure would force Iran to abandon its nuclear program or face regime collapse, a framing given some concrete support by the US military escorting 40 tankers carrying 18 million barrels through the Strait of Hormuz on Tuesday, a wartime maximum near pre-war levels; however, this was presented alongside contradicting evidence that the conflict remained active, including the strait still operating at roughly 7 percent of normal commercial traffic after 185 days, war-risk insurance at 40 times normal rates, and fresh reports the same morning of Iranian missile and drone attacks on a Kuwaiti military base, with Defense Secretary Hegseth having extended US troop deployment in the region through 2027 as a hedge. Gold recovered from Tuesday's anomalous 2.3 to 2.7 percent drop to close Thursday near 4,519 dollars, though this was explicitly treated as an open question rather than a resolved stabilization, since the recovery tracked closely with dollar softening on Williams' comments rather than clearly representing a reversal of the war-safe-haven decoupling flagged in the prior session; the session's Momentum Gauge data showed a Very Strong H1 reading for gold, one data point among several still awaiting confirmation from today's actual print. The global government bond context was sharpened with specific figures: French 10-year yields at 4.25 percent, up 0.69 percentage points for the year, UK 30-year gilts at 5.16 percent, Japanese 30-year yields reaching a record 4.2 percent on Wednesday, and total US gross government debt crossing 40 trillion dollars for the first time in August, with one piece of financial press analysis characterizing this directly as the bond market issuing a failing grade to world leaders on fiscal discipline. The trading book remained flat with zero active positions heading into the print, with the session noting that today's NFP release represented a direct, dated test of all five of the week's highest-conviction ideas simultaneously, presented as the specific reason remaining unpositioned carried real rather than merely theoretical value on this particular morning. The same reversal-signal framework carried across recent sessions was restated unchanged: a coordinated decline in two-year yields and the dollar index, EUR/USD reclaiming 1.1650, USD/JPY falling below 155.000, a threshold the pair was already trading remarkably close to, and gold recovering above 4,600 dollars, with Canadian employment data landing in the identical release window as US payrolls adding a second, direct layer of same-day risk specifically for USD/CAD.",
+  "bias": {
+    "USDCAD": "neutral",
+    "GBPUSD": "bearish",
+    "NZDUSD": "bearish",
+    "USDJPY": "neutral",
+    "EURUSD": "bearish",
+    "AUDUSD": "bullish",
+    "USDCHF": "neutral",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "Today's NFP (consensus ~+56k, 4.1% unemployment) is the decisive print flagged across two straight sessions - still pending as this brief was built",
+    "Fed hike odds cool to ~50-59% from ~68-71% Tue/Wed after NY Fed's Williams directly pushed back on the hawkish pricing and Waller signaled openness to a hold",
+    "USD/JPY reverses sharply from above 160 (Tuesday) to ~156 (Thursday) on confirmed fresh US-Japan intervention plus unusually direct hawkish BoJ signaling (Ueda, Himino, hawk Takata floating a bigger-than-25bp hike)",
+    "Sept BoJ hike odds now ~77% vs Fed's ~50-59% - a genuine, rare policy divergence now working in the yen's favor",
+    "Unconfirmed but significant: Trump reportedly privately favors declaring the Iran war over (WSJ) - but Hormuz still ~7% of normal traffic, fresh Iranian attacks on a Kuwaiti military base reported same morning",
+    "Gold recovers to $4,519 from Tuesday's anomalous drop, but treated as an open question - tracks with dollar softness, not clearly a reversal of the war-decoupling flagged Wednesday",
+    "Global bond context sharpened: French 10Y 4.25%, UK 30Y 5.16%, Japan 30Y hits record 4.2%, US gross debt crosses $40tn for the first time in August",
+    "USD/JPY momentum is Very Strong across H1, H4, and D1 simultaneously - the clearest technical confirmation of this week's reversal",
+    "Book stays flat into the print; today is a direct, dated test of all five of the week's highest-conviction ideas at once",
+    "Canadian employment lands in the same release window as US NFP - both outcomes need checking together before any USD/CAD conclusion"
+  ]
+},
+  {
   "date": "2026-09-02",
   "file": "2026-09-02.html",
   "title": "Midweek Brief - September 2, 2026. US-Iran War Escalates to Direct Military Exchanges. Global Bond Yields Hit Multi-Decade Highs. Gold Collapses Nearly 3% Despite Active War - A Real Correlation Breakdown.",
