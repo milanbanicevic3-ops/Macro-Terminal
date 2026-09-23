@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-09-23",
+  "file": "2026-09-23.html",
+  "title": "Midweek Brief - September 23, 2026. Flash PMI Day: Dollar at a Two-Month High While Oil Breaks $90 - Policy, Not Energy, Is Driving USD.",
+  "thesis": "The dollar decoupled from oil. Front-month WTI fell below 90 dollars and Brent below 100 on US-Iran talks in Qatar and the restart of the Saudi East-West pipeline, yet DXY rose to a two-month high of 100.77 and EUR/USD fell to its lowest since July at 1.1423. The session concluded that the USD bid is policy-led, anchored by roughly 58 percent market odds of a second consecutive Fed hike in October, which makes the regime more durable than an oil-driven one but more dependent on data. The US flash PMI at 13:45 GMT was identified as the pivot: a firm services print with a DXY daily close above 100.70 confirms the next USD leg against EUR, GBP, CAD and NZD. Two bias flips were recorded: USD/CAD from neutral to bullish as lower oil removes CAD terms-of-trade support, and AUD/USD from long-on-dips to bearish into Thursday employment after the Australian flash composite PMI slowed to 50.8 with manufacturing in contraction. Gold lost the 4,330 support and silver fell 2.2 percent; gold momentum remains weak on every timeframe and the 4,381.74 regime threshold moved further away. A scenario matrix identified the asymmetric risk as a US services miss paired with resilient European and UK prints, which would squeeze crowded GBP shorts and pressure USD/JPY against extreme speculative yen longs. The book stayed flat into the data, with USD/CAD on pullbacks toward 1.4000-1.4050 and EUR/USD short on rallies into 1.1450-1.1530 named as the clearest expressions on the watchlist.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "bearish",
+    "USDJPY": "bullish",
+    "USDCHF": "neutral",
+    "USDCAD": "bullish",
+    "AUDUSD": "bearish",
+    "NZDUSD": "bearish",
+    "EURCHF": "bearish",
+    "XAUUSD": "neutral",
+    "XAGUSD": "neutral"
+  },
+  "highlights": [
+    "DXY 100.77, two-month high; EUR/USD 1.1423, lowest since July; GBP/USD 1.3308",
+    "USD bid is policy-led: ~58% odds of an October Fed hike priced while oil falls",
+    "WTI front month below $90, Brent below $100 on US-Iran talks in Qatar and Saudi East-West pipeline restart",
+    "Bias flip: USD/CAD neutral to bullish (H4 ADX 51.72)",
+    "Bias flip: AUD/USD long-on-dips to bearish after flash composite PMI 50.8, manufacturing 49.3",
+    "Gold below $4,330 support at $4,322.75; silver -2.2%; gold ADX weak on all timeframes",
+    "EUR/USD and GBP/USD show Strong ADX on H1, H4 and D1 simultaneously",
+    "Scenario matrix: US PMI miss plus European resilience is the squeeze case for crowded GBP shorts",
+    "Thursday stack: Australian jobs, SNB decision, Trump-Xi summit",
+    "Book flat; watchlist led by USD/CAD pullbacks and EUR/USD rallies"
+  ]
+},
+  {
   "date": "2026-09-20",
   "file": "2026-09-20.html",
   "title": "Sunday Session - September 20, 2026. Week Ahead: Flash PMIs Wednesday Are the Dated Test, But a Second Consecutive Historic JPY Positioning Swing (+213,000 Contracts Across Two Weeks) May Be the Bigger Risk. Three Scenarios for the Week Ahead.",
