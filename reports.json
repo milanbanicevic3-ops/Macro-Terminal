@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-09-25",
+  "file": "2026-09-25.html",
+  "title": "Friday Brief - September 25, 2026. US PMI at Its Strongest Since 2021 Sends Yields Past 5.1% - The Dollar Wins Even When Europe Beats.",
+  "thesis": "The week closed with a yield-led dollar. The US flash composite PMI printed 58.4, the strongest since July 2021, with input costs at 66.4; Fed Governor Barr said further hikes will likely be needed, a weak five-year auction added term-premium stress, the 10-year yield rose above 5.10 percent (highest since 2007) and the 30-year reached 5.45 percent (highest since 2004). October hike odds rose to roughly 70 percent. DXY closed Wednesday at 101.11, above the 100.70 validation line, and held near 101.20. The euro-area composite PMI rose to a 41-month high of 53.1 and EUR/USD still fell to 1.1379, showing the dollar is trading the level of US yields rather than relative growth. On the week EUR/USD fell 0.93 percent, GBP/USD 1.30 percent and AUD/USD 1.49 percent, while USD/CAD rose 1.19 percent and USD/CHF 0.90 percent. Australia added 39,500 jobs but unemployment rose to a five-year high of 4.6 percent, leaving Tuesday's RBA hike priced near 96 percent with guidance as the real event. The SNB held at 0 percent and nudged forecasts higher without pushing back on franc weakness. The Trump-Xi summit ended without reported breakthroughs. Oil rebounded about 5 dollars from Wednesday's low and USD/JPY was rejected at 159.04. Gold fell 2.42 percent on the week and silver 3.96 percent. ADX showed exhaustion-level H4 readings in USD/CAD, GBP/USD, AUD/USD and EUR/USD with W1 weak across all pairs, framed as a one-week impulse inside a weekly range. The book stayed flat through the week; the watchlist carried USD/CAD long from 1.4050-1.4100, EUR/USD short from 1.1400-1.1450, GBP/USD short from 1.3250-1.3300 and NZD/USD short from 0.5700-0.5730, each with a named macro thesis invalidation, with Core PCE on September 30 identified as the next decisive test.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "bearish",
+    "USDJPY": "bullish",
+    "USDCHF": "bullish",
+    "USDCAD": "bullish",
+    "AUDUSD": "bearish",
+    "NZDUSD": "bearish",
+    "EURGBP": "bullish",
+    "XAUUSD": "bearish",
+    "XAGUSD": "bearish"
+  },
+  "highlights": [
+    "US flash composite PMI 58.4, strongest since July 2021; input costs 66.4",
+    "US 10Y above 5.10% (highest since 2007); 30Y 5.45% (highest since 2004); October hike odds ~70%",
+    "DXY 101.20 after a Wednesday close above the 100.70 validation line; week +0.98%",
+    "EUR/USD fell to 1.1379 despite euro-area composite PMI at a 41-month high of 53.1",
+    "AUD jobs +39.5k but unemployment 4.6%; RBA hike Tuesday ~96% priced, guidance is the event",
+    "SNB held at 0%, forecasts nudged up, no pushback on franc weakness",
+    "USD/JPY rejected at 159.04; JPY strongest currency in Friday Asia",
+    "Gold -2.42% and silver -3.96% on the week; gold H4 momentum turns Strong to the downside",
+    "H4 ADX exhaustion in USD/CAD 65.79, GBP/USD 54.90, AUD/USD 53.76, EUR/USD 47.32; W1 weak everywhere",
+    "Book flat; watchlist with named thesis invalidations carried into Core PCE week"
+  ]
+},
+  {
   "date": "2026-09-23",
   "file": "2026-09-23.html",
   "title": "Midweek Brief - September 23, 2026. Flash PMI Day: Dollar at a Two-Month High While Oil Breaks $90 - Policy, Not Energy, Is Driving USD.",
