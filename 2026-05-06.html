@@ -144,6 +144,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cb-note-text{font-size:11px;color:var(--text2);}
 .note-box{background:rgba(91,155,213,0.07);border:1px solid rgba(91,155,213,0.25);border-radius:4px;padding:14px 18px;font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:16px;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -632,7 +633,7 @@ function initMap(){
   mapInited=true;
   setTimeout(function(){
     var map=L.map("geomap",{center:[25,55],zoom:3,attributionControl:false});
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:18}).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     var nodes=[
       {lat:26.6,lng:56.5,col:Cl.yellow,r:14,lbl:"Strait of Hormuz — Iran Truce Hopes",info:"Oil dropped toward WTI $105 today on Iran truce hope signals. Brent easing from $108-120 range. If confirmed, ECB stagflation pressure eases and Kazimir June hike path becomes cleaner. Monitor for official ceasefire announcement."},
       {lat:35.69,lng:51.39,col:Cl.yellow,r:10,lbl:"Tehran — Iran Truce Signals",info:"Iran diplomacy signals emerging. Pakistan-mediated talks framework active. Any confirmed truce = sharp oil sell = EUR and AUD higher, USD safe-haven bid reduced. No confirmation yet."},

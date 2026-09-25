@@ -113,6 +113,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .discrepancy-box .dc-wrong{color:var(--red);font-family:'IBM Plex Mono',monospace;}
 .discrepancy-box .dc-right{color:var(--green);font-family:'IBM Plex Mono',monospace;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -516,7 +517,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(()=>{
     const map=L.map('geomap',{center:[30,50],zoom:3,attributionControl:false});
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     const nodes=[
       {lat:26.6,lng:56.5,col:Cl.red,r:16,lbl:'Strait of Hormuz - RE-CLOSED',info:'Iran re-closed Saturday and fired on tankers. Full escalation. Oil +5-6% at Asia open Monday. Binary for all commodity FX.'},
       {lat:22.0,lng:59.5,col:Cl.red,r:10,lbl:'Gulf of Oman - US Navy Seizure',info:'US Navy seized Iranian cargo vessel Monday. Iran cited unrealistic US expectations, refused resumed talks (IRNA).'},

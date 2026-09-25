@@ -132,6 +132,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .ht-event{color:var(--text2);}
 .ht-event strong{color:var(--text);}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -600,7 +601,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(()=>{
     const map=L.map('geomap',{center:[28,52],zoom:3,attributionControl:false});
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     const nodes=[
       {lat:26.6,lng:56.5,col:Cl.red,r:16,lbl:'Strait of Hormuz - VOLATILE',info:'Opened Friday (oil -10%), closed Saturday, fired on tankers. Sunday status: contested. Binary risk for Monday open.'},
       {lat:35.69,lng:51.39,col:Cl.red,r:10,lbl:'Tehran - Iran',info:'Iran controlling Hormuz access. Two-week ceasefire framework being discussed. Oil premium determined here.'},

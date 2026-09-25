@@ -124,6 +124,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -671,7 +672,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap',{zoomControl:true,scrollWheelZoom:false}).setView([30,40],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CartoDB',maxZoom:18}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:26.6,lng:56.3,col:'#e05c6a',title:'Strait of Hormuz',body:'Projectile struck container vessel Ever Lovely this week. Fresh incident despite signed MOU. Oil cargo volumes have genuinely recovered toward pre-conflict levels (~20M barrels/24hrs) even amid this friction.'},
     {lat:32.1,lng:53.7,col:'#D4AF37',title:'Tehran, Iran',body:'Parliament accuses US of violating the memorandum by stoking Hormuz tensions and backing an Israeli agent. Iran maintains IAEA ties conditionally until nuclear talks reach final stage with demands met.'},

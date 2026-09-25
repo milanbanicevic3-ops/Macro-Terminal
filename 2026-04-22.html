@@ -125,6 +125,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .su-pair{font-family:'Playfair Display',serif;font-size:15px;color:var(--white);}
 .su-body{font-size:12px;color:var(--text2);line-height:1.65;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -793,7 +794,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(()=>{
     const map=L.map('geomap',{center:[30,55],zoom:3,attributionControl:false});
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     const nodes=[
       {lat:26.6,lng:56.5,col:Cl.yellow,r:12,lbl:'Strait of Hormuz - Partial',info:'Ceasefire extended indefinitely. Partial reopening. Iran toll system active. Oil settling $91-95 range. Risk premium reduced but not eliminated.'},
       {lat:35.69,lng:51.39,col:Cl.yellow,r:9,lbl:'Tehran - Iran',info:'Ceasefire extended. Pakistan-facilitated talks framework continuing. No confirmed new round of direct negotiations.'},

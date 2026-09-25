@@ -124,6 +124,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -714,7 +715,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap',{zoomControl:true,scrollWheelZoom:false}).setView([28,40],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CartoDB',maxZoom:18}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:33.7,lng:73.1,col:'#3fb87a',title:'Islamabad, Pakistan',body:'Pakistan PM Shehbaz Sharif confirmed: "Final, agreed upon text of peace deal between Iran and US has been reached." Pakistani mediation brokered the framework. Markets pricing Hormuz reopening on this news.'},
     {lat:32.1,lng:53.7,col:'#D4AF37',title:'Tehran, Iran',body:'Structural analysis: Iran non-negotiables unchanged. Enrichment right absolute. Simultaneous sanctions removal required. Frozen assets must be released. No missile/proxy talks. Khamenei endorsement not yet confirmed. Structural incompatibility with US demands remains.'},

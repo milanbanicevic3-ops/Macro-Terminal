@@ -119,6 +119,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -578,7 +579,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap',{zoomControl:true,scrollWheelZoom:false}).setView([35,30],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CartoDB',maxZoom:18}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:46.0,lng:8.4,col:'#3fb87a',title:'Bürgenstock, Switzerland',body:'Formal US-Iran MOU signing ceremony scheduled Friday June 19. Swiss Foreign Ministry confirmed venue and date. Electronic signature already completed by Trump, Vance, and Iran’s Ghalibaf.'},
     {lat:32.1,lng:53.7,col:'#D4AF37',title:'Tehran, Iran',body:'Iranian officials maintain enriched uranium will not leave the country. FM Araghchi: Hormuz will not return to pre-war status, Iran-Oman retain traffic management. Public discrepancy with US "toll-free" framing remains unresolved.'},

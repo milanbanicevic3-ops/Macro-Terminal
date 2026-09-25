@@ -158,6 +158,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -765,9 +766,7 @@ function initMap() {
   window._mapInitialized = true;
   const map = L.map('geomap', { zoomControl: true, scrollWheelZoom: false })
     .setView([25, 30], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; CartoDB', maxZoom: 18
-  }).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     { lat: 26.9, lng: 56.1, col: '#e05c6a', title: 'Strait of Hormuz', body: 'Effectively closed. US forces downed 2 Iranian drones. IMF: 14M bpd oil output cut. No ceasefire framework.' },
     { lat: 32.1, lng: 53.7, col: '#e05c6a', title: 'Iran', body: 'Ballistic missiles fired at Bahrain and Kuwait. US-Iran military exchanges at Qeshm island. Nuclear concession precondition added by Trump.' },

@@ -140,6 +140,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cb-note-text{font-size:11px;color:var(--text2);}
 .note-box{background:rgba(91,155,213,0.07);border:1px solid rgba(91,155,213,0.25);border-radius:4px;padding:14px 18px;font-size:11px;color:var(--text2);line-height:1.65;margin-bottom:16px;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -636,7 +637,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(function(){
     var map=L.map("geomap",{center:[28,50],zoom:3,attributionControl:false});
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:18}).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     var nodes=[
       {lat:26.6,lng:56.5,col:Cl.red,r:14,lbl:"Strait of Hormuz - MONTHS-LONG BLOCKADE SIGNAL",info:"Trump admin preparing months-long Hormuz blockade as pressure strategy. UAE exploring alternate export routes. Saudi rift deepening. Oil structurally elevated."},
       {lat:35.69,lng:51.39,col:Cl.red,r:10,lbl:"Tehran - New Sanctions",info:"New US Treasury Iran sanctions this week. Hormuz negotiations complicated. Ceasefire extended but substantive talks stalled."},

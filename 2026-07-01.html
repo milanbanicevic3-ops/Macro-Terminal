@@ -118,6 +118,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -563,7 +564,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap',{zoomControl:true,scrollWheelZoom:false}).setView([30,40],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CartoDB',maxZoom:18}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:25.3,lng:51.5,col:'#D4AF37',title:'Doha, Qatar',body:'US and Iranian officials met this week via intermediaries to negotiate Hormuz traffic management mechanism — the practical implementation phase of the MOU. 60-day final agreement clock running from June 19 signing (deadline approximately August 18).'},
     {lat:26.9,lng:56.3,col:'#3fb87a',title:'Strait of Hormuz',body:'Traffic returning toward pre-conflict levels (~20M barrels/24hrs). WTI at $70 confirms market crediting the reopening as durable. Ever Lovely vessel incident last week flagged but not treated as a regime break by oil markets.'},

@@ -140,6 +140,7 @@ body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-s
   .header,.alerts,.delta-box,.panel,.footer,.tab-nav{padding-left:20px;padding-right:20px}
   .delta-list{grid-template-columns:1fr}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -567,11 +568,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 function initMap(){
   const map = L.map('geomap', {scrollWheelZoom:false}).setView([28, 45], 3);
   window._mtmap = map;
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution:'',
-    subdomains:'abcd',
-    maxZoom:10
-  }).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:26.5,lng:56.4,col:'#e05c6a',title:'Strait of Hormuz',body:'Effectively closed 10 weeks. Oil $103. Deal would not normalize supply for months.'},
     {lat:32.4,lng:53.7,col:'#e05c6a',title:'Iran (Tehran)',body:'Updated proposal deemed insufficient. Attack postponed after Gulf leaders requests.'},

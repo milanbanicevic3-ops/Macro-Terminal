@@ -140,6 +140,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -718,7 +719,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap',{zoomControl:true,scrollWheelZoom:false}).setView([28,35],2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CartoDB',maxZoom:18}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     {lat:33.9,lng:35.5,col:'#e05c6a',title:'Beirut / Lebanon',body:'Israel struck south Beirut Hezbollah targets all week. ~3,500 Israeli strikes since April. Lebanon is the blocking condition for any Iran-US deal. Hezbollah rejected US-brokered arrangement.'},
     {lat:32.1,lng:53.7,col:'#D4AF37',title:'Iran',body:'Launched ~10 ballistic missiles toward Israel this week. Struck Mahshahr petrochemical complex by Israel. Iran halted operations with explicit threat. Trump cancelled US strikes Thursday — "deal maybe weekend."'},

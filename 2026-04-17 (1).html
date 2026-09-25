@@ -120,7 +120,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .con-table td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:11px;vertical-align:top;}
 .con-table tr:last-child td{border-bottom:none;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
-.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -461,7 +460,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:14px
 </div>
 <footer>
   <span>OMC Daily Brief - April 17, 2026 - Week 16 - Friday Synthesis</span>
-  <span>Proprietary Research</span>
+  <span>Internal Use Only</span>
 </footer>
 <script>
 const Cl={gold:'#c9a84c',gold2:'#e8c46a',red:'#e05252',green:'#4caf82',yellow:'#e8c46a',blue:'#5b9bd5',text:'#d4d8e2',text2:'#8a93a6',border:'#1e2530',border2:'#252d3a'};
@@ -497,7 +496,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(()=>{
     const map=L.map('geomap',{center:[28,52],zoom:3,attributionControl:false});
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:18}).addTo(map);
     const nodes=[
       {lat:26.6,lng:56.5,col:Cl.red,r:14,lbl:'Strait of Hormuz - Active Disruption',info:'~6 vessels/day (was 40+). Iran imposing transit tolls. Core risk to oil supply and global inflation.'},
       {lat:35.69,lng:51.39,col:Cl.red,r:10,lbl:'Tehran - Iran',info:'US-Iran second-round talks delayed. Regional leaders quoting 3-6 month resolution timeline. War premium not gone.'},

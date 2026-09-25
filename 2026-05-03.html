@@ -159,6 +159,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .correction-box h4{font-family:'Playfair Display',serif;font-size:13px;color:var(--yellow);margin-bottom:8px;}
 .correction-box p{font-size:11px;color:var(--text2);line-height:1.65;}
 footer{background:var(--surface);border-top:1px solid var(--border);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -677,7 +678,7 @@ function initMap(){
   if(mapInited)return;mapInited=true;
   setTimeout(function(){
     var map=L.map("geomap",{center:[30,52],zoom:3,attributionControl:false});
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:18}).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
     var nodes=[
       {lat:26.6,lng:56.5,col:Cl.red,r:14,lbl:"Strait of Hormuz - Months-Long Blockade Signal",info:"Trump admin preparing months-long blockade. Brent approaching $120/barrel (cited by Powell at FOMC). Oil premium structurally elevated. UAE exploring alternate export routes. Saudi rift deepening."},
       {lat:35.69,lng:51.39,col:Cl.red,r:10,lbl:"Tehran - Iran",info:"US-Iran talks via Pakistan stalled. New US Treasury sanctions applied this week. Hormuz toll system maintained. Iran refuses full reopening without diplomatic concessions."},

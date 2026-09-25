@@ -137,6 +137,7 @@ hr{border:none;border-top:0.5px solid var(--border);margin:20px 0}
   .panel{padding:16px}
   .tab{padding:10px 12px;font-size:10px}
 }
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9) saturate(.6)}
 </style>
 </head>
 <body>
@@ -605,9 +606,7 @@ function initMap() {
   if (window._mapInitialized) return;
   window._mapInitialized = true;
   const map = L.map('geomap', { zoomControl: true, scrollWheelZoom: false }).setView([25, 40], 2);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; CartoDB', maxZoom: 18
-  }).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
   const markers = [
     { lat: 33.9, lng: 35.5, col: '#e05c6a', title: 'Beirut / South Lebanon', body: 'Israel struck south Beirut Hezbollah targets. 3,500 Israeli strikes since April ceasefire per Lebanese PM. Hezbollah rejected US-brokered arrangement. Iran-Israel direct exchange triggered from Lebanon.' },
     { lat: 32.1, lng: 53.7, col: '#e05c6a', title: 'Iran', body: 'Launched ~10 ballistic missiles toward northern Israel in response to Beirut strikes. Struck Iranian targets by Israel including Mahshahr petrochemical complex. Iran halted operations but declared US bases legitimate targets. Iran parliament: US assets in region are legitimate targets.' },
