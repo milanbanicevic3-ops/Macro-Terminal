@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-09-27",
+  "file": "2026-09-27.html",
+  "title": "Sunday Brief - September 27, 2026. Speculators Chased the Dollar Just as the Yen Bit Back - PCE and Payrolls Decide Whether the Impulse Becomes a Trend.",
+  "thesis": "The yield-led dollar regime held into the week close, with DXY at 101.03 (+0.82 percent on the week) and the US 10-year near 5.17 percent after its highest level since 2007. CFTC positioning to September 22 showed speculators joining the move after the central-bank week: GBP net shorts extended by 23,853 to -82,568 contracts (33.7 percent of open interest, the most crowded position in the majors), EUR shorts nearly doubled to -52,334, NZD flipped to net short at -11,380 and CAD shorts grew to -53,210, while JPY longs were cut by 48,377 to +71,982. USD/JPY fell 1 percent on Friday from a 159.04 high to 157.30 amid intervention speculation. Oil dropped as US and Iranian negotiators explored a phased Hormuz reopening in exchange for lifting the US blockade; WTI settled 92.41 dollars and Brent 104.32 dollars. The week ahead was framed as a trial of the regime: RBA on Tuesday with a hike to 4.60 percent priced and guidance as the event, PCE on Wednesday with headline consensus 3.7 percent y/y, and payrolls on Friday with consensus +100,000. A PCE-by-payrolls scenario matrix identified a soft PCE plus weak payrolls as the asymmetric risk against a crowded dollar book, led by GBP. Three formal setups were published with six-field specifications: EUR/USD short on a break below 1.1324 and rejection of the 1.1324-1.1337 retest zone, USD/CAD long from 1.4050-1.4100, and NZD/USD short on a daily close below 0.5645, each with named macro thesis invalidations and sized as a single US-yield exposure. NZD/USD carries an extended target of 0.5488 on a daily close below 0.5550. Two COT signals were added: a conditional GBP/USD squeeze long on a daily close above 1.3350 and a USD/JPY dip long from 156.00-156.50 reflecting incomplete JPY long liquidation.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "bearish",
+    "USDJPY": "neutral-bullish",
+    "USDCHF": "bullish",
+    "USDCAD": "bullish",
+    "AUDUSD": "neutral",
+    "NZDUSD": "bearish",
+    "EURGBP": "bullish",
+    "XAUUSD": "bearish",
+    "XAGUSD": "bearish"
+  },
+  "highlights": [
+    "DXY weekly close 101.03, +0.82%; US 10Y near 5.17%",
+    "COT: GBP net short -82,568 (33.7% of OI), most crowded in the majors",
+    "COT: JPY longs cut 48,377 to +71,982; EUR shorts nearly doubled to -52,334; NZD flipped net short",
+    "USD/JPY -0.98% Friday from 159.04 high amid intervention speculation",
+    "US-Iran phased Hormuz talks; WTI 92.41, Brent 104.32",
+    "Week ahead: RBA Tue, PCE Wed (3.7% y/y consensus), payrolls Fri (+100k consensus)",
+    "Setup 1: EUR/USD short on retest of broken support 1.1324-1.1337, stop 1.1400, targets 1.1200/1.1089",
+    "Setup 2: USD/CAD long 1.4050-1.4100, stop 1.3995, targets 1.4250/1.4300",
+    "Setup 3: NZD/USD short on daily close below 0.5645, stop 0.5715, targets 0.5580/0.5550, extension 0.5488",
+    "COT signals: GBP/USD squeeze long above 1.3350; USD/JPY dip long 156.00-156.50"
+  ]
+},
+  {
   "date": "2026-09-25",
   "file": "2026-09-25.html",
   "title": "Friday Brief - September 25, 2026. US PMI at Its Strongest Since 2021 Sends Yields Past 5.1% - The Dollar Wins Even When Europe Beats.",
