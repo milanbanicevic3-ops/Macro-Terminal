@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-05",
+  "file": "2026-10-05.html",
+  "title": "Weekly Review and Monday Brief - October 5, 2026. The Fed Blinked on Jobs, the Euro Broke on Paris - The Dollar Rose Anyway.",
+  "thesis": "Combined review of the week of September 28 and outlook for the week of October 5. US data turned soft: core PCE slowed to 3.0 percent y/y, September payrolls rose only 29,000 with unemployment at 4.2 percent and wages up 0.1 percent m/m, and August was revised down to 133,000. October Fed hike odds fell from roughly 70 percent to about 20 percent. The dollar still rose: the US 10-year closed near 5.28 percent on term premium and fiscal supply, and DXY finished the week near 101.92 before reaching 102.54 on Monday. France became the dollar's second engine, with the 10-year OAT yield near 4.9 percent (highest since 2002) and the OAT-Bund spread above 150bp (widest since 2011), pushing EUR/USD to a 17-month low of 1.1161. Sterling held flat while EUR/GBP fell 1.2 percent, consistent with extreme GBP speculative shorts at -36 percent of open interest. The RBA hiked to 4.60 percent but AUD/USD broke below 0.7000. Gold fell 3.4 percent on the week, including 4 percent on September 28. COT to September 29 showed GBP -91,075, CAD shorts surging to -78,671, AUD -63,239, EUR -63,256 and JPY longs cut to +55,440. Setup status: NZD/USD short filled and active; USD/JPY COT dip long filled and active; EUR/USD and USD/CAD did not fill; GBP/USD squeeze signal not triggered. New setups: EUR/USD short re-armed from 1.1250-1.1290 and a new EUR/GBP short from 0.8500-0.8525, both invalidated by an ECB backstop signal or a French budget compromise; a new COT signal fades crowded CAD shorts on a daily close below 1.4140.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral-bullish",
+    "USDCHF": "neutral",
+    "USDCAD": "bullish",
+    "AUDUSD": "bearish",
+    "NZDUSD": "bearish",
+    "XAUUSD": "neutral-bearish"
+  },
+  "highlights": [
+    "Core PCE 3.0% y/y; payrolls +29k, unemployment 4.2%; October hike odds ~20% from ~70%",
+    "US 10Y closed near 5.28% despite soft data; DXY 102.2, high 102.54",
+    "France 10Y near 4.9%, OAT-Bund spread above 150bp; EUR/USD 17-month low 1.1161",
+    "GBP flat on the week; EUR/GBP -1.18% to 0.8471",
+    "RBA hiked to 4.60%, AUD/USD still broke 0.7000",
+    "Gold -3.37% on the week; -4% on Sep 28",
+    "COT: GBP -91,075 (-36% OI); CAD shorts +25,461 to -78,671; JPY longs to +55,440",
+    "Setups: NZD/USD short and USD/JPY dip long active; EUR/USD and USD/CAD not filled",
+    "New: EUR/USD short 1.1250-1.1290 and EUR/GBP short 0.8500-0.8525, one France trade",
+    "Week ahead: ISM services Mon, FOMC minutes Wed, Canada jobs and UMich Fri"
+  ]
+},
+  {
   "date": "2026-09-27",
   "file": "2026-09-27.html",
   "title": "Sunday Brief - September 27, 2026. Speculators Chased the Dollar Just as the Yen Bit Back - PCE and Payrolls Decide Whether the Impulse Becomes a Trend.",
