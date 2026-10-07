@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-07",
+  "file": "2026-10-07.html",
+  "title": "Midweek Brief - October 7, 2026. The Euro's Bounce Was Sold - Minutes From a Hawkish September Meet a Market That Has Already Priced Out October.",
+  "thesis": "The dollar passed its first test of the post-payrolls regime. DXY fell 0.25 percent on Tuesday to 101.85 and recovered to 102.17 by Wednesday's European morning, while EUR/USD rallied into the 1.1250-1.1290 zone (high 1.1277) and reversed to 1.1214. With October Fed hike odds near 16-20 percent, the session concluded the dollar is being supported by long yields near 5.3 percent and by the French fiscal crisis rather than by Fed pricing. US data turned stagflationary at the margin: ISM services activity eased to 54.9 while the prices-paid index rose to 74.0, the highest since July 2022, after payrolls of 29,000 and unemployment of 4.2 percent. Oil lost its supply premium as G7 nations agreed to release 100 million barrels and Gulf exports ran above pre-war levels; WTI hit 86.86 dollars on Tuesday. Gold made a two-month low at 4,103.5 dollars while NAS100 closed at a record 31,225. Setup status: the EUR/USD short triggered on an H4 close back below 1.1250 at 01:00 GMT Wednesday; the USD/JPY dip long reached its 158.50 target; NZD/USD short remained active after testing its 0.5580 first target; EUR/GBP short from 0.8500-0.8525 was not filled; the GBP/USD squeeze and USD/CAD crowding-fade signals were not triggered. ADX showed Strong or Very Strong daily trends in five of seven pairs with no pair above Neutral on H1, and USD/JPY Weak on all four timeframes at 158.50. The FOMC minutes at 18:00 GMT were framed with a scenario matrix: a hawkish but dated text as base case, and a divided-committee read as the asymmetric risk against crowded dollar longs.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "neutral-bullish",
+    "USDCAD": "bullish",
+    "AUDUSD": "neutral-bearish",
+    "NZDUSD": "bearish",
+    "XAUUSD": "bearish"
+  },
+  "highlights": [
+    "EUR/USD short triggered: H4 close back below 1.1250 after Tuesday high 1.1277; trading 1.1214",
+    "USD/JPY dip long reached 158.50 target (high 158.51)",
+    "DXY round trip: 101.85 Tuesday, 102.17 Wednesday morning",
+    "ISM services prices paid 74.0, highest since July 2022; activity 54.9",
+    "October Fed hike odds 16-20%; FOMC minutes 18:00 GMT",
+    "G7 release of 100m barrels; WTI low 86.86",
+    "Gold two-month low 4,103.5; NAS100 record close 31,225",
+    "NZD/USD short active, 0.5580 first target tested; D1 ADX 55.68",
+    "EUR/GBP short 0.8500-0.8525 pending; capped at 0.8493 since Monday",
+    "Friday: Canada employment, Michigan sentiment, COT"
+  ]
+},
+  {
   "date": "2026-10-05",
   "file": "2026-10-05.html",
   "title": "Weekly Review and Monday Brief - October 5, 2026. The Fed Blinked on Jobs, the Euro Broke on Paris - The Dollar Rose Anyway.",
