@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-09",
+  "file": "2026-10-09.html",
+  "title": "Friday Brief - October 9, 2026. The Fed Kept December Alive, Oil Swung on Iran - and the Dollar Went Nowhere.",
+  "thesis": "The dollar held its gains in the week of October 5 but stopped trending. DXY rose only 0.20 percent after weekly gains of 0.88 and 0.98 percent and failed twice at 102.50. The FOMC minutes showed every member backed the September hike and most judged another increase likely appropriate by year-end, leaving December near 80 percent priced and October near 20 percent; jobless claims printed 197,000. The US 10-year eased to about 5.24 percent after a strong 30-year auction, removing the term-premium push behind the prior two weeks. EUR/USD lost 0.33 percent on the week and held above Monday's 17-month low of 1.1161 for four sessions; EUR/GBP fell 0.30 percent. Oil swung on Iran: tanker attacks reached their highest weekly count since the war began and WTI rose 3.6 percent on Thursday, then fell 1 percent on Friday after President Trump said the US would not strike Iran before the November 3 midterms and Tehran reviewed a US response on reopening Hormuz within seven days. Gold made a two-month low at 4,066.5 dollars on Wednesday before rebounding to 4,207. Setup status: the EUR/USD short stalled at 1.1165, five pips above its 1.1160 first target; the NZD/USD short stalled at 0.5580-0.5586 against 0.5580; both stops untouched. EUR/GBP remained unfilled below its 0.8500-0.8525 zone. The weekend Iran decision was identified as the primary risk, ahead of Friday's Canada employment and Michigan inflation expectations.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "neutral",
+    "USDCAD": "bullish",
+    "AUDUSD": "neutral",
+    "NZDUSD": "bearish",
+    "XAUUSD": "neutral"
+  },
+  "highlights": [
+    "FOMC minutes: most see another hike likely by year-end; December ~80%, October ~20%",
+    "DXY +0.20% on the week after two ~1% weekly gains; failed twice at 102.50",
+    "US 10Y eased to ~5.24% after strong 30-year auction; claims 197k",
+    "EUR/USD held above 1.1161 for four sessions; week -0.33%",
+    "EUR/USD short low 1.1165 vs 1.1160 target; NZD/USD low 0.5582 vs 0.5580 target",
+    "Tanker attacks at wartime high; WTI +3.6% Thursday",
+    "Trump: no Iran strike before Nov 3 midterms; Iran reviewing Hormuz reopening proposal",
+    "Gold two-month low 4,066.5, rebound to 4,207",
+    "NAS100 -1.39% Thursday from Tuesday record",
+    "Friday: Canada jobs 12:30, Michigan 14:00, COT 19:30; weekend Iran gap risk"
+  ]
+},
+  {
   "date": "2026-10-07",
   "file": "2026-10-07.html",
   "title": "Midweek Brief - October 7, 2026. The Euro's Bounce Was Sold - Minutes From a Hawkish September Meet a Market That Has Already Priced Out October.",
