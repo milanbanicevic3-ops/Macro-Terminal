@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-11",
+  "file": "2026-10-11.html",
+  "title": "Sunday Brief - October 11, 2026. CPI Week: Speculators Doubled Their Euro Shorts Into a Dollar That Stopped Trending.",
+  "thesis": "The dollar ended the week of October 5 firm but without trend: DXY closed at 102.23, up 0.30 percent on the week, after failing twice at 102.50. Friday data were soft: University of Michigan sentiment fell to 46.3 against 47.8 expected, a five-month low, and Canada lost 68,000 jobs with unemployment rising to 6.5 percent; USD/CAD closed up 0.22 percent at 1.4256. CFTC data for positions as of October 6 showed speculators nearly doubled euro net shorts to -99,332 contracts on 40,913 new shorts, lifted AUD net shorts to -98,588 (30 percent of open interest) and kept GBP the most crowded at -97,611 (36.7 percent); combined EUR, GBP, AUD and CAD net shorts total about 386,000 contracts, while JPY longs rose to +62,325. The week ahead turns on US CPI on Wednesday October 14 (consensus +0.6 percent headline, +0.2 percent core month on month), retail sales and PPI on Thursday and a speech by Fed Chair Warsh on Friday, with Iran's reply on reopening Hormuz as a parallel risk. Setup status: the EUR/USD short closed at 1.12015, about 47 pips in profit, and the NZD/USD short at 0.56122, both short of first targets; EUR/GBP remains unfilled and under review; the USD/CAD crowding fade was retired after the Canadian jobs data; a new conditional AUD/USD squeeze signal was added above 0.7010 alongside the carried GBP/USD squeeze above 1.3350.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "neutral",
+    "USDCAD": "bullish",
+    "AUDUSD": "neutral",
+    "NZDUSD": "bearish",
+    "XAUUSD": "neutral"
+  },
+  "highlights": [
+    "DXY 102.23, +0.30% on the week; failed twice at 102.50",
+    "UMich prelim 46.3 vs 47.8, five-month low",
+    "Canada -68k jobs, unemployment 6.5%; USD/CAD +0.22%",
+    "COT: EUR net short -99,332, nearly doubled; AUD -98,588 (30% of OI); GBP -97,611 (36.7%)",
+    "EUR/GBP/AUD/CAD combined net shorts ~386k contracts; JPY longs +62,325",
+    "US CPI Wed Oct 14: +0.6% headline, +0.2% core consensus",
+    "Retail sales and PPI Thu; Warsh speech Fri; Columbus Day and Canadian Thanksgiving Mon",
+    "EUR/USD short ~47 pips in profit at 1.12015; NZD/USD short at 0.56122",
+    "USD/CAD crowding fade retired; new AUD/USD squeeze signal above 0.7010",
+    "Gold +1.48% Friday to 4,194.6; WTI closed 91.85 after 90.01 low"
+  ]
+},
+  {
   "date": "2026-10-09",
   "file": "2026-10-09.html",
   "title": "Friday Brief - October 9, 2026. The Fed Kept December Alive, Oil Swung on Iran - and the Dollar Went Nowhere.",
