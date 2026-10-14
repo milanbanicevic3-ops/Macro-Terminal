@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-14",
+  "file": "2026-10-14.html",
+  "title": "Midweek Brief - October 14, 2026. First Targets Hit, Oil Premium Rebuilt - and the Crowded Shorts Face the Print.",
+  "thesis": "Ahead of US September CPI on Wednesday October 14 (consensus +0.6 percent m/m and 3.6 percent y/y headline, +0.2 percent m/m and 2.5 percent y/y core), the dollar index printed a 17-month high of 102.61 on Monday in thin holiday trade, fell 0.35 percent on Tuesday and traded flat on the week at 102.24. October hike odds stood near 22 percent with December the base case. Iran stepped up attacks on Hormuz shipping, with at least five incidents in 48 hours, and the Houthis struck a Saudi Aramco building in Dhahran; WTI rose 4.4 percent on the week to 95.93 and Brent traded above 105 dollars. Gold fell 1.3 percent on the week to 4,139 despite the oil spike. Both active shorts reached their first targets: EUR/USD hit 1.1153 on Monday against a 1.1160 target and NZD/USD tagged 0.5580 on Tuesday with a 0.55798 low; both bounced into the release. AUD/USD traded 0.7008 after a 0.7013 high, at the 0.7010 daily-close trigger of the AUD squeeze signal, with Australian employment due at 00:30 GMT Thursday. EUR/GBP remained unfilled and under review. A soft core print was identified as the fast scenario given roughly 386,000 contracts of speculative shorts in EUR, GBP, AUD and CAD.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "neutral",
+    "USDCAD": "neutral",
+    "AUDUSD": "neutral",
+    "NZDUSD": "bearish",
+    "XAUUSD": "neutral"
+  },
+  "highlights": [
+    "US CPI 12:30 GMT: +0.6% m/m, 3.6% y/y headline; +0.2% m/m, 2.5% y/y core",
+    "DXY 17-month high 102.61 Monday, flat on the week at 102.24",
+    "October hike odds ~22%",
+    "EUR/USD first target hit Monday (1.1153 vs 1.1160)",
+    "NZD/USD tagged 0.5580 Tuesday (0.55798)",
+    "AUD/USD 0.7008, at the 0.7010 squeeze trigger",
+    "Iran steps up Hormuz shipping attacks; Houthi strike on Aramco Dhahran",
+    "WTI 95.93, +4.4% on the week; Brent above $105",
+    "Gold -1.3% on the week to 4,139; silver -3.8%",
+    "Thursday: Australia jobs 00:30, UK GDP 06:00, US PPI and retail sales 12:30"
+  ]
+},
+  {
   "date": "2026-10-11",
   "file": "2026-10-11.html",
   "title": "Sunday Brief - October 11, 2026. CPI Week: Speculators Doubled Their Euro Shorts Into a Dollar That Stopped Trending.",
