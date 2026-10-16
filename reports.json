@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-16",
+  "file": "2026-10-16.html",
+  "title": "Friday Brief - October 16, 2026. Hot CPI, Hot PPI, Strong Retail Sales - and the Dollar Fell Anyway.",
+  "thesis": "US September CPI rose 0.6 percent m/m and 3.7 percent y/y with core at +0.3 percent and 2.6 percent, both above consensus; PPI jumped 1.3 percent m/m and 6.3 percent y/y, the largest monthly rise since March 2022; retail sales rose 0.8 percent against 0.3 percent expected. The dollar index made an 18-month high of 102.95 on Wednesday, then reversed as Fed officials declined to endorse an October hike: Daly said further hikes were more likely than not but signalled no need to move in October, Bowman urged waiting and Warsh declined to pre-commit. October hike odds fell from about 50 percent after CPI to roughly 27-34 percent, the US 10-year fell to about 5.09 percent, 9bp above the 5.00 percent regime threshold, and DXY traded 101.67 on Friday, down 0.55 percent on the week. NZD was the best major (+1.03 percent) on RBNZ hike pricing; AUD the worst after weak Australian jobs data. WTI peaked at 98.32 before falling on reports the US may ease sanctions on shadow-fleet tankers. Setup status: the EUR/USD short reached 1.1113, 24 pips short of its second target, and reversed to 1.1257, above entry; the NZD/USD short cleared its first target at 0.5565 and reversed to 0.5670, 30 pips below technical invalidation; the GBP/USD squeeze signal was voided after its named invalidation (core CPI +0.3 percent) printed; the AUD/USD signal did not trigger; EUR/GBP remained unfilled and under review.",
+  "bias": {
+    "EURUSD": "bearish",
+    "GBPUSD": "neutral",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "bearish",
+    "USDCAD": "bearish",
+    "AUDUSD": "neutral",
+    "NZDUSD": "bearish",
+    "XAUUSD": "neutral"
+  },
+  "highlights": [
+    "CPI +0.6% m/m, 3.7% y/y; core +0.3%, 2.6% - both above consensus",
+    "PPI +1.3% m/m, 6.3% y/y; retail sales +0.8% vs +0.3%",
+    "DXY 18-month high 102.95 Wed, 101.67 Fri; week -0.55%",
+    "Daly, Bowman, Warsh decline to back October; odds ~27-34% from ~50%",
+    "US 10Y ~5.09%, three-week low, 9bp above regime threshold",
+    "NZD best major +1.03% on RBNZ hike pricing; weak Australian jobs",
+    "EUR/USD short back above entry at 1.1257 after 1.1113 low",
+    "NZD/USD short at 0.5670, 30 pips below technical invalidation",
+    "GBP/USD squeeze signal void: named invalidation printed",
+    "WTI 98.32 high, then -2.3% on shadow-fleet sanctions report"
+  ]
+},
+  {
   "date": "2026-10-14",
   "file": "2026-10-14.html",
   "title": "Midweek Brief - October 14, 2026. First Targets Hit, Oil Premium Rebuilt - and the Crowded Shorts Face the Print.",
