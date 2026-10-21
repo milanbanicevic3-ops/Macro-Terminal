@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-21",
+  "file": "2026-10-21.html",
+  "title": "Weekly Review & Midweek Brief - October 21, 2026. The Dollar Went Flat and the Squeeze Moved to the Crosses.",
+  "thesis": "Between October 16 and 21 the dollar index was flat at 101.77, while GBP, AUD, NZD and CAD rallied against it and EUR did not. CFTC data for positions as of October 13, the day before the hot US CPI and the dollar's reversal, showed speculators added shorts in every one of these currencies: EUR -137,573, GBP -106,964 (39.8 percent of open interest), AUD -117,299 (34.6 percent), NZD -47,001 (37.6 percent) and CAD -94,765, about 504,000 contracts combined. Central banks diverged: UK September CPI rose to 3.5 percent against 3.4 percent expected with services at 3.7 percent, making a November 5 BoE hike the base case; RBA Deputy Governor Hauser called the inflation outlook materially worse; the RBNZ chief economist said a late-October rise was more likely; China Q3 GDP grew 4.5 percent. The Fed was priced about 82-86 percent for an October hold with December the live meeting, Canada CPI undershot at 3.1 percent, and violent protests in France held the euro back. Brent topped 111 dollars on Tuesday before reversing when a reported US-Iran deal was denied. The book: EUR/USD and NZD/USD shorts closed with first targets banked; the old EUR/GBP zone was retired; new break-and-retest setups were proposed for EUR/GBP short below 0.8380 and USD/CAD short below 1.4020, with conditional squeeze longs on AUD/USD above 0.7010 and NZD/USD above 0.5700 ahead of NZ Q3 CPI and the October 27-30 central-bank week.",
+  "bias": {
+    "EURUSD": "neutral",
+    "GBPUSD": "bullish",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "neutral",
+    "USDCHF": "bearish",
+    "USDCAD": "bearish",
+    "AUDUSD": "bullish",
+    "NZDUSD": "neutral",
+    "XAUUSD": "neutral"
+  },
+  "highlights": [
+    "DXY flat since Friday at 101.77; GBP, AUD, NZD, CAD higher, EUR lagging",
+    "COT Oct 13: EUR -137,573; GBP -106,964 (39.8% OI); AUD -117,299; NZD -47,001 (37.6% OI)",
+    "UK CPI 3.5% vs 3.4%, services 3.7%; BoE November hike base case",
+    "RBA Hauser: outlook materially worse; China Q3 GDP 4.5%",
+    "Canada CPI 3.1% vs 3.2%; USD/CAD -0.6% since Friday",
+    "Brent above $111 then reversal on denied US-Iran deal",
+    "Fed October hold ~82-86% priced; blackout from Oct 24",
+    "New setups: EUR/GBP short below 0.8380, USD/CAD short below 1.4020",
+    "COT signals: AUD/USD long above 0.7010, NZD/USD long above 0.5700",
+    "NZ Q3 CPI tonight; Fed, BoC, ECB, BoJ Oct 27-30"
+  ]
+},
+  {
   "date": "2026-10-16",
   "file": "2026-10-16.html",
   "title": "Friday Brief - October 16, 2026. Hot CPI, Hot PPI, Strong Retail Sales - and the Dollar Fell Anyway.",
