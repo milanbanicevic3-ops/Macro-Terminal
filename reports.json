@@ -1,5 +1,35 @@
 [
   {
+  "date": "2026-10-23",
+  "file": "2026-10-23.html",
+  "title": "Friday Brief - October 23, 2026. The 10-Year Broke 5%, Gold Broke 4,000 - and the Dollar Still Didn't Move.",
+  "thesis": "In the week to October 23 the US 10-year yield fell 9.4bp to 4.982 percent, below 5.00 percent for the first time in a month, and the 10-year real yield fell 16bp to 2.76 percent, yet the dollar index was flat on the week at 101.76 as jobless claims of 194,000 and a December Fed hike priced around 80-90 percent anchored the front end. Central banks continued to diverge: UK flash composite PMI rose to 53.1, an eight-month high, after September CPI of 3.5 percent, while the euro-area composite fell to a four-month low of 51.9 with France contracting, sending EUR/GBP to a 17-month low of 0.8362. NZ Q3 CPI undershot at 0.7 percent q/q and 3.7 percent y/y, though an RBNZ hike on October 28 remained expected; BoJ Deputy Governor Himino signalled readiness to hike and Japan core CPI rose to 2.1 percent, taking USD/JPY to 156.08. Gold fell 2.8 percent on Thursday and broke below 4,000 to 3,986.7 despite lower real yields, while NAS100 fell 2.9 percent on AI-spending concerns. Houthi strikes on Saudi energy infrastructure kept WTI above $100 and Brent above $114. All four ideas triggered: AUD/USD and NZD/USD squeeze longs filled on October 22, with the NZD signal half-invalidated by the soft CPI; EUR/GBP short and USD/CAD short triggered on the October 22 close but their retest zones did not trade. The Fed, BoC and RBNZ decide on October 28, the ECB on October 29 and the BoJ on October 30.",
+  "bias": {
+    "EURUSD": "neutral",
+    "GBPUSD": "bullish",
+    "EURGBP": "bearish",
+    "EURCHF": "bearish",
+    "USDJPY": "bearish",
+    "USDCHF": "neutral",
+    "USDCAD": "bearish",
+    "AUDUSD": "bullish",
+    "NZDUSD": "neutral",
+    "XAUUSD": "bearish"
+  },
+  "highlights": [
+    "US 10Y 4.982%, below 5.00%; real 10Y -16bp to 2.76%",
+    "DXY flat on the week at 101.76; claims 194k",
+    "UK flash PMI 53.1 vs euro area 51.9; EUR/GBP 17-month low 0.8362",
+    "NZ Q3 CPI 0.7% q/q, 3.7% y/y, below consensus",
+    "Gold -2.8% Thursday, low 3,986.7; NAS100 -2.9%",
+    "USD/JPY 156.08 on BoJ Himino and core CPI 2.1%",
+    "Houthi strikes on Saudi energy; WTI above $100, Brent above $114",
+    "AUD/USD and NZD/USD longs filled; NZD half-invalidated",
+    "EUR/GBP and USD/CAD shorts triggered, retests not filled",
+    "Fed, BoC, RBNZ Oct 28; ECB Oct 29; BoJ Oct 30"
+  ]
+},
+  {
   "date": "2026-10-21",
   "file": "2026-10-21.html",
   "title": "Weekly Review & Midweek Brief - October 21, 2026. The Dollar Went Flat and the Squeeze Moved to the Crosses.",
